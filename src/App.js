@@ -20,6 +20,7 @@ import TermCondition from "./Pages/TermCondition";
 import PrivacyPolicy from "./Pages/privacy-policy";
 import ContactUs from "./Pages/contact-us";
 import RefundPolicy from "./Pages/refund-policy";
+import ProfileForm from "./components/Home/Profile/profile-form";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/privacy-policy" element={< PrivacyPolicy/>} />
         <Route path="/refund-policy" element={< RefundPolicy/>} />
         <Route path="/contact-us" element={< ContactUs/>} />
+        <Route path="/profile" element={< ProfileForm/>} />
       </Routes>{" "}
       <Footer />
     </>

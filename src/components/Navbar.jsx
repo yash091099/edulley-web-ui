@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import logo from "../assets/navbar-logo@2x.png";
 import profile from "../assets/Avatar.png";
 
 const Navbar = () => {
+  const navigate=useNavigate()
   return (
     <nav class="navbar navbar-expand-lg bg-body-white">
       <div class="container">
@@ -82,7 +83,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form onClick={() => navigate("/profile")} class="d-flex" role="search">
             <img
               //   onClick={() => navigate("/profile")}
               className="profile"

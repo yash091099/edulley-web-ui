@@ -31,7 +31,7 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif'",
+                  fontFamily: "'Gilroy', sans-serif",
                 }}
               >
                 {" "}
@@ -39,7 +39,7 @@ const FAQ = () => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif'" }}>
+              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023
@@ -56,7 +56,7 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif'",
+                  fontFamily: "'Gilroy', sans-serif",
                 }}
               >
                 {" "}
@@ -64,7 +64,7 @@ const FAQ = () => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif'" }}>
+              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023{" "}
@@ -81,7 +81,7 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif'",
+                  fontFamily: "'Gilroy', sans-serif",
                 }}
               >
                 {" "}
@@ -89,7 +89,7 @@ const FAQ = () => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif'" }}>
+              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023{" "}
