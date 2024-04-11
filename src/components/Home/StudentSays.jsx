@@ -26,7 +26,7 @@ const StudentSays = () => {
       <div className=" my-5 content-container-what-student">
         <div
           className="video-container-what-student"
-          onClick={videoClickHandler}
+          // onClick={videoClickHandler}
         >
           {!isVideoPlaying && (
             <>
