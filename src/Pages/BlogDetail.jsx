@@ -5,11 +5,14 @@ import scholar1 from "../assets/scholarship1.png";
 const BlogDetail = () => {
   return (
     <div className="container py-4 course_container">
+       <div className="py-5"></div>
       <div className="d-flex  justify-content-between  inner_course mt-0">
-        <div>
+        <div className="row">
+          <div className="col-md-9">
           <BlogCard />
-        </div>
-        <div className="right_scholar ">
+          </div>
+          <div className="col-md-3">
+          <div className="right_scholar ">
           <div className="s_img_card text-center">
             <p className="mt-2">Look at all the courses at University name</p>
             <button className="explore-button py-2 fw-light mt-2">
@@ -40,6 +43,10 @@ const BlogDetail = () => {
             </p>
           </div>
         </div>
+          </div>
+        </div>
+       
+        
       </div>
     </div>
   );

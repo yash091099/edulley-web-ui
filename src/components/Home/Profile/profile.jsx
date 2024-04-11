@@ -13,7 +13,7 @@ const Profile = () => {
   const highlightColor = "#FF6477"; // Your chosen color
 
   return (
-    <div className="container d-flex flex-column h-100 bg-white p-4 rounded">
+    <div className="container d-flex flex-column h-100 bg-white pt-4 rounded">
          <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
       <div className="card-header">Welcome to Edulley!</div>
       <div className="card-body">
@@ -60,7 +60,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="col-md-9">
+        <div className="col-md-9 right-bar-form-profile">
           {state === 1 && <PersonalDetails />}
           {state === 2 && <AcademicProfile />}
           {state === 3 && <WorkBackground />}

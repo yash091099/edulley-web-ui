@@ -12,10 +12,10 @@ const ProfileForm = () => {
   };
 
   return (
-    <div className="home-page-container  container-fluid " style={{paddingTop:"6rem"}}>
-      
-      <Tab.Container id="profile-tabs " activeKey={activeKey} onSelect={handleSelect}>
-        <Nav variant="pills" className="flex-row mb-4">
+    <div className="home-page-container profile-tab  container-fluid" style={{paddingTop:"6rem"}}>
+       <div className="container">
+       <Tab.Container className="" id="profile-tabs" activeKey={activeKey} onSelect={handleSelect}>
+        <Nav variant="pills" className="flex-row">
           <Nav.Item>
             <Nav.Link eventKey="profile" style={{ color: activeKey === 'profile' ? '#FF6477' : 'black' }}>
               Profile
@@ -35,19 +35,22 @@ const ProfileForm = () => {
         <Row>
           <Col>
             <Tab.Content>
-              <Tab.Pane eventKey="profile" className="pt-3">
+              <Tab.Pane eventKey="profile">
                 <Profile />
               </Tab.Pane>
-              <Tab.Pane eventKey="applications" className="pt-3">
+              <Tab.Pane eventKey="applications">
                 <Academic />
               </Tab.Pane>
-              <Tab.Pane eventKey="documents" className="pt-3">
+              <Tab.Pane eventKey="documents">
                 <ViewUserDocument />
               </Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>
       </Tab.Container>
+       </div>
+      
+     
     </div>
   );
 };

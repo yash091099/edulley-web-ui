@@ -35,11 +35,11 @@ const CompareCourse = () => {
           </tr>
           <tr>
             <td>University Name</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.svg' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.svg' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.svg' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.svg' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.svg' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
           </tr>
           <tr>
             <td>Website Url</td>

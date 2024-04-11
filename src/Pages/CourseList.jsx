@@ -13,6 +13,7 @@ const CourseList = () => {
     const programLevels = ['Post Graduate'];
   return (
     <div className="container py-5 course_container">
+      <div className="py-4"></div>
       <div className="compare_course">
         <Link to="/compare">
           <button className="explore-button mt-3 fw-bold">
@@ -21,13 +22,17 @@ const CourseList = () => {
         </Link>
       </div>
       <div className="d-flex  justify-content-between inner_course">
-        <div className="left_list">
+        <div className="row">
+          <div className="col-md-5">
+          <div className="left_list">
           <CourseListCard />
           <CourseListCard />
           <CourseListCard />
         </div>
-        <div className="right_list">
-      <h5 className="fw-semibold mb-4">Eligibility</h5>
+          </div>
+          <div className="col-md-7">
+          <div className="right_list">
+       <h5 className="fw-semibold mb-4">Eligibility</h5>
 
       <div className="row mb-4">
     <div className="col-12">
@@ -287,7 +292,11 @@ const CourseList = () => {
           </div>
         )}
       />
-    </div>
+       </div>
+          </div>
+        </div>
+       
+       
       </div>
     </div>
   );

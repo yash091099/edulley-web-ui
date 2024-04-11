@@ -6,10 +6,10 @@ const InstitutionDetail = () => {
   return (
     <div>
       <div className="container-fluid insti_container">
-        <div className="d-flex flex-column justify-content-center align-items-center container">
+        <div className="container">
           <h1>University Name</h1>
           <h3>Complete Overview</h3>
-          <button className="explore-button mt-3 fw-bold">
+          <button className="explore-button mt-3 fw-bold pull-right mt-5">
             Download Brochure
           </button>
         </div>

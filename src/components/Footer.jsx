@@ -16,14 +16,14 @@ const Footer = () => {
         <div className="f_logo">
           <Link to="/">
             <img
-              style={{ cursor: "pointer", width: "180px", objectFit: "cover" }}
+              style={{ cursor: "pointer", width: "120px", }}
               loading="lazy"
               alt=""
               src={logo}
             />
           </Link>
           <div className="foot_img">
-            <div className="text-center fw-bold ">Download now</div>
+            <div className="text-center">Download now</div>
             <div className="d-flex flex-column mt-2 gap-2">
               <img
                 style={{ cursor: "pointer" }}
@@ -104,7 +104,7 @@ const Footer = () => {
             <Link to="/refund-policy">
               <li style={{ cursor: "pointer" }}>Refund Policy</li>
             </Link>
-            <Link to="/contact-us">
+            <Link>
             <li style={{ cursor: "pointer" }}>Contact Us</li>
             </Link>
           </ul>

@@ -2,7 +2,7 @@ import React from "react";
 
 const EssayCard = () => {
   return (
-    <div className="course_card mt-0" style={{ backgroundColor: "#f3f3f3" }}>
+    <div className="course_card mt-0" style={{ backgroundColor: "rgb(243 243 243 / 47%)" }}>
       <div>
         <h4 className="fw-semibold">ESSAY SAMPLE 1</h4>
         <p>

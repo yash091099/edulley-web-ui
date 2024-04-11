@@ -12,9 +12,9 @@ const Scholarship = () => {
   return (
     <div>
       {/* search Scholarship  */}
-    
+      <div className="py-5"></div>
 
-      <div className=" search_container container">
+      <div className="search_container container scholarship-page">
         <h3 className="text-center">Search Scholarships</h3>
         <div className="bg-white rounded section_inner  ">
           <div className=" ps-3">
@@ -61,18 +61,21 @@ const Scholarship = () => {
 
       {/* section  */}
       <div className="container py-4 course_container">
-        <div className="d-flex  justify-content-between  inner_course mt-0">
+        <div className="inner_course mt-0">
           <div className="row">
+            <div className="col-md-9">
+              <div className="row">
+              <div className="col-md-6"><ScholarshipCard /></div>
             <div className="col-md-6"><ScholarshipCard /></div>
             <div className="col-md-6"><ScholarshipCard /></div>
             <div className="col-md-6"><ScholarshipCard /></div>
             <div className="col-md-6"><ScholarshipCard /></div>
             <div className="col-md-6"><ScholarshipCard /></div>
-            <div className="col-md-6"><ScholarshipCard /></div>
-            
-          
-          </div>
-          <div className="right_scholar ">
+              </div>
+           
+            </div>
+            <div className="col-md-3">
+            <div className="right_scholar">
             <div className="s_img_card">
               <img src={scholar1} alt="" />
               <p className="mt-2">Confused about our Career path?</p>
@@ -90,6 +93,11 @@ const Scholarship = () => {
               </button>
             </div>
           </div>
+            </div>
+            
+          
+          </div>
+         
         </div>
       </div>
     </div>

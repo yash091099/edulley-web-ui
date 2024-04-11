@@ -8,6 +8,7 @@ import blog_icon from "../assets/blog_icon.png";
 const Blog = () => {
   return (
     <div className="container py-4 course_container">
+      <div className="py-5"></div>
       <div className="row justify-content-between inner_course mt-0">
         <div className="row">
           <div>
@@ -25,12 +26,12 @@ const Blog = () => {
         </p>
         <small style={{color:"grey"}}><CalendarMonthOutlined /> 12, June 2023</small>
       </div>
-        <div className="col-md-8">
+        <div className="col-md-9">
           <div className="row">
             {[...Array(3)].map((_, index) => (
               <div className="col-md-4" key={index}>
                 <Link to="/blog-details">
-                  <div className="countries cursor-pointer uni_card">
+                  <div className="countries cursor-pointer uni_card blog-card">
                     <img src={blog} alt="University" className="university-image" />
                     <div className="p-3">
                       <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: "13px" }}>
@@ -49,7 +50,7 @@ const Blog = () => {
             {[...Array(3)].map((_, index) => (
               <div className="col-md-4" key={index}>
                 <Link to="/blog-details">
-                  <div className="countries cursor-pointer uni_card">
+                  <div className="countries cursor-pointer uni_card blog-card">
                     <img src={blog} alt="University" className="university-image" />
                     <div className="p-3">
                       <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: "13px" }}>
@@ -68,7 +69,7 @@ const Blog = () => {
             {[...Array(3)].map((_, index) => (
               <div className="col-md-4" key={index}>
                 <Link to="/blog-details">
-                  <div className="countries cursor-pointer uni_card">
+                  <div className="countries cursor-pointer uni_card blog-card">
                     <img src={blog} alt="University" className="university-image" />
                     <div className="p-3">
                       <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: "13px" }}>
@@ -84,7 +85,7 @@ const Blog = () => {
             ))}
           </div>
         </div>
-        <div className="col-md-4 right_scholar">
+        <div className="col-md-3 right_scholar">
           <div className="s_img_card text-center">
             <p className="mt-2">Look at all the courses at University name</p>
             <button className="explore-button py-2 fw-light mt-2">

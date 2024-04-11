@@ -11,7 +11,7 @@ const StudentSays = () => {
   };
 
   return (
-    <div className="most-searched-countries-container featured-university-container br-b-0  py-5">
+    <div className="most-searched-countries-container featured-university-container br-b-0 py-5">
       <div className="container">
         <h1 className="what-we-can-do-title "> What Students say about us</h1>
         <p className="what-we-can-do-description">

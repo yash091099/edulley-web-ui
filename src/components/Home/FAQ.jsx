@@ -9,6 +9,7 @@ import faqImg from "../../assets/30576701-7718875-1.svg";
 const FAQ = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 p">
+     
       <div className="container">
         <h1 className="what-we-can-do-title"> Frequently Asked Question </h1>
         <p className="what-we-can-do-description">

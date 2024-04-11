@@ -25,7 +25,7 @@ const Academic = () => {
 
 <div className="container">
 <div className="row justify-content-center my-3">
-  <div className="col-12">
+  <div className="col-12 serch-profile">
     <h5 className="text-center mb-3">Search suitable Course for you</h5>
     <div className="input-group">
       <input type="text" aria-label="Course" placeholder="Course" className="form-control" />
@@ -36,7 +36,7 @@ const Academic = () => {
         <i className="bi bi-search"></i>
       </button>
     </div>
-    <button className="btn btn-link d-block mt-3 mx-auto">Advanced Search +</button>
+    <button className="btn btn-link d-block mt-3 mx-auto ">Advanced Search +</button>
   </div>
 </div>
 </div>

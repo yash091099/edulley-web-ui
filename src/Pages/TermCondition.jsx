@@ -3,6 +3,7 @@ import React from "react";
 const TermCondition = () => {
   return (
     <div className="container py-5">
+      <div className="py-5"></div>
      <div className="privacy-policy-container">
       <header className="privacy-header">
         <h1 className="font-gilroy-bold  " style={{color:"#ff5573",fontWeight:"600"}}>Terms and Conditions</h1>
