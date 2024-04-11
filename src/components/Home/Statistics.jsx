@@ -3,7 +3,7 @@ import statis from "../../assets/statistics.png";
 
 const Statistics = () => {
   return (
-    <div className=" container">
+    <div className="container">
       <div className="top-section container">
         <div className="content">
           <h1
