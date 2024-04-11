@@ -885,3 +885,9 @@ textarea {
 .AddMore{
   color: #FF6477;
 }
+.bg-highlight {
+  background-color: #FF6477; 
+}
+.text-highlight {
+  color: #FF6477; 
+}
