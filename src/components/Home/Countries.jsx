@@ -13,20 +13,13 @@ const Countries = () => {
       <h1 className="what-we-can-do-title ">Most Searched Countries</h1>
       <p className="what-we-can-do-description mt-2 mb-5">
         It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
+        readable content of a page when looking at its layout. <br></br>
+         The point of
         using Lorem Ipsum is that it has a more-or-less normal distribution of
         letters, as opposed to using 'Content here
       </p>
       <div className="countries-container ">
-        <div className="countries">
-          <img className="countries-image" src={card1} alt="USA" />
-        </div>
-        <div className="countries">
-          <img className="countries-image" src={card2} alt="UK" />
-        </div>
-        <div className="countries">
-          <img className="countries-image" src={card3} alt="Canada" />
-        </div>
+     
         <div className="countries">
           <img className="countries-image" src={card4} alt="Australia" />
         </div>
@@ -35,6 +28,15 @@ const Countries = () => {
         </div>
         <div className="countries">
           <img className="countries-image" src={card6} alt="Ireland" />
+        </div>
+        <div className="countries">
+          <img className="countries-image" src={card1} alt="USA" />
+        </div>
+        <div className="countries">
+          <img className="countries-image" src={card2} alt="UK" />
+        </div>
+        <div className="countries">
+          <img className="countries-image" src={card3} alt="Canada" />
         </div>
       </div>
       {/* <div className="countries-container container">

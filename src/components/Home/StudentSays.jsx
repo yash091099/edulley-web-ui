@@ -11,13 +11,14 @@ const StudentSays = () => {
   };
 
   return (
-    <div className="most-searched-countries-container featured-university-container container py-5 ">
-      <div className="">
+    <div className="most-searched-countries-container featured-university-container br-b-0  py-5">
+      <div className="container">
         <h1 className="what-we-can-do-title "> What Students say about us</h1>
         <p className="what-we-can-do-description">
           {" "}
           It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
+          readable content of a page when looking at its layout. <br></br>
+           The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here.
         </p>

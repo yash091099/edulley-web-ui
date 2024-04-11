@@ -2,7 +2,7 @@ import React from "react";
 import uni from "../../assets/frame-1686560972@2x.png";
 import { Link } from "react-router-dom";
 
-const UniverstiesHome = () => {
+const Universties = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5">
       <div className="container">
@@ -11,12 +11,12 @@ const UniverstiesHome = () => {
           {" "}
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. <br></br>
-           The point of
+          The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here.
         </p>
-        <div className="countries-container gap-1 my-5 mb-5">
-        {[...Array(4)].map((_, index) => (
+        <div className="countries-container my-5">
+        {[...Array(32)].map((_, index) => (
           <Link to="/institution-details">
             <div
               className="countries uni_card"
@@ -37,9 +37,9 @@ const UniverstiesHome = () => {
         ))}
       </div>
       </div>
-      
+     
     </div>
   );
 };
 
-export default UniverstiesHome;
+export default Universties;

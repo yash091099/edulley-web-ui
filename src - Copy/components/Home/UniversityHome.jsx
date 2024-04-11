@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const UniverstiesHome = () => {
   return (
-    <div className="most-searched-countries-container featured-university-container py-5">
+    <div className="most-searched-countries-container featured-university-container py-5 ">
       <div className="container">
         <h1 className="what-we-can-do-title ">Featured Universities </h1>
         <p className="what-we-can-do-description">
@@ -15,7 +15,7 @@ const UniverstiesHome = () => {
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here.
         </p>
-        <div className="countries-container gap-1 my-5 mb-5">
+        <div className="countries-container my-5">
         {[...Array(4)].map((_, index) => (
           <Link to="/institution-details">
             <div
@@ -37,7 +37,7 @@ const UniverstiesHome = () => {
         ))}
       </div>
       </div>
-      
+     
     </div>
   );
 };

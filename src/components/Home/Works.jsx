@@ -3,20 +3,22 @@ import WorkCards from "./WorkCards";
 import img1 from "../../assets/apply.png";
 import img2 from "../../assets/find-course.png";
 import img3 from "../../assets/chat-with-us.png";
+import { BorderBottom, BorderTop } from "@mui/icons-material";
 
 const Works = () => {
   return (
-    <div className="most-searched-countries-container featured-university-container container  py-5 ">
+    <div className="most-searched-countries-container featured-university-container container py-5 br-t-0">
       <div className="">
-        <h1 className="what-we-can-do-title ">How it works</h1>
+        <h1 className="what-we-can-do-title">How it works</h1>
         <p className="what-we-can-do-description">
           It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
+          readable content of a page when looking at its layout. <br></br>
+          The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here
         </p>
       </div>
-      <div className="countries-container my-5">
+      <div className="countries-container my-5 how-to-work">
         <WorkCards
           image={img1}
           title="Find courses"

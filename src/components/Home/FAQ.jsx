@@ -8,20 +8,21 @@ import faqImg from "../../assets/30576701-7718875-1.svg";
 
 const FAQ = () => {
   return (
-    <div className="most-searched-countries-container featured-university-container container  py-5 ">
-      <div className=" ">
-        <h1 className="what-we-can-do-title "> Frequently Asked Question </h1>
+    <div className="most-searched-countries-container featured-university-container py-5 p">
+      <div className="container">
+        <h1 className="what-we-can-do-title"> Frequently Asked Question </h1>
         <p className="what-we-can-do-description">
           {" "}
           It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
+          readable content of a page when looking at its layout. <br></br>
+           The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here.
         </p>
-      </div>
-      <div className="faq_container my-5 ">
+
+        <div className="faq_container my-5 ">
         <div className="faq">
-          {/* <Accordion defaultExpanded>
+          <Accordion defaultExpanded className="my-faq-accordian">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
@@ -46,7 +47,7 @@ const FAQ = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion sx={{ margin: "2rem 0" }}>
+          <Accordion sx={{ margin: "2rem 0" }}  className="my-faq-accordian">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2-content"
@@ -71,7 +72,7 @@ const FAQ = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion>
+          <Accordion  className="my-faq-accordian">
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2-content"
@@ -95,11 +96,13 @@ const FAQ = () => {
                 your business in 2023{" "}
               </Typography>
             </AccordionDetails>
-          </Accordion> */}
-          Need same figma ui
+          </Accordion>
+        
         </div>
         <img className=" faq_img" loading="lazy" alt="" src={faqImg} />
       </div>
+      </div>
+     
     </div>
   );
 };
