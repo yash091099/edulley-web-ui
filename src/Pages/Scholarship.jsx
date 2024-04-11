@@ -14,7 +14,7 @@ const Scholarship = () => {
       {/* search Scholarship  */}
     
 
-      <div className=" search_container container py-5">
+      <div className=" search_container container">
         <h3 className="text-center">Search Scholarships</h3>
         <div className="bg-white rounded section_inner  ">
           <div className=" ps-3">

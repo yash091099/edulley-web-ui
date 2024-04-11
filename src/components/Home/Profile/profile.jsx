@@ -14,6 +14,18 @@ const Profile = () => {
 
   return (
     <div className="container d-flex flex-column h-100 bg-white p-4 rounded">
+         <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+      <div className="card-header">Welcome to Edulley!</div>
+      <div className="card-body">
+        <p className="card-text" style={{ color: '#FF6477' }}>You are just a few steps away from submitting your application</p>
+        <div className="d-flex justify-content-between">
+          <span>Name : Karl John</span>
+          <span>Email : adcd@email.com</span>
+          <span>Phone : 9876543210</span>
+        </div>
+      </div>
+    </div>
+
       <div className="row flex-grow-1">
         <div className="col-md-3">
           <div className="d-flex flex-column gap-3 border-end border-dark">
