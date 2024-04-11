@@ -5,22 +5,31 @@
   background-color: transparent;
   border: 1px solid #ff5573;
 }
+.navbar-fiexd{
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 6%);
+}
 .logo {
   width: 9rem;
 }
 .profile {
-  width: 3rem;
-  height: 3rem;
-  object-fit: cover;
+  width: 30px;
+  height: 30px;
 }
 a {
   text-decoration: none;
   color: inherit;
 }
 .nav-link {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 29.71px;
+  letter-spacing: -0.20000000298023224px;
+  text-align: left;
   padding: 0 25px !important;
+  color: rgba(51, 51, 51, 1) !important;
 }
 .nav-link:hover {
   color: #ff5573 !important;
@@ -34,7 +43,7 @@ a {
 .home-page-container {
   display: flex;
   flex-direction: column;
-  padding-top: 4rem;
+  padding-top: 3rem;
   max-width: 100%;
 }
 .top-section {
@@ -48,25 +57,28 @@ a {
 }
 
 .title-home {
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.6rem;
+  font-weight: 700;
   color: #ff5573;
+  line-height: 55px;
 }
 
 .subtitle {
   color: #696969;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy' sans-serif;
 }
 
 .explore-button {
   background-color: #ff5573;
   color: white;
   border: none;
-  padding: 1rem 2rem;
+  padding: 10px 10px;
   border-radius: 10px;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  font-weight: 300 !important;
+  
 }
 .detail_button {
   border: 1px solid #ff5573;
@@ -78,9 +90,9 @@ a {
 }
 
 .image-container {
-  width: 50%;
+  width: 70%;
   text-align: right;
-  padding: 4rem 0 4rem 4rem;
+  padding: 3rem 0 0rem 3rem;
 }
 
 .main-image {
@@ -90,13 +102,13 @@ a {
 }
 .search_container {
   background-color: #fff0f5;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* padding: 5rem 2rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  border-radius: 12px;
+  padding: 2rem 0rem;
 }
 
 .section_inner {
@@ -142,7 +154,7 @@ a {
   outline: none;
   background: transparent;
   font-size: 20px;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
   height: 100%;
   width: 100%;
 }
@@ -158,7 +170,7 @@ a {
 }
 
 .what-we-can-do {
-  padding: 5rem 0;
+  padding: 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,7 +185,7 @@ a {
 }
 
 .what-we-can-do-description {
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
 }
 .what-we-can-do-grid {
   display: grid;
@@ -201,14 +213,14 @@ a {
 }
 
 .frame-component-title {
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
 }
 
 .frame-component-button {
   /* padding: 0.5rem 1rem; */
   background-color: #ffff;
   font-weight: 600;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
   color: #00949b;
   border: none;
   cursor: pointer;
@@ -296,7 +308,7 @@ a {
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
 }
 
 .university-logo {
@@ -398,7 +410,7 @@ a {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   align-items: center;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
 }
 
 .student-image-what-student {
@@ -449,7 +461,7 @@ a {
 .footer {
   background-color: #ff5573;
   color: white;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Gilroy sans-serif';
 }
 .inner_footer {
   display: flex;

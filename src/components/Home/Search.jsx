@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
   return (
-    <div className=" search_container container py-5">
+    <div className="search_container container">
       <h4 className="text-center fw-semibold mb-4">Search Courses</h4>
       <div className="bg-white rounded section_inner  ">
         <div className=" ps-3">

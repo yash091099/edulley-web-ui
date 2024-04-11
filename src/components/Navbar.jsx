@@ -6,7 +6,7 @@ import profile from "../assets/Avatar.png";
 const Navbar = () => {
   const navigate=useNavigate()
   return (
-    <nav class="navbar navbar-expand-lg bg-body-white">
+    <nav class="navbar navbar-expand-lg bg-body-white navbar-fiexd">
       <div class="container">
         <Link class="navbar-brand" to="/">
           <img className="logo" alt="Home" src={logo} />
@@ -89,7 +89,7 @@ const Navbar = () => {
               className="profile"
               alt="avatar"
               title="Profile"
-              style={{ cursor: "pointer", objectFit: "cover" }}
+              style={{ cursor: "pointer"}}
               src={profile}
             />
           </form>
