@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "'Gilroy', sans-serif'", sans-serif !important;
+}
+
+.text-pink {
+  color: #ff5573;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
