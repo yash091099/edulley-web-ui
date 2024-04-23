@@ -6,13 +6,13 @@ import profile from "../assets/Avatar.png";
 const Navbar = () => {
   const navigate=useNavigate()
   return (
-    <nav class="navbar navbar-expand-lg bg-body-white navbar-fiexd">
-      <div class="container">
-        <Link class="navbar-brand" to="/">
+    <nav className="navbar navbar-expand-lg bg-body-white navbar-fiexd">
+      <div className="container">
+        <Link className="navbar-brand" to="/">
           <img className="logo" alt="Home" src={logo} />
         </Link>{" "}
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -20,33 +20,33 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <Link class="nav-link " aria-current="page" to="/">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link " aria-current="page" to="/">
                 Home
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/courses">
+            <li className="nav-item">
+              <Link className="nav-link" to="/courses">
                 Courses
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/institutions">
+            <li className="nav-item">
+              <Link className="nav-link" to="/institutions">
                 Universities
               </Link>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/scholarship">
+            <li className="nav-item">
+              <Link className="nav-link" to="/scholarship">
                 Scolarship
               </Link>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -54,36 +54,36 @@ const Navbar = () => {
               >
                 Exams
               </a>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li>
-                  <Link class="dropdown-item" to="/exam-ielts">
+                  <Link className="dropdown-item" to="/exam-ielts">
                     IELTS Exam
                   </Link>
                 </li>
                 <li>
-                  <Link class="dropdown-item" to="/ielts-topic">
+                  <Link className="dropdown-item" to="/ielts-topic">
                     IELTS Topic
                   </Link>
                 </li>
                 <li>
-                  <Link class="dropdown-item" to="/ielts-cue-card">
+                  <Link className="dropdown-item" to="/ielts-cue-card">
                     IELTS Cue Card
                   </Link>
                 </li>
                 <li>
-                  <Link class="dropdown-item" to="/ielts-essay">
+                  <Link className="dropdown-item" to="/ielts-essay">
                     IELTS Essay
                   </Link>
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <Link class="nav-link" to="/blog">
+            <li className="nav-item">
+              <Link className="nav-link" to="/blog">
                 Blog
               </Link>
             </li>
           </ul>
-          <form onClick={() => navigate("/profile")} class="d-flex" role="search">
+          <form onClick={() => navigate("/profile")} className="d-flex" role="search">
             <img
               //   onClick={() => navigate("/profile")}
               className="profile"

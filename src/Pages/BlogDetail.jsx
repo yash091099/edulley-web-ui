@@ -1,15 +1,20 @@
 import React from "react";
 import BlogCard from "../components/BlogCard";
 import scholar1 from "../assets/scholarship1.png";
+import { useLocation } from "react-router-dom";
 
 const BlogDetail = () => {
+  const location=useLocation();
+  const blogDetails = location.state;
+  console.log(blogDetails,'location.state');
+
   return (
     <div className="container py-4 course_container">
        <div className="py-5"></div>
       <div className="d-flex  justify-content-between  inner_course mt-0">
         <div className="row">
           <div className="col-md-9">
-          <BlogCard />
+          <BlogCard blogDetails={blogDetails}/>
           </div>
           <div className="col-md-3">
           <div className="right_scholar ">

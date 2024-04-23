@@ -50,12 +50,12 @@ const Countries = () => {
           <img className="countries-image" src={card6} alt="Ireland" />
         </div>
       </div> */}
-      <div className="view-all-button">
+      {/* <div className="view-all-button">
         <button className="button">
           View All
           <BiChevronRight size={26} />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

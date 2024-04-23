@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import userIcon from "../../../assets/users.svg";
 import documentsIcon from "../../../assets/documents.svg";
 import dollorIcon from "../../../assets/dollor.svg";
@@ -6,53 +6,63 @@ import PersonalDetails from "./personalDetails";
 import AcademicProfile from "./AcademicProfile";
 import WorkBackground from "./WorkBackground";
 import TestScores from "./TestScores";
+import { getStudentDetailsById } from "../../../Services/dashboard";
 
 const Profile = () => {
+  const _u = JSON.parse(localStorage.getItem('_u'));
+  const _id = _u ? _u._id : null;
   const [state, setState] = useState(1);
+  const [studentDetails, setStudentDetails] = useState({});
+
+  useEffect(() => {
+    if (_id) {
+      getStudentDetailsById(_id).then((res) => {
+        setStudentDetails(res.data.data);
+      });
+    }
+  }, [_id]);
 
   const highlightColor = "#FF6477"; // Your chosen color
 
   return (
     <div className="container d-flex flex-column h-100 bg-white pt-4 rounded">
-         <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
-      <div className="card-header">Welcome to Edulley!</div>
-      <div className="card-body">
-        <p className="card-text" style={{ color: '#FF6477' }}>You are just a few steps away from submitting your application</p>
-        <div className="d-flex justify-content-between">
-          <span>Name : Karl John</span>
-          <span>Email : adcd@email.com</span>
-          <span>Phone : 9876543210</span>
+      <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+        <div className="card-header">Welcome to Edulley!</div>
+        <div className="card-body">
+          <p className="card-text" style={{ color: highlightColor }}>You are just a few steps away from submitting your application</p>
+          <div className="d-flex justify-content-between">
+            <span>Name : {studentDetails?.fullName || '--'}</span>
+            <span>Email : {studentDetails?.email || '--'}</span>
+            <span>Phone : {studentDetails?.contactNumber || '--'}</span>
+          </div>
         </div>
       </div>
-    </div>
-
       <div className="row flex-grow-1">
         <div className="col-md-3">
           <div className="d-flex flex-column gap-3 border-end border-dark">
-            {/* Use .map for repetitive elements if you have more states or want cleaner code */}
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(1)}>
-              <img className={`p-2 rounded ${state === 1 ? "bg-highlight" : "bg-light"}`} src={userIcon}/>
+              <img className={`p-2 rounded ${state === 1 ? "bg-highlight" : "bg-light"}`} src={userIcon} />
               <div>
                 <h1 className={`fw-bold small ${state === 1 ? "text-highlight" : "text-secondary"}`}>Personal Details</h1>
                 <p className="text-secondary small">Incomplete</p>
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(2)}>
-              <img className={`p-2 rounded ${state === 2 ? "bg-highlight" : "bg-light"}`} src={documentsIcon}/>
+              <img className={`p-2 rounded ${state === 2 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} />
               <div>
                 <h1 className={`fw-bold small ${state === 2 ? "text-highlight" : "text-secondary"}`}>Academic Profile</h1>
                 <p className="text-secondary small">Incomplete</p>
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(3)}>
-              <img className={`p-2 rounded ${state === 3 ? "bg-highlight" : "bg-light"}`} src={dollorIcon}/>
+              <img className={`p-2 rounded ${state === 3 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} />
               <div>
                 <h1 className={`fw-bold small ${state === 3 ? "text-highlight" : "text-secondary"}`}>Work Backgrounds</h1>
                 <p className="text-secondary small">Incomplete</p>
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(4)}>
-              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={dollorIcon}/>
+              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} />
               <div>
                 <h1 className={`fw-bold small ${state === 4 ? "text-highlight" : "text-secondary"}`}>Tests</h1>
                 <p className="text-secondary small">Incomplete</p>

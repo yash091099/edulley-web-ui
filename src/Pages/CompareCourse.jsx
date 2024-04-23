@@ -1,7 +1,11 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 // import './ComparisonTable.css'; // Link to your CSS file
 
 const CompareCourse = () => {
+  const location=useLocation();
+  const coursesIdArray=location?.state;
+  console.log(coursesIdArray,'coursesIdArray');
   return (
     <div className="comparison-table-container">
      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -16,148 +20,82 @@ const CompareCourse = () => {
         <thead>
           <tr>
             <th>Criteria</th>
-            <th>MSc Business Innovation and Entrepreneurship</th>
-            <th>MSc Business Innovation and Entrepreneurship</th>
-            <th>MSc Business Innovation and Entrepreneurship</th>
-            <th>MSc Business Innovation and Entrepreneurship</th>
-            <th>MSc Business Innovation and Entrepreneurship</th>
+            <th>{coursesIdArray[0]?.courseName||'--'}</th>
+            <th>{coursesIdArray[1]?.courseName||'--'}</th>
+            <th>{coursesIdArray[2]?.courseName||'--'}</th>
+            <th>{coursesIdArray[3]?.courseName||'--'}</th>
+            <th>{coursesIdArray[4]?.courseName||'--'}</th>
           </tr>
         </thead>
         <tbody>
           {/* Each row of comparison data */}
-          <tr>
-            <td>Program Name</td>
-            <td>MSc Business Innovation and Entrepreneurship</td>
-            <td>MSc Business Innovation and Entrepreneurship</td>
-            <td>MSc Business Innovation and Entrepreneurship</td>
-            <td>MSc Business Innovation and Entrepreneurship</td>
-            <td>MSc Business Innovation and Entrepreneurship</td>
-          </tr>
+     
           <tr>
             <td>University Name</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
-            <td><img style={{width:"50px",height:"50px"}} src='/f7buildingcolumns.png' alt='icon'/> University of Bristol</td>
+            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[0]?.courseLogo} alt='icon'/> {coursesIdArray[0]?.universityName||'--'}</td>
+            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[1]?.courseLogo} alt='icon'/> {coursesIdArray[1]?.universityName||'--'}</td>
+            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[2]?.courseLogo} alt='icon'/> {coursesIdArray[2]?.universityName||'--'}</td>
+            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[3]?.courseLogo} alt='icon'/> {coursesIdArray[3]?.universityName||'--'}</td>
+            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[4]?.courseLogo} alt='icon'/> {coursesIdArray[4]?.universityName||'--'}</td>
           </tr>
           <tr>
-            <td>Website Url</td>
-            <td>loremipsumdolorsitamet.....Bristol, United Kingdom</td>
-            <td>loremipsumdolorsitamet.....Bristol, United Kingdom</td>
-            <td>loremipsumdolorsitamet.....Bristol, United Kingdom</td>
-            <td>loremipsumdolorsitamet.....Bristol, United Kingdom</td>
-            <td>loremipsumdolorsitamet.....Bristol, United Kingdom</td>
+            <td>Study Mode</td>
+            <td>{coursesIdArray[0]?.uniqueCourseInfo?.studyMode||'--'}</td>
+            <td>{coursesIdArray[1]?.uniqueCourseInfo?.studyMode||'--'}</td>
+            <td>{coursesIdArray[2]?.uniqueCourseInfo?.studyMode||'--'}</td>
+            <td>{coursesIdArray[3]?.uniqueCourseInfo?.studyMode||'--'}</td>
+            <td>{coursesIdArray[4]?.uniqueCourseInfo?.studyMode||'--'}</td>
           </tr>
-          <tr>
-            <td>Location</td>
-            <td>Bristol, United Kingdom</td>
-            <td>Bristol, United Kingdom</td>
-            <td>Bristol, United Kingdom</td>
-            <td>Bristol, United Kingdom</td>
-            <td>Bristol, United Kingdom</td>
-          </tr>
+
           <tr>
             <td>Program Level</td>
-            <td>Postgraduate</td>
-            <td>Postgraduate</td>
-            <td>Postgraduate</td>
-            <td>Postgraduate</td>
-            <td>Postgraduate</td>
+            <td>{coursesIdArray[0]?.level||'--'}</td>
+            <td>{coursesIdArray[1]?.level||'--'}</td>
+            <td>{coursesIdArray[2]?.level||'--'}</td>
+            <td>{coursesIdArray[3]?.level||'--'}</td>
+            <td>{coursesIdArray[4]?.level||'--'}</td>
           </tr>
           <tr>
             <td>Duration</td>
-            <td>16 Months</td>
-            <td>16 Months</td>
-            <td>16 Months</td>
-            <td>16 Months</td>
-            <td>16 Months</td>
+            <td>{coursesIdArray[0]?.uniqueCourseInfo?.duration||'--'}</td>
+            <td>{coursesIdArray[1]?.uniqueCourseInfo?.duration||'--'}</td>
+            <td>{coursesIdArray[2]?.uniqueCourseInfo?.duration||'--'}</td>
+            <td>{coursesIdArray[3]?.uniqueCourseInfo?.duration||'--'}</td>
+            <td>{coursesIdArray[4]?.uniqueCourseInfo?.duration||'--'}</td>
           </tr>
-          <tr>
-            <td>Intakes</td>
-            <td>September</td>
-            <td>September</td>
-            <td>September</td>
-            <td>September</td>
-            <td>September</td>
-          </tr>
-          <tr>
-            <td><img style={{width:"50px",height:"50px",marginRight:"5px"}} src='/image-132@2x.png' alt='icon'/>QS Ranking</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-          </tr>
-          <tr>
-            <td><img style={{width:"50px",height:"50px",marginRight:"5px"}} src='/frame-1686561342.svg' alt='icon'/>The Ranking</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-            <td>61</td>
-          </tr>
+        
+         
           <tr>
             <td>Requirenments</td>
-            <td> IELTS Overall : 6.5<br/>
-                 IELTS no Band less than : 6<br/>
-                 TOEFL iBT Overall : 90<br/>
-                 TOEFL iBT no Band less than : 20<br/>
-                 PTE Overall : 90<br/>
-                 PTE no Band less than : 60<br/>
-            </td>
-            <td> IELTS Overall : 6.5<br/>
-                 IELTS no Band less than : 6<br/>
-                 TOEFL iBT Overall : 90<br/>
-                 TOEFL iBT no Band less than : 20<br/>
-                 PTE Overall : 90<br/>
-                 PTE no Band less than : 60<br/>
-            </td>
-            <td> IELTS Overall : 6.5<br/>
-                 IELTS no Band less than : 6<br/>
-                 TOEFL iBT Overall : 90<br/>
-                 TOEFL iBT no Band less than : 20<br/>
-                 PTE Overall : 90<br/>
-                 PTE no Band less than : 60<br/>
-            </td>
-            <td> IELTS Overall : 6.5<br/>
-                 IELTS no Band less than : 6<br/>
-                 TOEFL iBT Overall : 90<br/>
-                 TOEFL iBT no Band less than : 20<br/>
-                 PTE Overall : 90<br/>
-                 PTE no Band less than : 60<br/>
-            </td>
-            <td> IELTS Overall : 6.5<br/>
-                 IELTS no Band less than : 6<br/>
-                 TOEFL iBT Overall : 90<br/>
-                 TOEFL iBT no Band less than : 20<br/>
-                 PTE Overall : 90<br/>
-                 PTE no Band less than : 60<br/>
-            </td>
+            <td>{coursesIdArray[0]?.requirements||'--'}</td>
+            <td>{coursesIdArray[1]?.requirements||'--'}</td>
+            <td>{coursesIdArray[2]?.requirements||'--'}</td>
+            <td>{coursesIdArray[3]?.requirements||'--'}</td>
+            <td>{coursesIdArray[4]?.requirements||'--'}</td>
           </tr>
           <tr>
             <td>Application Fee</td>
-            <td>NIL</td>
-            <td>NIL</td>
-            <td>NIL</td>
-            <td>NIL</td>
-            <td>NIL</td>
+            <td>{coursesIdArray[0]?.uniqueCourseInfo?.applicationFee||'--'}</td>
+            <td>{coursesIdArray[1]?.uniqueCourseInfo?.applicationFee||'--'}</td>
+            <td>{coursesIdArray[2]?.uniqueCourseInfo?.applicationFee||'--'}</td>
+            <td>{coursesIdArray[3]?.uniqueCourseInfo?.applicationFee||'--'}</td>
+            <td>{coursesIdArray[4]?.uniqueCourseInfo?.applicationFee||'--'}</td>
           </tr>
           <tr>
             <td>Tution Fee</td>
-            <td>$ 30,000</td>
-            <td>$ 30,000</td>
-            <td>$ 30,000</td>
-            <td>$ 30,000</td>
-            <td>$ 30,000</td>
+            <td>$ {coursesIdArray[0]?.uniqueCourseInfo?.fee||'--'}</td>
+            <td>$ {coursesIdArray[1]?.uniqueCourseInfo?.fee||'--'}</td>
+            <td>$ {coursesIdArray[2]?.uniqueCourseInfo?.fee||'--'}</td>
+            <td>$ {coursesIdArray[3]?.uniqueCourseInfo?.fee||'--'}</td>
+            <td>$ {coursesIdArray[4]?.uniqueCourseInfo?.fee||'--'}</td>
           </tr>
           <tr>
-            <td>Scholarship</td>
-            <td>No</td>
-            <td>Yes</td>
-            <td>No</td>
-            <td>Yes</td>
-            <td>No</td>
+            <td>Application Deadline</td>
+            <td>{coursesIdArray[0]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
+            <td>{coursesIdArray[1]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
+            <td>{coursesIdArray[2]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
+            <td>{coursesIdArray[3]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
+            <td>{coursesIdArray[4]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
           </tr>
           {/* ... more rows based on your comparison points */}
         </tbody>

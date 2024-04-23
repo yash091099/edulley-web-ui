@@ -1,5 +1,5 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect, useState, createContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Footer from "./components/Footer";
@@ -21,34 +21,64 @@ import PrivacyPolicy from "./Pages/privacy-policy";
 import ContactUs from "./Pages/contact-us";
 import RefundPolicy from "./Pages/refund-policy";
 import ProfileForm from "./components/Home/Profile/profile-form";
+import LoginModal from "./components/auth/login";
+import { Toaster } from "react-hot-toast";
+import './App.css'
+
+export const ModalContext = createContext();
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("_u"));
+    const loggedIn = !!user?.token;
+    setIsLoggedIn(loggedIn);
+    setIsModalOpen(!loggedIn);
+  }, [location]);
+
+  const RequireAuth = ({ children }) => {
+    return isLoggedIn ? children : <Navigate to="/" replace />;
+  };
+
   return (
-    <>
+    <ModalContext.Provider value={{ isModalOpen, setIsModalOpen }}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses-list" element={<CourseList />} />
-        <Route path="/compare" element={<CompareCourse />} />
-        <Route path="/institutions" element={<UniversitesPage />} />
-        <Route path="/scholarship" element={<Scholarship />} />
-        <Route path="/exam-ielts" element={<ExamIelts />} />
-        <Route path="/ielts-topic" element={<TopicIlets />} />
-        <Route path="/ielts-cue-card" element={<IletsCue />} />
-        <Route path="/ielts-essay" element={<IletsEssay />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog-details" element={<BlogDetail />} />
-        <Route path="/institution-details" element={<InstitutionDetail />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/terms-and-condition" element={<TermCondition />} />
-        <Route path="/privacy-policy" element={< PrivacyPolicy/>} />
-        <Route path="/refund-policy" element={< RefundPolicy/>} />
-        <Route path="/contact-us" element={< ContactUs/>} />
-        <Route path="/profile" element={< ProfileForm/>} />
-      </Routes>{" "}
+        <Route path="/courses" element={<RequireAuth><Courses /></RequireAuth>} />
+        <Route path="/courses-list" element={<RequireAuth><CourseList /></RequireAuth>} />
+        <Route path="/compare" element={<RequireAuth><CompareCourse /></RequireAuth>} />
+        <Route path="/institutions" element={<RequireAuth><UniversitesPage /></RequireAuth>} />
+        <Route path="/scholarship" element={<RequireAuth><Scholarship /></RequireAuth>} />
+        <Route path="/exam-ielts" element={<RequireAuth><ExamIelts /></RequireAuth>} />
+        <Route path="/ielts-topic" element={<RequireAuth><TopicIlets /></RequireAuth>} />
+        <Route path="/ielts-cue-card" element={<RequireAuth><IletsCue /></RequireAuth>} />
+        <Route path="/ielts-essay" element={<RequireAuth><IletsEssay /></RequireAuth>} />
+        <Route path="/blog" element={<RequireAuth><Blog /></RequireAuth>} />
+        <Route path="/blog-details" element={<RequireAuth><BlogDetail /></RequireAuth>} />
+        <Route path="/institution-details" element={<RequireAuth><InstitutionDetail /></RequireAuth>} />
+        <Route path="/faq" element={<RequireAuth><FAQ /></RequireAuth>} />
+        <Route path="/terms-and-condition" element={<RequireAuth><TermCondition /></RequireAuth>} />
+        <Route path="/privacy-policy" element={<RequireAuth><PrivacyPolicy /></RequireAuth>} />
+        <Route path="/refund-policy" element={<RequireAuth><RefundPolicy /></RequireAuth>} />
+        <Route path="/contact-us" element={<RequireAuth><ContactUs /></RequireAuth>} />
+        <Route path="/profile" element={<RequireAuth><ProfileForm /></RequireAuth>} />
+      </Routes>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            backgroundColor: '#FF6477',
+            color: '#FFFFFF',
+          },
+        }}
+      />
       <Footer />
-    </>
+    </ModalContext.Provider>
   );
 }
 
