@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import book from '../../assets/book.svg';
 import school from '../../assets/school.svg';
 import calender from '../../assets/calendar.svg';
+import course_icon from '../../assets/course.png';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
@@ -75,7 +76,20 @@ const Search = () => {
     };
 
     return (
+        <div className="cointainer">
+              <div className="row">
+                    <div>
+                        <h1 className="font-gilroy fw-bold">
+                            <img src={course_icon} className="img-fluid" alt="" />
+                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Courses</span>
+                        </h1>
+                        {/* <p className="what-we-can-do-description">
+                            Transforming the landscape of Education with revolutionary technology
+                        </p> */}
+                    </div>
+                </div>
         <div className="search_container container">
+             
             {loading && <CustomLoader />}
             <h4 className="text-center fw-semibold mb-4">Search Courses</h4>
             <div className="bg-white rounded section_inner">
@@ -124,6 +138,7 @@ const Search = () => {
                     }
                 </div>
             )}
+        </div>
         </div>
     );
 };

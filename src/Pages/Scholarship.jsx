@@ -4,6 +4,7 @@ import book from "../assets/book.svg";
 import map from "../assets/mappin.svg";
 import uni from "../assets/uni.svg";
 import scholar1 from "../assets/scholarship1.png";
+import scholarship_icon from "../assets/scholarship.png";
 import scholar2 from "../assets/scholarship2.png";
 import { Link } from "react-router-dom";
 import ScholarshipCard from "../components/ScholarshipCard";
@@ -54,10 +55,22 @@ const Scholarship = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {loading && <CustomLoader />}
       <div className="py-5"></div>
+      <div className="row">
+                    <div>
+                        <h1 className="font-gilroy fw-bold">
+                            <img src={scholarship_icon} className="img-fluid" alt="" />
+                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Scholarship</span>
+                        </h1>
+                        {/* <p className="what-we-can-do-description">
+                            Transforming the landscape of Education with revolutionary technology
+                        </p> */}
+                    </div>
+                </div>
       <div className="search_container container scholarship-page">
+        
         <h3 className="text-center">Search Scholarships</h3>
         <div className="bg-white rounded section_inner">
           <div className="ps-3">

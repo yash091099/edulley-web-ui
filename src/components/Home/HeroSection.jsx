@@ -1,7 +1,7 @@
 import React from "react";
 import { BiChevronRight } from "react-icons/bi";
 import heroImg from "../../assets/home.png";
-import Search from "./Search";
+import Search from "./searchWithoutHeading";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {

@@ -5,6 +5,7 @@ import { Range, getTrackBackground } from 'react-range';
 import { getCourses } from "../Services/dashboard";
 import {toast} from "react-hot-toast";
 import CustomLoader from "../components/loader";
+import course_icon from '../assets/course.png'
 
 const CourseList = () => {
   const location = useLocation();
@@ -90,8 +91,20 @@ const CourseList = () => {
 
   return (
     <div className="container py-5 course_container">
+            <div className="py-4"></div>
+
+       <div className="row">
+                    <div>
+                        <h1 className="font-gilroy fw-bold">
+                            <img src={course_icon} className="img-fluid" alt="" />
+                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Courses</span>
+                        </h1>
+                        {/* <p className="what-we-can-do-description">
+                            Transforming the landscape of Education with revolutionary technology
+                        </p> */}
+                    </div>
+                </div>
       {loading && <CustomLoader />}
-      <div className="py-4"></div>
       <div className="compare_course">
         <button className="explore-button mt-3 fw-bold" onClick={handleCompareClick}>
           Compare Courses

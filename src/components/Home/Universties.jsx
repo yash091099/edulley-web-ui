@@ -4,6 +4,7 @@ import { getUniversities } from "../../Services/dashboard";
 import CustomLoader from "../loader";
 import toast from "react-hot-toast";
 import defaultLogoImage from "../../assets/frame-1686560972@2x.png";
+import university_icon from "../../assets/university.png"; // Default logo image
 
 const UniversitiesHome = () => {
   const [universities, setUniversities] = useState([]);
@@ -40,8 +41,10 @@ const UniversitiesHome = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 section-padding">
       <div className="container">
-        <h1 className="what-we-can-do-title">Featured Universities</h1>
-        <p className="what-we-can-do-description">
+      <h1 className="font-gilroy fw-bold">
+                            <img src={university_icon} className="img-fluid" alt="" />
+                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Universities</span>
+                        </h1>             <p className="what-we-can-do-description">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout.<br></br>
           The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
