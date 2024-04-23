@@ -94,7 +94,7 @@ const [editModeData, setEditModeData] = useState({});
     let response;
     if(editMode){
       payload.userId=userId
-      response = editStudent(...editModeData,...payload);
+      response = editStudent(payload);
 
     }else{
       payload.userId=userId
@@ -119,7 +119,7 @@ const [editModeData, setEditModeData] = useState({});
         <h3 className="heading">Work Experience</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Job Title</label>
+            <label>Job Title<span style={{ color: 'red' }}>*</span></label>
             <input
               type="text"
               name="jobTitle"
@@ -129,7 +129,7 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Company Name</label>
+            <label>Company Name<span style={{ color: 'red' }}>*</span></label>
             <input
               type="text"
               name="company"
@@ -139,7 +139,7 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Location</label>
+            <label>Location<span style={{ color: 'red' }}>*</span></label>
             <input
               type="text"
               name="location"
@@ -149,7 +149,7 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Job Summary</label>
+            <label>Job Summary<span style={{ color: 'red' }}>*</span></label>
             <input
               type="text"
               name="jobSummary"
@@ -159,7 +159,7 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Joining Date</label>
+            <label>Joining Date<span style={{ color: 'red' }}>*</span></label>
             <input
               type="date"
               name="joiningDate"
@@ -169,7 +169,7 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Worked Till</label>
+            <label>Worked Till<span style={{ color: 'red' }}>*</span></label>
             <input
               type="date"
               name="workedTill"

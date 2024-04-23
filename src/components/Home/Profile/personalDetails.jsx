@@ -177,7 +177,7 @@ const [editModeData, setEditModeData] = useState({});
         <div className="row">
           <div className="col-md-6 formField">
             <label>Full Name <span style={{ color: 'red' }}>*</span></label>
-            <input type="text" name="name" value={data.fullName} placeholder="Full name" onChange={handleInputChange} />
+            <input type="text" name="fullName" value={data.fullName} placeholder="Full name" onChange={handleInputChange} />
           </div>
           <div className="col-md-6 formField">
             <label>Gender <span style={{ color: 'red' }}>*</span></label>
@@ -189,7 +189,7 @@ const [editModeData, setEditModeData] = useState({});
           </div>
           <div className="col-md-6 formField">
             <label>Email ID <span style={{ color: 'red' }}>*</span></label>
-            <input type="email" name="emailID" value={data.email} placeholder="Email" onChange={handleInputChange} />
+            <input type="text" name="email" value={data.email} placeholder="Enter Email" onChange={handleInputChange} />
           </div>
           <div className="col-md-6 formField">
             <label>Date of Birth <span style={{ color: 'red' }}>*</span></label>

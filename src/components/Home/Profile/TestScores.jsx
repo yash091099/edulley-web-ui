@@ -90,31 +90,14 @@ const [editModeData, setEditModeData] = useState({});
       return;
     }
     const payload = {
-      tests: [
-        {
-          score: testScores.ieltsOverall,
-          examDate: testScores.ieworkBackgroundltsDateOfExam,
-          quantitative: testScores.ieltsQuantitative,
-          verbal: testScores.ieltsVerbal,
-          analyticWriting: testScores.ieltsAnalytical,
-          yetToTakeTest: testScores.ieltsYetToTake,
-          waiverLooking: testScores.ieltsLookingForWaiver
-        },
-        {
-          score: testScores.greOverall,
-          examDate: testScores.greDateOfExam,
-          quantitative: testScores.greQuantitative,
-          verbal: testScores.greVerbal,
-          analyticWriting: testScores.greAnalytical,
-          yetToTakeTest: testScores.greYetToTake,
-          waiverLooking: testScores.greLookingForWaiver
-        }
-      ]
+      tests: {
+        ...testScores
+      }
     };
     let response;
     if(editMode){
       payload.userId=userId
-      response = editStudent(...editModeData,...payload);
+      response = editStudent(payload);
 
     }else{
       payload.userId=userId
@@ -140,7 +123,7 @@ const [editModeData, setEditModeData] = useState({});
           <h3>IELTS</h3>
           <div className="row">
             <div className="col-md-6 formField">
-              <label>Overall Score</label>
+              <label>Overall Score<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="ieltsOverall"
@@ -150,7 +133,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Date of Exam</label>
+              <label>Date of Exam<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="ieltsDateOfExam"
@@ -160,7 +143,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Quantitative</label>
+              <label>Quantitative<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="ieltsQuantitative"
@@ -170,7 +153,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Verbal</label>
+              <label>Verbal<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="ieltsVerbal"
@@ -180,7 +163,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Analytical Writing</label>
+              <label>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="ieltsAnalytical"
@@ -218,7 +201,7 @@ const [editModeData, setEditModeData] = useState({});
           <h3>GRE</h3>
           <div className="row">
             <div className="col-md-6 formField">
-              <label>Overall Score</label>
+              <label>Overall Score<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="greOverall"
@@ -228,7 +211,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Date of Exam</label>
+              <label>Date of Exam<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="date"
                 name="greDateOfExam"
@@ -237,7 +220,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Quantitative</label>
+              <label>Quantitative<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="greQuantitative"
@@ -247,7 +230,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Verbal</label>
+              <label>Verbal<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="greVerbal"
@@ -257,7 +240,7 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Analytical Writing</label>
+              <label>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
               <input
                 type="text"
                 name="greAnalytical"

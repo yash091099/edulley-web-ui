@@ -144,7 +144,7 @@ const [editModeData, setEditModeData] = useState({});
     let response;
     if(editMode){
       payload.userId=userId
-      response = editStudent(...editModeData,...payload);
+      response = editStudent(payload);
 
     }else{
       payload.userId=userId
@@ -168,23 +168,23 @@ const [editModeData, setEditModeData] = useState({});
         <h3 className="heading">10th</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Institution Name</label>
+            <label>Institution Name<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="tenthInstitutionName" value={data.tenthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Board</label>
+            <label>Board<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="tenthBoard" value={data.tenthBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Score (%)</label>
+            <label>Score (%)<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="tenthScore" value={data.tenthScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label>Year of Completion</label>
+            <label>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="tenthYearOfCompletion" value={data.tenthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-12 formField">
-            <label>Specialization</label>
+            <label>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="tenthSpecialization" value={data.tenthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
@@ -194,23 +194,23 @@ const [editModeData, setEditModeData] = useState({});
         <h3 className="heading">Senior Secondary (11th-12th)</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Institution Name</label>
+            <label>Institution Name<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="twelfthInstitutionName" value={data.twelfthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Board</label>
+            <label>Board<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="twelfthBoard" value={data.twelfthBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Score (%)</label>
+            <label>Score (%)<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="twelfthScore" value={data.twelfthScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label>Year of Completion</label>
+            <label>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="twelfthYearOfCompletion" value={data.twelfthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-12 formField">
-            <label>Specialization</label>
+            <label>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="twelfthSpecialization" value={data.twelfthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
@@ -220,23 +220,23 @@ const [editModeData, setEditModeData] = useState({});
         <h3 className="heading">UG (Undergraduate)</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Institution Name</label>
+            <label>Institution Name<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="ugInstitutionName" value={data.ugInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Board</label>
+            <label>Board<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="ugBoard" value={data.ugBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Score (%)</label>
+            <label>Score (%)<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="ugScore" value={data.ugScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label>Year of Completion</label>
+            <label>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="ugYearOfCompletion" value={data.ugYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-12 formField">
-            <label>Specialization</label>
+            <label>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="ugSpecialization" value={data.ugSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
@@ -246,23 +246,23 @@ const [editModeData, setEditModeData] = useState({});
         <h3 className="heading">PG (Postgraduate)</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Institution Name</label>
+            <label>Institution Name<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="pgInstitutionName" value={data.pgInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Board</label>
+            <label>Board<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="pgBoard" value={data.pgBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label>Score (%)</label>
+            <label>Score (%)<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="pgScore" value={data.pgScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label>Year of Completion</label>
+            <label>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="pgYearOfCompletion" value={data.pgYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-12 formField">
-            <label>Specialization</label>
+            <label>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input type="text" name="pgSpecialization" value={data.pgSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
