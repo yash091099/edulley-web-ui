@@ -32,7 +32,13 @@ const Blog = () => {
             setLoading(false);
         }
     };
-
+    const capitaliseFirstWord = (str) => {
+        return str
+          .toLowerCase()
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      }
     useEffect(() => {
         getBlogsData();
     }, []);
@@ -74,7 +80,7 @@ const Blog = () => {
                                                     <CalendarMonth /> {new Date(blog.createdAt).toLocaleDateString('en-US')}
                                                 </p>
                                                 <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden' }}>
-                                                    {blog.content}
+                                                    {capitaliseFirstWord(blog?.heading)}
                                                 </p>
                                                 <div className="blog-tags">
                                                     {blog.tags.map(tag => (

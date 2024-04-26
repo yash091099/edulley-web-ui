@@ -1,3 +1,3 @@
 export const config = {
-    baseUrl: 'https://edulley.com/'
+    baseUrl: 'https://checkinpilot.com/'
 }

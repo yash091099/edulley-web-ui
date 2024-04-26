@@ -680,7 +680,7 @@ p {
   align-items: center;
   color: black;
 }
-.insti_container {
+/* .insti_container {
   width: 100%;
   height: 70vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
@@ -690,7 +690,7 @@ p {
   display: flex;
   align-items: center;
   color: white;
-}
+} */
 .insti_img {
   width: 100%;
 }
@@ -1028,4 +1028,45 @@ textarea {
 }
 .text-highlight {
   color: #FF6477; 
+}
+
+.unique-modal-form {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.unique-modal-form-header {
+  background-color: #ff5573;
+  color: white;
+}
+
+.unique-modal-form-body {
+  background-color: #ff5573;
+  color: white;
+}
+
+.unique-modal-form-main .unique-modal-form-input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.unique-modal-form-check {
+  user-select: none; /* This will prevent text from being highlighted on double click */
+}
+
+.unique-modal-form-button {
+  background-color: #fff !important;
+  color: #ff5573 !important;
+  border: none;
+}
+
+.modal-dialog{
+  position: fixed;
+  bottom: 0px;
+  width: 400px;
+  right: 10px;
 }

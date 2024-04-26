@@ -1,15 +1,27 @@
 import React from "react";
-import stats from "../assets/university-details.png";
+import instituteImage from "../assets/institution-detail.png";
 import award from "../assets/award.svg";
 import { useLocation } from "react-router-dom";
 import { FaAward } from "react-icons/fa"; 
 const InstitutionDetail = () => {
   const location =useLocation();
-  console.log(location.state?.universityDetails,'location.state')
+  console.log(location.state?.universityDetails,'location.state');
+  const backgroundImageUrl = location.state?.universityDetails?.bannerImage || instituteImage;
+  const backgroundStyle = {
+    width: '100%',
+    height: '70vh',
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${backgroundImageUrl})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    color: 'white',
+  };
+
   return (
     <div>
-      <div className="container-fluid insti_container">
-        <div className="container">
+      <div className="container-fluid insti_container" style={backgroundStyle}>
+        <div className="container" style={{maxWidth:'82vw',marginTop:'10vw'}}>
           <h1>{location.state?.universityDetails?.universityName}</h1>
           <h3>{location.state?.universityDetails?.city}, {location.state?.universityDetails?.country}</h3>
           <button className="explore-button mt-3 fw-bold pull-right mt-5">
@@ -87,7 +99,6 @@ const InstitutionDetail = () => {
           <img className="shadow p-2" style={{width:"150px",height:"150px"}} src={location?.state?.universityDetails?.uniqueUniversityInfo?.image2||award} alt="" />
           <img className="shadow p-2" style={{width:"150px",height:"150px"}} src={location?.state?.universityDetails?.uniqueUniversityInfo?.image3||award} alt="" />
           <img className="shadow p-2" style={{width:"150px",height:"150px"}} src={location?.state?.universityDetails?.uniqueUniversityInfo?.image4||award} alt="" />
-          <img className="shadow p-2" style={{width:"150px",height:"150px"}} src={location?.state?.universityDetails?.uniqueUniversityInfo?.image5||award} alt="" />
         </div>
         {/* <h2 className="mt-5 fw-bold text-center text-pink ">Courses</h2>
         <div className="c_category mt-3 ">
