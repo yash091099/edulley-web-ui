@@ -1,10 +1,12 @@
 import React from "react";
 import { BiChevronRight } from "react-icons/bi";
 import heroImg from "../../assets/home.png";
-import Search from "./Search";
+import Search from "./searchWithoutHeading";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
+  const _u=JSON.parse(localStorage.getItem('_u'));
+  let token = _u?.token;
   return (
     <div className="home-page-container  container-fluid">
       <div className="top-section container">
@@ -28,7 +30,7 @@ const HeroSection = () => {
 
       {/* search  */}
 
-      <Search />
+    {token &&  <Search />}
     </div>
   );
 };

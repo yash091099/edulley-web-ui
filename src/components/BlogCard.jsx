@@ -1,35 +1,70 @@
 import React from "react";
 import { CalendarMonth } from "@mui/icons-material";
-import blog from "../assets/blog-detail.png";
+import blog from "../assets/blog-detail.png"; // Make sure this path is correct for your default image
+import DOMPurify from 'dompurify';
 
-const BlogCard = () => {
+const BlogCard = ({ blogDetails }) => {
+  console.log(blogDetails, 'blogDetails');
+
+  const formatDate = (date) => {
+    const d = new Date(date);
+    const month = d.toLocaleString("default", { month: "short" });
+    const day = d.getDate();
+    const year = d.getFullYear();
+    return `${month} ${day}, ${year}`;
+  };
+
+  const capitaliseFirstWord = (str) => {
+    return str
+      .charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  };
+
+  // Adjust the configuration for DOMPurify to allow more tags and attributes
+  const sanitizeConfig = {
+    ALLOWED_TAGS: ['strong', 'em', 'a', 'p', 'ul', 'ol', 'li', 'br', 'span', 'img'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'style'],
+    ADD_TAGS: ['b']
+  };
+
+  const sanitizedContent = DOMPurify.sanitize(blogDetails?.content || '', sanitizeConfig);
+  const sanitizedQuote = DOMPurify.sanitize(blogDetails?.quote || '', sanitizeConfig);
+
   return (
     <div className="course_card mt-0">
       <h4 className="fw-semibold">
-        Transforming the landscape of Education with revolutionary technology
+        {capitaliseFirstWord(blogDetails?.heading || '')}
       </h4>
       <p
         style={{ fontSize: "13px" }}
         className="text-secondary d-flex align-items-center gap-2"
       >
-        <CalendarMonth /> 12 June 2023
+        <CalendarMonth /> {formatDate(blogDetails?.createdAt)}
       </p>
       <img
         style={{ width: "100%", height: "auto" }}
         className="rounded mt-4"
-        src={blog}
-        alt=""
+        src={blogDetails?.bannerImage || blog}
+        alt="Blog banner"
       />
-      <p className="fw-light mt-4">
-        Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-        neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Cras
-        ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet
-        nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a
-        pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in
-        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-        neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-      </p>
+      <label className="fw-bold mt-3">Content:</label>
+      <div
+        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+        className="fw-light blog-content"
+      ></div>
+      {blogDetails?.quote && (
+        <>
+          <label className="fw-bold mt-2">Quote:</label>
+          <div
+            dangerouslySetInnerHTML={{ __html: sanitizedQuote }}
+            className="fw-light blog-quote"
+          ></div>
+        </>
+      )}
+      <div className="blog-tags">
+        {blogDetails?.tags.map((tag, index) => (
+          <span className="badge bg-secondary me-2" key={index}>{tag}</span>
+        ))}
+      </div>
     </div>
   );
 };

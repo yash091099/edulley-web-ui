@@ -10,7 +10,8 @@ const FAQ = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 p">
      
-      <div className="container">
+     <div className="container py-2 course_container">
+            <div className="py-5"></div>
         <h1 className="what-we-can-do-title"> Frequently Asked Question </h1>
         <p className="what-we-can-do-description">
           {" "}
