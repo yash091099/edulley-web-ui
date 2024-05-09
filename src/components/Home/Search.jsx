@@ -99,6 +99,7 @@ const Search = () => {
                         className="text-gray-100"
                         placeholder="Course"
                         type="text"
+                        style={{border: 'none'}}
                         name="course"
                         value={searchTerm.course}
                         onChange={handleChange}
@@ -112,6 +113,8 @@ const Search = () => {
                         type="text"
                         name="duration"
                         value={searchTerm.duration}
+                        style={{border: 'none'}}
+
                         onChange={handleChange}
                     />
                 </div>
@@ -122,6 +125,8 @@ const Search = () => {
                         placeholder="Level"
                         type="text"
                         name="level"
+                        style={{border: 'none'}}
+
                         value={searchTerm.level}
                         onChange={handleChange}
                     />

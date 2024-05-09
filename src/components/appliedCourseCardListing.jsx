@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CustomLoader from "../components/loader";
 import { toast } from "react-hot-toast";
 import { createTransaction, verifyTransaction } from "../Services/dashboard";
@@ -11,16 +11,31 @@ import map from "../assets/mappin.svg";
 const AppliedCourseListCard = ({ course }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [razorpayLoaded, setRazorpayLoaded] = useState(false);
 
   const toggle = () => setTooltipOpen(!tooltipOpen);
   function formatText(text) {
     return text.toLowerCase().replace(/_/g, ' ').replace(/\b[a-z]/g, (char) => char.toUpperCase());
   }
+  useEffect(() => {
+    // Load Razorpay script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => setRazorpayLoaded(true);
+    document.body.appendChild(script);
 
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   const handlePayment = async (course) => {
     setLoading(true);
     const paymentAmount = course?.courseId?.uniqueCourseInfo?.applicationFee * 100; // Convert to paisa
     try {
+      if (!razorpayLoaded) {
+        throw new Error('Razorpay script is not loaded');
+      }
       const transaction = await createTransaction({
         amount: paymentAmount,
         currency: "INR",
@@ -41,6 +56,7 @@ const AppliedCourseListCard = ({ course }) => {
               orderId: response.razorpay_order_id,
               paymentId: response.razorpay_payment_id,
               signature: response.razorpay_signature,
+              applicationId: course?._id
             });
             if (verify) {
               toast.success('Payment successful');

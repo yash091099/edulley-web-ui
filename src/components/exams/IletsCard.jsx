@@ -6,45 +6,17 @@ const IletsCard = () => {
       <div>
         <h4 className="fw-semibold">Overview</h4>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis
-          dui nec neque rutrum bibendum. Donec in ultricies turpis. Fusce
-          scelerisque vel nibh eget pellentesque. Ut ac odio sed velit
-          pellentesque malesuada. Donec tempor elit quis maximus convallis.
-          Phasellus hendrerit nisl felis, et bibendum metus laoreet id. Duis
-          ultrices tempor aliquam. Pellentesque luctus a velit eget porttitor
+        A typical letter of recommendation (LOR) follows a structured format, starting with the sender's contact information, date, and recipient's details, followed by a formal salutation on the official letterhead of the organization. The introduction should state the sender's relationship with the applicant and the context in which they know them. The body of the letter should provide specific examples and anecdotes that illustrate the applicant's qualities, skills, and achievements relevant to the program or position they are applying for. The conclusion should summarize the recommendation and express confidence in the applicant's abilities. The letter should close with a polite closing and the sender's signature, if possible. It's important to tailor the content and tone of the letter to the specific requirements of the recipient and to ensure that it is well-organized, clear, and concise.
+
         </p>
       </div>
-      <div className="mt-4">
-        <h4 className="fw-semibold">Why ILETS</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis
-          dui nec neque rutrum bibendum. Donec in ultricies turpis. Fusce
-          scelerisque vel nibh eget pellentesque. Ut ac odio sed velit
-          pellentesque malesuada. Donec tempor elit quis maximus convallis.
-          Phasellus hendrerit nisl felis, et bibendum metus laoreet id. Duis
-          ultrices tempor aliquam. Pellentesque luctus a velit eget porttitor.
-          Nam eu accumsan urna. In fermentum nulla in quam convallis, in viverra
-          justo pulvinar. Quisque volutpat enim vel lectus condimentum, sed
-          consectetur mauris lacinia. Ut elementum massa vitae dolor
-          sollicitudin, quis faucibus sapien laoreet. Ut arcu purus, varius eget
-          elit sed, efficitur finibus purus.
-        </p>
-      </div>
+    
       
       <div className="mt-4">
         <h4 className="fw-semibold">IELTS Syllabus</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis
-          dui nec neque rutrum bibendum. Donec in ultricies turpis. Fusce
-          scelerisque vel nibh eget pellentesque. Ut ac odio sed velit
-          pellentesque malesuada. Donec tempor elit quis maximus convallis.
-          Phasellus hendrerit nisl felis, et bibendum metus laoreet id. Duis
-          ultrices tempor aliquam. Pellentesque luctus a velit eget porttitor.
-          Nam eu accumsan urna. In fermentum nulla in quam convallis, in viverra
-          justo pulvinar. Quisque volutpat enim vel lectus condimentum, sed
-          consectetur mauris lacinia. Ut elementum massa vitae dolor
-          sollicitudin, quis faucibus sapien laoreet. Ut arcu purus, varius eget
-          elit sed, efficitur finibus purus.
+        <p className=" mb-5">
+        The IELTS (International English Language Testing System) syllabus covers four key language skills: Listening, Reading, Writing, and Speaking. The Listening section involves listening to recordings and answering questions, testing your ability to understand spoken English in various contexts. The Reading section assesses your reading comprehension through passages from different sources, requiring you to identify main ideas and details. In the Writing section, you'll complete tasks like describing visual information and writing an essay, demonstrating your ability to organize and express ideas in written English. Here is a quick comprehensive guide about IELTS syllabus:
+
         </p>
         <div className="table-container mt-[150px]">
                       <table className="table">
@@ -132,71 +104,55 @@ const IletsCard = () => {
       </div>
       <div className="mt-4">
         <h4 className="fw-semibold">IELTS Preparation</h4>
+        <h4 className="fw-semibold">Test Format</h4>
+
         <p>
-          You should take a practice test because that is the best way to
-          identify your weaknesses. It is crucial for students to understand
-          what to expect from the test format before they start practicing.
-          Reviewing each section's test content, questions, and task types can
-          help students become more familiar with it. The last piece of advice
-          is to start exam preparation at least three to six months in advance.
-          <p>
-            Below are a few things you need to keep in mind while preparing for
-            the IELTS exam:
-          </p>
+        Familiarizing yourself with the format of the IELTS exam is crucial for effective preparation. The exam consists of four sections: Listening, Reading, Writing, and Speaking. Each section is designed to assess different aspects of your English language skills. The Listening section involves listening to recordings and answering questions. The Reading section requires you to read passages and answer questions. The Writing section includes writing tasks such as essays and reports. Finally, the Speaking section involves a face-to-face interview with an examiner. Understanding the format of each section will help you know what to expect on the exam day and prepare accordingly.
+        
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Polish your reading</h4>
+        <h4 className="fw-semibold">Language Skills</h4>
         <p>
-          The IELTS reading module is challenging not because reading is hard
-          but because it necessitates in-depth reading within a constrained time
-          frame. For people to succeed in this part, several methods are
-          suggested.
-        </p>
-        <p>
-          Some advice reading the questions first, noting the answers as they
-          occur in the passage, and then answering them. Another is to read the
-          passage's topic, read each paragraph's first and last lines, and then
-          go on to the questions to comprehend where the specific answer is
-          while reading the complete passage. You must put several methods into
-          practice to ascertain which method suits you the best.
+        Improving your English language skills is essential for performing well on the IELTS exam. Focus on developing your vocabulary, grammar, reading, writing, listening, and speaking skills. Reading books, newspapers, and articles in English can help you improve your vocabulary and reading skills. Writing essays and reports regularly can enhance your writing skills. Listening to English podcasts, watching English movies, and speaking with native English speakers can improve your listening and speaking skills. Additionally, consider taking an English language course or working with a tutor to improve your overall language proficiency.
+
         </p>
       </div>
       <div className="mt-4">
         <h4 className="fw-semibold">
-          Assess yourself and determine your level
+        Practice Regularly
         </h4>
         <p>
-          Doing mock tests to find your weaknesses is the first part of
-          assessing yourself that you must constantly undergo to direct your
-          preparation and revision efforts in the right direction. This is
-          helpful when taking a test like the IELTS since it can show you what
-          structure to use, what words and vocabulary to use, and how to place
-          words in a well-constructed sentence.
+        Regular practice is key to improving your performance on the IELTS exam. Use official IELTS practice materials to familiarize yourself with the types of questions you will encounter on the exam. Take full-length practice tests to simulate exam conditions and improve your time management skills. Practice each section of the exam regularly to build your confidence and identify areas for improvement. Set aside dedicated time each day for practice and make it a priority in your study schedule.
+
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Focus on skill improvement</h4>
+        <h4 className="fw-semibold">Develop Time Management Skills</h4>
         <p>
-          As you have become more fluent in English and improved your language
-          proficiency, now is the time to improve your listening abilities by
-          becoming accustomed to sound, environment, and speakers. Include your
-          friends and family in your plan; let them assist you in identifying
-          any potential red flags. It will be easier for you to gain impartial
-          knowledge of how you're performing if you have a reliable source of
-          feedback.
+        : Time management is crucial for success on the IELTS exam. Each section of the exam is timed, and you will need to complete all questions within the allotted time. Practice managing your time effectively during practice tests to ensure you can complete each section within the given time limits. Learn to pace yourself and prioritize questions based on their difficulty. Developing good time management skills will help you stay calm and focused during the exam and maximize your chances of success.
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Practice whenever you can</h4>
+        <h4 className="fw-semibold">Focus on Weak Areas</h4>
         <p>
-          You can learn numerous words that will help you enhance your spoken
-          and listening English by interacting with various types of people.
-          Your practice sessions don't have to take place during set hours. Your
-          regular routine can include them, making it more interesting,
-          enjoyable, and productive.
+        Identifying and focusing on your weak areas is essential for improving your performance on the IELTS exam. After taking practice tests, review your answers and identify any patterns of mistakes or areas where you struggled. Focus on improving these areas through targeted practice and study. For example, if you struggle with the Reading section, practice reading passages and answering questions to improve your reading comprehension skills. If you find the Speaking section challenging, practice speaking English with a tutor or language partner to improve your fluency and pronunciation. By focusing on your weak areas, you can improve your overall performance on the exam.
         </p>
       </div>
+      <div className="mt-4">
+        <h4 className="fw-semibold">Use English in Daily Life</h4>
+        <p>
+        Immersing yourself in the English language on a daily basis can help improve your language skills and prepare you for the IELTS exam. Try to use English in your daily life as much as possible. Read English books, newspapers, and magazines to improve your reading skills. Watch English movies and TV shows to improve your listening skills. Practice speaking English with friends, family members, or language partners to improve your speaking skills. By using English in daily life, you can become more comfortable with the language and improve your overall proficiency.        </p>
+      </div>
+      <div className="mt-4">
+        <h4 className="fw-semibold">Seek Feedback</h4>
+        <p>
+        Getting feedback on your writing and speaking is crucial for improving your performance on the IELTS exam. Ask a teacher, tutor, or language exchange partner to review your writing and provide feedback on areas for improvement. Practice speaking English with a tutor or language partner and ask for feedback on your pronunciation, fluency, and grammar. Use this feedback to identify areas for improvement and work on them. Seeking feedback from others can help you improve your language skills and perform better on the exam.         </p>
+      </div>
+      <div className="mt-4">
+        <h4 className="fw-semibold">Stay Motivated</h4>
+        <p>
+        Staying motivated throughout your preparation is key to success on the IELTS exam. Set realistic goals for your study schedule and track your progress towards these goals. Celebrate your achievements along the way to stay motivated. Find ways to make your study routine enjoyable, such as listening to music or studying in a quiet, comfortable environment. Remind yourself of the reasons why you are taking the IELTS exam and stay focused on your goals. By staying motivated, you can overcome challenges and stay committed to your preparation.    </p>  </div>
     </div>
   );
 };
