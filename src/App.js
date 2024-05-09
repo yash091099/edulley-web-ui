@@ -24,6 +24,8 @@ import ProfileForm from "./components/Home/Profile/profile-form";
 import LoginModal from "./components/auth/login";
 import { Toaster } from "react-hot-toast";
 import './App.css'
+import SOP from "./Pages/study-abroad/sop";
+import LOR from "./Pages/study-abroad/lor";
 
 export const ModalContext = createContext();
 
@@ -57,6 +59,8 @@ function App() {
         <Route path="/ielts-topic" element={<RequireAuth><TopicIlets /></RequireAuth>} />
         <Route path="/ielts-cue-card" element={<RequireAuth><IletsCue /></RequireAuth>} />
         <Route path="/ielts-essay" element={<RequireAuth><IletsEssay /></RequireAuth>} />
+        <Route path="/sop" element={<RequireAuth><SOP /></RequireAuth>} />
+        <Route path="/lor" element={<RequireAuth><LOR /></RequireAuth>} />
         <Route path="/blog" element={<RequireAuth><Blog /></RequireAuth>} />
         <Route path="/blog-details" element={<RequireAuth><BlogDetail /></RequireAuth>} />
         <Route path="/institution-details" element={<RequireAuth><InstitutionDetail /></RequireAuth>} />

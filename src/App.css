@@ -687,6 +687,28 @@ p {
   align-items: center;
   color: black;
 }
+.sop_container {
+  width: 100%;
+  height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("./assets/sop.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.lor_container {
+  width: 100%;
+  height: 60vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("./assets/lor.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: black;
+}
 /* .insti_container {
   width: 100%;
   height: 70vh;

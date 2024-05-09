@@ -164,6 +164,43 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                onClick={(e) => e.preventDefault()}
+              >
+                Study Abroad
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <Link
+                    className={`dropdown-item ${
+                      activeLink === "/sop" ? "active" : ""
+                    }`}
+                    to="/sop"
+                    onClick={() => handleLinkClick("/sop")}
+                  >
+                    SOP
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className={`dropdown-item ${
+                      activeLink === "/lor" ? "active" : ""
+                    }`}
+                    to="/lor"
+                    onClick={() => handleLinkClick("/lor")}
+                  >
+                    LOR
+                  </Link>
+                </li>
+                    
+              </ul>
+            </li>
             <li className="nav-item">
               <Link
                 className={`nav-link ${activeLink === "/blog" ? "active" : ""}`}
@@ -183,7 +220,7 @@ const Navbar = () => {
               style={{ cursor: "pointer" }}
               src={profile}
             />
-            {<Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
+            {JSON.parse(localStorage.getItem("user")) &&  <Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
               <Logout/>
             </Button></Tooltip>}
           </form>

@@ -10,6 +10,9 @@ body {
 .text-pink {
   color: #ff5573;
 }
+.text-green {
+  color: #00949B;
+}
 .cursor-pointer {
   cursor: pointer !important;
 }
