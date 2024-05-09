@@ -106,7 +106,7 @@ const CourseList = () => {
                 </div>
       {loading && <CustomLoader />}
       <div className="compare_course">
-        <button className="explore-button mt-3 fw-bold" onClick={handleCompareClick}>
+        <button className="explore-button mt-3 mb-3  fw-bold" onClick={handleCompareClick}>
           Compare Courses
         </button>
       </div>

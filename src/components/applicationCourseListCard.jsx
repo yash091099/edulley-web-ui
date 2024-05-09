@@ -7,6 +7,7 @@ import { Money, Timer, Wallet } from "@mui/icons-material";
 import { FaRupeeSign } from "react-icons/fa";
 import book from "../assets/book.svg";
 import map from "../assets/mappin.svg";
+
 const CourseListCard = ({ course }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -33,7 +34,7 @@ const CourseListCard = ({ course }) => {
   };
 
   return (
-    <div className="course_card card" style={{height: '400px', overflow: 'hidden',marginBottom:"8px"}}>
+    <div className="course_card card" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden', marginBottom: "8px"}}>
       {loading && <CustomLoader />}
       <div className="inner_card">
         <div id={'Tooltip-' + course?._id}>
@@ -52,7 +53,7 @@ const CourseListCard = ({ course }) => {
       <div className="course_head_new" style={{marginBottom:"10px"}}>
         <h6 className="p-0 m-0">{course?.requirements?.slice(0, 300) ||'--'}</h6>
       </div>
-      <div className="d-flex  align-items-center gap-5 mt-4 flex-wrap" style={{position: 'absolute', bottom: '12px'}}>
+      <div className="d-flex align-items-center gap-5 mt-4 flex-wrap">
         <div>
           <p className="fw-bold"  style={{color:"#575656"}}><span><Wallet/></span>Fees</p>
           <p  style={{color:"#FF6477",fontWeight:"800"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee||'--'} / year</p>

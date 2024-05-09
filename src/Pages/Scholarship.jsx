@@ -71,7 +71,7 @@ const Scholarship = () => {
                 </div>
       <div className="search_container container scholarship-page">
         
-        <h3 className="text-center">Search Scholarships</h3>
+        <h3 className="text-center mt-2">Search Scholarships</h3>
         <div className="bg-white rounded section_inner">
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
@@ -111,10 +111,10 @@ const Scholarship = () => {
               onChange={handleFilterChange}
             />
           </div>
-          <button className="px-4 search_btn ml-3" onClick={handleSearch}>
+          <button className=" button-content px-4 search_btn ml-3" onClick={handleSearch}>
             <FaSearch />
           </button>
-          <button className="px-4 search_btn ml-3" onClick={resetFilters}>
+          <button className=" button-content px-4 search_btn ml-3" onClick={resetFilters}>
             Reset
           </button>
         </div>

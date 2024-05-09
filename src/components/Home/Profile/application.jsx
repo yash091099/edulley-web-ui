@@ -122,10 +122,10 @@ const Academic = () => {
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
                                 <input style={{border: 'none'}} className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
                             </div>
-                            <button className="px-4 search_btn ml-3" onClick={handleSearch}>
+                            <button className="button-content-2 px-4 search_btn ml-3" onClick={handleSearch}>
                                 <FaSearch />
                             </button>
-                            <button className="px-4 search_btn ml-3" onClick={resetFilters}>
+                            <button className="button-content-2 px-4 search_btn ml-3" onClick={resetFilters}>
                                 Reset
                             </button>
                         </div>
@@ -140,7 +140,7 @@ const Academic = () => {
                     <div className="col-auto">
                         <h1 className="font-gilroy fw-bold m-0">
                             <span className="font-gilroy bold page-heading-title" style={{ fontWeight: '900' }}>Shortlisted Courses</span>
-                            <img src={arrow_shortlist} className="img-fluid" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" />
+                            <img src={arrow_shortlist} className="img-fluid arrow-image" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" />
                         </h1>
                     </div>
                 </div>

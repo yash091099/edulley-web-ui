@@ -101,14 +101,14 @@ const AppliedCourseListCard = ({ course }) => {
   }
 
   return (
-    <div className="course_card card" style={{ height: '400px', overflow: 'hidden', marginBottom: "8px" }}>
+    <div className="course_card card" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden', marginBottom: "8px"}}>
       <div className="inner_card">
         <div id={'Tooltip-' + course?.courseId?._id}>
           <h5 className="fw-semibold">{course?.courseId?.courseName || '--'}</h5>
           <p><img style={{ height: "2rem", width: "2rem", objectFit: "cover", marginRight: '5px' }} alt="" src={map} />{course?.courseId?.universityName || '--'}</p>
           <p><img style={{ height: "2rem", width: "2rem", objectFit: "cover", marginRight: '5px' }} alt="" src={book} />{course?.courseId?.overview?.slice(0, 300) || '--'}</p>
         </div>
-        <Tooltip placement="top" isOpen={tooltipOpen} target={'Tooltip-' + course?.courseId?._id} toggle={toggle}>
+        <Tooltip placement="top" isOpen={tooltipOpen} target={'Tooltip-' + course        ?.courseId?._id} toggle={toggle}>
           {course?.courseId?.overview || '--'}
         </Tooltip>
       </div>
@@ -118,7 +118,7 @@ const AppliedCourseListCard = ({ course }) => {
       <div className="course_head_new" style={{ marginBottom: "10px" }}>
         <h6 className="p-0 m-0">{course?.courseId?.requirements?.slice(0, 300) || '--'}</h6>
       </div>
-      <div className="d-flex  align-items-center gap-4 mt-4 flex-wrap" style={{ position: 'absolute', bottom: '12px' }}>
+      <div className="d-flex align-items-center gap-5 mt-4 flex-wrap">
         <div>
           <p className="fw-bold" style={{ color: "#575656" }}><span><Wallet /></span>Fees</p>
           <p style={{ color: "#FF6477", fontWeight: "800" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
@@ -132,11 +132,9 @@ const AppliedCourseListCard = ({ course }) => {
           <p style={{ color: "#FF6477", fontWeight: "800" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
-          <span className="badge  pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA' }}>{formatText(course?.status)}</span>
+          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA' }}>{formatText(course?.status)}</span>
           {course?.status === 'APPLIED_CONDITIONAL_OFFER' &&
             <button className="btn btn-primary text-white text-bold ml-2" onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
-        </div>
-        <div>
         </div>
       </div>
     </div>

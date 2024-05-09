@@ -1117,3 +1117,24 @@ text-align: left;
       max-width: 1242px !important;
   }
 }
+
+@media (max-width: 768px) {
+  .title-home {
+      margin-top: 35px;
+    }
+
+    .course-head{
+      margin-top: 45px;
+    }
+
+    .button-content{
+      width: 290px !important;
+    }
+    .button-content-2{
+      width: 220px !important;
+    }
+    .arrow-image{
+      display: none;
+    }
+   
+}

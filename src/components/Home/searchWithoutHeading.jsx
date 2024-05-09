@@ -122,7 +122,7 @@ const Search = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <button onClick={handleClick} className={`px-4 search_btn ml-3 ${!inputFilled || (!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level)? 'disabled' : ''}`} >
+                <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level)? 'disabled' : ''}`} >
                     <FaSearch />
                 </button>
             </div>
