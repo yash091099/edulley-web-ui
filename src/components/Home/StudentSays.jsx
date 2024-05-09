@@ -15,10 +15,8 @@ const StudentSays = () => {
       <div className="container">
         <h1 className="what-we-can-do-title">What Students say about us</h1>
         <p className="what-we-can-do-description">
-          It is a long established fact that a reader will be distracted by
-          the readable content of a page when looking at its layout. <br />
-          The point of using Lorem Ipsum is that it has a more-or-less normal
-          distribution of letters, as opposed to using 'Content here.
+        Check out what our students have  to say about us. We have helped thousands of students in their study abroad journey and their feedback will lighten up your day. 
+
         </p>
       </div>
       <div className="my-5 content-container-what-student">

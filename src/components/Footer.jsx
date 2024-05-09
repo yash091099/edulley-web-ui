@@ -8,6 +8,7 @@ import fb from "../assets/fb.svg";
 import instagaram from "../assets/instagram.svg";
 import logo from "../assets/4@2x.png";
 import { Link } from "react-router-dom";
+import { WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -112,34 +113,24 @@ const Footer = () => {
         <div className="f_menu">
           <h5 className="fw-bold">Connect with us</h5>
           <ul>
-            <div className="d-flex align-items-center gap-3">
-              <div className="f_contact">
-                <img className="" loading="lazy" alt="" src={phone} />
-              </div>
-              <div>
-                <p>Phone</p>
-                <p>+1 23 456 7980</p>
-              </div>
-            </div>
+          
             <div className="d-flex align-items-center gap-3 mt-3">
               <div className="f_contact">
                 <img className="" loading="lazy" alt="" src={mail} />
               </div>
               <div>
-                <p>Mail</p>
-                <p>info@Edulley.com</p>
+                <p>Muskan Anni</p>
+                <p>muskan@edulley.com</p>
               </div>
             </div>
             <div className="d-flex aling-items-center gap-3 mt-4">
-              <div className="f_contact">
-                <img className="" loading="lazy" alt="" src={instagaram} />
-              </div>
-              <div className="f_contact">
-                <img className="" loading="lazy" alt="" src={fb} />
-              </div>
-              <div className="f_contact">
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="f_contact">
+                <WhatsApp/>
+              </a>
+            
+              <a href="https://www.linkedin.com/in/muskan-anni/" target="_blank" className="f_contact">
                 <img className="" loading="lazy" alt="" src={linkedin} />
-              </div>
+              </a>
             </div>
           </ul>
         </div>

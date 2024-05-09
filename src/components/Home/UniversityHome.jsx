@@ -63,10 +63,8 @@ const UniversitiesHome = () => {
       <div className="container">
         <h1 className="what-we-can-do-title">Featured Universities</h1>
         <p className="what-we-can-do-description">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. <br /> The
-          point of using Lorem Ipsum is that it has a more-or-less normal
-          distribution of letters.
+        Explore prestigious institutions known for academic excellence and innovative programs. From cutting-edge research facilities to vibrant campus life, these universities 
+offer a world-class education and endless opportunities for growth. Explore some of the best universities here!
         </p>
         <div className={classes.carouselContainer}>
           {universities.map((uni, index) => (

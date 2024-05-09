@@ -32,13 +32,15 @@ const Blog = () => {
             setLoading(false);
         }
     };
+
     const capitaliseFirstWord = (str) => {
         return str
           .toLowerCase()
           .split(" ")
           .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
           .join(" ");
-      }
+    }
+
     useEffect(() => {
         getBlogsData();
     }, []);
@@ -74,7 +76,7 @@ const Blog = () => {
                                 <div className="col-md-4" key={blog._id}>
                                     <div onClick={ () => navigate('/blog-details', { state: blog })}>
                                         <div className="countries cursor-pointer uni_card blog-card">
-                                            <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image" />
+                                            <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                                             <div className="p-3">
                                                 <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '13px' }}>
                                                     <CalendarMonth /> {new Date(blog.createdAt).toLocaleDateString('en-US')}
@@ -88,6 +90,11 @@ const Blog = () => {
                                                     ))}
                                                 </div>
                                             </div>
+                                            {blog.heading.length > 30 && (
+                                                <div className="tooltip"> {/* Bootstrap tooltip */}
+                                                    <span className="tooltiptext">{blog.heading}</span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

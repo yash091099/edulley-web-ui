@@ -29,8 +29,17 @@ const BlogCard = ({ blogDetails }) => {
   const sanitizedContent = DOMPurify.sanitize(blogDetails?.content || '', sanitizeConfig);
   const sanitizedQuote = DOMPurify.sanitize(blogDetails?.quote || '', sanitizeConfig);
 
+  const handleLinkClick = (e) => {
+    const { target } = e;
+    if (target.tagName === 'A') {
+      e.preventDefault();
+      const href = target.textContent;
+      window.open(href, '_blank');
+    }
+  };
+
   return (
-    <div className="course_card mt-0">
+    <div className="course_card mt-0" onClick={handleLinkClick}>
       <h4 className="fw-semibold">
         {capitaliseFirstWord(blogDetails?.heading || '')}
       </h4>
@@ -41,22 +50,22 @@ const BlogCard = ({ blogDetails }) => {
         <CalendarMonth /> {formatDate(blogDetails?.createdAt)}
       </p>
       <img
-        style={{ width: "100%", height: "auto" }}
+        style={{ width: "100%", height: "500px" }}
         className="rounded mt-4"
         src={blogDetails?.bannerImage || blog}
         alt="Blog banner"
       />
       <label className="fw-bold mt-3">Content:</label>
       <div
-        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
         className="fw-light blog-content"
+        dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       ></div>
       {blogDetails?.quote && (
         <>
           <label className="fw-bold mt-2">Quote:</label>
           <div
-            dangerouslySetInnerHTML={{ __html: sanitizedQuote }}
             className="fw-light blog-quote"
+            dangerouslySetInnerHTML={{ __html: sanitizedQuote }}
           ></div>
         </>
       )}

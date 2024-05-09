@@ -12,11 +12,8 @@ const Countries = () => {
     <div className=" container  py-5">
       <h1 className="what-we-can-do-title ">Most Searched Countries</h1>
       <p className="what-we-can-do-description mt-2 mb-5">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. <br></br>
-         The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters, as opposed to using 'Content here
+      Embark on a transformative journey of learning and discovery. Explore new cultures, make lifelong friendships, and gain a world-class education. 
+Let us be your guide to a brighter future. Choose a country that excites you and we bring the best information to help you make an informed decision. 
       </p>
       <div className="countries-container ">
      

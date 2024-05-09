@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { addStudent, editStudent, getStudentDetailsById } from "../../../Services/dashboard";
 import CustomLoader from "../../loader";
+import { DocumentScanner } from "@mui/icons-material";
 
 export default function ViewUserDocument() {
   const _u = JSON.parse(localStorage.getItem('_u'));
   const userId = _u?._id;
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({
-    
-  })
+  const [data, setData] = useState({});
   const [documentUrls, setDocumentUrls] = useState({
-    document1: "",
-    document2: "",
-    document3: "",
-    document4: ""
+    '10th Marksheet': "",
+    '12th Marksheet': "",
+    'Degree (Semester wise, final degree, consolidated)': "",
+    'Passport': "",
+    'Statement of Purpose': "",
+    'Letters of Recommendation': "",
+    'IELTS': "",
+    'RESUME': "",
+    'ADDITIONAL DOCUMENTS': "",
+    'GRE/GMAT': ""
   });
 
   useEffect(() => {
@@ -26,10 +31,16 @@ export default function ViewUserDocument() {
         const res = await getStudentDetailsById(userId);
         if (res?.data?.data) {
           setDocumentUrls({
-            document1: res.data.data.documents?.document1,
-            document2: res.data.data.documents?.document2,
-            document3: res.data.data.documents?.document3,
-            document4: res.data.data.documents?.document4
+            '10th Marksheet': res.data.data.documents?.['10th Marksheet'],
+            '12th Marksheet': res.data.data.documents?.['12th Marksheet'],
+            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
+            'Passport': res.data.data.documents?.Passport,
+            'Statement of Purpose': res.data.data.documents?.['Statement of Purpose'],
+            'Letters of Recommendation': res.data.data.documents?.['Letters of Recommendation'],
+            'IELTS': res.data.data.documents?.IELTS,
+            'RESUME': res.data.data.documents?.RESUME,
+            'ADDITIONAL DOCUMENTS': res.data.data.documents?.['ADDITIONAL DOCUMENTS'],
+            'GRE/GMAT': res.data.data.documents?.['GRE/GMAT']
           });
           setData(res.data.data);
           setEditMode(true);
@@ -46,6 +57,13 @@ export default function ViewUserDocument() {
 
     fetchDetails();
   }, [userId]);
+
+
+  useEffect(()=>{
+    console.log(documentUrls,'------------------------------ documentUrls- -----------------')
+    console.log(documentUrls['10th Marksheet'],'------------------------------ documentUrls- -----------------')
+  },[documentUrls])
+
   const handleFileUpload = async (event, documentKey) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -74,14 +92,20 @@ export default function ViewUserDocument() {
     }
   };
 
+  const openPdfPreview = (url) => {
+    window.open(url, '_blank');
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!documentUrls.document1 || !documentUrls.document2 || !documentUrls.document3 || !documentUrls.document4) {
-      toast.error("Please upload all documents before submitting.");
+    const mandatoryDocuments = ['10th Marksheet', '12th Marksheet', 'Degree (Semester wise, final degree, consolidated)', 'Passport', 'Statement of Purpose', 'Letters of Recommendation'];
+    const isMandatoryDocumentsUploaded = mandatoryDocuments.every(doc => documentUrls[doc] !== "");
+    if (!isMandatoryDocumentsUploaded) {
+      toast.error("Please upload all mandatory documents before submitting.");
       return;
     }
     setLoading(true);
-    const payload = { ...data ,userId: userId, documents: documentUrls};
+    const payload = { ...data, userId: userId, documents: documentUrls };
     let response;
     if (editMode) {
       response = await editStudent(payload);
@@ -95,7 +119,6 @@ export default function ViewUserDocument() {
       toast.success(editMode ? 'Profile Updated successfully' : 'Profile Added successfully');
     }
   };
-
   return (
     <div>
       {loading && <CustomLoader />}
@@ -103,19 +126,26 @@ export default function ViewUserDocument() {
         <div className="main-container">
           <h3 className="heading mt-3">Documents uploaded by Student</h3>
           <div className="row">
-            {['document1', 'document2', 'document3', 'document4'].map((doc, index) => (
-              <div key={index} className="col-md-6 formField">
-                <label>{`Document ${index + 1}`}</label>
-                <input
-                  type="file"
-                  name={doc}
-                  onChange={(e) => handleFileUpload(e, doc)}
-                />
-                {editMode && documentUrls[doc] && (
-                  <div style={{ width: '100px', height: '100px', overflow: 'hidden' }}>
-                    <img src={documentUrls[doc]} alt={`Document ${index + 1}`} style={{ width: '100%', height: 'auto' }} />
-                  </div>
-                )}
+            {Object.entries(documentUrls).map(([docKey, docValue], index) => (
+              <div key={index} className="col-md-6 formField" style={{ marginBottom: "20px" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
+                  <label>{`${docKey}${index < 6 ? '*' : ''}`}</label>
+                  <input
+                    type="file"
+                    name={docKey}
+                    onChange={(e) => handleFileUpload(e, docKey)}
+                    style={{ margin: "10px 0" }}
+                  />
+                  {docValue && (
+                    <div style={{ width: "100%", marginTop: "10px" }}>
+                      {docValue.toLowerCase().endsWith('.pdf') ? (
+                        <button className="btn btn-link" onClick={() => openPdfPreview(docValue)}>View Document <DocumentScanner/></button>
+                      ) : (
+                        <img src={docValue} alt={`${docKey}`} style={{ maxWidth: "150px", height: "150px" }} />
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>

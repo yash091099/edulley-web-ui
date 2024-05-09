@@ -1,4 +1,5 @@
 import React from "react";
+// import statis from "../../assets/statistics.png";
 import statis from "../../assets/statistics.png";
 
 const Statistics = () => {
@@ -13,11 +14,8 @@ const Statistics = () => {
             Our Statistics
           </h1>
           <p className="subtitle ">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout.
-            The point of using Lorem Ipsum is that it has a more- <br></br>
-            or-less normal
-            distribution of letters, as opposed to using 'Content here{" "}
+          Our numbers speak volumes about our long-standing commitment to assisting students in their study abroad transition. With years of experience, we've helped 
+countless students achieve their dreams of international education. {" "}
           </p>
         </div>
         <div className="image-container">

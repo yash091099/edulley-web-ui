@@ -3,6 +3,9 @@ import { FaSearch } from "react-icons/fa";
 import book from "../../../assets/book.svg";
 import map from "../../../assets/mappin.svg";
 import uni from "../../../assets/uni.svg";
+import university_icon from "../../../assets/shortlist.png"; // Default logo image
+import arrow_shortlist from "../../../assets/arrow-shortlist.png"; // Default logo image
+
 import scholar1 from "../../../assets/scholarship1.png";
 import scholar2 from "../../../assets/scholarship2.png";
 import CourseListCard from "../../applicationCourseListCard";
@@ -110,15 +113,15 @@ const Academic = () => {
                         <div className="bg-white rounded section_inner">
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
-                                <input className="text-gray-100" placeholder={activeTab === "apply" ? "Course" : "Application"} type="text" name="name" value={filters.name} onChange={handleFilterChange} />
+                                <input style={{border: 'none'}} className="text-gray-100" placeholder={activeTab === "apply" ? "Course" : "Application"} type="text" name="name" value={filters.name} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={map} />
-                                <input className="text-gray-100" placeholder="Level" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
+                                <input style={{border: 'none'}} className="text-gray-100" placeholder="Level" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
-                                <input className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
+                                <input style={{border: 'none'}} className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
                             </div>
                             <button className="px-4 search_btn ml-3" onClick={handleSearch}>
                                 <FaSearch />
@@ -131,12 +134,26 @@ const Academic = () => {
                 </div>
             </div>
             <div className="container py-4 course_container">
+            <div className="row align-items-center">
+  <div className="col-auto">
+    <img src={university_icon} className="img-fluid" alt="" />
+  </div>
+  <div className="col-auto">
+    <h1 className="font-gilroy fw-bold m-0">
+      <span className="font-gilroy bold page-heading-title" style={{ fontWeight: '900' }}>Shortlisted Courses</span>
+      <img src={arrow_shortlist} className="img-fluid " style={{    marginBottom: '19px',
+    marginLeft: '-120px',
+    marginTop: '56px'}} alt="" />
+    </h1>
+  </div>
+</div>
+
                 <div className="inner_course mt-0">
                     <div className="row">
                         <div className="col-md-9">
                             <div className="row">
                                 {(activeTab === 'apply' ? filteredCourses : filteredApplications).map((item) => (
-                                    <div className="col-md-6">
+                                    <div className="col-md-12">
                                         {activeTab === 'apply' ? <CourseListCard course={item} /> : <AppliedCourseListCard course={item} />}
                                     </div>
                                 ))}

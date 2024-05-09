@@ -15,11 +15,8 @@ const FAQ = () => {
         <h1 className="what-we-can-do-title"> Frequently Asked Question </h1>
         <p className="what-we-can-do-description">
           {" "}
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. <br></br>
-           The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here.
+          Confused about something? Here is a quick list of FAQs to help you get started. If you still need further assist try getting in touch with out team and we would love to assist you. 
+
         </p>
 
         <div className="faq_container my-5 ">

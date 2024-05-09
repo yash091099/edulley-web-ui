@@ -76,7 +76,8 @@ const Scholarship = () => {
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
             <input
-              className="text-gray-100"
+              className="text-gray-100 "
+              style={{border: 'none'}}
               placeholder="Name"
               type="text"
               name="name"
@@ -90,6 +91,8 @@ const Scholarship = () => {
               className="text-gray-100"
               placeholder="Course"
               type="text"
+              style={{border: 'none'}}
+
               name="course"
               value={filters.course}
               onChange={handleFilterChange}
@@ -102,6 +105,8 @@ const Scholarship = () => {
               placeholder="University"
               type="text"
               name="university"
+              style={{border: 'none'}}
+
               value={filters.university}
               onChange={handleFilterChange}
             />

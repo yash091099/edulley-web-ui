@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div className="top-section container">
         <div className="content">
           <h1 className="title-home  mb-1" style={{ color: "#FF5573" }}>
-            Your Passport to Academic Excellence :
+          Your Gateway to Global Excellence ! 
           </h1>
           <h5 className="subtitle mt-3 mb-4 ">
             Explore, Learn, and Thrive with Study Abroad Application

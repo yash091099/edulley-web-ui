@@ -31,8 +31,8 @@ const Profile = () => {
         <div className="card-body">
           <p className="card-text" style={{ color: highlightColor }}>You are just a few steps away from submitting your application</p>
           <div className="d-flex justify-content-between">
-            <span>Name : {studentDetails?.fullName || '--'}</span>
-            <span>Email : {studentDetails?.email || '--'}</span>
+            <span>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
+            <span>Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
             <span>Phone : {studentDetails?.contactNumber || '--'}</span>
           </div>
         </div>

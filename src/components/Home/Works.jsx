@@ -11,28 +11,25 @@ const Works = () => {
       <div className="">
         <h1 className="what-we-can-do-title">How it works</h1>
         <p className="what-we-can-do-description">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. <br></br>
-          The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here
+        Here we have streamlined the complete process in a hassle-free way. You can simply search courses and apply. Engage with your dedicated study abroad expert and we would 
+love to assist you at any step of the way. Your journey begins here! 
         </p>
       </div>
       <div className="countries-container my-5 how-to-work">
         <WorkCards
           image={img1}
           title="Find courses"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+          description="Find courses from the pool of more than 65000 course worldwide. Shortlist courses, compare them and find best choices to go with."
         />
         <WorkCards
           image={img2}
           title="Apply & Receive offers"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+          description="Quickly submit your application to the shortlisted universities and our team will assist your throughout the process. Get quick offers and you are all set."
         />
         <WorkCards
           image={img3}
           title="Chat with us"
-          description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+          description="Chat with your dedicated student counselor to check the status of your submitted application. You will be notified at each step."
         />
       </div>
     </div>

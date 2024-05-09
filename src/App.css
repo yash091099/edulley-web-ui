@@ -587,6 +587,13 @@ p {
   margin-top: 1rem;
   width: 20rem;
 }
+.course_head_new {
+  background-color: rgb(255 240 240);
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  /* width: 20rem; */
+}
 .min_height {
   min-height: 60vh;
   display: flex;
@@ -1019,7 +1026,14 @@ textarea {
 textarea {
   resize: vertical;
 }
+.page-heading-title{
+  font-family: Gilroy-Bold;
+font-size: 30px;
+font-weight: 300;
+line-height: 44px;
+text-align: left;
 
+}
 .AddMore{
   color: #FF6477;
 }
@@ -1069,6 +1083,12 @@ textarea {
   bottom: 0px;
   width: 400px;
   right: 10px;
+}
+
+.nav-link {
+  font-family: Gilroy-Bold;
+  font-size: 16px;
+  font-weight: 300;
 }
 @media (min-width: 1200px) {
   .container {
