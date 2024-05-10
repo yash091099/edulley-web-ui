@@ -18,26 +18,28 @@ const WeCanDo = () => {
         </p>
       </div>
       <div className="what-we-can-do-grid container">
-        <WhatCanCards img={img1} sOPWriting="IELTS " guidance="Preparation" />
+        <WhatCanCards img={img1} sOPWriting="IELTS " guidance="Preparation" path='/exam-ielts' />
         <WhatCanCards
           img={img2}
           sOPWriting="SOP Writing "
-          guidance="Guidance"
+          guidance="Guidance" path='/sop'
         />
-        <WhatCanCards img={img3} sOPWriting="Visa " guidance="Guidance" />
-        <WhatCanCards img={img4} sOPWriting="Financial " guidance="Aid" />
+        <WhatCanCards img={img3} sOPWriting="Visa " guidance="Guidance" path='/lor' />
+        <WhatCanCards img={img4} sOPWriting="Financial " guidance="Aid"  path='/sop'  />
         <WhatCanCards
           img={img4}
           sOPWriting="Accommodation "
           guidance="Guidance"
+          path='/lor'
         />
-        <WhatCanCards img={img1} sOPWriting="IELTS " guidance="Preparation" />
+        <WhatCanCards img={img1} sOPWriting="IELTS " path='/exam-ielts'  guidance="Preparation" />
         <WhatCanCards
           img={img2}
           sOPWriting="SOP Writing "
+          path='/sop'
           guidance="Guidance"
         />
-        <WhatCanCards img={img3} sOPWriting="Visa " guidance="Guidance" />
+        <WhatCanCards img={img3} sOPWriting="Visa " guidance="Guidance" path='/lor'  />
       </div>
     </div>
   );

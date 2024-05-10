@@ -534,7 +534,9 @@ a {
 .footer {
   background-color: #ff5573;
   color: white;
-  font-family: 'Gilroy sans-serif';
+  font-family: 'Gilroy-Medium sans-serif';
+  font-weight: 400;
+  font-size: 18px !important;
 }
 .inner_footer {
   display: flex;
@@ -567,7 +569,7 @@ a {
   width: 2rem;
   height: 2rem;
   display: flex;
-  border-radius: 50%;
+  border-radius: 27%;
   align-items: center;
   justify-content: center;
   text-align: center;

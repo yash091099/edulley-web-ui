@@ -12,18 +12,21 @@ import { WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
   return (
-    <div className="footer  pt-4 container-fluid ">
+    <div className="footer  pt-4 container-fluid font-gilroy-medium">
       <div className="px-5 inner_footer pb-5">
+      <div className="f_logo" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <Link to="/">
+    <img
+      style={{ cursor: "pointer", width: "150px" }} // Increase the width as needed
+      loading="lazy"
+      alt=""
+      src={logo}
+    />
+  </Link>
+</div>
+
         <div className="f_logo">
-          <Link to="/">
-            <img
-              style={{ cursor: "pointer", width: "120px", }}
-              loading="lazy"
-              alt=""
-              src={logo}
-            />
-          </Link>
-          <div className="foot_img">
+        <div className="foot_img">
             <div className="text-center">Download now</div>
             <div className="d-flex flex-column mt-2 gap-2">
               <img
@@ -41,8 +44,44 @@ const Footer = () => {
                 src={down2}
               />
             </div>
+
+            <h5 className="mt-5">Contact with us</h5>
+            <div className="d-flex align-items-center gap-3 mt-4">
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="f_contact">
+                <WhatsApp/>
+              </a>
+              <a href="https://www.linkedin.com/in/muskan-anni/" target="_blank" className="f_contact">
+                <img className="" loading="lazy" alt="" src={linkedin} />
+              </a>
+            </div>
           </div>
+          
         </div>
+        <div className="f_menu">
+  <ul>
+    <div className="d-flex flex-column gap-3 mt-3">
+      <div className="d-flex align-items-center gap-3">
+        <div className="f_contact">
+          <img className="" loading="lazy" alt="" src={phone} />
+        </div>
+        <div>
+          <p>Phone</p>
+          <p style={{ cursor: "pointer" }} onClick={() => window.location.href = "tel:+1234567890"}>+123,456 7890</p>
+        </div>
+      </div>
+      <div className="d-flex align-items-center gap-3 mt-3">
+        <div className="f_contact">
+          <img className="" loading="lazy" alt="" src={mail} />
+        </div>
+        <div>
+          <p>Mail</p>
+          <p style={{ cursor: "pointer" }} onClick={() => window.location.href = "mailto:muskan@edulley.com"}>muskan@edulley.com</p>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>
+
         <div className="f_menu ">
           <h5 className="fw-bold">Countries</h5>
           <ul>
@@ -51,6 +90,23 @@ const Footer = () => {
             <li>Canada</li>
             <li>Australia</li>
             <li>Ireland</li>
+          </ul>
+        </div>
+        <div className="f_menu">
+          <h5 className="fw-bold">Others</h5>
+          <ul>
+            <Link to="/privacy-policy">
+              <li style={{ cursor: "pointer" }}>Privacy Policy</li>
+            </Link>
+            <Link to="/terms-and-condition">
+              <li style={{ cursor: "pointer" }}>Terms & Condition</li>
+            </Link>
+            <Link to="/refund-policy">
+              <li style={{ cursor: "pointer" }}>Refund Policy</li>
+            </Link>
+            {/* <Link>
+            <li style={{ cursor: "pointer" }}>Contact Us</li>
+            </Link> */}
           </ul>
         </div>
         <div className="f_menu">
@@ -92,54 +148,12 @@ const Footer = () => {
             <li>DET</li>
           </ul>
         </div>
-        <div className="f_menu">
-          <h5 className="fw-bold">Others</h5>
-          <ul>
-            <Link to="/privacy-policy">
-              <li style={{ cursor: "pointer" }}>Privacy Policy</li>
-            </Link>
-            <Link to="/terms-and-condition">
-              <li style={{ cursor: "pointer" }}>Terms & Condition</li>
-            </Link>
-
-            <Link to="/refund-policy">
-              <li style={{ cursor: "pointer" }}>Refund Policy</li>
-            </Link>
-            <Link>
-            <li style={{ cursor: "pointer" }}>Contact Us</li>
-            </Link>
-          </ul>
-        </div>
-        <div className="f_menu">
-          <h5 className="fw-bold">Connect with us</h5>
-          <ul>
-          
-            <div className="d-flex align-items-center gap-3 mt-3">
-              <div className="f_contact">
-                <img className="" loading="lazy" alt="" src={mail} />
-              </div>
-              <div>
-                <p>Muskan Anni</p>
-                <p>muskan@edulley.com</p>
-              </div>
-            </div>
-            <div className="d-flex aling-items-center gap-3 mt-4">
-              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="f_contact">
-                <WhatsApp/>
-              </a>
-            
-              <a href="https://www.linkedin.com/in/muskan-anni/" target="_blank" className="f_contact">
-                <img className="" loading="lazy" alt="" src={linkedin} />
-              </a>
-            </div>
-          </ul>
-        </div>
       </div>
       <p
         className="text-center text-white py-3 "
         style={{ borderTop: "1px solid white" }}
       >
-        Copyright © 2023 | All rights reserved by Edulley
+        Copyright © 2024 | All rights reserved by Edulley
       </p>
     </div>
   );

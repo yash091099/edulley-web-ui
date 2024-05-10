@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigationType } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Footer from "./components/Footer";
@@ -33,7 +33,14 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
+  const action = useNavigationType();
+  const pathname = location.pathname;
 
+  useEffect(() => {
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("_u"));
     const loggedIn = !!user?.token;
