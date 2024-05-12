@@ -11,15 +11,15 @@ const HeroSection = () => {
     <div className="home-page-container  container-fluid">
       <div className="top-section container">
         <div className="content">
-          <h1 className="title-home  mb-1" style={{ color: "#FF5573" }}>
+          <h1 className="title-home  mb-1" style={{ color: "#FF5573",fontFamily: 'Gilroy-Bold' }}>
           Your Gateway to Global Excellence ! 
           </h1>
-          <h5 className="subtitle mt-3 mb-4 ">
+          <h5 className="subtitle mt-3 mb-4 " style={{ fontFamily: 'Gilroy-Medium' }}>
             Explore, Learn, and Thrive with Study Abroad Application
           </h5>
           <Link to="/courses">
-            <button className="explore-button mt-3">
-              Explore Courses <BiChevronRight size={26} />
+            <button className="explore-button mt-3" style={{ fontFamily: 'Gilroy-SemiBold' }}>
+              Explore Courses {'>>'}
             </button>
           </Link>
         </div>

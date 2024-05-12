@@ -61,7 +61,7 @@ const UniversitiesHome = () => {
         <div className="d-flex align-items-center justify-content-between">
           <h1 className="font-gilroy fw-bold">
             <img src={university_icon} className="img-fluid" alt="" />
-            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Universities</span>
+            <span className="mt-1 ml-2 " style={{fontFamily:"Gilroy-Bold"}}>Universities</span>
           </h1>
           <div className="d-flex align-items-center">
             <div className="input-group">
@@ -69,6 +69,7 @@ const UniversitiesHome = () => {
                 type="text"
                 className="form-control"
                 placeholder="Search"
+                style={{ fontFamily: "Gilroy-Regular" }}
                 value={searchInput}
                 onChange={handleSearchInputChange}
               />
@@ -81,15 +82,15 @@ const UniversitiesHome = () => {
           </div>
         </div>
 
-        <p> {filteredUniversities.length} Universities</p>
+        <p style={{ fontFamily: "Gilroy-Medium" }}> {filteredUniversities.length} Universities</p>
         <div className="countries-container gap-1 my-3 mb-5">
           {filteredUniversities.map((uni, index) => (
             <div style={{ cursor: "pointer" }} className="cursor-pointer countries uni_card mb-3" key={index} onClick={() => handleUniversityClick(uni)}>
               <img src={uni.bannerImage || defaultLogoImage} alt="University" className="university-image" style={{ height: "200px", width: "100%", objectFit: "contain", background: '#fff' }} />
               <div className="card-info">
                 <div>
-                  <h3 className="university-name">{uni?.universityName || "University Name"}</h3>
-                  <h5 className="university-location">{`${uni.city}, ${uni?.country}`}</h5>
+                  <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }}>{uni?.universityName || "University Name"}</h3>
+                  <h5 className="university-location" style={{ fontFamily: "Gilroy-Regular" }}>{`${uni.city}, ${uni?.country}`}</h5>
                 </div>
                 <div className="university-logo" style={{ background: "none" }}>
                   <img src={uni.universityLogo || defaultLogoImage} alt="Logo" style={{ height: "auto", width: "100%", borderRadius: "50%", objectFit: "contain" }} />

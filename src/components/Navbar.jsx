@@ -63,14 +63,14 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li className="nav-item">
+            <li className="nav-item" >
               <Link
                 className={`nav-link ${activeLink === "/" ? "active" : ""}`}
                 aria-current="page"
                 to="/"
                 onClick={() => handleLinkClick("/")}
               >
-                Home
+               <span ></span> Home
               </Link>
             </li>
             <li className="nav-item">
@@ -103,7 +103,7 @@ const Navbar = () => {
                 to="/scholarship"
                 onClick={() => handleLinkClick("/scholarship")}
               >
-                Scolarship
+                Scholarship
               </Link>
             </li>
             <li className="nav-item dropdown">
@@ -220,7 +220,7 @@ const Navbar = () => {
               style={{ cursor: "pointer" }}
               src={profile}
             />
-            {JSON.parse(localStorage.getItem("user")) &&  <Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
+            {JSON.parse(localStorage.getItem("_u")) &&  <Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
               <Logout/>
             </Button></Tooltip>}
           </form>

@@ -9,11 +9,11 @@ const Statistics = () => {
         <div className="content">
           <h1
             className="what-we-can-do-title"
-            style={{ color: "#FF5573" }}
+            style={{ color: "#FF5573" ,fontFamily:"Gilroy-Bold"}}
           >
             Our Statistics
           </h1>
-          <p className="subtitle ">
+          <p className="subtitle " style={{fontFamily:"Gilroy-Regular"}}>
           Our numbers speak volumes about our long-standing commitment to assisting students in their study abroad transition. With years of experience, we've helped 
 countless students achieve their dreams of international education. {" "}
           </p>

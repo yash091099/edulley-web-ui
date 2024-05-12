@@ -7,7 +7,9 @@ import { Money, Timer, Wallet } from "@mui/icons-material";
 import { FaRupeeSign } from "react-icons/fa";
 import book from "../assets/book.svg";
 import map from "../assets/mappin.svg";
-
+import time from "../assets/ion_time-outline.png";
+import walletImage from "../assets/solar_wallet-linear.png";
+import ellipse from "../assets/Ellipse.png";
 const AppliedCourseListCard = ({ course }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -104,37 +106,49 @@ const AppliedCourseListCard = ({ course }) => {
     <div className="course_card card" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden', marginBottom: "8px"}}>
       <div className="inner_card">
         <div id={'Tooltip-' + course?.courseId?._id}>
-          <h5 className="fw-semibold">{course?.courseId?.courseName || '--'}</h5>
-          <p><img style={{ height: "2rem", width: "2rem", objectFit: "cover", marginRight: '5px' }} alt="" src={map} />{course?.courseId?.universityName || '--'}</p>
-          <p><img style={{ height: "2rem", width: "2rem", objectFit: "cover", marginRight: '5px' }} alt="" src={book} />{course?.courseId?.overview?.slice(0, 300) || '--'}</p>
+          <h5 style={{fontFamily:"Gilroy-Bold"}}>{course?.courseId?.courseName || '--'}</h5>
+          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover", marginRight: '5px' }} alt="" src={ellipse} />{course?.courseId?.universityName || '--'}</p>
+          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover", marginRight: '5px' }} alt="" src={book} />{course?.courseId?.overview?.slice(0, 300) || '--'}</p>
         </div>
         <Tooltip placement="top" isOpen={tooltipOpen} target={'Tooltip-' + course        ?.courseId?._id} toggle={toggle}>
           {course?.courseId?.overview || '--'}
         </Tooltip>
       </div>
       <div className="course_head_new">
-        <h6 className="p-0 m-0">Level : {course?.courseId?.level?.slice(0, 200) || '--'}</h6>
+        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Level : {course?.courseId?.level?.slice(0, 200) || '--'}</h6>
       </div>
       <div className="course_head_new" style={{ marginBottom: "10px" }}>
-        <h6 className="p-0 m-0">{course?.courseId?.requirements?.slice(0, 300) || '--'}</h6>
+        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Requirements : {course?.courseId?.requirements?.slice(0, 200) || '--'}</h6>
       </div>
       <div className="d-flex align-items-center gap-5 mt-4 flex-wrap">
         <div>
-          <p className="fw-bold" style={{ color: "#575656" }}><span><Wallet /></span>Fees</p>
-          <p style={{ color: "#FF6477", fontWeight: "800" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><span><img
+              style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+              alt=""
+              src={walletImage}
+            /></span>Fees</p>
+          <p style={{ color: "#FF6477", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
-          <p className="fw-bold " style={{ color: "#575656" }}><Timer />Duration</p>
-          <p style={{ color: "#FF6477", fontWeight: "800" }}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
+          <p className="fw-bold " style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+              style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+              alt=""
+              src={time}
+            />Duration</p>
+          <p style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
-          <p className="fw-bold " style={{ color: "#575656" }}><FaRupeeSign />Application Fee</p>
-          <p style={{ color: "#FF6477", fontWeight: "800" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
+          <p className="fw-bold " style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+              style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+              alt=""
+              src={time}
+            />Application Fee</p>
+          <p style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
-          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA' }}>{formatText(course?.status)}</span>
+          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-SemiBold'  }}>{formatText(course?.status)}</span>
           {course?.status === 'APPLIED_CONDITIONAL_OFFER' &&
-            <button className="btn btn-primary text-white text-bold ml-2" onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
+            <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
         </div>
       </div>
     </div>

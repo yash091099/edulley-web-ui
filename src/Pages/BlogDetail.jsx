@@ -19,30 +19,30 @@ const BlogDetail = () => {
           <div className="col-md-3">
           <div className="right_scholar ">
           <div className="s_img_card text-center">
-            <p className="mt-2">Look at all the courses at University name</p>
-            <button className="explore-button py-2 fw-light mt-2">
+            <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Look at all the courses at University name</p>
+            <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
               Explore All Courses
             </button>
-            <p className="fw-bold my-2">OR</p>
+            <p className="my-2" style={{fontFamily:"Gilroy-Bold"}}>OR</p>
             <p
-              className="fw-bold"
-              style={{ color: "#ff5573", cursor: "pointer" }}
+              
+              style={{ color: "#ff5573", cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}
             >
               Chat with Our Advisor
             </p>
           </div>
           <div className="s_img_card text-center">
             <img src={scholar1} alt="" />
-            <p className="mt-2">
+            <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>
               Let’s look at the scholarships available for you
             </p>
-            <button className="explore-button py-2 fw-light mt-2">
+            <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
               Explore All Scholarship
             </button>
-            <p className="fw-bold my-2">OR</p>
+            <p className="my-2" style={{fontFamily:"Gilroy-Bold"}}>OR</p>
             <p
-              className="fw-bold"
-              style={{ color: "#ff5573", cursor: "pointer" }}
+             
+              style={{ color: "#ff5573", cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}
             >
               Chat with Our Advisor
             </p>

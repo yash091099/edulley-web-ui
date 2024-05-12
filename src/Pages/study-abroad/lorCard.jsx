@@ -7,8 +7,8 @@ const LORCard = () => {
     
       
       <div className="mt-4">
-        <h4 className="fw-semibold">What is Letter of Recommendation</h4>
-        <p className=" mb-5">
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>What is Letter of Recommendation</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}} className=" mb-5">
 
         A letter of recommendation, from a second-person perspective, is a document written by someone who knows you well and can attest to your skills, abilities, and character. This person, often a professor, employer, or mentor, provides insight into your academic or professional achievements, work ethic, and personal qualities. The purpose of a letter of recommendation is to support your application for a job, internship, scholarship, or educational program by providing a credible and unbiased assessment of your qualifications. Admissions committees or employers value letters of recommendation because they offer a perspective on your abilities and potential that goes beyond what is stated in your resume or application. A strong letter of recommendation highlights your strengths, achievements, and suitability for the opportunity you are pursuing. It can help differentiate you from other candidates and provide assurance to the recipient that you are a qualified and deserving candidate. When requesting a letter of recommendation, it is important to choose someone who knows you well and can provide specific examples and anecdotes that demonstrate your skills and qualities.
  
@@ -21,9 +21,9 @@ const LORCard = () => {
        
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Why do we need Letter of Recommendation </h4>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Why do we need Letter of Recommendation </h4>
 
-        <p>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         In your academic or professional journey, a letter of recommendation (LOR) serves as a valuable endorsement of your abilities, character, and potential. It provides insight into your strengths and achievements from the perspective of someone who has worked closely with you, such as a professor, employer, or mentor. Admissions committees and employers value LORs because they offer a more holistic view of your qualifications than what is provided in your resume or application. A well-written LOR can highlight your unique skills, work ethic, and personal qualities, helping you stand out from other candidates. Additionally, LORs can provide credibility to your application, as they are written by individuals who can vouch for your abilities based on their own observations and experiences. Overall, LORs play a crucial role in strengthening your application and can significantly impact your chances of success in securing admission to a program or landing a job opportunity.
  
  
@@ -32,8 +32,8 @@ const LORCard = () => {
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Type of Letter of Recommendation</h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Type of Letter of Recommendation</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         There are generally three types of letters of recommendation (LORs):
 
 1. <strong>Academic LOR</strong>: These are written by teachers, professors, or academic advisors who can speak to your academic abilities, performance, and potential. Academic LORs are often required for graduate school applications and may focus on your academic achievements, coursework, research skills, and intellectual curiosity.
@@ -47,9 +47,9 @@ It's important to carefully read the application requirements to determine what 
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>
 Hoe to write Letter of Recommendation        </h4>
-        <p>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         Writing a strong letter of recommendation (LOR) involves several key steps:<br/>
 
 1. <strong>Introduction</strong>: Start by introducing yourself and your relationship with the applicant. Mention how long you have known the applicant and in what capacity.<br/>
@@ -70,27 +70,27 @@ Hoe to write Letter of Recommendation        </h4>
         </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Format of Letter of Recommendation</h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Format of Letter of Recommendation</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         A typical letter of recommendation (LOR) follows a structured format, starting with the sender's contact information, date, and recipient's details, followed by a formal salutation on the official letterhead of the organization. The introduction should state the sender's relationship with the applicant and the context in which they know them. The body of the letter should provide specific examples and anecdotes that illustrate the applicant's qualities, skills, and achievements relevant to the program or position they are applying for. The conclusion should summarize the recommendation and express confidence in the applicant's abilities. The letter should close with a polite closing and the sender's signature, if possible. It's important to tailor the content and tone of the letter to the specific requirements of the recipient and to ensure that it is well-organized, clear, and concise.
     </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">what skill to be highlighted in Letter of Recommendation</h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>what skill to be highlighted in Letter of Recommendation</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         In a letter of recommendation (LOR), it is important to highlight the applicant's relevant skills and qualities that demonstrate their suitability for the program or position they are applying for. These may include academic skills such as analytical thinking, research abilities, and intellectual curiosity, as well as practical skills such as communication, teamwork, and problem-solving. Additionally, personal qualities such as leadership, initiative, and adaptability can also be emphasized, as they contribute to the applicant's overall character and potential for success. It is important to provide specific examples and anecdotes that illustrate these skills and qualities, demonstrating how they have been demonstrated in real-life situations and how they make the applicant stand out among their peers.
       </p>
       </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Why are Letter of Recommendation important</h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Why are Letter of Recommendation important</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         Letters of recommendation (LORs) are crucial components of a candidate's application as they provide an external and unbiased perspective on the applicant's abilities, character, and potential. They offer insights that go beyond what can be gleaned from transcripts or resumes, helping admissions committees or employers understand the applicant's strengths, achievements, and personal qualities. LORs also validate the information provided by the applicant, adding credibility to their claims. Moreover, they can provide context to any weaknesses or gaps in the application, offering a more holistic view of the candidate. Overall, LORs play a vital role in the decision-making process, helping institutions or organizations assess the applicant's suitability for the program or position and making them an essential part of the application package.
 
 </p>
        </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Common mistake to avoid in Letter of Recommendation </h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Common mistake to avoid in Letter of Recommendation </h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         
  	
 - Being too generic or vague, not providing specific examples or anecdotes
@@ -105,8 +105,8 @@ Hoe to write Letter of Recommendation        </h4>
 - Not following the guidelines or instructions provided by the recipien
 </p>      </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">what make an LOR good  </h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>what make an LOR good  </h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         A good letter of recommendation (LOR) is characterized by several key factors:<br/>
 
 1. <strong>Specificity</strong>: It provides specific examples and anecdotes that illustrate the applicant's qualities, skills, and achievements.<br/>
@@ -125,8 +125,8 @@ Hoe to write Letter of Recommendation        </h4>
 
 9. <strong>Perspective</strong>: It offers a unique perspective on the applicant, based on the writer's personal experience and knowledge of the applicant. <br/>         </p>  </div>
       <div className="mt-4">
-        <h4 className="fw-semibold">Word limit of Letter of Recommendation</h4>
-        <p>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>Word limit of Letter of Recommendation</h4>
+        <p style={{fontFamily:"Gilroy-Regular"}}>
         The word limit for a letter of recommendation (LOR) can vary depending on the institution or organization to which it is being submitted. In general, LORs are typically one to two pages in length, which is roughly 300 to 600 words. However, some institutions may specify a different word limit, so it is important to carefully review the guidelines provided by the recipient. It is important to adhere to the specified word limit, as exceeding it may reflect negatively on the applicant and could result in the LOR being disregarded.
           </p>  </div>
     </div>

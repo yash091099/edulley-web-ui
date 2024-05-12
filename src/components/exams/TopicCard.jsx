@@ -4,8 +4,8 @@ const TopicCard = () => {
   return (
     <div className="course_card mt-0" style={{ backgroundColor: "rgb(243 243 243 / 47%)" }}>
       <div>
-        <h4 className="fw-semibold">Topic</h4>
-        <p>
+        <h4  style={{fontFamily: 'Gilroy-Bold'}}>Topic</h4>
+        <p style={{fontFamily: 'Gilroy-Regular'}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -35,9 +35,9 @@ const TopicCard = () => {
           Aldus PageMaker including versions of Lorem Ipsum.
         </p>
       </div>
-      <div className="mt-4">
-        <h4 className="fw-semibold">Questions and Answers</h4>
-        <p>
+      <div className="mt-4" >
+        <h4 style={{fontFamily: 'Gilroy-Bold'}}>Questions and Answers</h4>
+        <p style={{fontFamily: 'Gilroy-Regular'}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and

@@ -124,17 +124,17 @@ export default function ViewUserDocument() {
       {loading && <CustomLoader />}
       <form onSubmit={handleSubmit}>
         <div className="main-container">
-          <h3 className="heading mt-3">Documents uploaded by Student</h3>
+          <h3 className="heading mt-3" style={{ fontFamily: 'Gilroy-Medium' }}>Documents uploaded by Student</h3>
           <div className="row">
             {Object.entries(documentUrls).map(([docKey, docValue], index) => (
               <div key={index} className="col-md-6 formField" style={{ marginBottom: "20px" }}>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                  <label>{`${docKey}${index < 6 ? '*' : ''}`}</label>
+                  <label style={{ fontFamily: 'Gilroy-Regular' }}>{`${docKey}${index < 6 ? '*' : ''}`}</label>
                   <input
                     type="file"
                     name={docKey}
                     onChange={(e) => handleFileUpload(e, docKey)}
-                    style={{ margin: "10px 0" }}
+                    style={{ margin: "10px 0",fontFamily: 'Gilroy-Regular' }}
                   />
                   {docValue && (
                     <div style={{ width: "100%", marginTop: "10px" }}>

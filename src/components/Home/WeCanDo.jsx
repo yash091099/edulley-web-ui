@@ -9,8 +9,8 @@ const WeCanDo = () => {
   return (
     <div className="what-we-can-do container-fluid">
       <div className="container ">
-        <h1 className="what-we-can-do-title  ">What we can do for you?</h1>
-        <p className="what-we-can-do-description">
+        <h1 className="what-we-can-do-title  " style={{fontFamily: 'Gilroy-Bold'}}>What we can do for you?</h1>
+        <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Regular"}}>
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. <br></br>
          The point of using Lorem Ipsum is that it has a more-or-less normal distribution of

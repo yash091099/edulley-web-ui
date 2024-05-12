@@ -92,40 +92,51 @@ const Academic = () => {
         <>
             {loading ? <CustomLoader /> : null}
             <div className="container mt-4">
-                <div className="d-flex flex-row flex-wrap gap-3">
-                    <button className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
-                        style={activeTab === "apply" ? activeStyle : inactiveStyle}
-                        onClick={() => setActiveTab("apply")}>
-                        Apply to Programs
-                    </button>
-                    <button className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
-                        style={activeTab === "applied" ? activeStyle : inactiveStyle}
-                        onClick={() => setActiveTab("applied")}>
-                        Applied Programs
-                    </button>
-                </div>
+            <div className="d-flex flex-row flex-wrap gap-3">
+    <button 
+        className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
+        style={{
+            ...activeTab === "apply" ? activeStyle : inactiveStyle,
+            fontFamily: "Gilroy-Regular"
+        }}
+        onClick={() => setActiveTab("apply")}
+    >
+        Apply to Programs
+    </button>
+    <button 
+        className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
+        style={{
+            ...activeTab === "applied" ? activeStyle : inactiveStyle,
+            fontFamily: "Gilroy-Regular"
+        }}
+        onClick={() => setActiveTab("applied")}
+    >
+        Applied Programs
+    </button>
+</div>
+
             </div>
             <div className="container">
-                <div className="row justify-content-center p-4 my-3">
+                <div className="row justify-content-center p-4 ">
                     <div className="search_container container scholarship-page">
-                        <h3 className="text-center">Search suitable {activeTab === "apply" ? "Course" : "Application"} for you</h3>
+                        <h3 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>Search suitable {activeTab === "apply" ? "Course" : "Application"} for you</h3>
                         <div className="bg-white rounded section_inner">
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
-                                <input style={{border: 'none'}} className="text-gray-100" placeholder={activeTab === "apply" ? "Course" : "Application"} type="text" name="name" value={filters.name} onChange={handleFilterChange} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder={activeTab === "apply" ? "Course" : "Application"} type="text" name="name" value={filters.name} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={map} />
-                                <input style={{border: 'none'}} className="text-gray-100" placeholder="Level" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="Level" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
-                                <input style={{border: 'none'}} className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
                             </div>
                             <button className="button-content-2 px-4 search_btn ml-3" onClick={handleSearch}>
                                 <FaSearch />
                             </button>
-                            <button className="button-content-2 px-4 search_btn ml-3" onClick={resetFilters}>
+                            <button style={{fontFamily:"Gilroy-Medium"}} className="button-content-2 px-4 search_btn ml-3" onClick={resetFilters}>
                                 Reset
                             </button>
                         </div>
@@ -135,12 +146,12 @@ const Academic = () => {
             <div className="container py-4 course_container">
                 <div className="row align-items-center">
                     <div className="col-auto">
-                        <img src={university_icon} className="img-fluid" alt="" />
+                        <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} src={university_icon} className="img-fluid" alt="" />
                     </div>
                     <div className="col-auto">
                         <h1 className="font-gilroy fw-bold m-0">
-                            <span className="font-gilroy bold page-heading-title" style={{ fontWeight: '900' }}>Shortlisted Courses</span>
-                            <img src={arrow_shortlist} className="img-fluid arrow-image" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" />
+                            <span className="font-gilroy bold page-heading-title" style={{ fontWeight: '900' }}>{activeTab === 'apply' ? 'Courses' : 'Applications'}</span>
+                            <img  src={arrow_shortlist} className="img-fluid arrow-image" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" />
                         </h1>
                     </div>
                 </div>
@@ -163,15 +174,15 @@ const Academic = () => {
                             <div className="right_scholar">
                                 <div className="s_img_card">
                                     <img src={scholar1} alt="" />
-                                    <p className="mt-2">Confused about our Career path?</p>
-                                    <button className="explore-button py-2 fw-light mt-2">
+                                    <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Confused about our Career path?</p>
+                                    <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                                         Explore Career path finder
                                     </button>
                                 </div>
                                 <div className="s_img_card">
                                     <img src={scholar2} alt="" />
-                                    <p className="mt-2">Let’s look at the scholarships available for you</p>
-                                    <button className="explore-button py-2 fw-light mt-2">
+                                    <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Let’s look at the scholarships available for you</p>
+                                    <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                                         Explore All Scholarship
                                     </button>
                                 </div>

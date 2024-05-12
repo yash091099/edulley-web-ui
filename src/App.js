@@ -26,6 +26,7 @@ import { Toaster } from "react-hot-toast";
 import './App.css'
 import SOP from "./Pages/study-abroad/sop";
 import LOR from "./Pages/study-abroad/lor";
+import CourseDetails from "./components/courseDetails";
 
 export const ModalContext = createContext();
 
@@ -77,6 +78,7 @@ function App() {
         <Route path="/refund-policy" element={<RequireAuth><RefundPolicy /></RequireAuth>} />
         <Route path="/contact-us" element={<RequireAuth><ContactUs /></RequireAuth>} />
         <Route path="/profile" element={<RequireAuth><ProfileForm /></RequireAuth>} />
+        <Route path="/course-details" element={<RequireAuth><CourseDetails /></RequireAuth>} />
       </Routes>
       <Toaster
         position="top-right"

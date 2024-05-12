@@ -81,7 +81,7 @@ const Search = () => {
                     <div>
                         <h1 className="font-gilroy fw-bold course-head">
                             <img src={course_icon} className="img-fluid" alt="" />
-                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Courses</span>
+                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontFamily:"Gilroy-Bold"}}>Courses</span>
                         </h1>
                         {/* <p className="what-we-can-do-description">
                             Transforming the landscape of Education with revolutionary technology
@@ -91,7 +91,7 @@ const Search = () => {
         <div className="search_container container">
              
             {loading && <CustomLoader />}
-            <h4 className="text-center fw-semibold mb-4">Search Courses</h4>
+            <h4 className="text-center  mb-4" style={{fontFamily:"Gilroy-SemiBold"}}>Search suitable Course for you</h4>
             <div className="bg-white rounded section_inner">
                 <div className="ps-3">
                     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
@@ -99,7 +99,7 @@ const Search = () => {
                         className="text-gray-100"
                         placeholder="Course"
                         type="text"
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-Medium"}}
                         name="course"
                         value={searchTerm.course}
                         onChange={handleChange}
@@ -113,7 +113,7 @@ const Search = () => {
                         type="text"
                         name="duration"
                         value={searchTerm.duration}
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-Medium"}}
 
                         onChange={handleChange}
                     />
@@ -125,7 +125,7 @@ const Search = () => {
                         placeholder="Level"
                         type="text"
                         name="level"
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-Medium"}}
 
                         value={searchTerm.level}
                         onChange={handleChange}

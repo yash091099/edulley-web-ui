@@ -15,9 +15,9 @@ const StudentCard = ({ image, name, review, stars }) => {
     <div className="student-review-card-what-student">
       <img src={image} alt={name} className="student-image-what-student" />
       <div className="review-content-what-student">
-        <h3 className="student-name-what-student">{name}</h3>
+        <h3 className="student-name-what-student" style={{fontFamily:"Gilroy-Medium"}}>{name}</h3>
         <div className="stars-what-student">{starElements}</div>
-        <p className="student-review-what-student">{review}</p>
+        <p className="student-review-what-student" style={{fontFamily:"Gilroy-Regular"}}>{review}</p>
       </div>
     </div>
   );

@@ -81,7 +81,7 @@ const Search = () => {
         <div className="search_container container">
              
             {loading && <CustomLoader />}
-            <h4 className="text-center fw-semibold mb-4">Search Courses</h4>
+            <h4 className="text-center fw-semibold mb-4" style={{ fontFamily: 'Gilroy-SemiBold' }}>Search Courses</h4>
             <div className="bg-white rounded section_inner">
                 <div className="ps-3">
                     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
@@ -89,7 +89,7 @@ const Search = () => {
                         className="text-gray-100"
                         placeholder="Course"
                         type="text"
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
 
                         name="course"
                         value={searchTerm.course}
@@ -103,7 +103,7 @@ const Search = () => {
                         placeholder="Duration"
                         type="text"
                         name="duration"
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
 
                         value={searchTerm.duration}
                         onChange={handleChange}
@@ -116,7 +116,7 @@ const Search = () => {
                         placeholder="Level"
                         type="text"
                         name="level"
-                        style={{border: 'none'}}
+                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
 
                         value={searchTerm.level}
                         onChange={handleChange}

@@ -62,7 +62,7 @@ const Scholarship = () => {
                     <div>
                         <h1 className="font-gilroy fw-bold">
                             <img src={scholarship_icon} className="img-fluid" alt="" />
-                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Scholarship</span>
+                            <span className="mt-1 ml-2 " style={{fontFamily:"Gilroy-Bold"}} >Scholarship</span>
                         </h1>
                         {/* <p className="what-we-can-do-description">
                             Transforming the landscape of Education with revolutionary technology
@@ -71,13 +71,13 @@ const Scholarship = () => {
                 </div>
       <div className="search_container container scholarship-page">
         
-        <h3 className="text-center mt-2">Search Scholarships</h3>
+        <h3 className="text-center mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Search Scholarships</h3>
         <div className="bg-white rounded section_inner">
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
             <input
               className="text-gray-100 "
-              style={{border: 'none'}}
+              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
               placeholder="Name"
               type="text"
               name="name"
@@ -91,7 +91,7 @@ const Scholarship = () => {
               className="text-gray-100"
               placeholder="Course"
               type="text"
-              style={{border: 'none'}}
+              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
 
               name="course"
               value={filters.course}
@@ -105,7 +105,7 @@ const Scholarship = () => {
               placeholder="University"
               type="text"
               name="university"
-              style={{border: 'none'}}
+              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
 
               value={filters.university}
               onChange={handleFilterChange}
@@ -138,18 +138,18 @@ const Scholarship = () => {
               <div className="right_scholar">
                 <div className="s_img_card">
                   <img src={scholar1} alt="" />
-                  <p className="mt-2">Confused about our Career path?</p>
-                  <button className="explore-button py-2 fw-light mt-2">
-                    Explore Career path finder
+                  <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}> Let’s look at the scholarships available for you</p>
+                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                    Explore all Scholarship
                   </button>
                 </div>
                 <div className="s_img_card">
                   <img src={scholar2} alt="" />
-                  <p className="mt-2">
-                    Let’s look at the scholarships available for you
+                  <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  Confused about our Career path?
                   </p>
-                  <button className="explore-button py-2 fw-light mt-2">
-                    Explore All Scholarship
+                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                    Explore Career path finder
                   </button>
                 </div>
               </div>

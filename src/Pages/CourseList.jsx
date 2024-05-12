@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import CourseListCard from "../components/CourseListCard";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Range, getTrackBackground } from 'react-range';
-import { getCourses } from "../Services/dashboard";
-import {toast} from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import CustomLoader from "../components/loader";
-import course_icon from '../assets/course.png'
+import course_icon from '../assets/course.png';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+import { getCourses } from "../Services/dashboard";
+import { FaRupeeSign } from "react-icons/fa";
 
 const CourseList = () => {
   const location = useLocation();
@@ -15,15 +18,16 @@ const CourseList = () => {
   const [selectedCoursesLevel, setSelectedCoursesLevel] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState([]);
+  const [page, setPage] = useState(1); // Current page
+  const coursesPerPage = 5; // Number of courses per page
 
   const fetchCourses = async () => {
     setLoading(true);
     try {
       const response = await getCourses();
-      let validCourses=response.data?.data;
-      if(location.state?.length){
-
-         validCourses = response.data?.data.filter(course => location.state.includes(course._id));
+      let validCourses = response.data?.data;
+      if (location.state?.length) {
+        validCourses = response.data?.data.filter(course => location.state.includes(course._id));
       }
       setCourses(validCourses);
       setLoading(false);
@@ -31,7 +35,7 @@ const CourseList = () => {
       toast.error('Something went wrong');
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     fetchCourses();
@@ -50,6 +54,7 @@ const CourseList = () => {
         : [...prevSelectedCourses, courseId]
     );
   };
+
   const handleSelectLevel = (courseId) => {
     setSelectedCoursesLevel(prevSelectedCourses =>
       prevSelectedCourses.includes(courseId)
@@ -68,16 +73,22 @@ const CourseList = () => {
   };
 
   const [ieltsScore, setIeltsScore] = useState([6]);
-  const [tuitionFee, setTuitionFee] = useState([20000]);
+  const [tuitionFee, setTuitionFee] = useState([1000]);
   const [compareCourse, setCompareCourse] = useState([]);
+
   const toggleCourseSelection = (course) => {
-    const isAlreadySelected = selectedCourses.find(c => c._id === course._id);
+    const isAlreadySelected = compareCourse.find(c => c === course);
     if (isAlreadySelected) {
-      setCompareCourse(current => current.filter(c => c._id !== course._id));
+      const removeCourseIdFromCompareCourse = compareCourse.filter(c => c !== course);
+      setCompareCourse(removeCourseIdFromCompareCourse);
     } else {
       setCompareCourse(current => [...current, course]);
     }
   };
+
+  useEffect(() => {
+    console.log(compareCourse)
+  }, [compareCourse]);
 
   const handleCompareClick = () => {
     console.log(compareCourse);
@@ -89,72 +100,80 @@ const CourseList = () => {
     }
   };
 
+  // Calculate index of the first and last course for the current page
+  const indexOfLastCourse = page * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+  const handleChangePage = (event, value) => {
+    setPage(value);
+  };
+
   return (
     <div className="container py-5 course_container">
-            <div className="py-4"></div>
-
-       <div className="row">
-                    <div>
-                        <h1 className="font-gilroy fw-bold">
-                            <img src={course_icon} className="img-fluid" alt="" />
-                            <span className="mt-1 ml-2 font-gilroy bold" style={{fontWeight: '900'}}>Courses</span>
-                        </h1>
-                        {/* <p className="what-we-can-do-description">
-                            Transforming the landscape of Education with revolutionary technology
-                        </p> */}
-                    </div>
-                </div>
+      <div className="py-4"></div>
+     
       {loading && <CustomLoader />}
-      <div className="compare_course">
-        <button className="explore-button mt-3 mb-3  fw-bold" onClick={handleCompareClick}>
-          Compare Courses
+      <div className="row">
+        <div className="col-md-8  ">
+        <p style={{ fontFamily: 'Gilroy-Medium' }}>{courses?.length || 0} Courses Found</p>
+
+        </div>
+        <div className="col-md-4">
+        <span style={{ fontFamily: 'Gilroy-Medium', marginTop: "20px", marginRight: "10px" }}>Add five courses to start comparison</span>
+        <button className="explore-button mb-3 " style={{ fontFamily: 'Gilroy-SemiBold' }} onClick={handleCompareClick}>
+          Compare {'>>'}
         </button>
+        </div>
+      
       </div>
       <div>
         <div className="row">
           <div className="col-md-7">
             <div className="left_list">
-              {courses.map((course) => (
-              <CourseListCard key={course._id} course={course} onToggleSelection={toggleCourseSelection} isSelected={compareCourse.some(c => c._id === course._id)} />
-            ))}
+              {currentCourses.map((course) => (
+                <CourseListCard key={course._id} course={course} onToggleSelection={toggleCourseSelection} isSelected={compareCourse.some(c => c === course._id)} />
+              ))}
             </div>
+            <Stack spacing={2}>
+              <Pagination count={Math.ceil(courses.length / coursesPerPage)} page={page} onChange={handleChangePage} />
+            </Stack>
           </div>
           <div className="col-md-5">
+            <span style={{fontFamily:"Gilroy-Bold",fontSize:"22px"}}>Filters</span>
             <div className="right_list">
-              <h5 className="fw-semibold mb-4">Eligibility</h5>
-              <h5 className="fw-semibold mb-2">Universities</h5>
+              <h5 className="mb-2" style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}}>Universities</h5>
               {courses.map((course, index) => (
-                <div className="form-check mb-4" key={index}>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    value="" 
+                <div className="form-check mb-3" key={index}>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
                     id={`university-${index}`}
                     onChange={() => handleSelectCourse(course._id)}
                     checked={selectedCourses.includes(course._id)}
                   />
-                  <label className="form-check-label" htmlFor={`university-${index}`}>
-                    {course.universityName||'--'}
+                  <label className="form-check-label" style={{fontFamily:"Gilroy-Medium"}} htmlFor={`university-${index}`}>
+                    {course.universityName || '--'}
                   </label>
                 </div>
               ))}
-              <h5 className="fw-semibold mb-2">Program Level</h5>
+              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}} className=" mb-2">Program Level</h5>
               {courses.map((course, index) => (
-                <div className="form-check mb-4" key={index}>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    value="" 
+                <div className="form-check mb-3" key={index}>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
                     id={`university-${index}`}
                     onChange={() => handleSelectLevel(course._id)}
                     checked={selectedCoursesLevel.includes(course._id)}
                   />
-                  <label className="form-check-label" htmlFor={`university-${index}`}>
-                    {course.level||'--'}
+                  <label className="form-check-label" style={{fontFamily:"Gilroy-Medium"}} htmlFor={`university-${index}`}> {course.level || '--'}
                   </label>
                 </div>
               ))}
-              <h5 className="fw-semibold mb-4">Tuition Fee</h5>
+              <h5 className=" mb-4" style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}}>Tuition Fee</h5>
               <Range
                 values={tuitionFee}
                 step={1000}
@@ -166,13 +185,13 @@ const CourseList = () => {
                     {...props}
                     style={{
                       ...props.style,
-                      height: '14px',
+                      height: '7px',
                       marginBottom: '19px',
                       display: 'flex',
                       width: '100%',
                       background: getTrackBackground({
                         values: tuitionFee,
-                        colors: ['#ccc', '#548BF4', '#ccc'],
+                        colors: ['#ccc', '#FF5573', '#ccc'],
                         min: 0,
                         max: 50000,
                       }),
@@ -186,8 +205,8 @@ const CourseList = () => {
                     {...props}
                     style={{
                       ...props.style,
-                      height: '35px',
-                      width: '35px',
+                      height: '25px',
+                      width: '25px',
                       borderRadius: '4px',
                       backgroundColor: '#FFF',
                       display: 'flex',
@@ -203,18 +222,18 @@ const CourseList = () => {
                         color: '#fff',
                         fontWeight: 'bold',
                         fontSize: '14px',
-                        fontFamily: 'Arial,Helvetica Neue,Helvetica,sans-serif',
+                        fontFamily: 'Gilroy-Medium',
                         padding: '4px',
                         borderRadius: '4px',
-                        backgroundColor: '#548BF4',
+                        backgroundColor: '#FF5573',
                       }}
                     >
-                      ${tuitionFee[0]}
+                      <p> ${tuitionFee[0]}</p> 
                     </div>
                   </div>
                 )}
               />
-              <button className="btn btn-primary mt-3" onClick={resetFilters}>Reset Filters</button>
+              <button className="btn btn-primary mt-3" style={{fontFamily:"Gilroy-SemiBold"}} onClick={resetFilters}>Reset</button>
             </div>
           </div>
         </div>

@@ -40,14 +40,14 @@ const BlogCard = ({ blogDetails }) => {
 
   return (
     <div className="course_card mt-0" onClick={handleLinkClick}>
-      <h4 className="fw-semibold">
+      <h4 style={{fontFamily:"Gilroy-Bold"}}>
         {capitaliseFirstWord(blogDetails?.heading || '')}
       </h4>
       <p
-        style={{ fontSize: "13px" }}
+      style={{fontFamily:"Gilroy-Regular",color:"#8D98A4"}}
         className="text-secondary d-flex align-items-center gap-2"
       >
-        <CalendarMonth /> {formatDate(blogDetails?.createdAt)}
+        <CalendarMonth  color="#8D98A4" /> {formatDate(blogDetails?.createdAt)}
       </p>
       <img
         style={{ width: "100%", height: "500px" }}
@@ -55,23 +55,25 @@ const BlogCard = ({ blogDetails }) => {
         src={blogDetails?.bannerImage || blog}
         alt="Blog banner"
       />
-      <label className="fw-bold mt-3">Content:</label>
+      <label className="mt-3" style={{fontFamily:"Gilroy-Bold"}}>Content:</label>
       <div
+       style={{fontFamily:"Gilroy-Regular"}}
         className="fw-light blog-content"
         dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       ></div>
       {blogDetails?.quote && (
         <>
-          <label className="fw-bold mt-2">Quote:</label>
+          <label className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>Quote:</label>
           <div
+          style={{fontFamily:"Gilroy-Regular"}}
             className="fw-light blog-quote"
             dangerouslySetInnerHTML={{ __html: sanitizedQuote }}
           ></div>
         </>
       )}
-      <div className="blog-tags">
+      <div className="blog-tags mt-3">
         {blogDetails?.tags.map((tag, index) => (
-          <span className="badge bg-secondary me-2" key={index}>{tag}</span>
+          <span className="badge me-2 p-2" style={{backgroundColor:"#FFF0F0",color:"#000000"}} key={index}>{tag}</span>
         ))}
       </div>
     </div>

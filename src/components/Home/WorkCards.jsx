@@ -5,8 +5,8 @@ const WorkCards = ({ image, title, description }) => {
     <div className="countries">
       <img src={image} alt={title} className="card-image-how-it-work" />
       <div className="card-content-how-it-work">
-        <h6 className="fw-bold">{title}</h6>
-        <p className="card-description">{description}</p>
+        <h6 className="fw-bold" style={{fontFamily:"Gilroy-Medium"}}>{title}</h6>
+        <p className="card-description" style={{fontFamily:"Gilroy-Regular"}}>{description}</p>
       </div>
     </div>
   );

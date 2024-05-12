@@ -7,13 +7,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import faqImg from "../../assets/30576701-7718875-1.svg";
 
 const FAQ = () => {
+  const isFAQPage = window.location.pathname === '/faq';
   return (
     <div className="most-searched-countries-container featured-university-container py-5 p">
      
      <div className="container py-2 course_container">
-            <div className="py-5"></div>
-        <h1 className="what-we-can-do-title"> Frequently Asked Question </h1>
-        <p className="what-we-can-do-description">
+     {isFAQPage && <div className="py-5"></div>}
+        <h1 className="what-we-can-do-title" style={{fontFamily:"Gilroy-Bold "}}> Frequently Asked Question </h1>
+        <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Regular"}}>
           {" "}
           Confused about something? Here is a quick list of FAQs to help you get started. If you still need further assist try getting in touch with out team and we would love to assist you. 
 
@@ -31,7 +32,7 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif",
+                  fontFamily: "Gilroy-Medium ",
                 }}
               >
                 {" "}
@@ -39,7 +40,7 @@ const FAQ = () => {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
+              <Typography sx={{ fontFamily: "Gilroy-Regular" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023
@@ -56,15 +57,15 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif",
-                }}
+                  fontFamily: "Gilroy-Medium" 
+                                }}
               >
                 {" "}
                 How to Enhance Motivation for Better Business leads
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
+              <Typography sx={{  fontFamily: "Gilroy-Regular" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023{" "}
@@ -81,15 +82,14 @@ const FAQ = () => {
                 sx={{
                   fontSize: "20px",
                   fontWeight: "600",
-                  fontFamily: "'Gilroy', sans-serif",
-                }}
+                  fontFamily: "Gilroy-Medium"                 }}
               >
                 {" "}
                 7 Ways Neuromarketing Impact Marketing Campaign
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography sx={{ fontFamily: "'Gilroy', sans-serif" }}>
+              <Typography sx={{  fontFamily: "Gilroy-Regular" }}>
                 Learn how to grow your business and customers to generate huge
                 profits and create awareness for your brand. Best way to grow
                 your business in 2023{" "}

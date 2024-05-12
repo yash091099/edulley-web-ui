@@ -17,17 +17,17 @@ const ProfileForm = () => {
        <Tab.Container className="" id="profile-tabs" activeKey={activeKey} onSelect={handleSelect}>
         <Nav variant="pills" className="flex-row">
           <Nav.Item>
-            <Nav.Link eventKey="profile" style={{ color: activeKey === 'profile' ? '#FF6477' : 'black' }}>
+            <Nav.Link eventKey="profile" style={{ color: activeKey === 'profile' ? '#FF6477' : 'black',fontFamily: 'Gilroy-SemiBold' }}>
               Profile
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="applications" style={{ color: activeKey === 'applications' ? '#FF6477' : 'black' }}>
+            <Nav.Link eventKey="applications" style={{ color: activeKey === 'applications' ? '#FF6477' : 'black' ,fontFamily: 'Gilroy-SemiBold' }}>
               Applications
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="documents" style={{ color: activeKey === 'documents' ? '#FF6477' : 'black' }}>
+            <Nav.Link eventKey="documents" style={{ color: activeKey === 'documents' ? '#FF6477' : 'black',fontFamily: 'Gilroy-SemiBold'  }}>
               Documents
             </Nav.Link>
           </Nav.Item>

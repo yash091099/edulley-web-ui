@@ -61,8 +61,8 @@ const UniversitiesHome = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5">
       <div className="container">
-        <h1 className="what-we-can-do-title">Featured Universities</h1>
-        <p className="what-we-can-do-description">
+        <h1 className="what-we-can-do-title" style={{fontFamily:"Gilroy-Bold"}}>Featured Universities</h1>
+        <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Regular"}}>
         Explore prestigious institutions known for academic excellence and innovative programs. From cutting-edge research facilities to vibrant campus life, these universities 
 offer a world-class education and endless opportunities for growth. Explore some of the best universities here!
         </p>
@@ -84,10 +84,10 @@ offer a world-class education and endless opportunities for growth. Explore some
                   />
                   <div className="card-info">
                     <div>
-                      <h3 className="university-name">
+                      <h3 className="university-name" style={{fontFamily:"Gilroy-Medium"}}>
                         {uni?.universityName || "University Name"}
                       </h3>
-                      <h5 className="university-location">{`${uni.city}, ${uni?.country}`}</h5>
+                      <h5 className="university-location" style={{fontFamily:"Gilroy-Regular"}}>{`${uni.city}, ${uni?.country}`}</h5>
                     </div>
                     <div className="university-logo" style={{ background: "none" }}>
                       <img
