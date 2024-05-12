@@ -40,7 +40,10 @@ const Scholarship = () => {
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSearch = () => {
+  const handleSearch = () => {if(!filters.name && !filters.course && !filters.university){
+    toast.error('Please enter atleast one filter');
+    return;
+  }
     let filteredData = scholarship.filter(item =>
       (filters.name ? item.name.toLowerCase().includes(filters.name.toLowerCase()) : true) &&
       (filters.course ? item.coursesName.toLowerCase().includes(filters.course.toLowerCase()) : true) &&

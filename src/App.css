@@ -118,6 +118,11 @@ a {
   box-shadow: 0px 4px 12px 0px #9999995C;
 }
 
+.active-tab-course{
+  background-color: #FF6477 !important;
+  color: #fff !important;
+}
+
 .image-container {
   width: 70%;
   text-align: right;

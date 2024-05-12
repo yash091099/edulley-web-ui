@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import instituteImage from "../assets/institution-detail.png";
 import studentPerStaf from "../assets/studentPerStaf.png";
 import satisfactionRate from "../assets/satisfactionRate.png";
@@ -10,11 +10,19 @@ import { useLocation } from "react-router-dom";
 import { FaAward } from "react-icons/fa";
 import scholar1 from "../assets/scholarship1.png";
 import scholar2 from "../assets/scholarship2.png";
-
+import CustomLoader from "../components/loader";
+import toast from "react-hot-toast";
+import { getCourses } from "../Services/dashboard";
 import course_icon from "../assets/course.png";
+import time from "../assets/ion_time-outline.png";
+import walletImage from "../assets/solar_wallet-linear.png";
+import ellipse from "../assets/Ellipse.png";
 
 const InstitutionDetail = () => {
   const location = useLocation();
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [activeTab, setActiveTab] = useState("Undergraduate");
   console.log(location.state?.universityDetails, "location.state");
   const backgroundImageUrl =
     location.state?.universityDetails?.bannerImage || instituteImage;
@@ -28,9 +36,27 @@ const InstitutionDetail = () => {
     alignItems: "center",
     color: "white",
   };
-
+  const fetchCourses = async () => {
+    setLoading(true);
+    try {
+        const response = await getCourses();
+        setCourses(response.data.data?.filter(course => course.universityName?.toLowerCase() === location.state?.universityDetails?.universityName?.toLowerCase()) || []);
+        console.log(response.data.data?.filter(course => course.universityName?.toLowerCase() === location.state?.universityDetails?.universityName?.toLowerCase()), "response.data.data");
+        setLoading(false);
+    } catch (error) {
+        toast.error('Something went wrong');
+        setLoading(false);
+    }
+};
+const handleTabClick = (tabName) => {
+  setActiveTab(tabName);
+};
+useEffect(() => {
+    fetchCourses();
+},[])
   return (
     <div>
+      {loading && <CustomLoader />}
       <div className="container-fluid insti_container" style={backgroundStyle}>
         <div
           className="container"
@@ -233,25 +259,68 @@ const InstitutionDetail = () => {
               </span>
             </h1>{" "}
             <div className=" mt-3 gap-3 flex-wrap ">
-              <button
-                className="detail_button  "
-                style={{ fontFamily: "Gilroy-SemiBold" }}
-              >
-                Undergraduate{" "}
-              </button>
-              <button
-                className="detail_button"
-                style={{ fontFamily: "Gilroy-SemiBold" }}
-              >
-                Postgraduate{" "}
-              </button>
-              <button
-                className="detail_button "
-                style={{ fontFamily: "Gilroy-SemiBold" }}
-              >
-                Doctorate{" "}
-              </button>
+        <button
+          className={`detail_button ${activeTab === "Undergraduate" ? "active-tab-course" : ""}`}
+          style={{ fontFamily: "Gilroy-SemiBold" }}
+          onClick={() => handleTabClick("Undergraduate")}
+        >
+          Undergraduate
+        </button>
+        <button
+          className={`detail_button ${activeTab === "Postgraduate" ? "active-tab-course" : ""}`}
+          style={{ fontFamily: "Gilroy-SemiBold" }}
+          onClick={() => handleTabClick("Postgraduate")}
+        >
+          Postgraduate
+        </button>
+        <button
+          className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
+          style={{ fontFamily: "Gilroy-SemiBold" }}
+          onClick={() => handleTabClick("Doctorate")}
+        >
+          Doctorate
+        </button>
+      </div>
+
+            <div className="row">
+
+            {courses?.map((course, index) => {
+    return (
+            <div className="col-md-6 mb-3" key={index}>
+                <div className="course_card mt-0">
+                    <h4 style={{ fontFamily: "Gilroy-Bold" }}>{course?.courseName}</h4>
+                    <h6 style={{ fontFamily: "Gilroy-Medium" }}>
+                        <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />
+                        {course?.universityName}
+                    </h6>
+                    <div className=" gap-2" style={{display:'flex',alignItems:'center'}}>
+                        <div>
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                                <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={walletImage} />
+                                Fees($)
+                            </p>
+                            <p className="hilight-danger" style={{ fontFamily: "Gilroy-SemiBold" }}>
+                                $ {course?.uniqueCourseInfo?.fee}
+                            </p>
+                        </div>
+                        <div className="ml-5">
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                                <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={time} />
+                                Duration
+                            </p>
+                            <p className="hilight-danger"  style={{ fontFamily: "Gilroy-SemiBold" }}>
+                                {course?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]}
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+    );
+})}
+            </div>
+
+                
+         
           </div>
         </div>
         <div className="col-md-3 mt-5">
