@@ -57,10 +57,10 @@ const [loader,setLoader]=useState(false);
       aria-labelledby="contained-modal-title-vcenter"
     >
       <Modal.Header closeButton className="unique-modal-form-header">
-        <Modal.Title id="contained-modal-title-vcenter">Interested in studying abroad with Edulley?</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter" style={{fontFamily:"Gilroy-Bold"}}>Interested in studying abroad with Edulley?</Modal.Title>
       </Modal.Header>
       <Modal.Body className="unique-modal-form-body">
-        <Form onSubmit={handleSubmit} className="unique-modal-form-main">
+        <Form onSubmit={handleSubmit} className="unique-modal-form-main" style={{fontFamily:"Gilroy-Regular"}}>
           <p>Enter your details below and we'll call you back when it suits you.</p>
           <FormGroup className="mb-3">
             <FormControl 

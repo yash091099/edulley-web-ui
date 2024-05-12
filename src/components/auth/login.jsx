@@ -199,12 +199,13 @@ function LoginModal() {
             <div className="col-md-6">
               {!isOtpScreen ? (
                 <>
-                  <h2 className="text-center">{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
+                  <h2 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
                   {isSignUp && (
                     <>
                       <input
                         className="form-control my-3"
                         type="text"
+                        style={{fontFamily:"Gilroy-Regular"}}
                         placeholder="Full Name"
                         value={fullName}
                         onChange={handleFullNameChange}
@@ -213,6 +214,8 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="email"
+                        style={{fontFamily:"Gilroy-Regular"}}
+
                         placeholder="Email"
                         value={email}
                         onChange={handleEmailChange}
@@ -223,12 +226,15 @@ function LoginModal() {
                   <input
                     className="form-control my-3"
                     type="text"
+                    style={{fontFamily:"Gilroy-Regular"}}
+
                     placeholder="Mobile Number"
                     value={mobileNumber}
                     onChange={handleMobileChange}
                   />
                   {errors.mobileNumber && <div className="text-danger">{errors.mobileNumber}</div>}
                   <button
+                  style={{fontFamily:"Gilroy-Medium"}}
                     className="btn btn-primary w-100 my-3"
                     onClick={isSignUp ? handleRegister : handleRequestOtp}
                   >
@@ -236,31 +242,31 @@ function LoginModal() {
                   </button>
                   {isSignUp ? (
                     <>
-                    <div className='w-100 d-flex justify-content-center' >
+                    <div className='w-100 d-flex justify-content-center' style={{fontFamily:"Gilroy-Medium"}}>
 
-                      <p>By Signing up you agree to our <span style={{color:"#00949B", fontWeight: 'bold', cursor: 'pointer'}} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
+                      <p style={{fontFamily:"Gilroy-Regular"}}>By Signing up you agree to our <span style={{color:"#00949B", fontWeight: 'bold', cursor: 'pointer'}} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
                     </div>
                      <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
-                        <span className="mx-2">OR</span>
+                        <span className="mx-2" style={{fontFamily:"Gilroy-Bold"}}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100">
+                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{fontFamily:"Gilroy-Regular"}}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign up with Google
                       </button>
-                      <p className="text-center" onClick={() => setIsSignUp(false)}>Have an account? <strong style={{cursor: 'pointer'}}>LOGIN</strong></p>
+                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{fontFamily:"Gilroy-Regular"}}>Have an account? <strong style={{cursor: 'pointer'}}>LOGIN</strong></p>
                     </>
                   ) : (
                     <>
                       <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
-                        <span className="mx-2">OR</span>
+                        <span className="mx-2" style={{fontFamily:"Gilroy-Bold"}}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn btn-light w-100">
+                      <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{fontFamily:"Gilroy-Regular"}}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign in with Google
                       </button>
-                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)}>
+                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{fontFamily:"Gilroy-Regular"}}>
                         Don't have an account? <strong style={{cursor: 'pointer'}}>SIGN UP</strong>
                       </p>
                     </>
@@ -268,24 +274,25 @@ function LoginModal() {
                 </>
               ) : (
                 <>
-                  <h2 className="text-center">ENTER OTP</h2>
+                  <h2 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>ENTER OTP</h2>
                   <div className="d-flex justify-content-center my-3">
                     {otp.map((digit, index) => (
                       <input
                         className="form-control text-center mx-1"
                         type="text"
+
                         value={digit}
                         onChange={(e) => handleOtpChange(e, index)}
                         key={index}
                         maxLength={1}
-                        style={{ maxWidth: '3rem' }}
+                        style={{ maxWidth: '3rem' , fontFamily:"Gilroy-Regular"}}
                       />
                     ))}
                   </div>
                   {errors.otp && <div className="text-danger text-center">{errors.otp}</div>}
                   <button
                     className="btn btn-primary w-100"
-                    style={{backgroundColor: '#FF6477', color: 'white'}}
+                    style={{backgroundColor: '#FF6477', color: 'white', fontFamily:"Gilroy-Medium"}}
                     onClick={handleSubmitOtp}
                   >
                     Submit
