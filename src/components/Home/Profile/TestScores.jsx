@@ -120,11 +120,12 @@ const [editModeData, setEditModeData] = useState({});
 
       <div className="test-scores-container">
         <div className="overview-container mb-4">
-          <h3>IELTS</h3>
+          <h3 style={{fontFamily:"Gilroy-Medium"}}>IELTS</h3>
           <div className="row">
             <div className="col-md-6 formField">
-              <label>Overall Score<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Overall Score<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="ieltsOverall"
                 placeholder="Enter your overall score"
@@ -133,8 +134,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Date of Exam<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="ieltsDateOfExam"
                 placeholder="Date of Exam"
@@ -143,8 +145,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Quantitative<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Quantitative<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="ieltsQuantitative"
                 placeholder="Enter quantitative score"
@@ -153,8 +156,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Verbal<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Verbal<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="ieltsVerbal"
                 placeholder="Enter verbal score"
@@ -163,8 +167,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="ieltsAnalytical"
                 placeholder="Enter analytical writing score"
@@ -172,9 +177,10 @@ const [editModeData, setEditModeData] = useState({});
                 onChange={handleInputChange}
               />
             </div>
-            <div className="col-md-6 formField">
-              <label>
+            <div className="col-md-6 formField" style={{fontFamily:"Gilroy-Regular"}}>
+              <label style={{fontFamily:"Gilroy-Regular"}}>
                 <input
+                style={{fontFamily:"Gilroy-Regular"}}
                   type="checkbox"
                   name="ieltsYetToTake"
                   className="mr-2"
@@ -183,9 +189,10 @@ const [editModeData, setEditModeData] = useState({});
                 />
                 Yet to take this test
               </label>
-              <label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>
                 <input
                   type="checkbox"
+                  style={{fontFamily:"Gilroy-Regular"}}
                   className="mr-2"
                   name="ieltsLookingForWaiver"
                   checked={testScores.ieltsLookingForWaiver}
@@ -198,11 +205,12 @@ const [editModeData, setEditModeData] = useState({});
         </div>
 
         <div className="overview-container">
-          <h3>GRE</h3>
+          <h3 style={{fontFamily:"Gilroy-Medium"}}>GRE</h3>
           <div className="row">
             <div className="col-md-6 formField">
-              <label>Overall Score<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Overall Score<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="greOverall"
                 placeholder="Enter your overall score"
@@ -211,8 +219,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Date of Exam<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="date"
                 name="greDateOfExam"
                 value={testScores.greDateOfExam}
@@ -220,8 +229,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Quantitative<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Quantitative<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="greQuantitative"
                 placeholder="Enter quantitative score"
@@ -230,8 +240,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Verbal<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Verbal<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="greVerbal"
                 placeholder="Enter verbal score"
@@ -240,8 +251,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
               <input
+              style={{fontFamily:"Gilroy-Regular"}}
                 type="text"
                 name="greAnalytical"
                 placeholder="Enter analytical writing score"
@@ -250,8 +262,9 @@ const [editModeData, setEditModeData] = useState({});
               />
             </div>
             <div className="col-md-6 formField">
-              <label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>
                 <input
+                style={{fontFamily:"Gilroy-Regular"}}
                   type="checkbox"
                   name="greYetToTake"
                   className="mr-2"
@@ -260,8 +273,9 @@ const [editModeData, setEditModeData] = useState({});
                 />
                 Yet to take this test
               </label>
-              <label>
+              <label style={{fontFamily:"Gilroy-Regular"}}>
                 <input
+                style={{fontFamily:"Gilroy-Regular"}}
                   type="checkbox"
                   className="mr-2"
                   name="greLookingForWaiver"
@@ -275,7 +289,7 @@ const [editModeData, setEditModeData] = useState({});
         </div>
         
         <div className="button-container mb-4 mt-3 float-end">
-          <button type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
+          <button style={{fontFamily:"Gilroy-Medium"}} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
         </div>
       </div>
     </form>

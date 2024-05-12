@@ -116,11 +116,12 @@ const [editModeData, setEditModeData] = useState({});
       {loading&&<CustomLoader/>}
 
       <div className="main-container">
-        <h3 className="heading">Work Experience</h3>
+        <h3 className="heading" style={{fontFamily:"Gilroy-Medium"}}>Work Experience</h3>
         <div className="row">
           <div className="col-md-6 formField">
-            <label>Job Title<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Job Title<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="text"
               name="jobTitle"
               placeholder="Enter your job title"
@@ -129,8 +130,9 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Company Name<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Company Name<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="text"
               name="company"
               placeholder="Enter company name"
@@ -139,8 +141,9 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Location<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Location<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="text"
               name="location"
               placeholder="Enter location"
@@ -149,8 +152,9 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Job Summary<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Job Summary<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="text"
               name="jobSummary"
               placeholder="Enter job summary"
@@ -159,8 +163,9 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Joining Date<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Joining Date<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="date"
               name="joiningDate"
               placeholder="Enter joining date"
@@ -169,8 +174,9 @@ const [editModeData, setEditModeData] = useState({});
             />
           </div>
           <div className="col-md-6 formField">
-            <label>Worked Till<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Regular"}}>Worked Till<span style={{ color: 'red' }}>*</span></label>
             <input
+            style={{fontFamily:"Gilroy-Regular"}}
               type="date"
               name="workedTill"
               placeholder="Enter last working day or current"
@@ -180,7 +186,7 @@ const [editModeData, setEditModeData] = useState({});
           </div>
         </div>
         <div className="button-container mb-4 mt-3 float-end">
-        <button type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
+        <button style={{fontFamily:"Gilroy-Medium"}} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
       </div>
       </div>
     </form>

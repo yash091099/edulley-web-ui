@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getUniversities } from "../../Services/dashboard";
 import CustomLoader from "../loader";
 import toast from "react-hot-toast";
@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UniversitiesHome = () => {
+  const navigate=useNavigate();
   const classes = useStyles();
   const [universities, setUniversities] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -69,7 +70,7 @@ offer a world-class education and endless opportunities for growth. Explore some
         <div className={classes.carouselContainer}>
           {universities.map((uni, index) => (
             <div key={index} className={classes.carouselItem}>
-              <Link to="/institution-details">
+              <a className="cursor-pointer" onClick={() => {    navigate("/institution-details", { state: { universityDetails: uni } });}}>
                 <div className="countries uni_card">
                   <img
                     src={uni.bannerImage || defaultLogoImage}
@@ -103,7 +104,7 @@ offer a world-class education and endless opportunities for growth. Explore some
                     </div>
                   </div>
                 </div>
-              </Link>
+              </a>
             </div>
           ))}
         </div>
