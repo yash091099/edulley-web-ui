@@ -249,7 +249,10 @@ useEffect(() => {
                 alt=""
               />
             </div>
-            <h1 className="font-gilroy fw-bold course-head mt-5">
+          
+      </div>
+      <div style={{padding: "25px"}}>
+      <h1 className="font-gilroy fw-bold course-head mt-5">
               <img src={course_icon} className="img-fluid" alt="" />
               <span
                 className="mt-1 ml-2 font-gilroy bold"
@@ -280,8 +283,6 @@ useEffect(() => {
         >
           Doctorate
         </button>
-      </div>
-
             <div className="row">
 
             {courses?.map((course, index) => {
@@ -318,6 +319,9 @@ useEffect(() => {
     );
 })}
             </div>
+      </div>
+      
+    
 
                 
          

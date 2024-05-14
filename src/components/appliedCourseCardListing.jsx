@@ -120,30 +120,30 @@ const AppliedCourseListCard = ({ course }) => {
       <div className="course_head_new" style={{ marginBottom: "10px" }}>
         <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Requirements : {course?.courseId?.requirements?.slice(0, 200) || '--'}</h6>
       </div>
-      <div className="d-flex align-items-center gap-5 mt-4 flex-wrap">
+      <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
         <div>
           <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><span><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={walletImage}
             /></span>Fees</p>
-          <p style={{ color: "#FF6477", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
+          <p className="fw-bold "  style={{ color: "#FF6477", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
-          <p className="fw-bold " style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+          <p style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}
             />Duration</p>
-          <p style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
+          <p className="fw-bold "  style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
-          <p className="fw-bold " style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}
             />Application Fee</p>
-          <p style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
+          <p className="fw-bold "  style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
           <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-SemiBold'  }}>{formatText(course?.status)}</span>
@@ -151,6 +151,30 @@ const AppliedCourseListCard = ({ course }) => {
             <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
         </div>
       </div>
+      <p className="Gilroy-Medium mt-3">Success Prediction</p>
+        <div className="d-flex mt-2 flex-wrap">
+    <div>
+    </div>
+    <div>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
+        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Regular' }}>High</span>
+        </p>
+    </div>
+    <div className="ml-5">
+        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
+        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Regular' }}>High</span>
+        </p>
+    </div>
+    <div className="ml-5">
+        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
+        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
+        </p>
+    </div>
+    
+</div>
     </div>
   );
 };

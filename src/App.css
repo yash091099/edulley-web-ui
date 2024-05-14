@@ -135,7 +135,7 @@ a {
   width: 100%;
 }
 .search_container {
-  background-color: #fff0f5;
+  background-color: #FFF0F0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -604,6 +604,8 @@ p {
   display: flex;
   align-items: center;
   padding-left: 15px;
+  padding-right: 15px;
+  width: fit-content;
 }
 .min_height {
   min-height: 60vh;
@@ -1182,4 +1184,24 @@ input[type="date"] {
   border-radius: 5px;
   width: 65%;
   /* You can customize further based on your design */
+}
+/* .advanced-filter-button {
+  display: block;
+  width: 200px;
+  height: 50px;
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  color: #FF6477;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #FF6477;
+  line-height: 50px;
+  font-family: 'Gilroy-Medium';
+  cursor: pointer;
+} */
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+  border: 2px solid #FF6477 !important;
 }

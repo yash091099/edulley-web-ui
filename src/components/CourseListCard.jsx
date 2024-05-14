@@ -92,12 +92,12 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
         </p>
       </div>
       <div className="row">
-        <div className="course_head_new col-md-4">
+        <div className="course_head_new ">
           <h6 className="p-0 m-0">
             Level : {course?.level?.slice(0, 50) || "--"}
           </h6>
         </div>
-        <div className="course_head_new col-md-4 ml-3">
+        <div className="course_head_new ml-3">
           <h6 className="p-0 m-0">
             Rank : {universities?.find((uni) => uni?.universityName === course?.universityName)?.ranking?.rank || "--"}
           </h6>
