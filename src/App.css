@@ -1210,3 +1210,9 @@ input[type=checkbox], input[type=radio] {
 element {
   border: 2px solid #FF5573;
 }
+
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: #FF6477 !important;
+  border-radius: 10px !important;
+  margin-top: 5px !important;
+}

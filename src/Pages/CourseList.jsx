@@ -181,22 +181,20 @@ const CourseList = () => {
                   </label>
                 </div>
               ))}
-              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">Program Level</h5>
-              {courses.map((course, index) => (
-                <div className="form-check mb-3" key={index}>
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id={`university-${index}`}
-                    onChange={() => handleSelectLevel(course._id)}
-                    checked={selectedCoursesLevel.includes(course._id)}
-                  />
-                  <label className="form-check-label" style={{fontFamily:"Gilroy-Medium"}} htmlFor={`university-${index}`}> {course.level || '--'}
-                  </label>
-                </div>
-              ))}
-              <h5 className=" mb-4" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Tuition Fee</h5>
+                 <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">English Proficiency Exam</h5>
+                 <select
+            className="form-select mb-3"
+            style={{ fontFamily: 'Gilroy-Medium' }}
+            value={sortOption}
+            onChange={handleSortChange}
+        >
+            <option value="Relevance">IELTS</option>
+            <option value="Relevance">EXAM 1</option>
+            <option value="Relevance">EXAM 2</option>
+            <option value="Relevance">...</option>
+         
+        </select>
+                 <h5 className=" mb-5" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Tuition Fee</h5>
               <Range
                 values={tuitionFee}
                 step={1000}
@@ -256,6 +254,23 @@ const CourseList = () => {
                   </div>
                 )}
               />
+              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">Program Level</h5>
+              {courses.map((course, index) => (
+                <div className="form-check mb-3" key={index}>
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id={`university-${index}`}
+                    onChange={() => handleSelectLevel(course._id)}
+                    checked={selectedCoursesLevel.includes(course._id)}
+                  />
+                  <label className="form-check-label" style={{fontFamily:"Gilroy-Medium"}} htmlFor={`university-${index}`}> {course.level || '--'}
+                  </label>
+                </div>
+              ))}
+           
+           
               <button className="btn btn-primary mt-3" style={{fontFamily:"Gilroy-SemiBold"}} onClick={resetFilters}>Reset</button>
             </div>
           </div>

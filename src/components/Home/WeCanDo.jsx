@@ -24,9 +24,9 @@ const WeCanDo = () => {
             zIndex: "-1"
           }} 
         />
-        <p className="what-we-can-do-description" style={{ fontFamily: "Gilroy-Regular" }}>
+        <p className="what-we-can-do-description" style={{ fontFamily: "Gilroy-Medium" }}>
           It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. <br></br>
+          readable content of a page when looking at its layout. 
           The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
           letters, as opposed to using 'Content here
         </p>
