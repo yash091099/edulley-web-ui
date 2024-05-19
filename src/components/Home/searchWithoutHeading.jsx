@@ -96,29 +96,30 @@ const Search = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="ps-3">
-                    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-                    <input
-                        className="text-gray-100"
-                        placeholder="Duration"
-                        type="text"
-                        name="duration"
-                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
-
-                        value={searchTerm.duration}
-                        onChange={handleChange}
-                    />
-                </div>
+             
                 <div className="ps-3">
                     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
                     <input
                         className="text-gray-100"
-                        placeholder="Level"
+                        placeholder="Intake"
                         type="text"
                         name="level"
                         style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
 
                         value={searchTerm.level}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="ps-3">
+                    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
+                    <input
+                        className="text-gray-100"
+                        placeholder="Year"
+                        type="text"
+                        name="duration"
+                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
+
+                        value={searchTerm.duration}
                         onChange={handleChange}
                     />
                 </div>

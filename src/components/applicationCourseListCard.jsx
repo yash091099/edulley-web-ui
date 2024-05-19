@@ -64,7 +64,7 @@ const navigate=useNavigate();
             alt=""
             src={walletImage}
         />Fees</p>
-        <p className="font-weight-bold" style={{color:"#FF6477", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee || '--'} / year</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee || '--'} / year</p>
     </div>
     <div>
         <p style={{color:"#575656",fontFamily:"Gilroy-Regular"}}><img
@@ -72,7 +72,7 @@ const navigate=useNavigate();
             alt=""
             src={time}
         />Duration</p>
-        <p className="font-weight-bold" style={{color:"#FF6477", fontFamily: "Gilroy-SemiBold"}}>{course?.uniqueCourseInfo?.duration || '--'} years</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}>{course?.uniqueCourseInfo?.duration || '--'} years</p>
     </div>
     <div>
         <p style={{color:"#575656",fontFamily:"Gilroy-Regular"}}><img
@@ -80,16 +80,16 @@ const navigate=useNavigate();
             alt=""
             src={walletImage}
         />Application Fee</p>
-        <p className="font-weight-bold" style={{color:"#FF6477", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.applicationFee || '--'}</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.applicationFee || '--'}</p>
     </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
     <button
             style={{
               fontFamily: "Gilroy-SemiBold",
-              color: "#FF6477",
+              color: "#FF5573",
               padding: "7px",
               borderRadius: "8px",
-              border: "1px solid #FF6477",
+              border: "1px solid #FF5573",
               background: "#fff",
             }}
             onClick={() => navigate('/course-details', { state: course })}
@@ -105,19 +105,19 @@ const navigate=useNavigate();
     </div>
     <div>
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>

@@ -17,17 +17,17 @@ const ScholarshipCard = ({scholarship}) => {
       <div className="inner_card gap-2">
         <div>
           <p className="text-secondary" style={{fontFamily:"Gilroy-Regular"}}>Amount</p>
-          <p className="hilight-danger " style={{fontFamily:"Gilroy-SemiBold"}}>$ {scholarship?.amount}</p>
+          <p className="hilight-danger " style={{fontFamily:"Gilroy-Medium"}}>$ {scholarship?.amount}</p>
         </div>
         <div>
           <p className="text-secondary" style={{fontFamily:"Gilroy-Regular"}}>Deadline</p>
           {/* <p className="hilight-danger">July 07, 2024</p> */}
-          <p className="hilight-danger"  style={{fontFamily:"Gilroy-SemiBold"}}>{scholarship?.deadline?.split('T')[0]}</p>
+          <p className="hilight-danger"  style={{fontFamily:"Gilroy-Medium"}}>{scholarship?.deadline?.split('T')[0]}</p>
         </div>
        
         <div>
           <p className=" text-secondary" style={{fontFamily:"Gilroy-Regular"}}>Course</p>
-          <p className="hilight-danger"  style={{fontFamily:"Gilroy-SemiBold"}}>{scholarship?.coursesName}</p>
+          <p className="hilight-danger"  style={{fontFamily:"Gilroy-Medium"}}>{scholarship?.coursesName}</p>
         </div>
       </div>
     </div>

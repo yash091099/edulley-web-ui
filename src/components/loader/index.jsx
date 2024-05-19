@@ -6,7 +6,7 @@ const CustomLoader = () => {
     <div className="loader-container">
       <div className="backdrop" />
       <div className="loader">
-        <AtomSpinner color="#FF6477" />
+        <AtomSpinner color="#FF5573" />
       </div>
     </div>
   );

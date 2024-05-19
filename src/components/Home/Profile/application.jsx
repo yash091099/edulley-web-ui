@@ -21,7 +21,7 @@ const Academic = () => {
     const [filteredCourses, setFilteredCourses] = useState([]);
     const [filteredApplications, setFilteredApplications] = useState([]);
     const [loading, setLoading] = useState(false);
-    const activeStyle = { backgroundColor: '#FF6477', color: 'white' };
+    const activeStyle = { backgroundColor: '#FF5573', color: 'white' };
     const inactiveStyle = { backgroundColor: 'white', color: 'black' };
 
     const fetchCourses = async () => {

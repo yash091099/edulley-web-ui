@@ -20,6 +20,11 @@ const CourseList = () => {
   const [filter, setFilter] = useState([]);
   const [page, setPage] = useState(1); // Current page
   const coursesPerPage = 5; // Number of courses per page
+  const [sortOption, setSortOption] = useState('');
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+  }
+
 
   const fetchCourses = async () => {
     setLoading(true);
@@ -114,19 +119,37 @@ const CourseList = () => {
       <div className="py-4"></div>
      
       {loading && <CustomLoader />}
-      <div className="row">
-        <div className="col-md-8  ">
+      <div className="row mb-4">
+    <div className="col-md-9 d-flex align-items-center">
         <p style={{ fontFamily: 'Gilroy-Medium' }}>{courses?.length || 0} Courses Found</p>
-
-        </div>
-        <div className="col-md-4">
-        <span style={{ fontFamily: 'Gilroy-Medium', marginTop: "20px", marginRight: "10px" }}>Add five courses to start comparison</span>
-        <button className="explore-button mb-3 " style={{ fontFamily: 'Gilroy-SemiBold' }} onClick={handleCompareClick}>
-          Compare {'>>'}
+    </div>
+    <div className="col-md-3 d-flex justify-content-end align-items-center">
+        <span style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px',width:"80px" }}>Sort by</span>
+        <select
+            className="form-select"
+            style={{ fontFamily: 'Gilroy-Medium' }}
+            value={sortOption}
+            onChange={handleSortChange}
+        >
+            <option value="Relevance">Relevance</option>
+            <option value="Deadline">Deadline</option>
+            <option value="FeeHighToLow">Fee Amount (High to Low)</option>
+            <option value="FeeLowToHigh">Fee Amount (Low to High)</option>
+            <option value="TopRated">Top Rated</option>
+            <option value="Applications">No. of Applications</option>
+        </select>
+    </div>
+</div>
+<div className="row">
+    <div className="col-md-12 d-flex justify-content-end align-items-center">
+        {/* <span style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Add five courses to start comparison</span> */}
+        <button className="explore-button mb-3" style={{ fontFamily: 'Gilroy-SemiBold' }} onClick={handleCompareClick}>
+            Compare {'>>'}
         </button>
-        </div>
-      
-      </div>
+    </div>
+</div>
+
+
       <div>
         <div className="row">
           <div className="col-md-7">
@@ -142,7 +165,7 @@ const CourseList = () => {
           <div className="col-md-5">
             <span style={{fontFamily:"Gilroy-Bold",fontSize:"22px"}}>Filters</span>
             <div className="right_list">
-              <h5 className="mb-2" style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}}>Universities</h5>
+              <h5 className="mb-2" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Universities</h5>
               {courses.map((course, index) => (
                 <div className="form-check mb-3" key={index}>
                   <input
@@ -158,7 +181,7 @@ const CourseList = () => {
                   </label>
                 </div>
               ))}
-              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}} className=" mb-2">Program Level</h5>
+              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">Program Level</h5>
               {courses.map((course, index) => (
                 <div className="form-check mb-3" key={index}>
                   <input
@@ -173,7 +196,7 @@ const CourseList = () => {
                   </label>
                 </div>
               ))}
-              <h5 className=" mb-4" style={{fontFamily:"Gilroy-SemiBold",color:"#FF6477"}}>Tuition Fee</h5>
+              <h5 className=" mb-4" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Tuition Fee</h5>
               <Range
                 values={tuitionFee}
                 step={1000}

@@ -7,19 +7,21 @@ import { verifyPhoneNumber, generatePhoneOtp, registerUser } from '../../Service
 import { toast } from 'react-hot-toast';
 import CustomLoader from '../loader';
 import { useGoogleLogin } from "@react-oauth/google";
+import logo from "../../assets/navbar-logo@2x.png";
 import axios from "axios";
+import OTPInput from "otp-input-react";
+// import "otp-input-react/build/index.css";
 
 Modal.setAppElement('#root');
 
 function LoginModal() {
-
   useEffect(() => {
     let _user = JSON.parse(localStorage.getItem("_u"));
-    if(_user?.token){
+    if (_user?.token) {
       navigate("/");
     }
-    
-  },[])
+  }, []);
+  
   const navigate = useNavigate();
   const [modalIsOpen, setIsModalOpen] = useState(true);
   const [isOtpScreen, setIsOtpScreen] = useState(false);
@@ -27,7 +29,7 @@ function LoginModal() {
   const [mobileNumber, setMobileNumber] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState(new Array(4).fill(''));
+  const [otp, setOtp] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -42,7 +44,7 @@ function LoginModal() {
     } else if (mobileNumber.length !== 10) {
       newErrors.mobileNumber = 'Mobile number must be 10 digits';
     }
-    if (isOtpScreen && otp.join('').length !== 4) newErrors.otp = 'OTP must be 4 digits';
+    if (isOtpScreen && otp.length !== 4) newErrors.otp = 'OTP must be 4 digits';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -73,11 +75,9 @@ function LoginModal() {
     }
   };
 
-  const handleOtpChange = (e, index) => {
-    const newOtp = [...otp];
-    newOtp[index] = e.target.value.slice(0, 1);
-    setOtp(newOtp);
-    if (newOtp.join('').length === 4) {
+  const handleOtpChange = (otp) => {
+    setOtp(otp);
+    if (otp.length === 4) {
       setErrors((prevErrors) => ({ ...prevErrors, otp: '' }));
     }
   };
@@ -103,47 +103,41 @@ function LoginModal() {
   const handleSubmitOtp = async () => {
     if (!validateFields()) return;
     setIsLoading(true);
-  
+
     try {
       const response = await verifyPhoneNumber({
-        otp: otp.join(''),
+        otp: otp,
         phoneNumber: mobileNumber,
         countryCode: "+91"
       });
-  console.log(response,'---response---')
-      // Check if the error flag in the response is false, indicating a successful verification
+      console.log(response, '---response---')
       if (!response?.data?.data?.error) {
         const _u = response?.data?.data?.user;
         if (_u) {
-          _u.token = response?.data?.data?.token;  // Ensure the token is assigned to the user object
-          localStorage.setItem('_u', JSON.stringify(_u));  // Store the user data in local storage
-          
-
-          navigate('');  // Navigate to the home page or dashboard
-          window.location.reload()
+          _u.token = response?.data?.data?.token;
+          localStorage.setItem('_u', JSON.stringify(_u));
+          navigate('');
+          window.location.reload();
           toast.success('Logged in successfully');
         }
       } else {
-        // Error handling based on the error message provided in the response
         toast.error(response.message || 'Failed to verify OTP');
       }
     } catch (error) {
       console.error('Error submitting OTP', error);
-      // Show a more specific error message if available within error.response.data
       toast.error((error.response && error.response.data && error.response.data.message) || 'Failed to verify OTP');
     } finally {
       setIsLoading(false);
     }
   };
-  
-  
+
   const handleRegister = async () => {
     if (!validateFields()) return;
     setIsLoading(true);
     try {
       let response = await registerUser({ fullName, countryCode: "+91", phoneNumber: mobileNumber, email });
       if (!response.error) {
-        setIsSignUp(false); // Transition to login after registration
+        setIsSignUp(false);
         toast.success('Registered successfully. Please log in.');
       } else {
         toast.error(response.message);
@@ -170,10 +164,7 @@ function LoginModal() {
             }
           )
           .then((res) => {
-            console.log(res.data,'----------------------google response');
-            // googleResponse=res.data;
-            // googleLogin=true;
-            // CheckUser();
+            console.log(res.data, '----------------------google response');
           })
           .catch((err) => console.log(err));
       }
@@ -194,18 +185,19 @@ function LoginModal() {
         <div className="container">
           <div className="row justify-content-center align-items-center">
             <div className="col-md-6 d-none d-md-block">
+              <img className="logo mb-5" alt="Home" src={logo} />
               <img src={loginImage} alt="Login" className="img-fluid" />
             </div>
             <div className="col-md-6">
               {!isOtpScreen ? (
                 <>
-                  <h2 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
+                  <h2 className="text-center" style={{ fontFamily: "Gilroy-SemiBold" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
                   {isSignUp && (
                     <>
                       <input
                         className="form-control my-3"
                         type="text"
-                        style={{fontFamily:"Gilroy-Regular"}}
+                        style={{ fontFamily: "Gilroy-Regular" , boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px"}}
                         placeholder="Full Name"
                         value={fullName}
                         onChange={handleFullNameChange}
@@ -214,8 +206,7 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="email"
-                        style={{fontFamily:"Gilroy-Regular"}}
-
+                        style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" }}
                         placeholder="Email"
                         value={email}
                         onChange={handleEmailChange}
@@ -223,80 +214,95 @@ function LoginModal() {
                       {errors.email && <div className="text-danger">{errors.email}</div>}
                     </>
                   )}
-                  <input
-                    className="form-control my-3"
-                    type="text"
-                    style={{fontFamily:"Gilroy-Regular"}}
-
-                    placeholder="Mobile Number"
-                    value={mobileNumber}
-                    onChange={handleMobileChange}
-                  />
+                  <div className="input-group my-3">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text" style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" }}>+91</span>
+                    </div>
+                    <input
+                      className="form-control"
+                      type="text"
+                      style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" ,color:"#000000"}}
+                      placeholder="Enter your Mobile Number"
+                      value={mobileNumber}
+                      onChange={handleMobileChange}
+                    />
+                  </div>
                   {errors.mobileNumber && <div className="text-danger">{errors.mobileNumber}</div>}
+                  <div style={{display:'flex',justifyContent:'center'}}>
+
                   <button
-                  style={{fontFamily:"Gilroy-Medium"}}
-                    className="btn btn-primary w-100 my-3"
+                    style={{ fontFamily: "Gilroy-Medium",width:"180px !important" }}
+                    className="btn btn-primary w-100 my-3 auth-buttons"
                     onClick={isSignUp ? handleRegister : handleRequestOtp}
                   >
                     {isSignUp ? 'SIGN UP >>' : 'Request OTP >>'}
                   </button>
+                  </div>
                   {isSignUp ? (
                     <>
-                    <div className='w-100 d-flex justify-content-center' style={{fontFamily:"Gilroy-Medium"}}>
-
-                      <p style={{fontFamily:"Gilroy-Regular"}}>By Signing up you agree to our <span style={{color:"#00949B", fontWeight: 'bold', cursor: 'pointer'}} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
-                    </div>
-                     <div className="d-flex align-items-center justify-content-center my-2">
+                      <div className='w-100 d-flex justify-content-center' style={{ fontFamily: "Gilroy-Medium" }}>
+                        <p style={{ fontFamily: "Gilroy-Regular" }}>By Signing up you agree to our <span style={{ color: "#00949B", fontWeight: 'bold', cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
+                      </div>
+                      <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
-                        <span className="mx-2" style={{fontFamily:"Gilroy-Bold"}}>OR</span>
+                        <span className="mx-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{fontFamily:"Gilroy-Regular"}}>
+                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{ fontFamily: "Gilroy-Regular",color:"#000000" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign up with Google
                       </button>
-                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{fontFamily:"Gilroy-Regular"}}>Have an account? <strong style={{cursor: 'pointer'}}>LOGIN</strong></p>
+                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Regular" }}>Have an account? <strong style={{ cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
                     </>
                   ) : (
                     <>
                       <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
-                        <span className="mx-2" style={{fontFamily:"Gilroy-Bold"}}>OR</span>
+                        <span className="mx-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{fontFamily:"Gilroy-Regular"}}>
+                      <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{ fontFamily: "Gilroy-Regular" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign in with Google
                       </button>
-                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{fontFamily:"Gilroy-Regular"}}>
-                        Don't have an account? <strong style={{cursor: 'pointer'}}>SIGN UP</strong>
+                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-SemiBold" }}>
+                        Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573" }}>SIGN UP</strong>
                       </p>
                     </>
                   )}
                 </>
               ) : (
                 <>
-                  <h2 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>ENTER OTP</h2>
+                  <h2 className="text-center" style={{ fontFamily: "Gilroy-SemiBold" }}>ENTER OTP</h2>
                   <div className="d-flex justify-content-center my-3">
-                    {otp.map((digit, index) => (
-                      <input
-                        className="form-control text-center mx-1"
-                        type="text"
-
-                        value={digit}
-                        onChange={(e) => handleOtpChange(e, index)}
-                        key={index}
-                        maxLength={1}
-                        style={{ maxWidth: '3rem' , fontFamily:"Gilroy-Regular"}}
-                      />
-                    ))}
+                    <OTPInput
+                      value={otp}
+                      onChange={handleOtpChange}
+                      autoFocus
+                      OTPLength={4}
+                      otpType="number"
+                      disabled={false}
+                      secure
+                      inputClassName="otp-input"
+                      inputStyles={{
+                        width: "3rem",
+                        height: "3rem",
+                        margin: "0 0.5rem",
+                        fontSize: "2rem",
+                        borderRadius: 4,
+                        border: "1px solid rgba(0,0,0,0.3)"
+                      }}
+                    />
                   </div>
                   {errors.otp && <div className="text-danger text-center">{errors.otp}</div>}
+                  <div style={{display:'flex',justifyContent:'center'}}>
+
                   <button
-                    className="btn btn-primary w-100"
-                    style={{backgroundColor: '#FF6477', color: 'white', fontFamily:"Gilroy-Medium"}}
+                    className="btn btn-primary w-100 my-3 auth-buttons"
+                    style={{ backgroundColor: '#FF5573', color: 'white', fontFamily: "Gilroy-Medium",width:"180px !important" }}
                     onClick={handleSubmitOtp}
                   >
                     Submit
                   </button>
+                  </div>
                 </>
               )}
             </div>

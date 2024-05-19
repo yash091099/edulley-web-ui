@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import instituteImage from "../assets/institution-detail.png";
 import studentPerStaf from "../assets/studentPerStaf.png";
 import satisfactionRate from "../assets/satisfactionRate.png";
@@ -6,7 +7,6 @@ import fullTimeStudents from "../assets/fullTimeStudents.png";
 import rating from "../assets/trophy.png";
 import internationalStudent from "../assets/internationalStudent.png";
 import award from "../assets/award.svg";
-import { useLocation } from "react-router-dom";
 import { FaAward } from "react-icons/fa";
 import scholar1 from "../assets/scholarship1.png";
 import scholar2 from "../assets/scholarship2.png";
@@ -20,10 +20,10 @@ import ellipse from "../assets/Ellipse.png";
 
 const InstitutionDetail = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("Undergraduate");
-  console.log(location.state?.universityDetails, "location.state");
   const backgroundImageUrl =
     location.state?.universityDetails?.bannerImage || instituteImage;
   const backgroundStyle = {
@@ -35,86 +35,114 @@ const InstitutionDetail = () => {
     display: "flex",
     alignItems: "center",
     color: "white",
+    marginBottom: "12px",
   };
   const fetchCourses = async () => {
     setLoading(true);
     try {
-        const response = await getCourses();
-        setCourses(response.data.data?.filter(course => course.universityName?.toLowerCase() === location.state?.universityDetails?.universityName?.toLowerCase()) || []);
-        console.log(response.data.data?.filter(course => course.universityName?.toLowerCase() === location.state?.universityDetails?.universityName?.toLowerCase()), "response.data.data");
-        setLoading(false);
+      const response = await getCourses();
+      setCourses(
+        response.data.data?.filter(
+          (course) =>
+            course.universityName?.toLowerCase() ===
+            location.state?.universityDetails?.universityName?.toLowerCase()
+        ) || []
+      );
+      setLoading(false);
     } catch (error) {
-        toast.error('Something went wrong');
-        setLoading(false);
+      toast.error("Something went wrong");
+      setLoading(false);
     }
-};
-const handleTabClick = (tabName) => {
-  setActiveTab(tabName);
-};
-useEffect(() => {
+  };
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+  useEffect(() => {
     fetchCourses();
-},[])
+  }, []);
+
   return (
     <div>
       {loading && <CustomLoader />}
-      <div className="container-fluid insti_container" style={backgroundStyle}>
-        <div
-          className="container"
-          style={{ maxWidth: "82vw", marginTop: "400px" }}
-        >
-          <div className="row align-items-center justify-content-between">
-            <div className="col d-flex align-items-center">
-              <div className="university-logo-circle mr-3">
-                <img
-                  src={location.state?.universityDetails?.universityLogo}
-                  alt="University Logo"
-                  style={{ width: "60px", height: "60px", borderRadius: "50%" }}
-                />
+      <div className="container-fluid">
+      <div style={{ marginBottom: "12px", paddingTop: "70px"}}>
+          <nav aria-label="breadcrumb" >
+            <ol className="breadcrumb" style={{ fontFamily: "Gilroy-Medium" }}>
+              <li className="breadcrumb-item">
+                <Link to="/" style={{ textDecoration: "none", color: "#000" }}>
+                  Home
+                </Link>
+              </li>
+              <li className="breadcrumb-item">
+                <Link to="/institutions" style={{ textDecoration: "none", color: "#000" }}>
+                  Institutions
+                </Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                {location.state?.universityDetails?.universityName}
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <div className="insti_container" style={backgroundStyle}>
+          <div
+            className="container"
+            style={{ maxWidth: "82vw", marginTop: "400px" }}
+          >
+            <div className="row align-items-center justify-content-between">
+              <div className="col d-flex align-items-center">
+                <div className="university-logo-circle mr-3">
+                  <img
+                    src={location.state?.universityDetails?.universityLogo}
+                    alt="University Logo"
+                    style={{ width: "60px", height: "60px", borderRadius: "50%" }}
+                  />
+                </div>
+                <div>
+                  <h1 style={{ fontFamily: "Gilroy-Bold" }}>
+                    {location.state?.universityDetails?.universityName}
+                  </h1>
+                  <h3 style={{ fontFamily: "Gilroy-Medium" }}>
+                    {location.state?.universityDetails?.city},{" "}
+                    {location.state?.universityDetails?.country}
+                  </h3>
+                </div>
               </div>
-              <div>
-                <h1 style={{ fontFamily: "Gilroy-Bold" }}>
-                  {location.state?.universityDetails?.universityName}
-                </h1>
-                <h3 style={{ fontFamily: "Gilroy-Medium" }}>
-                  {location.state?.universityDetails?.city},{" "}
-                  {location.state?.universityDetails?.country}
-                </h3>
+              <div className="col-auto">
+                <button
+                  style={{ fontFamily: "Gilroy-Medium" }}
+                  onClick={() => {
+                    if (location.state?.universityDetails?.brochure)
+                      window.open(
+                        location.state?.universityDetails?.brochure,
+                        "_blank"
+                      );
+                  }}
+                  className="explore-button mt-3 fw-bold"
+                >
+                  Download Brochure {">>"}
+                </button>
               </div>
-            </div>
-            <div className="col-auto">
-              <button
-                style={{ fontFamily: "Gilroy-Medium" }}
-                onClick={() => {
-                  if (location.state?.universityDetails?.brochure)
-                    window.open(
-                      location.state?.universityDetails?.brochure,
-                      "_blank"
-                    );
-                }}
-                className="explore-button mt-3 fw-bold"
-              >
-                Download Brochure {">>"}
-              </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="row mr-0 ml-0 ">
+      <div className="row mr-0 ml-0">
         <div className="col-md-9">
-          <div className="container py-5">
+          <div className="container uni-details py-5">
             <h2 className="mt-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
               Overview
             </h2>
             <p style={{ fontFamily: "Gilroy-Regular" }}>
               {location.state?.universityDetails?.overview}
             </p>
-            <h2 className="mt-3 " style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
               Admission Requirements
             </h2>
             <p style={{ fontFamily: "Gilroy-Regular" }}>
               {location.state?.universityDetails?.admissionReq}
             </p>
-            <h2 className="mt-5  " style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-5" style={{ fontFamily: "Gilroy-SemiBold" }}>
               University Stats
             </h2>
             <div className="d-flex gap-3 flex-wrap award_imgs">
@@ -170,7 +198,7 @@ useEffect(() => {
                     style={{
                       fontSize: "35px",
                       lineHeight: "48px",
-                      color: "#FF6477",
+                      color: "#FF5573",
                       fontStyle: "normal",
                       fontFamily: "Gilroy-Bold",
                     }}
@@ -182,9 +210,9 @@ useEffect(() => {
                     style={{
                       fontSize: "18px",
                       lineHeight: "22px",
-                      color: "#FF6477",
+                      color: "#FF5573",
                       fontStyle: "normal",
-                      fontFamily: 'Gilroy-Medium  , borderRadious:"16px"',
+                      fontFamily: "Gilroy-Medium",
                     }}
                   >
                     {item.text}
@@ -249,10 +277,9 @@ useEffect(() => {
                 alt=""
               />
             </div>
-          
-      </div>
-      <div style={{padding: "25px"}}>
-      <h1 className="font-gilroy fw-bold course-head mt-5">
+          </div>
+          <div style={{ padding: "25px" }}>
+            <h1 className="font-gilroy fw-bold course-head mt-5">
               <img src={course_icon} className="img-fluid" alt="" />
               <span
                 className="mt-1 ml-2 font-gilroy bold"
@@ -260,75 +287,96 @@ useEffect(() => {
               >
                 Courses
               </span>
-            </h1>{" "}
-            <div className=" mt-3 gap-3 flex-wrap ">
-        <button
-          className={`detail_button ${activeTab === "Undergraduate" ? "active-tab-course" : ""}`}
-          style={{ fontFamily: "Gilroy-SemiBold" }}
-          onClick={() => handleTabClick("Undergraduate")}
-        >
-          Undergraduate
-        </button>
-        <button
-          className={`detail_button ${activeTab === "Postgraduate" ? "active-tab-course" : ""}`}
-          style={{ fontFamily: "Gilroy-SemiBold" }}
-          onClick={() => handleTabClick("Postgraduate")}
-        >
-          Postgraduate
-        </button>
-        <button
-          className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
-          style={{ fontFamily: "Gilroy-SemiBold" }}
-          onClick={() => handleTabClick("Doctorate")}
-        >
-          Doctorate
-        </button>
-            <div className="row">
-
-            {courses?.map((course, index) => {
-    return (
-            <div className="col-md-6 mb-3" key={index}>
-                <div className="course_card mt-0">
-                    <h4 style={{ fontFamily: "Gilroy-Bold" }}>{course?.courseName}</h4>
-                    <h6 style={{ fontFamily: "Gilroy-Medium" }}>
-                        <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />
-                        {course?.universityName}
-                    </h6>
-                    <div className=" gap-2" style={{display:'flex',alignItems:'center'}}>
-                        <div>
+            </h1>
+            <div className="mt-3 gap-3 flex-wrap">
+              <button
+                className={`detail_button ${activeTab === "Undergraduate" ? "active-tab-course" : ""}`}
+                style={{ fontFamily: "Gilroy-SemiBold" }}
+                onClick={() => handleTabClick("Undergraduate")}
+              >
+                Undergraduate
+              </button>
+              <button
+                className={`detail_button ${activeTab === "Postgraduate" ? "active-tab-course" : ""}`}
+                style={{ fontFamily: "Gilroy-SemiBold" }}
+                onClick={() => handleTabClick("Postgraduate")}
+              >
+                Postgraduate
+              </button>
+              <button
+                className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
+                style={{ fontFamily: "Gilroy-SemiBold" }}
+                onClick={() => handleTabClick("Doctorate")}
+              >
+                Doctorate
+              </button>
+              <div className="row">
+                {courses?.map((course, index) => {
+                  return (
+                    <div className="col-md-6 mb-3" key={index}>
+                      <div className="course_card mt-0">
+                        <h4 style={{ fontFamily: "Gilroy-Bold" }}>{course?.courseName}</h4>
+                        <h6 style={{ fontFamily: "Gilroy-Medium" }}>
+                          <img
+                            style={{
+                              height: "1rem",
+                              width: "1rem",
+                              objectFit: "cover",
+                              marginRight: "5px",
+                            }}
+                            alt=""
+                            src={ellipse}
+                          />
+                          {course?.universityName}
+                        </h6>
+                        <div className="gap-2" style={{ display: 'flex', alignItems: 'center' }}>
+                          <div>
                             <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
-                                <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={walletImage} />
-                                Fees($)
+                              <img
+                                style={{
+                                  height: "1rem",
+                                  width: "1rem",
+                                  objectFit: "cover",
+                                  marginRight: "5px",
+                                }}
+                                alt=""
+                                src={walletImage}
+                              />
+                              Fees($)
                             </p>
-                            <p className="hilight-danger" style={{ fontFamily: "Gilroy-SemiBold" }}>
-                                $ {course?.uniqueCourseInfo?.fee}
+                            <p className="hilight-danger" style={{ fontFamily: "Gilroy-Medium" }}>
+                              $ {course?.uniqueCourseInfo?.fee}
                             </p>
-                        </div>
-                        <div className="ml-5">
+                          </div>
+                          <div className="ml-5">
                             <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
-                                <img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={time} />
-                                Duration
+                              <img
+                                style={{
+                                  height: "1rem",
+                                  width: "1rem",
+                                  objectFit: "cover",
+                                  marginRight: "5px",
+                                }}
+                                alt=""
+                                src={time}
+                              />
+                              Duration
                             </p>
-                            <p className="hilight-danger"  style={{ fontFamily: "Gilroy-SemiBold" }}>
-                                {course?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]}
+                            <p className="hilight-danger" style={{ fontFamily: "Gilroy-Medium" }}>
+                              {course?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]}
                             </p>
+                          </div>
                         </div>
+                      </div>
                     </div>
-                </div>
+                  );
+                })}
+              </div>
             </div>
-    );
-})}
-            </div>
-      </div>
-      
-    
-
-                
-         
           </div>
         </div>
         <div className="col-md-3 mt-5">
-          <div className="right_scholar ">
+          <div className="right_scholar">
             <div className="s_img_card">
               <img src={scholar2} alt="" />
               <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
@@ -342,50 +390,56 @@ useEffect(() => {
               </button>
             </div>
             <div className="s_img_card2">
-              
-            <div className=" d-flex align-items-center">
-              <div className="university-logo-circle mr-3">
-                <img
-                  src={location.state?.universityDetails?.universityLogo}
-                  alt="University Logo"
-                  style={{ width: "80px", height: "80px", borderRadius: "50%" }}
-                />
+              <div className="d-flex align-items-center">
+                <div className="university-logo-circle mr-3">
+                  <img
+                    src={location.state?.universityDetails?.universityLogo}
+                    alt="University Logo"
+                    style={{ width: "80px", height: "80px", borderRadius: "50%" }}
+                  />
+                </div>
+                <div>
+                  <p style={{ fontFamily: "Gilroy-Bold" }}>
+                    {location.state?.universityDetails?.universityName}
+                  </p>
+                  <p style={{ fontFamily: "Gilroy-Medium" }}>
+                    {location.state?.universityDetails?.city},{" "}
+                    {location.state?.universityDetails?.country}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p style={{ fontFamily: "Gilroy-Bold" }}>
-                  {location.state?.universityDetails?.universityName}
-                </p>
-                <p style={{ fontFamily: "Gilroy-Medium" }}>
-                  {location.state?.universityDetails?.city},{" "}
-                  {location.state?.universityDetails?.country}
-                </p>
-              </div>
-            </div>
             </div>
             <div className="s_img_card2">
               <div className="row">
                 <div className="col">
-                  <img style={{ width: "30px", height: "30px" }} src={rating} alt="" /> <span style={{ fontFamily: "Gilroy-Medium" }}>University Ranking</span>
+                  <img
+                    style={{ width: "30px", height: "30px" }}
+                    src={rating}
+                    alt=""
+                  />{" "}
+                  <span style={{ fontFamily: "Gilroy-Medium" }}>University Ranking</span>
                 </div>
+              </div>
+              <div className="row mt-3">
+                <div className="col-md-2">
+                  <img
+                    style={{ width: "60px", height: "60px" }}
+                    src={location?.state?.universityDetails?.ranking?.logo}
+                    alt=""
+                  />{" "}
+                  <span style={{ fontFamily: "Gilroy-Medium" }}></span>
                 </div>
-                <div className="row mt-3">
-    <div className="col-md-2">
-        <img style={{ width: "60px", height: "60px" }} src={location?.state?.universityDetails?.ranking?.logo} alt="" /> 
-        <span style={{ fontFamily: "Gilroy-Medium" }}></span>
-    </div>
-    <div className="col-md-7 mt-3">
-        <p style={{ fontFamily: "Gilroy-Bold" }}>
-            {location?.state?.universityDetails?.ranking?.name}
-        </p>
-    </div>
-    <div className="col-md-3  mt-3">
-        <p style={{ fontFamily: "Gilroy-Bold" }}>
-            {location?.state?.universityDetails?.ranking?.rank}
-        </p>
-    </div>
-</div>
-
-          
+                <div className="col-md-7 mt-3">
+                  <p style={{ fontFamily: "Gilroy-Bold" }}>
+                    {location?.state?.universityDetails?.ranking?.name}
+                  </p>
+                </div>
+                <div className="col-md-3 mt-3">
+                  <p style={{ fontFamily: "Gilroy-Bold" }}>
+                    {location?.state?.universityDetails?.ranking?.rank}
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="s_img_card text-center">
               <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
@@ -421,7 +475,7 @@ useEffect(() => {
               >
                 Explore All Scholarship
               </button>
-              <p className=" my-2" style={{ fontFamily: "Gilroy-Bold" }}>
+              <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 OR
               </p>
               <p

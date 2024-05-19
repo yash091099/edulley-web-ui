@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import book from '../../assets/book.svg';
 import school from '../../assets/school.svg';
 import calender from '../../assets/calendar.svg';
+import map from '../../assets/mappin.svg';
 import course_icon from '../../assets/course.png';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
@@ -91,7 +92,7 @@ const Search = () => {
                             className="text-gray-100"
                             placeholder="Course"
                             type="text"
-                            style={{ border: 'none', fontFamily: "Gilroy-Regular" }}
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium " }}
                             name="course"
                             value={searchTerm.course}
                             onChange={handleChange}
@@ -101,11 +102,11 @@ const Search = () => {
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                         <input
                             className="text-gray-100"
-                            placeholder="Duration"
+                            placeholder="Intake"
                             type="text"
-                            name="duration"
-                            value={searchTerm.duration}
-                            style={{ border: 'none', fontFamily: "Gilroy-Regular" }}
+                            name="level"
+                            value={searchTerm.level}
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
                             onChange={handleChange}
                         />
                     </div>
@@ -113,12 +114,26 @@ const Search = () => {
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
                         <input
                             className="text-gray-100"
-                            placeholder="Level"
+                            placeholder="Year"
                             type="text"
-                            name="level"
-                            style={{ border: 'none', fontFamily: "Gilroy-Regular" }}
-                            value={searchTerm.level}
+                            name="duration"
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
+                            
+                            value={searchTerm.duration}
                             onChange={handleChange}
+                        />
+                    </div>
+                    <div className="ps-3">
+                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={map} />
+                        <input
+                            className="text-gray-100"
+                            placeholder="Country"
+                            type="text"
+                            name="country"
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
+                            
+                            // value={searchTerm.duration}
+                            // onChange={handleChange}
                         />
                     </div>
                     <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.duration || !searchTerm.level) ? 'disabled' : ''}`}>
@@ -139,10 +154,10 @@ const Search = () => {
                   {!showAdvancedFilter ?  <button
                         style={{
                             fontFamily: "Gilroy-SemiBold",
-                            color: "#FF6477",
+                            color: "#FF5573",
                             padding: "10px 20px",
                             borderRadius: "8px",
-                            border: "1px solid #FF6477",
+                            border: "1px solid #FF5573",
                             background: "#fff",
                             position: 'relative',
                             bottom:'35px'
@@ -168,6 +183,7 @@ const Search = () => {
             borderRadius: '8px',
             border:"none",
             marginBottom:"8px",
+            fontFamily: "Gilroy-Medium",
             background:"#fff"
         }}>
             <option>Select</option>
@@ -197,6 +213,7 @@ const Search = () => {
             gap: '10px',
             borderRadius: '8px',
             border:"none",
+            fontFamily: "Gilroy-Medium",
             marginBottom:"8px",
             background:"#fff"
         }}>
@@ -220,6 +237,7 @@ const Search = () => {
            padding: '10px 10px',
            gap: '10px',
            borderRadius: '8px',
+           fontFamily: "Gilroy-Medium",
            border:"none",
            marginBottom:"8px",
            background:"#fff"
@@ -237,39 +255,39 @@ const Search = () => {
                         <div className='col-md-4'>
     <label style={{ fontFamily: "Gilroy-SemiBold" }}>Program Level</label>
     <div>
-        <input type="checkbox" id="ug" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="ug" className="custom-checkbox" />
         <label htmlFor="ug" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG</label>
     </div>
     <div>
-        <input type="checkbox" id="ug-diploma" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="ug-diploma" className="custom-checkbox" />
         <label htmlFor="ug-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG Diploma/ Certificate</label>
     </div>
     <div>
-        <input type="checkbox" id="pg" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="pg" className="custom-checkbox" />
         <label htmlFor="pg" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG</label>
     </div>
     <div>
-        <input type="checkbox" id="pg-diploma" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="pg-diploma" className="custom-checkbox" />
         <label htmlFor="pg-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG Diploma/ Certificate</label>
     </div>
     <div>
-        <input type="checkbox" id="ug-pg" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="ug-pg" className="custom-checkbox" />
         <label htmlFor="ug-pg" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG+PG (Accelerated Degree)</label>
     </div>
     <div>
-        <input type="checkbox" id="phd" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="phd" className="custom-checkbox" />
         <label htmlFor="phd" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PHD</label>
     </div>
     <div>
-        <input type="checkbox" id="foundation" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="foundation" className="custom-checkbox" />
         <label htmlFor="foundation" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Foundation</label>
     </div>
     <div>
-        <input type="checkbox" id="short-term" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="short-term" className="custom-checkbox" />
         <label htmlFor="short-term" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Short Term Programs</label>
     </div>
     <div>
-        <input type="checkbox" id="pathway" style={{ border: "2px solid #FF6477" }} />
+        <input type="checkbox" id="pathway" className="custom-checkbox" />
         <label htmlFor="pathway" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Pathway programs</label>
     </div>
 </div>
@@ -277,55 +295,55 @@ const Search = () => {
     <div>
         <label style={{ fontFamily: "Gilroy-SemiBold" }}>Requirements</label>
         <div>
-            <input type="checkbox" id="pte" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="pte" className="custom-checkbox" />
             <label htmlFor="pte" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PTE</label>
         </div>
         <div>
-            <input type="checkbox" id="ielts" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="ielts" className="custom-checkbox" />
             <label htmlFor="ielts" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>IELTS</label>
         </div>
         <div>
-            <input type="checkbox" id="toefl-ibt" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="toefl-ibt" className="custom-checkbox" />
             <label htmlFor="toefl-ibt" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>TOEFL iBT</label>
         </div>
         <div>
-            <input type="checkbox" id="duolingo" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="duolingo" className="custom-checkbox" />
             <label htmlFor="duolingo" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Duolingo English Test</label>
         </div>
         <div>
-            <input type="checkbox" id="sat" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="sat" className="custom-checkbox" />
             <label htmlFor="sat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>SAT</label>
         </div>
         <div>
-            <input type="checkbox" id="gre" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="gre" className="custom-checkbox" />
             <label htmlFor="gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GRE</label>
         </div>
         <div>
-            <input type="checkbox" id="gmat" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="gmat" className="custom-checkbox" />
             <label htmlFor="gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GMAT</label>
         </div>
         <div>
-            <input type="checkbox" id="without-english" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="without-english" className="custom-checkbox" />
             <label htmlFor="without-english" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without English Proficiency</label>
         </div>
         <div>
-            <input type="checkbox" id="without-gre" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="without-gre" className="custom-checkbox" />
             <label htmlFor="without-gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GRE</label>
         </div>
         <div>
-            <input type="checkbox" id="without-gmat" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="without-gmat" className="custom-checkbox" />
             <label htmlFor="without-gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GMAT</label>
         </div>
         <div>
-            <input type="checkbox" id="without-maths" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="without-maths" className="custom-checkbox" />
             <label htmlFor="without-maths" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without Maths</label>
         </div>
         <div>
-            <input type="checkbox" id="stem-courses" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="stem-courses" className="custom-checkbox" />
             <label htmlFor="stem-courses" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>STEM Courses</label>
         </div>
         <div>
-            <input type="checkbox" id="scholarship" style={{ border: "2px solid #FF6477" }} />
+            <input type="checkbox" id="scholarship" className="custom-checkbox" />
             <label htmlFor="scholarship" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Scholarship Available</label>
         </div>
     </div>
@@ -338,10 +356,10 @@ const Search = () => {
 {showAdvancedFilter ?  <button
                         style={{
                             fontFamily: "Gilroy-SemiBold",
-                            color: "#FF6477",
+                            color: "#FF5573",
                             padding: "7px 10px",
                             borderRadius: "8px",
-                            border: "1px solid #FF6477",
+                            border: "1px solid #FF5573",
                             background: "#fff",
                             marginTop:"5px",
                             marginBottom:"5px"

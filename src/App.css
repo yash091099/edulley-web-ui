@@ -91,7 +91,6 @@ a {
 
 .subtitle {
   color: #696969;
-  font-family: 'Gilroy' sans-serif;
 }
 
 .explore-button {
@@ -119,7 +118,7 @@ a {
 }
 
 .active-tab-course{
-  background-color: #FF6477 !important;
+  background-color: #FF5573 !important;
   color: #fff !important;
 }
 
@@ -197,7 +196,6 @@ a {
   outline: none;
   background: transparent;
   font-size: 20px;
-  font-family: 'Gilroy sans-serif';
   height: 100%;
   width: 100%;
 }
@@ -263,16 +261,13 @@ a {
   height: auto;
 }
 
-.frame-component-title {
-  font-family: 'Gilroy sans-serif';
-}
+
 .frame-component.rounded {
   border-radius: 25px !important;
 }
 .frame-component-button {
   background-color: #ffff;
   font-weight: 500;
-  font-family: 'Gilroy sans-serif';
   color: #00949b;
   border: none;
   cursor: pointer;
@@ -386,7 +381,6 @@ a {
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Gilroy sans-serif';
 }
 
 .university-logo {
@@ -488,7 +482,6 @@ a {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   /* align-items: center; */
-  font-family: 'Gilroy sans-serif';
 }
 
 .student-image-what-student {
@@ -541,7 +534,6 @@ a {
 .footer {
   background-color: #ff5573;
   color: white;
-  font-family: 'Gilroy-SemiBold sans-serif';
   font-weight: 400;
   font-size: 18px !important;
 }
@@ -1086,13 +1078,13 @@ text-align: left;
 
 }
 .AddMore{
-  color: #FF6477;
+  color: #FF5573;
 }
 .bg-highlight {
-  background-color: #FF6477; 
+  background-color: #FF5573; 
 }
 .text-highlight {
-  color: #FF6477; 
+  color: #FF5573; 
 }
 
 .unique-modal-form {
@@ -1191,10 +1183,10 @@ input[type="date"] {
   height: 50px;
   margin: 20px auto;
   background-color: #f8f9fa;
-  color: #FF6477;
+  color: #FF5573;
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #FF6477;
+  border: 1px solid #FF5573;
   line-height: 50px;
   font-family: 'Gilroy-Medium';
   cursor: pointer;
@@ -1203,5 +1195,18 @@ input[type="date"] {
 input[type=checkbox], input[type=radio] {
   box-sizing: border-box;
   padding: 0;
-  border: 2px solid #FF6477 !important;
+  border: 2px solid #FF5573 !important;
+}
+
+.breadcrumb{
+  background-color: #fff !important;
+}
+.custom-checkbox {
+  border: 2px solid #FF5573 !important;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+element {
+  border: 2px solid #FF5573;
 }

@@ -1,6 +1,5 @@
 import React from "react";
-// import statis from "../../assets/statistics.png";
-import statis from "../../assets/statistics.png";
+import statis from "../../assets/statistics.svg";
 
 const Statistics = () => {
   return (
@@ -13,7 +12,7 @@ const Statistics = () => {
           >
             Our Statistics
           </h1>
-          <p  style={{fontFamily:"Gilroy-Regular",fontSize:"18px"}}>
+          <p  style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>
           Our numbers speak volumes about our long-standing commitment to assisting students in their study abroad transition. With years of experience, we've helped 
 countless students achieve their dreams of international education. {" "}
           </p>

@@ -17,7 +17,7 @@ const StudentCard = ({ image, name, review, stars }) => {
       <div className="review-content-what-student">
         <h3 className="student-name-what-student" style={{fontFamily:"Gilroy-Medium"}}>{name}</h3>
         <div className="stars-what-student">{starElements}</div>
-        <p className="student-review-what-student" style={{fontFamily:"Gilroy-Regular"}}>{review}</p>
+        <p className="student-review-what-student" style={{fontFamily:"Gilroy-Medium"}}>{review}</p>
       </div>
     </div>
   );

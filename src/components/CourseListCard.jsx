@@ -19,7 +19,6 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
       const res = await getUniversities();
       if (!res?.data?.error) {
         setUniversities(res.data.data);
-        console.log(res, "------------------------universities");
       } else {
         toast.error("Failed to load universities data.");
       }
@@ -29,7 +28,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
   };
   useEffect(() => {
     fetchUniversities();
-  },[])
+  }, [])
   const handleCreateApplication = async () => {
     const payload = { courseId: course?._id };
     setLoading(true);
@@ -57,12 +56,12 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
       <div className="inner_card_2">
         <div className="row">
           <div className="col-md-8">
-            <h5 style={{ fontFamily: "Gilroy-Bold" }}>
+            <h5 style={{ fontFamily: "Gilroy-Bold", marginBottom: "0.5rem" }}>
               {course?.courseName || "--"}
             </h5>
           </div>
           <div className="col-md-4 d-flex align-items-center justify-content-end">
-            <span style={{ fontFamily: 'Gilroy-Medium' }}>Compare</span>
+            <span style={{ fontFamily: 'Gilroy-Medium', marginBottom: "0.5rem" }}>Compare</span>
             <Switch
               checked={isSelected}
               onChange={() => onToggleSelection(course._id)}
@@ -71,10 +70,9 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
           </div>
         </div>
-       
-      </div>
-      <div>
-         <p>
+        <div className="row">
+        <div className="col-md-8" style={{ marginBottom: "0.5rem" }}>
+        <p style={{ marginBottom: "0.25rem" }}>
           <img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
             alt=""
@@ -82,17 +80,30 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
           />
           {course?.universityName || "--"}
         </p>
-        <p>
+        <p style={{ marginBottom: "0.25rem" }}>
           <img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
             alt=""
             src={map}
           />
-          {universities?.find((uni) => uni?.universityName === course?.universityName)?.country  || "--"},{universities?.find((uni) => uni?.universityName === course?.universityName)?.city||'--' }
+          {universities?.find((uni) => uni?.universityName === course?.universityName)?.country || "--"},{universities?.find((uni) => uni?.universityName === course?.universityName)?.city || '--'}
         </p>
       </div>
-      <div className="row">
-        <div className="course_head_new ">
+        
+        <div className="col-md-4 d-flex justify-content-end align-items-center" style={{ marginBottom: "0.5rem" }}>
+          <span style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Shortlist</span>
+          <Switch
+            checked={false}
+            color="primary"
+            sx={{ "& .MuiSwitch-thumb": { backgroundColor: "#00949B" } }}
+          />
+        </div>
+      </div>
+      </div>
+
+     
+      <div className="row" style={{ marginBottom: "0.5rem" }}>
+        <div className="course_head_new">
           <h6 className="p-0 m-0">
             Level : {course?.level?.slice(0, 50) || "--"}
           </h6>
@@ -102,13 +113,10 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             Rank : {universities?.find((uni) => uni?.universityName === course?.universityName)?.ranking?.rank || "--"}
           </h6>
         </div>
-        <div className="col-md-3 ml-3 mt-3">
-        
-        </div>
       </div>
-      <div className="d-flex align-items-center gap-5 mt-4 flex-wrap">
+      <div className="d-flex align-items-center gap-3 flex-wrap" style={{ marginBottom: "0.5rem" }}>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -116,12 +124,12 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Fees
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
             <FaRupeeSign /> {course?.uniqueCourseInfo?.fee || "--"} / year
           </p>
         </div>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -129,12 +137,12 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Duration
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
             {course?.uniqueCourseInfo?.duration || "--"} years
           </p>
         </div>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -142,35 +150,41 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Application Fee
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
             <FaRupeeSign /> {course?.uniqueCourseInfo?.applicationFee || "--"}
           </p>
         </div>
+        <div className="d-flex flex-column">
+          <p className="mb-1" style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
+            <img
+              style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+              alt=""
+              src={time}
+            />
+            Intake
+          </p>
+          <p className="" style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
+            <span style={{ backgroundColor: "#CCE6E8", cursor: "pointer", color: "#00949B", padding: "5px 10px", borderRadius: "5px", marginRight: "10px" }}>
+              Open
+            </span>
+            <span style={{ backgroundColor: "#DDDDDD", cursor: "pointer", color: "#575656", padding: "5px 10px", borderRadius: "5px" }}>
+              Sep
+            </span>
+          </p>
+        </div>
         <div>
-          {/* <button
+          <button
             style={{
               fontFamily: "Gilroy-SemiBold",
-              color: "#FF6477",
+              color: "#FF5573",
               padding: "7px",
               borderRadius: "8px",
-              border: "1px solid #FF6477",
+              border: "1px solid #FF5573",
               background: "#fff",
-            }}
-            onClick={handleCreateApplication}
-          >
-            {"Apply Application >>"}
-          </button> */}
-            <button
-            style={{
-              fontFamily: "Gilroy-SemiBold",
-              color: "#FF6477",
-              padding: "7px",
-              borderRadius: "8px",
-              border: "1px solid #FF6477",
-              background: "#fff",
+              marginBottom: "0.25rem"
             }}
             onClick={() => navigate('/course-details', { state: course })}
-            >
+          >
             {"View Details >>"}
           </button>
         </div>

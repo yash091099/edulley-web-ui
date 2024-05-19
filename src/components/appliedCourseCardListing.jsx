@@ -127,7 +127,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={walletImage}
             /></span>Fees</p>
-          <p className="fw-bold "  style={{ color: "#FF6477", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
+          <p className="fw-bold "  style={{ color: "#FF5573", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
           <p style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
@@ -135,7 +135,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={time}
             />Duration</p>
-          <p className="fw-bold "  style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
+          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
           <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
@@ -143,7 +143,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={time}
             />Application Fee</p>
-          <p className="fw-bold "  style={{ color: "#FF6477",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
+          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
           <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-SemiBold'  }}>{formatText(course?.status)}</span>
@@ -157,19 +157,19 @@ const AppliedCourseListCard = ({ course }) => {
     </div>
     <div>
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
         <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF6477", fontFamily: "Gilroy-Regular"}}>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
     </div>

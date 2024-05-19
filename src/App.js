@@ -85,7 +85,7 @@ function App() {
         reverseOrder={false}
         toastOptions={{
           style: {
-            backgroundColor: '#FF6477',
+            backgroundColor: '#FF5573',
             color: '#FFFFFF',
           },
         }}

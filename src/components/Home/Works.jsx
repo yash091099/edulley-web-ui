@@ -10,7 +10,7 @@ const Works = () => {
     <div className="most-searched-countries-container featured-university-container container py-5 br-t-0">
       <div className="">
         <h1 className="what-we-can-do-title" style={{fontFamily:"Gilroy-Bold"}}>How it works</h1>
-        <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Regular"}}>
+        <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Medium"}}>
         Here we have streamlined the complete process in a hassle-free way. You can simply search courses and apply. Engage with your dedicated study abroad expert and we would 
 love to assist you at any step of the way. Your journey begins here! 
         </p>

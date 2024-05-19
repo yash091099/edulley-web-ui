@@ -104,7 +104,7 @@ const CourseDetails = () =>{
             />
             Fees
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold" }}>
             <FaRupeeSign /> {location?.state?.uniqueCourseInfo?.fee || "--"} / year
           </p>
         </div>
@@ -117,7 +117,7 @@ const CourseDetails = () =>{
             />
             Duration
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold" }}>
             {location?.state?.uniqueCourseInfo?.duration || "--"} years
           </p>
         </div>
@@ -130,7 +130,7 @@ const CourseDetails = () =>{
             />
             Application Fee
           </p>
-          <p style={{ color: "#FF6477", fontFamily: "Gilroy-SemiBold" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold" }}>
             <FaRupeeSign /> {location?.state?.uniqueCourseInfo?.applicationFee || "--"}
           </p>
         </div>

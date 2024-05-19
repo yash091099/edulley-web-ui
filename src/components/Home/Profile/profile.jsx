@@ -22,7 +22,7 @@ const Profile = () => {
     }
   }, [_id]);
 
-  const highlightColor = "#FF6477"; // Your chosen color
+  const highlightColor = "#FF5573"; // Your chosen color
 
   return (
     <div className="container d-flex flex-column h-100 bg-white pt-4 rounded">
