@@ -88,7 +88,7 @@ const CarrerPathDetails = () => {
   };
 
   return (
-    <div className="container py-5 course_container">
+    <div className="container py-5 course_container" style={{backgroundColor:"#FFFBFB"}}>
       <div className="py-4"></div>
      
       {loading && <CustomLoader />}

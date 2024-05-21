@@ -68,7 +68,7 @@ const CarrerPath = () => {
   }
 
   return (
-    <div className="most-searched-countries-container featured-university-container py-5 section-padding">
+    <div className="most-searched-countries-container featured-university-container py-5 section-padding" style={{backgroundColor:"#FFFBFB"}}>
       <div className="container">
         <div className="d-flex align-items-center justify-content-between">
           <h1 className="font-gilroy fw-bold d-flex align-items-center">
