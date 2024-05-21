@@ -627,6 +627,11 @@ p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
 }
+.course_card2{
+  padding: 1.5rem;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  border-radius: 15px;
+}
 .course_card h4 {
   font-size: 16px;
   margin-bottom: 15px;

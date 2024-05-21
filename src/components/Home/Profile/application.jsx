@@ -3,6 +3,8 @@ import { FaSearch } from "react-icons/fa";
 import book from "../../../assets/book.svg";
 import map from "../../../assets/mappin.svg";
 import uni from "../../../assets/uni.svg";
+import school from '../../../assets/school.svg';
+import calender from '../../../assets/calendar.svg';
 import university_icon from "../../../assets/shortlist.png";
 import arrow_shortlist from "../../../assets/arrow-shortlist.png";
 import scholar1 from "../../../assets/scholarship1.png";
@@ -17,7 +19,7 @@ const Academic = () => {
     const [activeTab, setActiveTab] = useState("apply");
     const [courses, setCourses] = useState([]);
     const [applications, setApplications] = useState([]);
-    const [filters, setFilters] = useState({ name: "", course: "", university: "" });
+    const [filters, setFilters] = useState({ name: "", course: "", university: "",location:"" });
     const [filteredCourses, setFilteredCourses] = useState([]);
     const [filteredApplications, setFilteredApplications] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -126,19 +128,23 @@ const Academic = () => {
                                 <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder={activeTab === "apply" ? "Course" : "Application"} type="text" name="name" value={filters.name} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
-                                <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={map} />
-                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="Level" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
+                                <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={school} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="Intake" type="text" name="course" value={filters.course} onChange={handleFilterChange} />
                             </div>
                             <div className="ps-3">
-                                <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
-                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="University" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
+                                <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={calender} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="Year" type="text" name="university" value={filters.university} onChange={handleFilterChange} />
+                            </div>
+                            <div className="ps-3">
+                                <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
+                                <input style={{border: 'none',fontFamily:"Gilroy-Medium"}} className="text-gray-100" placeholder="State/Country" type="text" name="university" value={filters.location} onChange={handleFilterChange} />
                             </div>
                             <button className="button-content-2 px-4 search_btn ml-3" onClick={handleSearch}>
                                 <FaSearch />
                             </button>
-                            <button style={{fontFamily:"Gilroy-Medium"}} className="button-content-2 px-4 search_btn ml-3" onClick={resetFilters}>
+                           { (filters?.course || filters?.name || filters?.university) && <button style={{fontFamily:"Gilroy-Medium"}} className="button-content-2 px-4 search_btn ml-3" onClick={resetFilters}>
                                 Reset
-                            </button>
+                            </button>}
                         </div>
                     </div>
                 </div>

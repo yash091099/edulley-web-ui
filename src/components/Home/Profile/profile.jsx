@@ -37,7 +37,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="row flex-grow-1">
+      <div className="row mb-3 flex-grow-1">
         <div className="col-md-3">
           <div className="d-flex flex-column gap-3 border-end border-dark">
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(1)}>

@@ -110,12 +110,12 @@ const Footer = () => {
         <div className="f_menu">
           <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Company</h5>
           <ul>
-            <li
-              style={{ cursor: "pointer" }}
-              //   onClick={() => navigate("/career-path")}
-            >
+          <Link to="/career-path">
+
+            <li  style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>
               Career
             </li>
+            </Link>
             <Link to="/courses">
               <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>Courses</li>
             </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
           <h5 className="fw-bold" style={{fontFamily:"Gilroy-SemiBold"}}>EXAMS</h5>
           <ul>
             <Link to="/exam-ielts">
-              <li style={{ cursor: "pointer" }}>IELTS</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>
             </Link>
             <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>PTE</li>

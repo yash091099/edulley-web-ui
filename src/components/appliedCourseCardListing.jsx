@@ -10,11 +10,29 @@ import map from "../assets/mappin.svg";
 import time from "../assets/ion_time-outline.png";
 import walletImage from "../assets/solar_wallet-linear.png";
 import ellipse from "../assets/Ellipse.png";
+import {  getUniversities } from "../Services/dashboard";
+
 const AppliedCourseListCard = ({ course }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [razorpayLoaded, setRazorpayLoaded] = useState(false);
-
+  const [universities, setUniversities] = useState([]);
+  const fetchUniversities = async () => {
+    try {
+      const res = await getUniversities();
+      if (!res?.data?.error) {
+        setUniversities(res.data.data);
+        console.log(res.data.data, "universities");
+      } else {
+        toast.error("Failed to load universities data.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while fetching universities.");
+    }
+  };
+  useEffect(() => {
+    fetchUniversities();
+  }, [])
   const toggle = () => setTooltipOpen(!tooltipOpen);
   function formatText(text) {
     return text.toLowerCase().replace(/_/g, ' ').replace(/\b[a-z]/g, (char) => char.toUpperCase());
@@ -107,18 +125,29 @@ const AppliedCourseListCard = ({ course }) => {
       <div className="inner_card">
         <div id={'Tooltip-' + course?.courseId?._id}>
           <h5 style={{fontFamily:"Gilroy-Bold"}}>{course?.courseId?.courseName || '--'}</h5>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover", marginRight: '5px' }} alt="" src={ellipse} />{course?.courseId?.universityName || '--'}</p>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover", marginRight: '5px' }} alt="" src={book} />{course?.courseId?.overview?.slice(0, 300) || '--'}</p>
+          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: '5px' }} alt="" src={ellipse} />{course?.courseId?.universityName || '--'}</p>
+          <p style={{ marginBottom: "0.25rem" }}>
+          <img
+            style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+            alt=""
+            src={map}
+          />
+          {universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.country || "--"},{universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.city || '--'}
+        </p> 
         </div>
-        <Tooltip placement="top" isOpen={tooltipOpen} target={'Tooltip-' + course        ?.courseId?._id} toggle={toggle}>
-          {course?.courseId?.overview || '--'}
-        </Tooltip>
+       
       </div>
-      <div className="course_head_new">
-        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Level : {course?.courseId?.level?.slice(0, 200) || '--'}</h6>
-      </div>
-      <div className="course_head_new" style={{ marginBottom: "10px" }}>
-        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Requirements : {course?.courseId?.requirements?.slice(0, 200) || '--'}</h6>
+      <div className="row" style={{ marginBottom: "0.5rem" }}>
+        <div className="course_head_new">
+          <h6 className="p-0 m-0">
+            Level : {course?.courseId?.level?.slice(0, 50) || "--"}
+          </h6>
+        </div>
+        <div className="course_head_new ml-3">
+          <h6 className="p-0 m-0">
+            Rank : {universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.ranking?.rank || "--"}
+          </h6>
+        </div>
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
         <div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import instituteImage from "../assets/institution-detail.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate,Link } from "react-router-dom";
 import scholar1 from "../assets/scholarship1.png";
 import time from "../assets/ion_time-outline.png";
 import walletImage from "../assets/solar_wallet-linear.png";
@@ -51,6 +51,26 @@ const CourseDetails = () =>{
   return (
     <div>
       {loading && <CustomLoader />}
+      
+      <div style={{ marginBottom: "12px", paddingTop: "70px"}}>
+          <nav aria-label="breadcrumb" >
+            <ol className="breadcrumb" style={{ fontFamily: "Gilroy-Medium" }}>
+              <li className="breadcrumb-item">
+                <Link to="/" style={{ textDecoration: "none", color: "#000" }}>
+                  Home
+                </Link>
+              </li>
+              <li className="breadcrumb-item">
+                <Link to="/courses" style={{ textDecoration: "none", color: "#000" }}>
+                  Courses
+                </Link>
+              </li>
+              <li className="breadcrumb-item active" aria-current="page">
+                {location.state?.courseName}
+              </li>
+            </ol>
+          </nav>
+        </div>
       <div className="container-fluid insti_container" style={backgroundStyle}>
         <div className="container" style={{ maxWidth: '82vw', marginTop: '400px' }}>
           <div className="row align-items-center justify-content-between">

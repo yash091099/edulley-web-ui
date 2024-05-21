@@ -1,10 +1,36 @@
-import React from "react";
-import { CalendarMonth } from "@mui/icons-material";
-import blog from "../assets/blog-detail.png"; // Make sure this path is correct for your default image
+import React, { useEffect, useState } from "react";
+import { CalendarMonth, Share } from "@mui/icons-material";
 import DOMPurify from 'dompurify';
+import { getBlogs } from "../Services/dashboard";
+import CustomLoader from "../components/loader";
+import { toast } from "react-hot-toast";
+import defaultBlogImage from "../assets/blog.png";
+import quoteIcon from "../assets/quote.png";
+import blog from "../assets/blog-detail.png";
 
 const BlogCard = ({ blogDetails }) => {
-  console.log(blogDetails, 'blogDetails');
+  const [loading, setLoading] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+  
+  const getBlogsData = async () => {
+    setLoading(true);
+    try {
+      const response = await getBlogs();
+      if (!response.data?.error) {
+        setBlogs(response.data.data);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      toast.error('Failed to fetch blogs');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getBlogsData();
+  }, []);
 
   const formatDate = (date) => {
     const d = new Date(date);
@@ -15,11 +41,9 @@ const BlogCard = ({ blogDetails }) => {
   };
 
   const capitaliseFirstWord = (str) => {
-    return str
-      .charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
   };
 
-  // Adjust the configuration for DOMPurify to allow more tags and attributes
   const sanitizeConfig = {
     ALLOWED_TAGS: ['strong', 'em', 'a', 'p', 'ul', 'ol', 'li', 'br', 'span', 'img'],
     ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'style'],
@@ -39,41 +63,77 @@ const BlogCard = ({ blogDetails }) => {
   };
 
   return (
-    <div className="course_card mt-0" onClick={handleLinkClick}>
-      <h4 style={{fontFamily:"Gilroy-Bold"}}>
+    <div className="course_card2 mt-0" onClick={handleLinkClick}>
+      {loading && <CustomLoader />}
+      <h4 style={{ fontFamily: "Gilroy-Bold" }}>
         {capitaliseFirstWord(blogDetails?.heading || '')}
       </h4>
       <p
-      style={{fontFamily:"Gilroy-Regular",color:"#8D98A4"}}
+        style={{ fontFamily: "Gilroy-Regular", color: "#8D98A4" }}
         className="text-secondary d-flex align-items-center gap-2"
       >
-        <CalendarMonth  color="#8D98A4" /> {formatDate(blogDetails?.createdAt)}
+        <CalendarMonth color="#8D98A4" /> {formatDate(blogDetails?.createdAt)}
       </p>
-      <img
-        style={{ width: "100%", height: "500px" }}
-        className="rounded mt-4"
-        src={blogDetails?.bannerImage || blog}
-        alt="Blog banner"
-      />
-      <label className="mt-3" style={{fontFamily:"Gilroy-Bold"}}>Content:</label>
+      <div style={{ position: 'relative' }}>
+        <img
+          style={{ width: "100%", height: "500px", borderRadius: "16px" }}
+          className="mt-4"
+          src={blogDetails?.bannerImage || blog}
+          alt="Blog banner"
+        />
+      
+      </div>
+      {/* <label className="mt-3" style={{ fontFamily: "Gilroy-Bold" }}>Content:</label> */}
       <div
-       style={{fontFamily:"Gilroy-Regular"}}
-        className="fw-light blog-content"
+        style={{ fontFamily: "Gilroy-Regular" }}
+        className="fw-light blog-content mt-3"
         dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       ></div>
       {blogDetails?.quote && (
         <>
-          <label className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>Quote:</label>
+          {/* <label className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Quote:</label> */}
           <div
-          style={{fontFamily:"Gilroy-Regular"}}
-            className="fw-light blog-quote"
-            dangerouslySetInnerHTML={{ __html: sanitizedQuote }}
-          ></div>
+            style={{ fontFamily: "Gilroy-Regular", backgroundColor: "#FFF0F0", padding: "15px",paddingLeft: "70px", borderRadius: "10px", position: "relative" }}
+            className="fw-light blog-quote mt-3 mb-3"
+          >
+            <img src={quoteIcon} alt="Quote Icon" style={{ position: "absolute", top: "32px", left: "20px", width: "30px", height: "30px" }} />
+            <div dangerouslySetInnerHTML={{ __html: sanitizedQuote }} />
+          </div>
         </>
       )}
-      <div className="blog-tags mt-3">
-        {blogDetails?.tags.map((tag, index) => (
-          <span className="badge me-2 p-2" style={{backgroundColor:"#FFF0F0",color:"#000000"}} key={index}>{tag}</span>
+      <div className="blog-tags mt-3" style={{ fontFamily: "Gilroy-Regular" }}>
+        Tags {blogDetails?.tags.map((tag, index) => (
+          <span className="badge ml-2 p-2" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={index}>{tag}</span>
+        ))}
+      </div>
+      <div className="mt-3 d-flex justify-content-end">
+        {blogs.slice(0, 3).map(blog => (
+          <div className="col-md-4" key={blog._id}>
+            <div>
+              <div className="countries cursor-pointer uni_card blog-card">
+                <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <div className="p-3">
+                  <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '13px', fontFamily: "Gilroy-Regular", color: "#8D98A4" }}>
+                    <CalendarMonth style={{ color: "#8D98A4" }} />
+                    {formatDate(blog?.createdAt)}
+                    <div className="blog-tags">
+                      {blog.tags.map(tag => (
+                        <span className="badge me-2 p-2" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </p>
+                  <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden' }}>
+                    {capitaliseFirstWord(blog?.heading)}
+                  </p>
+                  {blog.heading.length > 30 && (
+                    <div className="tooltip">
+                      <span className="tooltiptext" style={{ fontFamily: "Gilroy-Medium" }}>{blog.heading}</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </div>

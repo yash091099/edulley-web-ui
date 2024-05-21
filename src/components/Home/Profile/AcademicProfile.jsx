@@ -183,7 +183,7 @@ const [editModeData, setEditModeData] = useState({});
             <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthYearOfCompletion" value={data.tenthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
-          <div className="col-md-12 formField">
+          <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthSpecialization" value={data.tenthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
@@ -209,7 +209,7 @@ const [editModeData, setEditModeData] = useState({});
             <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthYearOfCompletion" value={data.twelfthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
-          <div className="col-md-12 formField">
+          <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthSpecialization" value={data.twelfthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
@@ -235,7 +235,7 @@ const [editModeData, setEditModeData] = useState({});
             <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugYearOfCompletion" value={data.ugYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
-          <div className="col-md-12 formField">
+          <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugSpecialization" value={data.ugSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
@@ -261,7 +261,7 @@ const [editModeData, setEditModeData] = useState({});
             <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgYearOfCompletion" value={data.pgYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
-          <div className="col-md-12 formField">
+          <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
             <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgSpecialization" value={data.pgSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>

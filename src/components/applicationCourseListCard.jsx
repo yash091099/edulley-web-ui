@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {toast} from "react-hot-toast";
 import CustomLoader from "../components/loader";
-import { applyApplication } from "../Services/dashboard";
+import { applyApplication, getUniversities } from "../Services/dashboard";
 import { Tooltip } from 'reactstrap';
 import { Money, Timer, Wallet } from "@mui/icons-material";
 import { FaRupeeSign } from "react-icons/fa";
@@ -17,7 +17,22 @@ const CourseListCard = ({ course }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
 const navigate=useNavigate();
   const toggle = () => setTooltipOpen(!tooltipOpen);
-
+  const [universities, setUniversities] = useState([]);
+  const fetchUniversities = async () => {
+    try {
+      const res = await getUniversities();
+      if (!res?.data?.error) {
+        setUniversities(res.data.data);
+      } else {
+        toast.error("Failed to load universities data.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while fetching universities.");
+    }
+  };
+  useEffect(() => {
+    fetchUniversities();
+  }, [])
   const handleCreateApplication = async () => {
     const payload = { courseId: course?._id };
     setLoading(true);
@@ -43,19 +58,30 @@ const navigate=useNavigate();
       <div className="inner_card">
         <div id={'Tooltip-' + course?._id}>
           <h5 style={{ fontFamily: "Gilroy-Bold" }}>{course?.courseName || '--'}</h5>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />{course?.universityName || '--'}</p>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1.5rem", width: "1.5rem", objectFit: "cover", marginRight:'5px' }} alt="" src={book} />{course?.overview?.slice(0, 300) || '--'}</p>
-        </div>
-        <Tooltip placement="top" isOpen={tooltipOpen} target={'Tooltip-' + course?._id} toggle={toggle}>
-          {course?.overview || '--'}
-        </Tooltip>
+          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />{course?.universityName || '--'}</p>
+
+          <p style={{ marginBottom: "0.25rem" }}>
+          <img
+            style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
+            alt=""
+            src={map}
+          />
+          {universities?.find((uni) => uni?.universityName === course?.universityName)?.country || "--"},{universities?.find((uni) => uni?.universityName === course?.universityName)?.city || '--'}
+        </p>        </div>
+        
         <div></div>
       </div>
-      <div className="course_head_new">
-        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Level : {course?.level?.slice(0, 200) ||'--'}</h6>
-      </div>
-      <div className="course_head_new" style={{marginBottom:"10px"}}>
-        <h6 className="p-0 m-0" style={{fontFamily:"Gilroy-Regular"}}>Requirements : {course?.requirements?.slice(0, 200) ||'--'}</h6>
+      <div className="row" style={{ marginBottom: "0.5rem" }}>
+        <div className="course_head_new">
+          <h6 className="p-0 m-0">
+            Level : {course?.level?.slice(0, 50) || "--"}
+          </h6>
+        </div>
+        <div className="course_head_new ml-3">
+          <h6 className="p-0 m-0">
+            Rank : {universities?.find((uni) => uni?.universityName === course?.universityName)?.ranking?.rank || "--"}
+          </h6>
+        </div>
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
     <div>

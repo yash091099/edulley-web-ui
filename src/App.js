@@ -27,6 +27,8 @@ import './App.css'
 import SOP from "./Pages/study-abroad/sop";
 import LOR from "./Pages/study-abroad/lor";
 import CourseDetails from "./components/courseDetails";
+import CarrerPath from "./Pages/Carrer/carrer-path";
+import CarrerPathDetails from "./Pages/Carrer/carrer-details";
 
 export const ModalContext = createContext();
 
@@ -78,7 +80,9 @@ function App() {
         <Route path="/refund-policy" element={<RequireAuth><RefundPolicy /></RequireAuth>} />
         <Route path="/contact-us" element={<RequireAuth><ContactUs /></RequireAuth>} />
         <Route path="/profile" element={<RequireAuth><ProfileForm /></RequireAuth>} />
+        <Route path="/career-path" element={<RequireAuth><CarrerPath /></RequireAuth>} />
         <Route path="/course-details" element={<RequireAuth><CourseDetails /></RequireAuth>} />
+        <Route path="/carrer-details" element={<RequireAuth><CarrerPathDetails /></RequireAuth>} />
       </Routes>
       <Toaster
         position="top-right"
