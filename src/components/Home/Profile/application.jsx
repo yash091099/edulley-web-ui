@@ -11,7 +11,7 @@ import scholar1 from "../../../assets/scholarship1.png";
 import scholar2 from "../../../assets/scholarship2.png";
 import CourseListCard from "../../applicationCourseListCard";
 import AppliedCourseListCard from "../../appliedCourseCardListing";
-import { getCourses, getApplications } from "../../../Services/dashboard";
+import { getCourses, getApplications, getStudentDetailsById } from "../../../Services/dashboard";
 import { toast } from "react-hot-toast";
 import CustomLoader from "../../loader";
 
@@ -25,7 +25,20 @@ const Academic = () => {
     const [loading, setLoading] = useState(false);
     const activeStyle = { backgroundColor: '#FF5573', color: 'white' };
     const inactiveStyle = { backgroundColor: 'white', color: 'black' };
+    const _u = JSON.parse(localStorage.getItem('_u'));
+    const userId = _u?._id;
+    const highlightColor = "#FF5573";
 
+    const [studentDetails, setStudentDetails] = useState({});
+
+  const _id = _u ? _u._id : null;
+  useEffect(() => {
+    if (_id) {
+      getStudentDetailsById(_id).then((res) => {
+        setStudentDetails(res.data.data);
+      });
+    }
+  }, [_id]);
     const fetchCourses = async () => {
         setLoading(true);
         try {
@@ -120,7 +133,7 @@ const Academic = () => {
             </div>
             <div className="container">
                 <div className="row justify-content-center p-4 ">
-                    <div className="search_container container scholarship-page">
+                   {activeTab === "apply" ? <div className="search_container container scholarship-page">
                         <h3 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>Search suitable {activeTab === "apply" ? "Course" : "Application"} for you</h3>
                         <div className="bg-white rounded section_inner">
                             <div className="ps-3">
@@ -146,7 +159,17 @@ const Academic = () => {
                                 Reset
                             </button>}
                         </div>
-                    </div>
+                    </div>: <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+        <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
+        <div className="card-body">
+          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-SemiBold" }}>You are just a few steps away from submitting your application</p>
+          <div className="d-flex justify-content-between">
+            <span style={{fontFamily:"Gilroy-SemiBold"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Phone : {studentDetails?.contactNumber || '--'}</span>
+          </div>
+        </div>
+      </div>}
                 </div>
             </div>
             <div className="container py-4 course_container">

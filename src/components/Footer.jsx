@@ -102,6 +102,7 @@ const Footer = () => {
             <Link to="/refund-policy">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
             </Link>
+            
             {/* <Link>
             <li style={{ cursor: "pointer" }}>Contact Us</li>
             </Link> */}

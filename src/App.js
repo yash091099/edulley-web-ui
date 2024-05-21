@@ -29,6 +29,7 @@ import LOR from "./Pages/study-abroad/lor";
 import CourseDetails from "./components/courseDetails";
 import CarrerPath from "./Pages/Carrer/carrer-path";
 import CarrerPathDetails from "./Pages/Carrer/carrer-details";
+import ChatSupport from "./Pages/chatSupport";
 
 export const ModalContext = createContext();
 
@@ -83,6 +84,7 @@ function App() {
         <Route path="/career-path" element={<RequireAuth><CarrerPath /></RequireAuth>} />
         <Route path="/course-details" element={<RequireAuth><CourseDetails /></RequireAuth>} />
         <Route path="/carrer-details" element={<RequireAuth><CarrerPathDetails /></RequireAuth>} />
+        <Route path="/chat-support" element={<RequireAuth><ChatSupport /></RequireAuth>} />
       </Routes>
       <Toaster
         position="top-right"

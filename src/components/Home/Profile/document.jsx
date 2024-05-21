@@ -9,6 +9,7 @@ import { Button, Card } from "react-bootstrap";
 export default function ViewUserDocument() {
   const _u = JSON.parse(localStorage.getItem('_u'));
   const userId = _u?._id;
+  const highlightColor = "#FF5573";
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
@@ -25,7 +26,16 @@ export default function ViewUserDocument() {
     'GRE/GMAT': ""
   });
   const [activeTab, setActiveTab] = useState(0);
+  const [studentDetails, setStudentDetails] = useState({});
 
+  const _id = _u ? _u._id : null;
+  useEffect(() => {
+    if (_id) {
+      getStudentDetailsById(_id).then((res) => {
+        setStudentDetails(res.data.data);
+      });
+    }
+  }, [_id]);
   useEffect(() => {
     const fetchDetails = async () => {
       if (!userId) return;
@@ -183,6 +193,17 @@ export default function ViewUserDocument() {
         >
           Uploaded by Edulley
         </Button>
+      </div>
+      <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+        <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
+        <div className="card-body">
+          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-SemiBold" }}>You are just a few steps away from submitting your application</p>
+          <div className="d-flex justify-content-between">
+            <span style={{fontFamily:"Gilroy-SemiBold"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Phone : {studentDetails?.contactNumber || '--'}</span>
+          </div>
+        </div>
       </div>
       {activeTab === 0 && (
         <form onSubmit={handleSubmit}>

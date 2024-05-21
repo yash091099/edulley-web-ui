@@ -11,12 +11,16 @@ import time from "../assets/ion_time-outline.png";
 import walletImage from "../assets/solar_wallet-linear.png";
 import ellipse from "../assets/Ellipse.png";
 import {  getUniversities } from "../Services/dashboard";
+import { useNavigate } from "react-router-dom";
 
 const AppliedCourseListCard = ({ course }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [razorpayLoaded, setRazorpayLoaded] = useState(false);
   const [universities, setUniversities] = useState([]);
+  const [studentDetails, setStudentDetails] = useState({});
+  const navigate =useNavigate();
+
   const fetchUniversities = async () => {
     try {
       const res = await getUniversities();
@@ -201,6 +205,21 @@ const AppliedCourseListCard = ({ course }) => {
         <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
             <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
         </p>
+    </div>
+    <div style={{marginLeft:"200px"}}>
+    <button
+            style={{
+              fontFamily: "Gilroy-SemiBold",
+              color: "#FF5573",
+              padding: "7px",
+              borderRadius: "8px",
+              border: "1px solid #FF5573",
+              background: "#fff",
+            }}
+            onClick={() => navigate('/chat-support', { state: course })}
+            >
+            {"View Details >>"}
+          </button>
     </div>
     
 </div>
