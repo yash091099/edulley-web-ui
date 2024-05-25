@@ -15,7 +15,7 @@ const Countries = () => {
       Embark on a transformative journey of learning and discovery. Explore new cultures, make lifelong friendships, and gain a world-class education. 
 Let us be your guide to a brighter future. Choose a country that excites you and we bring the best information to help you make an informed decision. 
       </p>
-      <div className="countries-container ">
+      <div className="countries-container-2 ">
      
         <div className="countries">
           <img className="countries-image" src={card4} alt="Australia" />
@@ -26,6 +26,8 @@ Let us be your guide to a brighter future. Choose a country that excites you and
         <div className="countries">
           <img className="countries-image" src={card6} alt="Ireland" />
         </div>
+        </div>
+        <div className="countries-container-2 mt-3 ">
         <div className="countries">
           <img className="countries-image" src={card1} alt="USA" />
         </div>

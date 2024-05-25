@@ -7,7 +7,7 @@ import { BorderBottom, BorderTop } from "@mui/icons-material";
 
 const Works = () => {
   return (
-    <div className="most-searched-countries-container featured-university-container container py-5 br-t-0">
+    <div className="most-searched-countries-container-2 featured-university-container container py-5 br-t-0">
       <div className="">
         <h1 className="what-we-can-do-title" style={{fontFamily:"Gilroy-Bold"}}>How it works</h1>
         <p className="what-we-can-do-description" style={{fontFamily:"Gilroy-Medium"}}>
@@ -15,7 +15,7 @@ const Works = () => {
 love to assist you at any step of the way. Your journey begins here! 
         </p>
       </div>
-      <div className="countries-container my-5 how-to-work">
+      <div className="countries-container-2 my-5 how-to-work">
         <WorkCards
           image={img1}
           title="Find courses"
