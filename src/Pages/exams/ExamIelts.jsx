@@ -1,6 +1,8 @@
 import React from "react";
 import IletsCard from "../../components/exams/IletsCard";
 import scholar1 from "../../assets/scholarship1.png";
+import cherons from "../../assets/chevrons-right.png";
+
 import list from "../../assets/list.svg";
 
 const ExamIelts = () => {
@@ -10,13 +12,13 @@ const ExamIelts = () => {
         <div className="ielts_content container " style={{marginTop: '200px'}}>
           <h1 style={{fontFamily: 'Gilroy-Bold'}}>IELTS EXAM</h1>
           <h2 style={{fontFamily: 'Gilroy-Medium'}}>Complete Overview</h2>
-          <button className="explore-button mt-5 bg-black pull-right" style={{fontFamily: 'Gilroy-SemiBold'}}>
-            Download IELTS Guide {'>>'}
+          <button className="explore-button mt-5 bg-black pull-right" style={{fontFamily: 'Gilroy-Medium'}}>
+            Download IELTS Guide <img src={cherons} alt="Home" />
           </button>
         </div>
       </div>
       <div className="container py-4 course_container">
-        <h3 style={{fontFamily: 'Gilroy-Medium'}}>IELTS Exam 2024-25</h3> 
+        <h3 style={{fontFamily: 'Gilroy-Medium'}} className="mb-3">IELTS Exam 2024-25</h3> 
         <div className="d-flex  justify-content-between inner_course mt-0">
           <div className="row">
             <div className="col-md-9">

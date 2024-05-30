@@ -9,6 +9,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { getCourses } from "../Services/dashboard";
 import { FaRupeeSign } from "react-icons/fa";
+import cherons from "../assets/chevrons-right.png";
 
 const CourseList = () => {
   const location = useLocation();
@@ -144,7 +145,7 @@ const CourseList = () => {
     <div className="col-md-12 d-flex justify-content-end align-items-center">
         {/* <span style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Add five courses to start comparison</span> */}
         <button className="explore-button mb-3" style={{ fontFamily: 'Gilroy-SemiBold' }} onClick={handleCompareClick}>
-            Compare {'>>'}
+            Compare <img src={cherons} alt="Home" />
         </button>
     </div>
 </div>

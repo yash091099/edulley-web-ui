@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import { addStudent ,editStudent,getStudentDetailsById} from "../../../Services/dashboard";
 import CustomLoader from "../../loader";
+
 export default function PersonalDetails() {
-  const _u=JSON.parse(localStorage.getItem('_u'))
-  const userId=_u?._id
-  const [editMode,  setEditMode] = useState(false);
-  const[loading,setLoading]=useState(false);
-const [editModeData, setEditModeData] = useState({});
+  const _u = JSON.parse(localStorage.getItem('_u'));
+  const userId = _u?._id;
+  const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [editModeData, setEditModeData] = useState({});
+  const [sameAsMailing, setSameAsMailing] = useState(false);
 
   const [data, setData] = useState({
     fullName: "",
@@ -35,16 +37,16 @@ const [editModeData, setEditModeData] = useState({});
     passportStateOfBirth: "",
     passportCountryOfBirth: "",
   });
+
   const [errors, setErrors] = useState({});
+
   useEffect(() => {
     const fetchDetails = async () => {
       if (!userId) return;
       setLoading(true);
       try {
         const res = await getStudentDetailsById(userId);
-        console.log(res, '--------------------');
         if (res?.data?.data) {
-          console.log(res?.data?.data, '-----------------------get student by id response');
           setData({
             fullName: res?.data?.data?.fullName,
             gender: res?.data?.data?.gender,
@@ -71,7 +73,7 @@ const [editModeData, setEditModeData] = useState({});
             passportStateOfBirth: res?.data?.data?.passportInformation?.birthState,
             passportCountryOfBirth: res?.data?.data?.passportInformation?.birthCountry,
           });
-          setEditModeData(res?.data?.data)
+          setEditModeData(res?.data?.data);
           setEditMode(true);
         } else {
           setEditMode(false);
@@ -105,6 +107,21 @@ const [editModeData, setEditModeData] = useState({});
     const { name, value } = event.target;
     setData((prev) => ({ ...prev, [name]: value }));
     validateField(name, value);
+  };
+
+  const handleSameAsMailingChange = () => {
+    setSameAsMailing(!sameAsMailing);
+    if (!sameAsMailing) {
+      setData((prev) => ({
+        ...prev,
+        permanentAddressLine1: prev.mailingAddressLine1,
+        permanentAddressLine2: prev.mailingAddressLine2,
+        permanentCountry: prev.mailingCountry,
+        permanentState: prev.mailingState,
+        permanentCity: prev.mailingCity,
+        permanentPincode: prev.mailingPincode,
+      }));
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -148,149 +165,151 @@ const [editModeData, setEditModeData] = useState({});
     };
     let response;
     setLoading(true);
-    if(editMode){
-      payload.userId=userId
-      response = editStudent(...editModeData,...payload);
-
-    }else{
-      payload.userId=userId
-
+    if (editMode) {
+      payload.userId = userId;
+      response = editStudent(...editModeData, ...payload);
+    } else {
+      payload.userId = userId;
       response = await addStudent(payload);
     }
     setLoading(false);
 
-    if(response.error) {
+    if (response.error) {
       toast.error(response.message);
     } else {
-      
       toast.success('Profile Data Updated successfully');
-
     }
-    console.log("Submitted Data:", payload);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       {loading && <CustomLoader />}
-        <div className="main-container">
-        <h3 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Personal Information</h3>
+      <div className="main-container">
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Personal Information</h5>
         <div className="row">
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Full Name <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="fullName" value={data.fullName} placeholder="Full name" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Gender <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="gender" value={data.gender} placeholder="Gender" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Contact Number <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="contactNumber" value={data.contactNumber} placeholder="Contact number" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Email ID <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="email" value={data.email} placeholder="Enter Email" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Date of Birth <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="date" name="dob" value={data.dob} onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Marital Status <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="maritalStatus" value={data.maritalStatus} placeholder="Marital status" onChange={handleInputChange} />
-          </div>
+          {[
+            { label: 'Full Name', name: 'fullName', type: 'text', placeholder: 'Full name', value: data.fullName },
+            { label: 'Gender', name: 'gender', type: 'select', options: ['Select Gender', 'Male', 'Female', 'Other'], value: data.gender },
+            { label: 'Contact Number', name: 'contactNumber', type: 'text', placeholder: 'Contact number', value: data.contactNumber },
+            { label: 'Email ID', name: 'email', type: 'text', placeholder: 'Enter Email', value: data.email },
+            { label: 'Date of Birth', name: 'dob', type: 'date', value: data.dob },
+            { label: 'Marital Status', name: 'maritalStatus', type: 'select', options: ['Select Marital Status', 'Married', 'Unmarried'], value: data.maritalStatus }
+          ].map((field, index) => (
+            <div className="col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              {field.type === 'select' ? (
+                <select className="dropdown-css" style={{ fontFamily: "Gilroy-Medium" }} name={field.name} value={field.value} onChange={handleInputChange}>
+                  {field.options.map((option, idx) => (
+                    <option key={idx} value={option === 'Select Gender' || option === 'Select Marital Status' ? '' : option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  style={{ fontFamily: "Gilroy-Medium" }}
+                  type={field.type}
+                  name={field.name}
+                  value={field.value}
+                  placeholder={field.placeholder}
+                  onChange={handleInputChange}
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
       <div className="main-container">
-        <h3 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Mailing Address</h3>
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Mailing Address</h5>
         <div className="row">
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}} >Address Line 1 <span style={{ color: 'red' }}>*</span></label>
-            <input  style={{fontFamily:"Gilroy-Regular"}} type="text" name="mailingAddressLine1" value={data.mailingAddressLine1} placeholder="Address Line 1" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}} >Address Line 2 <span style={{ color: 'red' }}>*</span></label>
-            <input  style={{fontFamily:"Gilroy-Regular"}} type="text" name="mailingAddressLine2" value={data.mailingAddressLine2} placeholder="Address Line 2" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}} >Country <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}}  type="text" name="mailingCountry" value={data.mailingCountry} placeholder="Country" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>State <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="mailingState" value={data.mailingState} placeholder="State" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>City <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="mailingCity" value={data.mailingCity} placeholder="City" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Pincode <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="mailingPincode" value={data.mailingPincode} placeholder="Pincode" onChange={handleInputChange} />
-          </div>
+          {[
+            { label: 'Address Line 1', name: 'mailingAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.mailingAddressLine1 },
+            { label: 'Address Line 2', name: 'mailingAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.mailingAddressLine2 },
+            { label: 'Country', name: 'mailingCountry', type: 'text', placeholder: 'Country', value: data.mailingCountry },
+            { label: 'State', name: 'mailingState', type: 'text', placeholder: 'State', value: data.mailingState },
+            { label: 'City', name: 'mailingCity', type: 'text', placeholder: 'City', value: data.mailingCity },
+            { label: 'Pincode', name: 'mailingPincode', type: 'text', placeholder: 'Pincode', value: data.mailingPincode }
+          ].map((field, index) => (
+            <div className="col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <input
+                style={{ fontFamily: "Gilroy-Medium" }}
+                type={field.type}
+                name={field.name}
+                value={field.value}
+                placeholder={field.placeholder}
+                onChange={handleInputChange}
+              />
+            </div>
+          ))}
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
+
       <div className="main-container">
-        <h3 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Permanent Address</h3>
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Permanent Address</h5>
+        <div className="form-check mb-3">
+          <input className="form-check-input" type="checkbox" checked={sameAsMailing} onChange={handleSameAsMailingChange} />
+          <label className="form-check-label" style={{ fontFamily: "Gilroy-Medium" }}>
+            Same as Mailing Address
+          </label>
+        </div>
         <div className="row">
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Address Line 1 <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentAddressLine1" value={data.permanentAddressLine1} placeholder="Address Line 1" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Address Line 2 <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentAddressLine2" value={data.permanentAddressLine2} placeholder="Address Line 2" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Country <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentCountry" value={data.permanentCountry} placeholder="Country" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>State <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentState" value={data.permanentState} placeholder="State" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>City <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentCity" value={data.permanentCity} placeholder="City" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Pincode <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="permanentPincode" value={data.permanentPincode} placeholder="Pincode" onChange={handleInputChange} />
-          </div>
+          {[
+            { label: 'Address Line 1', name: 'permanentAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.permanentAddressLine1, disabled: sameAsMailing },
+            { label: 'Address Line 2', name: 'permanentAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.permanentAddressLine2, disabled: sameAsMailing },
+            { label: 'Country', name: 'permanentCountry', type: 'text', placeholder: 'Country', value: data.permanentCountry, disabled: sameAsMailing },
+            { label: 'State', name: 'permanentState', type: 'text', placeholder: 'State', value: data.permanentState, disabled: sameAsMailing },
+            { label: 'City', name: 'permanentCity', type: 'text', placeholder: 'City', value: data.permanentCity, disabled: sameAsMailing },
+            { label: 'Pincode', name: 'permanentPincode', type: 'text', placeholder: 'Pincode', value: data.permanentPincode, disabled: sameAsMailing }
+          ].map((field, index) => (
+            <div className="col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <input
+                style={{ fontFamily: "Gilroy-Medium" }}
+                type={field.type}
+                name={field.name}
+                value={field.value}
+                placeholder={field.placeholder}
+                onChange={handleInputChange}
+                disabled={field.disabled}
+              />
+            </div>
+          ))}
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
+
       <div className="main-container">
-        <h3 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Passport Information</h3>
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Passport Information</h5>
         <div className="row">
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Passport Number <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="passportNumber" value={data.passportNumber} placeholder="Passport Number" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Issue Country <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="passportIssueCountry" value={data.passportIssueCountry} placeholder="Issue Country" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Issue Date <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="date" name="passportIssueDate" value={data.passportIssueDate} onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Expiry Date <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="date" name="passportExpiryDate" value={data.passportExpiryDate} onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>State of Birth <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="passportStateOfBirth" value={data.passportStateOfBirth} placeholder="State of Birth" onChange={handleInputChange} />
-          </div>
-          <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Country of Birth <span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="passportCountryOfBirth" value={data.passportCountryOfBirth} placeholder="Country of Birth" onChange={handleInputChange} />
-          </div>
+          {[
+            { label: 'Passport Number', name: 'passportNumber', type: 'text', placeholder: 'Passport Number', value: data.passportNumber },
+            { label: 'Issue Country', name: 'passportIssueCountry', type: 'text', placeholder: 'Issue Country', value: data.passportIssueCountry },
+            { label: 'Issue Date', name: 'passportIssueDate', type: 'date', value: data.passportIssueDate },
+            { label: 'Expiry Date', name: 'passportExpiryDate', type: 'date', value: data.passportExpiryDate },
+            { label: 'State of Birth', name: 'passportStateOfBirth', type: 'text', placeholder: 'State of Birth', value: data.passportStateOfBirth },
+            { label: 'Country of Birth', name: 'passportCountryOfBirth', type: 'text', placeholder: 'Country of Birth', value: data.passportCountryOfBirth }
+          ].map((field, index) => (
+            <div className="col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <input
+                style={{ fontFamily: "Gilroy-Medium" }}
+                type={field.type}
+                name={field.name}
+                value={field.value}
+                placeholder={field.placeholder}
+                onChange={handleInputChange}
+              />
+            </div>
+          ))}
         </div>
       </div>
       <div className="button-container mb-4 mt-3 float-end">
-        <button style={{fontFamily:"Gilroy-Medium"}} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Save'} Profile</button>
+        <button style={{ fontFamily: "Gilroy-Medium" }} type="submit" className="btn btn-primary">Next</button>
       </div>
     </form>
   );
+
 }

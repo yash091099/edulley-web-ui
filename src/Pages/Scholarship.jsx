@@ -13,13 +13,24 @@ import CustomLoader from "../components/loader";
 import {toast} from "react-hot-toast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
+import Pagination from '@mui/material/Pagination';
+
 const Scholarship = () => {
   const [scholarship, setScholarship] = useState([]);
   const [filteredScholarship, setFilteredScholarship] = useState([]);
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({ name: '', course: '', university: '' });
   const [searchInput, setSearchInput] = useState('');
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [scholarshipsPerPage] = useState(9);
+  const indexOfLastScholarship = currentPage * scholarshipsPerPage;
+  const indexOfFirstScholarship = indexOfLastScholarship - scholarshipsPerPage;
+  const currentScholarships = filteredScholarship.slice(indexOfFirstScholarship, indexOfLastScholarship);
+  
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+    
   const fetchScholarship = async () => {
     setLoading(true);
     try {
@@ -45,8 +56,12 @@ const Scholarship = () => {
   const handleSearchInputChange = (event) => {
     const value = event.target.value;
     setSearchInput(value);
-    const filtered = scholarship.filter(uni => uni.name.toLowerCase().includes(value.toLowerCase()));
-    setFilteredScholarship(filtered);
+    const filtered = scholarship.filter(uni => 
+      uni.name.toLowerCase().includes(value.toLowerCase()) || 
+      uni.universityName.toLowerCase().includes(value.toLowerCase()) || 
+      uni.coursesName.toLowerCase().includes(value.toLowerCase())
+  );
+      setFilteredScholarship(filtered);
   };
 
   const handleReset = () => {
@@ -87,7 +102,7 @@ const Scholarship = () => {
         <input
           type="text"
           className="form-control"
-          placeholder="Search Scholarships"
+          placeholder="Search By Name, Course, University"
           style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px" }}
           value={searchInput}
           onChange={handleSearchInputChange}
@@ -186,6 +201,16 @@ const Scholarship = () => {
                   <p className="text-center">No scholarship found</p>
                 )}
               </div>
+              <div className="d-flex justify-content-center mt-4">
+          <Pagination
+            count={Math.ceil(filteredScholarship.length / scholarshipsPerPage)}
+            page={currentPage}
+            onChange={handlePageChange}
+            variant="fill"
+            shape="rounded"
+            color="primary"
+          />
+        </div>
             </div>
             <div className="col-md-3">
               <div className="right_scholar">

@@ -5,17 +5,19 @@ import school from '../../assets/school.svg';
 import map from '../../assets/mappin.svg';
 import calender from '../../assets/calendar.svg';
 import course_icon from '../../assets/course.png';
+
 import { Link, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
 import { getCourses } from '../../Services/dashboard';
+import TrendingCoursesCarousel from './corousel-tranding-courses';
 
 const Search = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(false);
     const [showAdvancedFilter, setShowAdvancedFilter] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '', level: '' });
+    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: 'January'  });
     const [searchResults, setSearchResults] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -74,9 +76,9 @@ const Search = () => {
 
     return (
         <div className="cointainer">
-            <div className="row">
+            <div className="row mt-5" >
                 <div>
-                    <h1 className="font-gilroy fw-bold course-head">
+                    <h1 style={{marginTop:"75px"}} className="font-gilroy fw-bold course-head">
                         <img src={course_icon} className="img-fluid" alt="" />
                         <span className="mt-1 ml-2 font-gilroy bold" style={{ fontFamily: "Gilroy-Bold" }}>Courses</span>
                     </h1>
@@ -84,7 +86,7 @@ const Search = () => {
             </div>
             <div className="search_container container mb-3">
                 {loading && <CustomLoader />}
-                <h4 className="text-center mb-4" style={{ fontFamily: "Gilroy-SemiBold" }}>Search suitable Course for you</h4>
+                <h4 className="text-center mb-4" style={{ fontFamily: "Gilroy-Medium" }}>Search suitable Course for you</h4>
                 <div className="bg-white rounded section_inner">
                     <div className="ps-3">
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
@@ -99,48 +101,88 @@ const Search = () => {
                         />
                     </div>
                     <div className="ps-3">
-                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-                        <input
-                            className="text-gray-100"
-                            placeholder="Intake"
-                            type="text"
-                            name="level"
-                            value={searchTerm.level}
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="ps-3">
-                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
-                        <input
-                            className="text-gray-100"
-                            placeholder="Year"
-                            type="text"
-                            name="duration"
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
-                            
-                            value={searchTerm.duration}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="ps-3">
-                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={map} />
-                        <input
-                            className="text-gray-100"
-                            placeholder="Country"
-                            type="text"
-                            name="country"
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
-                            
-                            // value={searchTerm.duration}
-                            // onChange={handleChange}
-                        />
-                    </div>
+    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
+    <select
+        className="text-gray-100"
+        
+        name="level"
+        value={searchTerm.level}
+        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
+        padding: "10px",
+        background: "#fff"
+    }}
+        onChange={handleChange}
+    >
+        <option value="">Select Month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+</div>
+<div className="ps-3">
+    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
+    <select
+        className="text-gray-100"
+        name="duration"
+        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
+        padding: "10px",
+        background: "#fff"
+    }}
+        value={searchTerm.duration}
+        onChange={handleChange}
+    >
+        <option value="">Select Year</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
+<div className="ps-3">
+    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={map} />
+    <select
+         className="text-gray-100"
+         name="country"
+         style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
+         padding: "10px",
+         background: "#fff" 
+        }}
+        // onChange={handleChange}
+    >
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Australia">Australia</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="France">France</option>
+        <option value="Germany">Germany</option>
+        <option value="Canada">Canada</option>
+        <option value="Dubai">Dubai</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Denmark">Denmark</option>
+        <option value="Finland">Finland</option>
+        <option value="Spain">Spain</option>
+        <option value="Switzerland">Switzerland</option>
+    </select>
+</div>
+
                     <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.duration || !searchTerm.level) ? 'disabled' : ''}`}>
                         <FaSearch />
                     </button>
                 </div>
-                {showMessage && (
+                {showMessage && searchTerm.course && (
                     <div className="row mt-3">
                         {isAvailable ?
                             <div className="col-12 alert alert-success" role="alert">Search course is available!</div> :
@@ -153,7 +195,7 @@ const Search = () => {
                 <div className="col-12 d-flex justify-content-center">
                   {!showAdvancedFilter ?  <button
                         style={{
-                            fontFamily: "Gilroy-SemiBold",
+                            fontFamily: "Gilroy-Medium",
                             color: "#FF5573",
                             padding: "10px 20px",
                             borderRadius: "8px",
@@ -174,8 +216,8 @@ const Search = () => {
 
                     <div className="row">
                     <div className="col-md-4">
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label style={{ fontFamily: "Gilroy-SemiBold" }}>Study Area</label>
+    {/* <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <label style={{ fontFamily: "Gilroy-Medium" }}>Study Area</label>
         <select style={{
             height: '40px',
             padding: '10px 10px',
@@ -204,7 +246,7 @@ const Search = () => {
             <option>Journalism and Media</option>
             <option>Agriculture</option>
         </select>
-    </div>
+    </div> */}
     <div style={{ display: 'flex', flexDirection: 'column' }}>
         <label style={{ fontFamily: "Gilroy-SemiBold" }}>Discipline Area</label>
         <select style={{
@@ -253,7 +295,7 @@ const Search = () => {
 
 
                         <div className='col-md-4'>
-    <label style={{ fontFamily: "Gilroy-SemiBold" }}>Program Level</label>
+    <label style={{ fontFamily: "Gilroy-Medium" }}>Program Level</label>
     <div>
         <input type="checkbox" id="ug" className="custom-checkbox" />
         <label htmlFor="ug" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG</label>
@@ -270,30 +312,17 @@ const Search = () => {
         <input type="checkbox" id="pg-diploma" className="custom-checkbox" />
         <label htmlFor="pg-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG Diploma/ Certificate</label>
     </div>
-    <div>
-        <input type="checkbox" id="ug-pg" className="custom-checkbox" />
-        <label htmlFor="ug-pg" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG+PG (Accelerated Degree)</label>
-    </div>
-    <div>
-        <input type="checkbox" id="phd" className="custom-checkbox" />
-        <label htmlFor="phd" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PHD</label>
-    </div>
-    <div>
-        <input type="checkbox" id="foundation" className="custom-checkbox" />
-        <label htmlFor="foundation" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Foundation</label>
-    </div>
+   
+   
     <div>
         <input type="checkbox" id="short-term" className="custom-checkbox" />
         <label htmlFor="short-term" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Short Term Programs</label>
     </div>
-    <div>
-        <input type="checkbox" id="pathway" className="custom-checkbox" />
-        <label htmlFor="pathway" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Pathway programs</label>
-    </div>
+   
 </div>
 <div className="col-md-4">
     <div>
-        <label style={{ fontFamily: "Gilroy-SemiBold" }}>Requirements</label>
+        <label style={{ fontFamily: "Gilroy-Medium" }}>Requirements</label>
         <div>
             <input type="checkbox" id="pte" className="custom-checkbox" />
             <label htmlFor="pte" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PTE</label>
@@ -322,10 +351,7 @@ const Search = () => {
             <input type="checkbox" id="gmat" className="custom-checkbox" />
             <label htmlFor="gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GMAT</label>
         </div>
-        <div>
-            <input type="checkbox" id="without-english" className="custom-checkbox" />
-            <label htmlFor="without-english" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without English Proficiency</label>
-        </div>
+      
         <div>
             <input type="checkbox" id="without-gre" className="custom-checkbox" />
             <label htmlFor="without-gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GRE</label>
@@ -334,23 +360,19 @@ const Search = () => {
             <input type="checkbox" id="without-gmat" className="custom-checkbox" />
             <label htmlFor="without-gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GMAT</label>
         </div>
-        <div>
-            <input type="checkbox" id="without-maths" className="custom-checkbox" />
-            <label htmlFor="without-maths" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without Maths</label>
-        </div>
+       
         <div>
             <input type="checkbox" id="stem-courses" className="custom-checkbox" />
             <label htmlFor="stem-courses" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>STEM Courses</label>
         </div>
-        <div>
-            <input type="checkbox" id="scholarship" className="custom-checkbox" />
-            <label htmlFor="scholarship" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Scholarship Available</label>
-        </div>
+      
     </div>
 </div>
                     </div>
+
                 </div>
             )}
+            <TrendingCoursesCarousel trendingCourses={courses} />
 <div className="d-flex justify-content-center">
 
 {showAdvancedFilter ?  <button

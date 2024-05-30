@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import toast from 'react-hot-toast';
 import { addStudent, editStudent, getStudentDetailsById } from "../../../Services/dashboard";
@@ -14,19 +13,10 @@ export default function TestScores() {
   const [loading, setLoading] = useState(false);
   const [testScores, setTestScores] = useState({
     ieltsOverall: "",
-    ieltsQuantitative: "",
-    ieltsAnalytical: "",
-    ieltsVerbal: "",
     ieltsDateOfExam: "",
     ieltsYetToTake: false,
     ieltsLookingForWaiver: false,
-    greOverall: "",
-    greQuantitative: "",
-    greAnalytical: "",
-    greVerbal: "",
-    greDateOfExam: "",
-    greYetToTake: false,
-    greLookingForWaiver: false,
+    ieltsOtherTest: false
   });
 
   useEffect(() => {
@@ -38,19 +28,10 @@ export default function TestScores() {
         if (res?.data?.data) {
           setTestScores({
             ieltsOverall: res?.data?.data?.tests?.ieltsOverall,
-            ieltsQuantitative: res?.data?.data?.tests?.ieltsQuantitative,
-            ieltsAnalytical: res?.data?.data?.tests?.ieltsAnalytical,
-            ieltsVerbal: res?.data?.data?.tests?.ieltsVerbal,
             ieltsDateOfExam: res?.data?.data?.tests?.ieltsDateOfExam?.split("T")[0],
             ieltsYetToTake: res?.data?.data?.tests?.ieltsYetToTake,
             ieltsLookingForWaiver: res?.data?.data?.tests?.ieltsLookingForWaiver,
-            greOverall: res?.data?.data?.tests?.greOverall,
-            greQuantitative: res?.data?.data?.tests?.greQuantitative,
-            greAnalytical: res?.data?.data?.tests?.greAnalytical,
-            greVerbal: res?.data?.data?.tests?.greVerbal,
-            greDateOfExam: res?.data?.data?.tests?.greDateOfExam?.split("T")[0],
-            greYetToTake: res?.data?.data?.tests?.greYetToTake,
-            greLookingForWaiver: res?.data?.data?.tests?.greLookingForWaiver
+            ieltsOtherTest: res?.data?.data?.tests?.ieltsOtherTest
           });
           setEditModeData(res?.data?.data)
           setEditMode(true);
@@ -75,12 +56,27 @@ export default function TestScores() {
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
-    setTestScores(prevScores => ({ ...prevScores, [name]: checked }));
+    setTestScores(prevScores => {
+      const updatedScores = { ...prevScores, [name]: checked };
+      if (checked) {
+        if (name === "ieltsYetToTake") {
+          updatedScores.ieltsLookingForWaiver = false;
+          updatedScores.ieltsOtherTest = false;
+        } else if (name === "ieltsLookingForWaiver") {
+          updatedScores.ieltsYetToTake = false;
+          updatedScores.ieltsOtherTest = false;
+        } else if (name === "ieltsOtherTest") {
+          updatedScores.ieltsYetToTake = false;
+          updatedScores.ieltsLookingForWaiver = false;
+        }
+      }
+      return updatedScores;
+    });
   };
 
   const validateFields = () => {
-    const { ieltsOverall, greOverall, ieltsDateOfExam, greDateOfExam } = testScores;
-    if (!ieltsOverall || !greOverall || !ieltsDateOfExam || !greDateOfExam) {
+    const { ieltsOverall, ieltsDateOfExam } = testScores;
+    if (!ieltsOverall || !ieltsDateOfExam) {
       return false;
     }
     return true;
@@ -138,43 +134,10 @@ export default function TestScores() {
                 <label style={{ fontFamily: "Gilroy-Regular" }}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
                 <input
                   style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
+                  type="date"
                   name="ieltsDateOfExam"
                   placeholder="Date of Exam"
                   value={testScores.ieltsDateOfExam}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Quantitative<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="ieltsQuantitative"
-                  placeholder="Enter quantitative score"
-                  value={testScores.ieltsQuantitative}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Verbal<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="ieltsVerbal"
-                  placeholder="Enter verbal score"
-                  value={testScores.ieltsVerbal}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="ieltsAnalytical"
-                  placeholder="Enter analytical writing score"
-                  value={testScores.ieltsAnalytical}
                   onChange={handleInputChange}
                 />
               </div>
@@ -204,97 +167,17 @@ export default function TestScores() {
                   Looking for a Waiver
                 </label>
               </div>
-            </div>
-          </div>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion className="mt-3">
-        <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel2a-content" id="panel2a-header">
-          <Typography style={{ fontFamily: "Gilroy-Medium" }}>GRE</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className="overview-container">
-            <div className="row">
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Overall Score<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="greOverall"
-                  placeholder="Enter your overall score"
-                  value={testScores.greOverall}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className
-
-="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="date"
-                  name="greDateOfExam"
-                  value={testScores.greDateOfExam}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Quantitative<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="greQuantitative"
-                  placeholder="Enter quantitative score"
-                  value={testScores.greQuantitative}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Verbal<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="greVerbal"
-                  placeholder="Enter verbal score"
-                  value={testScores.greVerbal}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Analytical Writing<span style={{ color: 'red' }}>*</span></label>
-                <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
-                  type="text"
-                  name="greAnalytical"
-                  placeholder="Enter analytical writing score"
-                  value={testScores.greAnalytical}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="col-md-12 formField">
+              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Regular" }}>
                 <label style={{ fontFamily: "Gilroy-Regular" }}>
                   <input
-                    style={{ fontFamily: "Gilroy-Regular" }}
                     type="checkbox"
-                    name="greYetToTake"
+                    style={{ fontFamily: "Gilroy-Regular" }}
                     className="mr-2"
-                    checked={testScores.greYetToTake}
+                    name="ieltsOtherTest"
+                    checked={testScores.ieltsOtherTest}
                     onChange={handleCheckboxChange}
                   />
-                  Yet to take this test
-                </label>
-              </div>
-              <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>
-                  <input
-                    style={{ fontFamily: "Gilroy-Regular" }}
-                    type="checkbox"
-                    className="mr-2"
-                    name="greLookingForWaiver"
-                    checked={testScores.greLookingForWaiver}
-                    onChange={handleCheckboxChange}
-                  />
-                  Looking for a Waiver
+                  I have taken other test
                 </label>
               </div>
             </div>

@@ -4,16 +4,18 @@ import { getUniversities } from "../../Services/dashboard";
 import CustomLoader from "../loader";
 import toast from "react-hot-toast";
 import defaultLogoImage from "../../assets/frame-1686560972@2x.png";
-import university_icon from "../../assets/university.png"; // Default logo image
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { Search } from "@mui/icons-material";
+import university_icon from "../../assets/university.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { Pagination } from "@mui/material";
 
 const UniversitiesHome = () => {
   const [universities, setUniversities] = useState([]);
   const [filteredUniversities, setFilteredUniversities] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const universitiesPerPage = 12;
   const navigate = useNavigate();
 
   const fetchUniversities = async () => {
@@ -36,21 +38,37 @@ const UniversitiesHome = () => {
   }, []);
 
   const handleUniversityClick = (uni) => {
-    console.log(uni,'---------------------university details from function')
     navigate("/institution-details", { state: { universityDetails: uni } });
   };
 
   const handleSearchInputChange = (event) => {
     const value = event.target.value;
     setSearchInput(value);
-    const filtered = universities.filter(uni => uni.universityName.toLowerCase().includes(value.toLowerCase()));
+    filterUniversities(value);
+  };
+
+  const filterUniversities = (input) => {
+    const filtered = universities.filter(uni =>
+      uni.universityName.toLowerCase().includes(input.toLowerCase()) ||
+      uni.country.toLowerCase().includes(input.toLowerCase())
+    );
     setFilteredUniversities(filtered);
+    setCurrentPage(1);
   };
 
   const handleReset = () => {
     setSearchInput('');
     setFilteredUniversities(universities);
+    setCurrentPage(1);
   };
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  const indexOfLastUniversity = currentPage * universitiesPerPage;
+  const indexOfFirstUniversity = indexOfLastUniversity - universitiesPerPage;
+  const currentUniversities = filteredUniversities.slice(indexOfFirstUniversity, indexOfLastUniversity);
 
   if (isLoading) {
     return <CustomLoader />;
@@ -59,52 +77,53 @@ const UniversitiesHome = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 section-padding">
       <div className="container">
-      <div className="d-flex align-items-center justify-content-between">
-      <h1 className="font-gilroy fw-bold d-flex align-items-center">
-        <img src={university_icon} className="img-fluid" alt="University Icon" />
-        <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Universities</span>
-      </h1>
-      <div className="d-flex align-items-center">
-        <div className="input-group" style={{ position: 'relative' }}>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search Universities"
-            style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px" }}
-            value={searchInput}
-            onChange={handleSearchInputChange}
-          />
-          <FontAwesomeIcon
-            icon={faSearch}
-            style={{
-              position: 'absolute',
-              left: '10px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: '#888'
-            }}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              onClick={handleReset}
-              style={{
-                borderRadius: "0 25px 25px 0",
-                backgroundColor: "#FF5573",
-                color: "#FFF"
-              }}
-            >
-              <FontAwesomeIcon icon={faTimes} />
-              <span className="ml-2">Clear</span>
-            </button>
+        <div className="d-flex align-items-center justify-content-between">
+          <h1 className="font-gilroy fw-bold d-flex align-items-center">
+            <img src={university_icon} className="img-fluid" alt="University Icon" />
+            <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Universities</span>
+          </h1>
+          <div className="d-flex align-items-center">
+            <div className="input-group" style={{ position: 'relative' }}>
+              <input
+
+                type="text"
+                className="form-control"
+                placeholder="Search Universities and Country"
+                style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px",width:"300px" }}
+                value={searchInput}
+                onChange={handleSearchInputChange}
+              />
+              <FontAwesomeIcon
+                icon={faSearch}
+                style={{
+                  position: 'absolute',
+                  left: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: '#888'
+                }}
+              />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={handleReset}
+                  style={{
+                    borderRadius: "0 25px 25px 0",
+                    backgroundColor: "#FF5573",
+                    color: "#FFF"
+                  }}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                  <span className="ml-2">Clear</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-        <p style={{ fontFamily: "Gilroy-Medium" }}> {filteredUniversities.length} Universities</p>
+        <p style={{ fontFamily: "Gilroy-Medium" }}>{filteredUniversities.length} Universities</p>
         <div className="countries-container gap-1 my-3 mb-5">
-          {filteredUniversities.map((uni, index) => (
+          {currentUniversities.map((uni, index) => (
             <div style={{ cursor: "pointer" }} className="cursor-pointer countries uni_card mb-3" key={index} onClick={() => handleUniversityClick(uni)}>
               <img src={uni.bannerImage || defaultLogoImage} alt="University" className="university-image" style={{ height: "200px", width: "100%", objectFit: "contain", background: '#fff' }} />
               <div className="card-info">
@@ -118,10 +137,16 @@ const UniversitiesHome = () => {
               </div>
             </div>
           ))}
-          {!filteredUniversities.length && (
+          {!currentUniversities.length && (
             <p className="text-center">No universities found.</p>
           )}
         </div>
+        <Pagination
+          count={Math.ceil(filteredUniversities.length / universitiesPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          style={{ display: 'flex', justifyContent: 'center' }}
+        />
       </div>
     </div>
   );

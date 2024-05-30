@@ -165,7 +165,7 @@ const [editModeData, setEditModeData] = useState({});
     <form onSubmit={handleSubmit}>
       {loading&&<CustomLoader/>}
       <div className="main-container">
-        <h3 className="heading" style={{fontFamily:"Gilroy-Medium"}}>10th</h3>
+        <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>10th</h5>
         <div className="row">
           <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
@@ -189,9 +189,10 @@ const [editModeData, setEditModeData] = useState({});
           </div>
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
 
       <div className="main-container">
-        <h3 className="heading" style={{fontFamily:"Gilroy-Medium"}}>Senior Secondary (11th-12th)</h3>
+        <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>Senior Secondary (11th-12th)</h5>
         <div className="row">
           <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
@@ -215,9 +216,10 @@ const [editModeData, setEditModeData] = useState({});
           </div>
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
 
       <div className="main-container">
-        <h3 className="heading" style={{fontFamily:"Gilroy-Medium"}}>UG (Undergraduate)</h3>
+        <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>UG (Undergraduate)</h5>
         <div className="row">
           <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
@@ -241,9 +243,10 @@ const [editModeData, setEditModeData] = useState({});
           </div>
         </div>
       </div>
+      <hr style={{border: "1px solid #ccc"}}/>
 
       <div className="main-container">
-        <h3 className="heading" style={{fontFamily:"Gilroy-Medium"}}>PG (Postgraduate)</h3>
+        <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>PG (Postgraduate)</h5>
         <div className="row">
           <div className="col-md-6 formField">
             <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
@@ -269,7 +272,7 @@ const [editModeData, setEditModeData] = useState({});
       </div>
 
       <div className="button-container mb-4 mt-3 float-end">
-        <button style={{fontFamily:"Gilroy-Medium"}} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
+        <button style={{fontFamily:"Gilroy-Medium"}} type="submit" className="btn btn-primary">Next</button>
       </div>
     </form>
   );

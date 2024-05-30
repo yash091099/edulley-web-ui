@@ -7,7 +7,7 @@ const IletsCue = () => {
   return (
     <div className="container py-4 course_container">
       <div className="py-5"></div>
-      <h3 className="mb-4" style={{fontFamily: 'Gilroy-Bold'}}>IELTS READING SAMPLE</h3>
+      <h3 className="mb-3" style={{fontFamily: 'Gilroy-Bold'}}>IELTS READING SAMPLE</h3>
       <div className="d-flex justify-content-between inner_course mt-0">
         <div className="row">
           <div className="col-md-9">

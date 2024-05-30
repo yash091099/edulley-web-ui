@@ -125,6 +125,7 @@ const Navbar = () => {
                     }`}
                     to="/exam-ielts"
                     onClick={() => handleLinkClick("/exam-ielts")}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                   >
                     IELTS Exam
                   </Link>
@@ -136,6 +137,7 @@ const Navbar = () => {
                     }`}
                     to="/ielts-topic"
                     onClick={() => handleLinkClick("/ielts-topic")}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                   >
                     IELTS Topic
                   </Link>
@@ -147,6 +149,7 @@ const Navbar = () => {
                     }`}
                     to="/ielts-cue-card"
                     onClick={() => handleLinkClick("/ielts-cue-card")}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                   >
                     IELTS Cue Card
                   </Link>
@@ -158,6 +161,7 @@ const Navbar = () => {
                     }`}
                     to="/ielts-essay"
                     onClick={() => handleLinkClick("/ielts-essay")}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                   >
                     IELTS Essay
                   </Link>
@@ -173,7 +177,7 @@ const Navbar = () => {
                 aria-expanded="false"
                 onClick={(e) => e.preventDefault()}
               >
-                Study Abroad
+                Application
               </a>
               <ul className="dropdown-menu">
                 <li>

@@ -13,6 +13,7 @@ const ScholarshipCard = ({scholarship}) => {
   return (
     <div className="course_card mt-0">
       <h4 style={{ fontFamily: "Gilroy-Bold" }}>{formatName(scholarship?.name)}</h4>
+      <h4 style={{ fontFamily: "Gilroy-Medium" }}>{formatName(scholarship?.universityName)}</h4>
       {/* <h4 className=""> {scholarship?.universityName}</h4> */}
       <div className="inner_card gap-2">
         <div>

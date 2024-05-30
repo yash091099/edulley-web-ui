@@ -134,7 +134,7 @@ const Academic = () => {
             <div className="container">
                 <div className="row justify-content-center p-4 ">
                    {activeTab === "apply" ? <div className="search_container container scholarship-page">
-                        <h3 className="text-center" style={{fontFamily:"Gilroy-SemiBold"}}>Search suitable {activeTab === "apply" ? "Course" : "Application"} for you</h3>
+                        <h3 className="text-center" style={{fontFamily:"Gilroy-Medium"}}>Search suitable {activeTab === "apply" ? "Course" : "Application"} for you</h3>
                         <div className="bg-white rounded section_inner">
                             <div className="ps-3">
                                 <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
@@ -177,10 +177,10 @@ const Academic = () => {
                     <div className="col-auto">
                         <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} src={university_icon} className="img-fluid" alt="" />
                     </div>
-                    <div className="col-auto">
-                        <h1 className="font-gilroy fw-bold m-0">
+                    <div className="col-auto mb-4">
+                        <h1 className="font-gilroy fw-bold mt-4">
                             <span className="font-gilroy bold page-heading-title" style={{ fontWeight: '900' }}>{activeTab === 'apply' ? 'Courses' : 'Applications'}</span>
-                            <img  src={arrow_shortlist} className="img-fluid arrow-image" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" />
+                            {/* <img  src={arrow_shortlist} className="img-fluid arrow-image" style={{ marginBottom: '19px', marginLeft: '-120px', marginTop: '56px'}} alt="" /> */}
                         </h1>
                     </div>
                 </div>

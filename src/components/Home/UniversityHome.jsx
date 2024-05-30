@@ -51,7 +51,7 @@ const UniversitiesHome = () => {
           Explore prestigious institutions known for academic excellence and innovative programs. From cutting-edge research facilities to vibrant campus life, these universities 
           offer a world-class education and endless opportunities for growth. Explore some of the best universities here!
         </p>
-        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+        <div style={{ position: "relative",marginTop:"20px", display: "flex", alignItems: "center" }}>
           <button onClick={scrollLeft} style={{
             position: "absolute",
             left: -55,

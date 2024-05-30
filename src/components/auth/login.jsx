@@ -8,9 +8,11 @@ import { toast } from 'react-hot-toast';
 import CustomLoader from '../loader';
 import { useGoogleLogin } from "@react-oauth/google";
 import logo from "../../assets/navbar-logo@2x.png";
+import cherons from "../../assets/chevrons-right.png";
 import axios from "axios";
 import OTPInput from "otp-input-react";
-// import "otp-input-react/build/index.css";
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 Modal.setAppElement('#root');
 
@@ -32,9 +34,29 @@ function LoginModal() {
   const [otp, setOtp] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-
+  const [countryCode, setCountryCode] = useState('in');
+  // useEffect(() => {
+  //   const handleKeyPress = (event) => {
+  //     if (event.key === 'Enter') {
+  //       if (isOtpScreen) {
+  //         handleSubmitOtp();
+  //       } else if (isSignUp) {
+  //         handleRegister();
+  //       } else {
+  //         handleRequestOtp();
+  //       }
+  //     }
+  //   };
+  
+  //   document.addEventListener('keydown', handleKeyPress);
+  //   return () => {
+  //     document.removeEventListener('keydown', handleKeyPress);
+  //   };
+  // }, [isOtpScreen, isSignUp]);
+  
   const validateFields = () => {
     const newErrors = {};
+    console.log(mobileNumber, '---mobile number---');
     if (isSignUp) {
       if (!fullName.trim()) newErrors.fullName = 'Full name is required';
       if (!email.trim()) newErrors.email = 'Email is required';
@@ -48,18 +70,27 @@ function LoginModal() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
-  const handleMobileChange = (e) => {
-    const value = e.target.value.slice(0, 10);
-    setMobileNumber(value);
-    if (!value) {
-      setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: 'Mobile number is required' }));
-    } else if (value.length !== 10) {
-      setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: 'Mobile number must be 10 digits' }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: '' }));
-    }
-  };
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        if (isOtpScreen) {
+          handleSubmitOtp();
+        } else if (isSignUp) {
+          handleRegister();
+        } else {
+          handleRequestOtp();
+        }
+      }
+    };
+  
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isOtpScreen, isSignUp]);
+  
+ 
+  
 
   const handleFullNameChange = (e) => {
     setFullName(e.target.value);
@@ -86,7 +117,7 @@ function LoginModal() {
     if (!validateFields()) return;
     setIsLoading(true);
     try {
-      let response = await generatePhoneOtp({ countryCode: "+91", phoneNumber: mobileNumber });
+      let response = await generatePhoneOtp({ countryCode: `+${countryCode}`, phoneNumber: mobileNumber });
       if (!response.error) {
         setIsOtpScreen(true);
         toast.success('OTP has been sent to your mobile number');
@@ -108,7 +139,7 @@ function LoginModal() {
       const response = await verifyPhoneNumber({
         otp: otp,
         phoneNumber: mobileNumber,
-        countryCode: "+91"
+        countryCode: `+${countryCode}`
       });
       console.log(response, '---response---')
       if (!response?.data?.data?.error) {
@@ -135,7 +166,7 @@ function LoginModal() {
     if (!validateFields()) return;
     setIsLoading(true);
     try {
-      let response = await registerUser({ fullName, countryCode: "+91", phoneNumber: mobileNumber, email });
+      let response = await registerUser({ fullName, countryCode: `+${countryCode}`, phoneNumber: mobileNumber, email });
       if (!response.error) {
         setIsSignUp(false);
         toast.success('Registered successfully. Please log in.');
@@ -191,43 +222,49 @@ function LoginModal() {
             <div className="col-md-6">
               {!isOtpScreen ? (
                 <>
-                  <h2 className="text-center" style={{ fontFamily: "Gilroy-SemiBold" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h2>
+                  <h5 className="text-center" style={{ fontFamily: "Gilroy-SemiBold",fontWeight: "600" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h5>
                   {isSignUp && (
                     <>
                       <input
                         className="form-control my-3"
                         type="text"
-                        style={{ fontFamily: "Gilroy-Regular" , boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px"}}
+                        style={{ fontFamily: "Gilroy-Regular" , border: "1px solid #CCC0C0 " }}
                         placeholder="Full Name"
                         value={fullName}
                         onChange={handleFullNameChange}
                       />
-                      {errors.fullName && <div className="text-danger">{errors.fullName}</div>}
+                      {errors.fullName && <div className="text-danger" style={{ marginTop: "-15px", marginBottom: "10px" }}>{errors.fullName}</div>}
                       <input
                         className="form-control my-3"
                         type="email"
-                        style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" }}
+                        style={{ fontFamily: "Gilroy-Regular", border: "1px solid #CCC0C0 "  }}
                         placeholder="Email"
                         value={email}
                         onChange={handleEmailChange}
                       />
-                      {errors.email && <div className="text-danger">{errors.email}</div>}
+                      {errors.email && <div className="text-danger" style={{ marginTop: "-15px", marginBottom: "10px" }}>{errors.email}</div>}
                     </>
                   )}
                   <div className="input-group my-3">
-                    <div className="input-group-prepend">
-                      <span className="input-group-text" style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" }}>+91</span>
-                    </div>
-                    <input
-                      className="form-control"
-                      type="text"
-                      style={{ fontFamily: "Gilroy-Regular", boxShadow: "rgba(0, 0, 0, 0.5) 0px 0px 3px 0px" ,color:"#000000"}}
-                      placeholder="Enter your Mobile Number"
-                      value={mobileNumber}
-                      onChange={handleMobileChange}
+                    <PhoneInput
+                      country={countryCode}
+                      value={`+${countryCode}${mobileNumber}`}
+                      onChange={(value, country) => {
+                        setMobileNumber(value.slice(country.dialCode.length));
+                        
+                        setCountryCode(country.dialCode);
+                        if (value.slice(country.dialCode.length).length !== 10) {
+                          setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: 'Mobile number must be 10 digits' }));
+                        } else {
+                          setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: '' }));
+                        }
+                      }}
+                      inputStyle={{ width: "100%", border: "1px solid #CCC0C0" }}
+                      containerStyle={{ width: "100%" }}
+                      dropdownStyle={{ width: "auto" }}
                     />
                   </div>
-                  {errors.mobileNumber && <div className="text-danger">{errors.mobileNumber}</div>}
+                  {errors.mobileNumber && <div className="text-danger" style={{ marginTop: "-15px", marginBottom: "10px" }}>{errors.mobileNumber}</div>}
                   <div style={{display:'flex',justifyContent:'center'}}>
 
                   <button
@@ -235,13 +272,13 @@ function LoginModal() {
                     className="btn btn-primary w-100 my-3 auth-buttons"
                     onClick={isSignUp ? handleRegister : handleRequestOtp}
                   >
-                    {isSignUp ? 'SIGN UP >>' : 'Request OTP >>'}
+                    {isSignUp ? 'SIGN UP' : 'Request OTP'}  <img className='mb-1' src={cherons} alt="Home" />
                   </button>
                   </div>
                   {isSignUp ? (
                     <>
                       <div className='w-100 d-flex justify-content-center' style={{ fontFamily: "Gilroy-Medium" }}>
-                        <p style={{ fontFamily: "Gilroy-Regular" }}>By Signing up you agree to our <span style={{ color: "#00949B", fontWeight: 'bold', cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
+                        <p style={{ fontFamily: "Gilroy-Regular" }}>By Signing up you agree to our <span style={{ color: "#00949B",fontFamily: "Gilroy-SemiBold", cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
                       </div>
                       <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
@@ -251,7 +288,7 @@ function LoginModal() {
                       <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{ fontFamily: "Gilroy-Regular",color:"#000000" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign up with Google
                       </button>
-                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Regular" }}>Have an account? <strong style={{ cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
+                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Regular" }}>Have an account? <strong style={{ fontFamily: "Gilroy-SemiBold", cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
                     </>
                   ) : (
                     <>
@@ -263,15 +300,15 @@ function LoginModal() {
                       <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{ fontFamily: "Gilroy-Regular" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign in with Google
                       </button>
-                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-SemiBold" }}>
-                        Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573" }}>SIGN UP</strong>
+                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-Regular" }}>
+                        Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573",fontFamily: "Gilroy-SemiBold" }}>SIGN UP</strong>
                       </p>
                     </>
                   )}
                 </>
               ) : (
                 <>
-                  <h2 className="text-center" style={{ fontFamily: "Gilroy-SemiBold" }}>ENTER OTP</h2>
+                  <h5 className="text-center" style={{ fontFamily: "Gilroy-SemiBold",fontWeight: "600" }}>Enter OTP</h5>
                   <div className="d-flex justify-content-center my-3">
                     <OTPInput
                       value={otp}
@@ -283,8 +320,8 @@ function LoginModal() {
                       secure
                       inputClassName="otp-input"
                       inputStyles={{
-                        width: "3rem",
-                        height: "3rem",
+                        width: "2rem",
+                        height: "2rem",
                         margin: "0 0.5rem",
                         fontSize: "2rem",
                         borderRadius: 4,

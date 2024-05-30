@@ -117,9 +117,9 @@ const CarrerPath = () => {
           <div className="col-md-6">
             <img src={carrer_path_image} className="img-fluid" alt="Career Path" style={{ height: '400px' }} />
           </div>
-          <div className="col-md-6" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h1 style={{ color: '#FF5573', fontFamily: "Gilroy-Bold", marginRight: "65px" }}>Confused</h1>
-            <h4 style={{ color: '#FF5573', fontFamily: "Gilroy-Regular" }}>About Your Career Path?<br />Let Us Light the Way!</h4>
+          <div className="col-md-6 text-center">
+            <h1 style={{ color: '#FF5573', fontFamily: "Gilroy-Bold", fontSize: '3rem' }}>Confused</h1>
+            <h4 style={{ color: '#FF5573', fontFamily: "Gilroy-Regular", fontSize: '1.5rem', lineHeight: '1.5' }}>About Your Career Path?<br />Let Us Light the Way!</h4>
           </div>
         </div>
         <div className="row">
@@ -129,7 +129,7 @@ const CarrerPath = () => {
               <div className="ps-3">
                 <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                 <select
-                  className="text-gray-100"
+                  className="text-gray-100 dropdown-css "
                   style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
                   value={qualification}
                   onChange={(e) => setQualification(e.target.value)}
@@ -151,7 +151,7 @@ const CarrerPath = () => {
               <div className="ps-3">
                 <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
                 <select
-                  className="text-gray-100"
+                  className="text-gray-100 dropdown-css"
                   style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
                   value={specialization}
                   onChange={(e) => setSpecialization(e.target.value)}

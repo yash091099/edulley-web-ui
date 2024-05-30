@@ -17,6 +17,7 @@ import course_icon from "../assets/course.png";
 import time from "../assets/ion_time-outline.png";
 import walletImage from "../assets/solar_wallet-linear.png";
 import ellipse from "../assets/Ellipse.png";
+import cherons from "../assets/chevrons-right.png";
 
 const InstitutionDetail = () => {
   const location = useLocation();
@@ -89,7 +90,7 @@ const InstitutionDetail = () => {
             className="container"
             style={{ maxWidth: "82vw", marginTop: "400px" }}
           >
-            <div className="row align-items-center justify-content-between">
+            <div className="row mb-4 align-items-center justify-content-between">
               <div className="col d-flex align-items-center">
                 <div className="university-logo-circle mr-3">
                   <img
@@ -112,6 +113,10 @@ const InstitutionDetail = () => {
                 <button
                   style={{ fontFamily: "Gilroy-Medium" }}
                   onClick={() => {
+                    setLoading(true);
+                    setTimeout(() => {
+                      setLoading(false);
+                    },1000)
                     if (location.state?.universityDetails?.brochure)
                       window.open(
                         location.state?.universityDetails?.brochure,
@@ -120,7 +125,7 @@ const InstitutionDetail = () => {
                   }}
                   className="explore-button mt-3 fw-bold"
                 >
-                  Download Brochure {">>"}
+                  Download Brochure <img src={cherons} alt="Home" />
                 </button>
               </div>
             </div>
@@ -130,19 +135,19 @@ const InstitutionDetail = () => {
       <div className="row mr-0 ml-0">
         <div className="col-md-9">
           <div className="container uni-details py-5">
-            <h2 className="mt-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-3" style={{ fontFamily: "Gilroy-Medium" }}>
               Overview
             </h2>
             <p style={{ fontFamily: "Gilroy-Regular" }}>
               {location.state?.universityDetails?.overview}
             </p>
-            <h2 className="mt-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-3" style={{ fontFamily: "Gilroy-Medium" }}>
               Admission Requirements
             </h2>
             <p style={{ fontFamily: "Gilroy-Regular" }}>
               {location.state?.universityDetails?.admissionReq}
             </p>
-            <h2 className="mt-5" style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-5" style={{ fontFamily: "Gilroy-Medium" }}>
               University Stats
             </h2>
             <div className="d-flex gap-3 flex-wrap award_imgs">
@@ -180,7 +185,7 @@ const InstitutionDetail = () => {
                   key={index}
                   className="card text-center d-flex flex-column justify-content-center align-items-center p-3"
                   style={{
-                    width: "230px",
+                    width: "200px",
                     height: "200px",
                     borderRadius: "16px",
                     backgroundColor: "#FFF",
@@ -198,7 +203,6 @@ const InstitutionDetail = () => {
                     style={{
                       fontSize: "35px",
                       lineHeight: "48px",
-                      color: "#FF5573",
                       fontStyle: "normal",
                       fontFamily: "Gilroy-Bold",
                     }}
@@ -210,7 +214,6 @@ const InstitutionDetail = () => {
                     style={{
                       fontSize: "18px",
                       lineHeight: "22px",
-                      color: "#FF5573",
                       fontStyle: "normal",
                       fontFamily: "Gilroy-Medium",
                     }}
@@ -227,8 +230,8 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "150px",
-                  height: "150px",
+                  width: "200px",
+                  height: "200px",
                   borderRadius: "16px",
                 }}
                 src={
@@ -240,8 +243,8 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "150px",
-                  height: "150px",
+                  width: "200px",
+                  height: "200px",
                   borderRadius: "16px",
                 }}
                 src={
@@ -253,8 +256,8 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "150px",
-                  height: "150px",
+                  width: "200px",
+                    height: "200px",
                   borderRadius: "16px",
                 }}
                 src={
@@ -266,8 +269,8 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "150px",
-                  height: "150px",
+                  width: "200px",
+                  height: "200px",
                   borderRadius: "16px",
                 }}
                 src={
@@ -296,13 +299,13 @@ const InstitutionDetail = () => {
               >
                 Undergraduate
               </button>
-              <button
+              {/* <button
                 className={`detail_button ${activeTab === "Postgraduate" ? "active-tab-course" : ""}`}
                 style={{ fontFamily: "Gilroy-SemiBold" }}
                 onClick={() => handleTabClick("Postgraduate")}
               >
                 Postgraduate
-              </button>
+              </button> */}
               <button
                 className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
                 style={{ fontFamily: "Gilroy-SemiBold" }}
@@ -371,6 +374,11 @@ const InstitutionDetail = () => {
                     </div>
                   );
                 })}
+                {!courses?.length && (
+                  <div className="text-center">
+                    <p>No courses available</p> 
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -385,6 +393,7 @@ const InstitutionDetail = () => {
               <button
                 className="explore-button py-2 fw-light mt-2"
                 style={{ fontFamily: "Gilroy-Medium" }}
+                onClick={() => navigate("/career-path")}
               >
                 Explore Career path finder
               </button>
@@ -448,6 +457,7 @@ const InstitutionDetail = () => {
               <button
                 className="explore-button py-2 fw-light mt-2"
                 style={{ fontFamily: "Gilroy-Medium" }}
+                onClick={() => navigate("/courses")}
               >
                 Explore All Courses
               </button>
@@ -472,6 +482,7 @@ const InstitutionDetail = () => {
               <button
                 style={{ fontFamily: "Gilroy-Medium" }}
                 className="explore-button py-2 fw-light mt-2"
+                onClick={() => navigate("/scholarship")}
               >
                 Explore All Scholarship
               </button>

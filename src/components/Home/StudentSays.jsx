@@ -30,7 +30,7 @@ const StudentSays = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                style={{ borderRadius: "22px" }}
+                // style={{ borderRadius: "22px" }}
               ></iframe>
             </div>
           ) : (
@@ -57,7 +57,7 @@ const StudentSays = () => {
                     alt="Video Thumbnail"
                     className="video-thumbnail-what-student cursor-pointer"
                     onClick={videoClickHandler}
-                    style={{ borderRadius: "22px" }}
+                    // style={{ borderRadius: "22px" }}
                   />
                 </div>
                 <button

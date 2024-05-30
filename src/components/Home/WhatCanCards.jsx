@@ -1,8 +1,9 @@
 import React from "react";
 import { BiChevronRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import cherons from "../../assets/chevrons-right-grey.png";
 
-const WhatCanCards = ({ sOPWriting, guidance, img ,path}) => {
+const WhatCanCards = ({ sOPWriting, guidance, img ,path,buttonText}) => {
   const navigate=useNavigate();
   return (
     <div className="frame-component rounded ">
@@ -17,7 +18,7 @@ const WhatCanCards = ({ sOPWriting, guidance, img ,path}) => {
       </div>
       {/* <p className="frame-component-guidance"></p> */}
       <button style={{fontFamily:"Gilroy-Medium"}} onClick={()=>navigate(path)}  className="frame-component-button">
-        Start now <span style={{fontFamily:"Gilroy-Medium",marginLeft:"7px",marginTop:"2px"}}> {'  >>'}</span> 
+       {buttonText}  <span style={{fontFamily:"Gilroy-Medium"}}><img src={cherons} alt="Home" /></span> 
       </button>
     </div>
   );

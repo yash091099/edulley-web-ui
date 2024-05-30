@@ -12,45 +12,59 @@ const ProfileForm = () => {
   };
 
   return (
-    <div className="home-page-container profile-tab  container-fluid" style={{paddingTop:"6rem"}}>
-       <div className="container">
-       <Tab.Container className="" id="profile-tabs" activeKey={activeKey} onSelect={handleSelect}>
-        <Nav variant="pills" className="flex-row">
-          <Nav.Item>
-            <Nav.Link eventKey="profile" style={{ color: activeKey === 'profile' ? '#FF5573' : 'black',fontFamily: 'Gilroy-SemiBold' }}>
-              Profile
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="applications" style={{ color: activeKey === 'applications' ? '#FF5573' : 'black' ,fontFamily: 'Gilroy-SemiBold' }}>
-              Applications
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="documents" style={{ color: activeKey === 'documents' ? '#FF5573' : 'black',fontFamily: 'Gilroy-SemiBold'  }}>
-              Documents
-            </Nav.Link>
-          </Nav.Item>
-        </Nav>
-        <Row>
-          <Col>
-            <Tab.Content>
-              <Tab.Pane eventKey="profile">
-                <Profile />
-              </Tab.Pane>
-              <Tab.Pane eventKey="applications">
-                <Academic />
-              </Tab.Pane>
-              <Tab.Pane eventKey="documents">
-                <ViewUserDocument />
-              </Tab.Pane>
-            </Tab.Content>
-          </Col>
-        </Row>
-      </Tab.Container>
-       </div>
-      
-     
+    <div className="home-page-container profile-tab container-fluid" style={{ paddingTop: "6rem" }}>
+      <div className="container">
+        <Tab.Container id="profile-tabs" activeKey={activeKey} onSelect={handleSelect}>
+          <Row>
+            <Col>
+              <Nav variant="pills" className="flex-row">
+                <Nav.Item>
+                  <Nav.Link 
+                    eventKey="profile" 
+                    className={`tab-link ${activeKey === 'profile' ? 'active-tab' : ''}`} 
+                    style={{ fontFamily: 'Gilroy-Medium' }}
+                  >
+                    Profile
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link 
+                    eventKey="applications" 
+                    className={`tab-link ${activeKey === 'applications' ? 'active-tab' : ''}`} 
+                    style={{ fontFamily: 'Gilroy-Medium' }}
+                  >
+                    Applications
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link 
+                    eventKey="documents" 
+                    className={`tab-link ${activeKey === 'documents' ? 'active-tab' : ''}`} 
+                    style={{ fontFamily: 'Gilroy-Medium' }}
+                  >
+                    Documents
+                  </Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Tab.Content>
+                <Tab.Pane eventKey="profile">
+                  <Profile />
+                </Tab.Pane>
+                <Tab.Pane eventKey="applications">
+                  <Academic />
+                </Tab.Pane>
+                <Tab.Pane eventKey="documents">
+                  <ViewUserDocument />
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
+      </div>
     </div>
   );
 };

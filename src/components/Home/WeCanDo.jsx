@@ -17,11 +17,11 @@ const WeCanDo = () => {
           src={airoplane} 
           alt="Airoplane" 
           style={{
-            position: "absolute",
-            right: "4px",
-            top: "-215px",
-            height: "256px",
-            zIndex: "-1"
+            position: 'absolute',
+            right: '4px',
+            top: '-204px',
+            height: '252px',
+            zIndex: '-1',
           }} 
         />
         <p className="what-we-can-do-description" style={{ fontFamily: "Gilroy-Medium" }}>
@@ -32,28 +32,32 @@ const WeCanDo = () => {
         </p>
       </div>
       <div className="what-we-can-do-grid container">
-        <WhatCanCards img={img1} sOPWriting="IELTS " guidance="Preparation" path='/exam-ielts' />
+        <WhatCanCards img={img1} sOPWriting="Study" buttonText="Learn More" guidance="Abroad" path='/lor' />
         <WhatCanCards
           img={img2}
           sOPWriting="SOP Writing "
           guidance="Guidance" path='/sop'
+          buttonText="Learn More"
         />
-        <WhatCanCards img={img3} sOPWriting="Visa " guidance="Guidance" path='/lor' />
-        <WhatCanCards img={img4} sOPWriting="Financial " guidance="Aid" path='/sop' />
+        <WhatCanCards img={img3} sOPWriting="Visa" buttonText="Learn More" guidance="Guidance" path='/lor' />
+        <WhatCanCards img={img4} sOPWriting="Financial" buttonText="Learn More" guidance="Planning" path='/sop' />
         <WhatCanCards
           img={img4}
           sOPWriting="Accommodation "
+          buttonText="Learn More"
           guidance="Guidance"
           path='/lor'
         />
-        <WhatCanCards img={img1} sOPWriting="Online " path='/courses' guidance="Learning" />
+                <WhatCanCards img={img3} buttonText="Learn More" sOPWriting="Career path " guidance="finder" path='/career-path' />
+
+        <WhatCanCards img={img1} sOPWriting="Scholarship" buttonText="Learn More"  path='/scholarship' guidance="Finder" />
         <WhatCanCards
           img={img2}
-          sOPWriting="Courses"
-          path='/courses'
-          guidance="Visit"
+          sOPWriting="IELTS"
+          path='/exam-ielts'
+          buttonText="Learn More"
+          guidance="Preparation"
         />
-        <WhatCanCards img={img3} sOPWriting="Career path " guidance="finder" path='/lor' />
       </div>
     </div>
   );

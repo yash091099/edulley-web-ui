@@ -1,6 +1,7 @@
 import React from "react";
 import scholar1 from "../../assets/scholarship1.png";
 import list from "../../assets/list.svg";
+import cherons from "../../assets/chevrons-right.png";
 import SOPCard from "./sopcard";
 
 const SOP = () => {
@@ -10,11 +11,13 @@ const SOP = () => {
         <div className="ielts_content container">
           <h1 style={{color:"#fff",fontFamily:"Gilroy-Bold"}} >Statement of Purpose</h1>
           <h2 style={{color:"#fff",fontFamily:"Gilroy-Medium"}}>All you need to know!</h2>
-        
+         <button className="explore-button mt-3 bg-black pull-right" style={{fontFamily:"Gilroy-Medium"}} onClick={() => window.open('https://tripurapolice.gov.in/gomati/sites/default/files/uploaded-file/Sample%20Memo%20at%20Spot.pdf', '_blank')}>
+            Download SOP <img src={cherons} alt="Home" />
+          </button>
         </div>
       </div>
       <div className="container py-4 course_container">
-        <h3 style={{fontFamily:"Gilroy-SemiBold"}}>Statement of Purpose</h3> 
+        <h3 className="mb-3" style={{fontFamily:"Gilroy-Bold"}}>Statement of Purpose</h3> 
         <div className="d-flex  justify-content-between inner_course mt-0">
           <div className="row">
             <div className="col-md-9">

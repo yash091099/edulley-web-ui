@@ -13,7 +13,7 @@ const Search = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '', level: '' });
+    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: 'January' });
     const [searchResults, setSearchResults] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -67,7 +67,8 @@ const Search = () => {
     //     toast.error('All search fields are required');
     //     return;
     //   }
-      navigate('/courses-list', { state: filteredCourses.map(course => course._id) });
+      navigate('/courses');
+    //   navigate('/courses-list', { state: filteredCourses.map(course => course._id) });
     }
 
     const handleChange = (e) => {
@@ -81,7 +82,7 @@ const Search = () => {
         <div className="search_container container">
              
             {loading && <CustomLoader />}
-            <h4 className="text-center fw-semibold mb-4" style={{ fontFamily: 'Gilroy-SemiBold' }}>Search Courses</h4>
+            <h4 className="text-center  mb-4" style={{fontWeight:"400", fontFamily: 'Gilroy-SemiBold' }}>Search Courses</h4>
             <div className="bg-white rounded section_inner">
                 <div className="ps-3">
                     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
@@ -98,36 +99,58 @@ const Search = () => {
                 </div>
              
                 <div className="ps-3">
-                    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
-                    <input
-                        className="text-gray-100"
-                        placeholder="Intake"
-                        type="text"
-                        name="level"
-                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
+    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
+    <select
+        className="text-gray-100"
+        
+        name="level"
+        value={searchTerm.level}
+        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
+        padding: "10px",
+        background: "#fff"
+    }}
+        onChange={handleChange}
+    >
+        <option value="">Select Month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+</div>
+<div className="ps-3">
+    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
+    <select
+        className="text-gray-100"
+        name="duration"
+        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
+        padding: "10px",
+        background: "#fff"
+    }}
+        value={searchTerm.duration}
+        onChange={handleChange}
+    >
+        <option value="">Select Year</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+</div>
 
-                        value={searchTerm.level}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div className="ps-3">
-                    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-                    <input
-                        className="text-gray-100"
-                        placeholder="Year"
-                        type="text"
-                        name="duration"
-                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
-
-                        value={searchTerm.duration}
-                        onChange={handleChange}
-                    />
-                </div>
                 <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level)? 'disabled' : ''}`} >
                     <FaSearch />
                 </button>
             </div>
-            {showMessage && (
+            {showMessage &&  searchTerm.course && (
                 <div className="row mt-3">
                     {isAvailable ?
                         <div className="col-12 alert alert-success" role="alert">Search course is available!</div> :

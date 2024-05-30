@@ -5,7 +5,7 @@ const TopicCard = () => {
     <div className="course_card mt-0" style={{ backgroundColor: "rgb(243 243 243 / 47%)" }}>
       <div>
         <h4  style={{fontFamily: 'Gilroy-Bold'}}>Topic</h4>
-        <p style={{fontFamily: 'Gilroy-Regular'}}>
+        <p style={{fontFamily: 'Gilroy-Medium'}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -37,7 +37,7 @@ const TopicCard = () => {
       </div>
       <div className="mt-4" >
         <h4 style={{fontFamily: 'Gilroy-Bold'}}>Questions and Answers</h4>
-        <p style={{fontFamily: 'Gilroy-Regular'}}>
+        <p style={{fontFamily: 'Gilroy-Medium'}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and

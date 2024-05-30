@@ -8,7 +8,7 @@ const SOPCard = () => {
       
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>What is Statement of Purpose</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}} className=" mb-5">
+        <p style={{fontFamily:"Gilroy-Medium"}} className=" mb-5">
         A Statement of Purpose (SOP) is a crucial component of any application for higher education, particularly for international students seeking admission to universities abroad. 
 It is a personal essay that outlines your academic achievements, professional goals, and reasons for pursuing a particular course or program. The SOP provides admissions committees 
 with insights into your personality, motivations, and aspirations, helping them assess your suitablity to the program. A well-crafted SOP can greatly influence the admissions decision, as
@@ -24,7 +24,7 @@ crafting a strong SOP that effectively communicates your academic and profession
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Why Statement of Purpose is important</h4>
 
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         In your journey of applying to universities abroad, the Statement of Purpose (SOP) plays a pivotal role. It offers a unique opportunity to showcase your personality, aspirations, and academic
  achievements to the admissions committee. Through the SOP, you can articulate your reasons for choosing a particular program, highlighting your passion and commitment to your field of study. 
 This document allows you to stand out from other applicants by demonstrating your ability to think critically and communicate effectively. Admissions committees use the SOP to assess your 
@@ -35,7 +35,7 @@ writing a compelling SOP is essential to increase your chances of securing admis
       </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Statement of Purpose format</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         The format of a Statement of Purpose (SOP) typically includes the following sections:
 
 Introduction: Begin with a strong opening that grabs the reader's attention and briefly introduces yourself and your purpose for applying. This sets the tone for the rest of the statement.
@@ -56,7 +56,7 @@ your passion for the field and your readiness for graduate study.
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>
 Hoe to write Statement of Purpose for University        </h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         Drafting a winning statement of purpose involves several key steps. Firstly, define the purpose of your statement by understanding what the admissions committee is looking for and how you can 
 effectively showcase your qualifications and aspirations. Research and gather information about the program, university, and its values to tailor your statement accordingly. Outline the structure of your 
 statement, including an introduction, background, career goals, and why you're a good fit for the program and university. Seek feedback from peers, mentors, or professionals to refine your statement
@@ -66,7 +66,7 @@ revise your statement to ensure clarity, coherence, and conciseness. Finally, se
       </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>What do an college look for an Statement of Purpose</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         From a college's perspective, your statement of purpose (SOP) is a crucial document that offers valuable insights into who you are as a student and as a person. Admissions committees carefully 
 review your SOP to understand your academic background, career goals, and motivations for pursuing higher education. They look for a clear and well-structured narrative that demonstrates 
 your passion for the field of study and your potential to succeed in the program.
@@ -84,7 +84,7 @@ unique qualities and experiences, making a compelling case for why you are a str
       </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Tip for writing Statement of Purpose</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         Be concise: Keep your statement focused and to the point, highlighting key experiences and achievements.
 Show passion: Demonstrate your genuine interest in the field of study and why you're enthusiastic about pursuing it.
 Be specific: Provide concrete examples to support your claims and illustrate your qualifications.
@@ -98,7 +98,7 @@ Get feedback: Have someone else read your statement to provide feedback and ensu
       </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Statement of Purpose for UG and SOP for PG</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         A Statement of Purpose (SOP) for undergraduate (UG) programs typically focuses on the applicant's academic achievements, extracurricular activities, and personal growth. It highlights the 
 student's potential and interests, explaining how the program will help shape their future. In contrast, a SOP for postgraduate (PG) programs is longer and delves deeper into the applicant's 
 academic and professional background, research interests, and career goals. It emphasizes past experiences, research interests, and how the program aligns with the applicant's long-term 
@@ -107,7 +107,7 @@ goals. PG SOPs also often require a stronger focus on research experiences, show
        </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Common mistake to avoid in SOP</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         1. <strong>Lack of Clarity</strong>: Avoid being vague or ambiguous. Clearly articulate your goals, motivations, and how the program aligns with your aspirations. <br/>
 
 2. <strong>Grammatical Errors</strong>: Proofread your SOP carefully to avoid grammatical mistakes. Use correct punctuation and sentence structure. <br/>
@@ -130,12 +130,12 @@ goals. PG SOPs also often require a stronger focus on research experiences, show
 </p>      </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Importance of SOP </h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         your statement of purpose (SOP) is a critical component of your university application, providing admissions committees with valuable insights into your academic background, career goals, and motivations. It offers you an opportunity to showcase your unique qualities, experiences, and aspirations, setting you apart from other applicants. A well-crafted SOP demonstrates your writing skills, critical thinking abilities, and ability to articulate your goals effectively. Admissions committees use your SOP to evaluate your fit for the program and the university, looking for evidence of your passion for the field of study and your potential to contribute to the academic community. Your SOP also allows you to explain any gaps or discrepancies in your academic or professional history, providing context for your application. 
           </p>  </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Word limit of SOP</h4>
-        <p style={{fontFamily:"Gilroy-Regular"}}>
+        <p style={{fontFamily:"Gilroy-Medium"}}>
         Word limits for SOPs vary depending on the university and program, but they typically range from 500 to 1000 words. You can visit a particular university website to check the SOP guidelines for students. It's crucial to adhere to the specified word limit, as exceeding it may reflect negatively on your application. Admissions committees review a large number of applications and appreciate concise and focused statements that effectively convey your message. Therefore, it's important to be clear and concise in your writing, avoiding unnecessary details or repetition. Use the word limit as a guideline to ensure that your SOP is well-structured and covers all the necessary aspects, such as your academic background, career goals, and motivations for pursuing the program.
           </p>  </div>
     </div>

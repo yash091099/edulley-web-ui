@@ -16,7 +16,7 @@ const LOR = () => {
         </div>
       </div>
       <div className="container py-4 course_container">
-        <h3 style={{fontFamily:"Gilroy-SemiBold"}}>Letter of Recommendation</h3> 
+        <h3 style={{fontFamily:"Gilroy-Bold"}} className="mb-3">Letter of Recommendation</h3> 
         <div className="d-flex  justify-content-between inner_course mt-0">
           <div className="row">
             <div className="col-md-9">

@@ -7,6 +7,7 @@ import CustomLoader from '../components/loader';
 import toast from 'react-hot-toast';
 import { getBlogs } from '../Services/dashboard';
 import scholar1 from '../assets/scholarship1.png';
+import cherons from "../assets/chevrons-right.png";
 
 const Blog = () => {
     const navigate = useNavigate();
@@ -123,7 +124,7 @@ const Blog = () => {
                                                         ))}
                                                     </div>
                                                 </p>
-                                                <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden' }}>
+                                                <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden', fontFamily: "Gilroy-Medium" }} >
                                                     {capitaliseFirstWord(blog?.heading)}
                                                 </p>
                                                 {blog.heading.length > 30 && (
@@ -140,7 +141,7 @@ const Blog = () => {
                         {indexOfLastBlog < filteredBlogs.length && (
                             <div className="d-flex justify-content-center mt-4">
                                 <button className="explore-button py-2 px-4" onClick={handleLoadMore} style={{ fontFamily: "Gilroy-Medium" }}>
-                                    Load More {'>>'}
+                                    Load More <img src={cherons} alt="Home" />
                                 </button>
                             </div>
                         )}

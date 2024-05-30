@@ -1,6 +1,7 @@
 import React from "react";
 import { BiChevronRight } from "react-icons/bi";
 import heroImg from "../../assets/home.png";
+import cherons from "../../assets/chevrons-right.png";
 import Search from "./searchWithoutHeading";
 import { Link } from "react-router-dom";
 
@@ -18,8 +19,8 @@ const HeroSection = () => {
             Explore, Learn, and Thrive with Study Abroad Application
           </h5>
           <Link to="/courses">
-            <button className="explore-button mt-3" style={{ fontFamily: 'Gilroy-SemiBold' }}>
-              Explore Courses {'>>'}
+            <button className="explore-button mt-3" style={{ fontFamily: 'Gilroy-Medium' }}>
+              Explore Courses <img src={cherons} alt="Home" />
             </button>
           </Link>
         </div>

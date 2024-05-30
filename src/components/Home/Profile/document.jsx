@@ -16,12 +16,12 @@ export default function ViewUserDocument() {
   const [documentUrls, setDocumentUrls] = useState({
     '10th Marksheet': "",
     '12th Marksheet': "",
-    'Degree (Semester wise, final degree, consolidated)': "",
     'Passport': "",
     'Statement of Purpose': "",
     'Letters of Recommendation': "",
     'IELTS': "",
     'RESUME': "",
+    'Degree (Semester wise, final degree, consolidated)': "",
     'ADDITIONAL DOCUMENTS': "",
     'GRE/GMAT': ""
   });
@@ -46,12 +46,12 @@ export default function ViewUserDocument() {
           setDocumentUrls({
             '10th Marksheet': res.data.data.documents?.['10th Marksheet'],
             '12th Marksheet': res.data.data.documents?.['12th Marksheet'],
-            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
             'Passport': res.data.data.documents?.Passport,
             'Statement of Purpose': res.data.data.documents?.['Statement of Purpose'],
             'Letters of Recommendation': res.data.data.documents?.['Letters of Recommendation'],
             'IELTS': res.data.data.documents?.IELTS,
             'RESUME': res.data.data.documents?.RESUME,
+            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
             'ADDITIONAL DOCUMENTS': res.data.data.documents?.['ADDITIONAL DOCUMENTS'],
             'GRE/GMAT': res.data.data.documents?.['GRE/GMAT']
           });
@@ -139,12 +139,12 @@ export default function ViewUserDocument() {
           setDocumentUrls({
             '10th Marksheet': res.data.data.documents?.['10th Marksheet'],
             '12th Marksheet': res.data.data.documents?.['12th Marksheet'],
-            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
             'Passport': res.data.data.documents?.Passport,
             'Statement of Purpose': res.data.data.documents?.['Statement of Purpose'],
             'Letters of Recommendation': res.data.data.documents?.['Letters of Recommendation'],
             'IELTS': res.data.data.documents?.IELTS,
             'RESUME': res.data.data.documents?.RESUME,
+            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
             'ADDITIONAL DOCUMENTS': res.data.data.documents?.['ADDITIONAL DOCUMENTS'],
             'GRE/GMAT': res.data.data.documents?.['GRE/GMAT']
           });
@@ -212,7 +212,7 @@ export default function ViewUserDocument() {
               {Object.entries(documentUrls).map(([docKey, docValue], index) => (
                 <div key={index} className="col-md-6 formField" style={{ marginBottom: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                    <label style={{ fontFamily: 'Gilroy-Regular' }}>{`${docKey}${index < 6 ? '*' : ''}`}</label>
+                    <label style={{ fontFamily: 'Gilroy-Regular' }}>{`${docKey}${index < 5 ? '*' : ''}`}</label>
                     <input
                       type="file"
                       name={docKey}
