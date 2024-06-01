@@ -150,9 +150,9 @@ export default function WorkBackground() {
           <h5 className="heading" style={{ fontFamily: "Gilroy-Medium" }}>Work Experience {index + 1}</h5>
           <div className="row">
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Job Title</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Job Title</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="text"
                 name="jobTitle"
                 placeholder="Enter your job title"
@@ -161,9 +161,9 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Company Name</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Company Name</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="text"
                 name="company"
                 placeholder="Enter company name"
@@ -172,9 +172,9 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Location</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Location</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="text"
                 name="location"
                 placeholder="Enter location"
@@ -183,9 +183,9 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Job Summary</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Job Summary</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="text"
                 name="jobSummary"
                 placeholder="Enter job summary"
@@ -194,9 +194,9 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Joining Date</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Joining Date</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="date"
                 name="joiningDate"
                 placeholder="Enter joining date"
@@ -205,9 +205,9 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-6 formField">
-              <label style={{ fontFamily: "Gilroy-Regular" }}>Worked Till</label>
+              <label style={{ fontFamily: "Gilroy-Medium" }}>Worked Till</label>
               <input
-                style={{ fontFamily: "Gilroy-Regular" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 type="date"
                 name="workedTill"
                 placeholder="Enter last working day or current"

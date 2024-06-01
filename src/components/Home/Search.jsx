@@ -195,7 +195,7 @@ const Search = () => {
                 <div className="col-12 d-flex justify-content-center">
                   {!showAdvancedFilter ?  <button
                         style={{
-                            fontFamily: "Gilroy-Medium",
+                            fontFamily: "Gilroy-Bold",
                             color: "#FF5573",
                             padding: "10px 20px",
                             borderRadius: "8px",
@@ -248,7 +248,7 @@ const Search = () => {
         </select>
     </div> */}
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label style={{ fontFamily: "Gilroy-SemiBold" }}>Discipline Area</label>
+        <label style={{ fontFamily: "Gilroy-Medium" }}>Discipline Area</label>
         <select style={{
             height: '40px',
             padding: '10px 10px',
@@ -273,7 +273,7 @@ const Search = () => {
         </select>
     </div>
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <label style={{ fontFamily: "Gilroy-SemiBold" }}>Duration</label>
+        <label style={{ fontFamily: "Gilroy-Medium" }}>Duration</label>
         <select style={{
            height: '40px',
            padding: '10px 10px',

@@ -168,24 +168,24 @@ const [editModeData, setEditModeData] = useState({});
         <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>10th</h5>
         <div className="row">
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthInstitutionName" value={data.tenthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthInstitutionName" value={data.tenthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Board<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthBoard" value={data.tenthBoard} onChange={handleInputChange} placeholder="Enter board name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Board<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthBoard" value={data.tenthBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthScore" value={data.tenthScore} onChange={handleInputChange} placeholder="Enter score" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthScore" value={data.tenthScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthYearOfCompletion" value={data.tenthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthYearOfCompletion" value={data.tenthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="tenthSpecialization" value={data.tenthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthSpecialization" value={data.tenthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
       </div>
@@ -195,24 +195,24 @@ const [editModeData, setEditModeData] = useState({});
         <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>Senior Secondary (11th-12th)</h5>
         <div className="row">
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthInstitutionName" value={data.twelfthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="twelfthInstitutionName" value={data.twelfthInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Board<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthBoard" value={data.twelfthBoard} onChange={handleInputChange} placeholder="Enter board name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Board<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="twelfthBoard" value={data.twelfthBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthScore" value={data.twelfthScore} onChange={handleInputChange} placeholder="Enter score" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="twelfthScore" value={data.twelfthScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthYearOfCompletion" value={data.twelfthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="twelfthYearOfCompletion" value={data.twelfthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="twelfthSpecialization" value={data.twelfthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="twelfthSpecialization" value={data.twelfthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
       </div>
@@ -222,24 +222,24 @@ const [editModeData, setEditModeData] = useState({});
         <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>UG (Undergraduate)</h5>
         <div className="row">
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugInstitutionName" value={data.ugInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="ugInstitutionName" value={data.ugInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Board<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugBoard" value={data.ugBoard} onChange={handleInputChange} placeholder="Enter board name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Board<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="ugBoard" value={data.ugBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugScore" value={data.ugScore} onChange={handleInputChange} placeholder="Enter score" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="ugScore" value={data.ugScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugYearOfCompletion" value={data.ugYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="ugYearOfCompletion" value={data.ugYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="ugSpecialization" value={data.ugSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="ugSpecialization" value={data.ugSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
       </div>
@@ -249,24 +249,24 @@ const [editModeData, setEditModeData] = useState({});
         <h5 className="heading" style={{fontFamily:"Gilroy-Medium"}}>PG (Postgraduate)</h5>
         <div className="row">
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgInstitutionName" value={data.pgInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Institution Name<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="pgInstitutionName" value={data.pgInstitutionName} onChange={handleInputChange} placeholder="Enter institution name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Board<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgBoard" value={data.pgBoard} onChange={handleInputChange} placeholder="Enter board name" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Board<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="pgBoard" value={data.pgBoard} onChange={handleInputChange} placeholder="Enter board name" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgScore" value={data.pgScore} onChange={handleInputChange} placeholder="Enter score" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Score (%)<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="pgScore" value={data.pgScore} onChange={handleInputChange} placeholder="Enter score" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgYearOfCompletion" value={data.pgYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Year of Completion<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="pgYearOfCompletion" value={data.pgYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Regular"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
-            <input style={{fontFamily:"Gilroy-Regular"}} type="text" name="pgSpecialization" value={data.pgSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
+            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
+            <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="pgSpecialization" value={data.pgSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>
       </div>

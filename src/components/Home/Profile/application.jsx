@@ -112,7 +112,7 @@ const Academic = () => {
         className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
         style={{
             ...activeTab === "apply" ? activeStyle : inactiveStyle,
-            fontFamily: "Gilroy-Regular"
+            fontFamily: "Gilroy-Medium"
         }}
         onClick={() => setActiveTab("apply")}
     >
@@ -122,7 +122,7 @@ const Academic = () => {
         className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
         style={{
             ...activeTab === "applied" ? activeStyle : inactiveStyle,
-            fontFamily: "Gilroy-Regular"
+            fontFamily: "Gilroy-Medium"
         }}
         onClick={() => setActiveTab("applied")}
     >

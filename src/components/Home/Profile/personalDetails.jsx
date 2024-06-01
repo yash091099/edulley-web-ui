@@ -196,7 +196,7 @@ export default function PersonalDetails() {
             { label: 'Marital Status', name: 'maritalStatus', type: 'select', options: ['Select Marital Status', 'Married', 'Unmarried'], value: data.maritalStatus }
           ].map((field, index) => (
             <div className="col-md-6 formField" key={index}>
-              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
               {field.type === 'select' ? (
                 <select className="dropdown-css" style={{ fontFamily: "Gilroy-Medium" }} name={field.name} value={field.value} onChange={handleInputChange}>
                   {field.options.map((option, idx) => (
@@ -232,7 +232,7 @@ export default function PersonalDetails() {
             { label: 'Pincode', name: 'mailingPincode', type: 'text', placeholder: 'Pincode', value: data.mailingPincode }
           ].map((field, index) => (
             <div className="col-md-6 formField" key={index}>
-              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
                 type={field.type}
@@ -265,7 +265,7 @@ export default function PersonalDetails() {
             { label: 'Pincode', name: 'permanentPincode', type: 'text', placeholder: 'Pincode', value: data.permanentPincode, disabled: sameAsMailing }
           ].map((field, index) => (
             <div className="col-md-6 formField" key={index}>
-              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
                 type={field.type}
@@ -293,7 +293,7 @@ export default function PersonalDetails() {
             { label: 'Country of Birth', name: 'passportCountryOfBirth', type: 'text', placeholder: 'Country of Birth', value: data.passportCountryOfBirth }
           ].map((field, index) => (
             <div className="col-md-6 formField" key={index}>
-              <label style={{ fontFamily: "Gilroy-Medium" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
                 type={field.type}
@@ -311,5 +311,4 @@ export default function PersonalDetails() {
       </div>
     </form>
   );
-
 }

@@ -24,6 +24,7 @@ const AppliedCourseListCard = ({ course }) => {
   const fetchUniversities = async () => {
     try {
       const res = await getUniversities();
+      console.log(res, 'universities');
       if (!res?.data?.error) {
         setUniversities(res.data.data);
         console.log(res.data.data, "universities");
@@ -41,6 +42,11 @@ const AppliedCourseListCard = ({ course }) => {
   function formatText(text) {
     return text.toLowerCase().replace(/_/g, ' ').replace(/\b[a-z]/g, (char) => char.toUpperCase());
   }
+  useEffect(() => {
+    console.log(course, 'course');
+    console.log(universities, 'universities');
+    
+}, [course,universities]);
   useEffect(() => {
     // Load Razorpay script dynamically
     const script = document.createElement('script');
@@ -124,6 +130,8 @@ const AppliedCourseListCard = ({ course }) => {
     return <CustomLoader />;
   }
 
+ 
+
   return (
     <div className="course_card card" style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden', marginBottom: "8px"}}>
       <div className="inner_card">
@@ -136,7 +144,7 @@ const AppliedCourseListCard = ({ course }) => {
             alt=""
             src={map}
           />
-          {universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.country || "--"},{universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.city || '--'}
+          {universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.courseId?.universityName?.trim()?.toLowerCase())?.country || "--"},{universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.courseId?.universityName?.trim()?.toLowerCase())?.city || '--'}
         </p> 
         </div>
        
@@ -148,14 +156,15 @@ const AppliedCourseListCard = ({ course }) => {
           </h6>
         </div>
         <div className="course_head_new ml-3">
+          
           <h6 className="p-0 m-0">
-            Rank : {universities?.find((uni) => uni?.universityName === course?.courseId?.universityName)?.ranking?.rank || "--"}
+            Rank : {universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.courseId?.universityName?.trim()?.toLowerCase())?.ranking?.rank || "--"}
           </h6>
         </div>
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
         <div>
-          <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><span><img
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><span><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={walletImage}
@@ -163,7 +172,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
-          <p style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+          <p style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}
@@ -171,7 +180,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
-          <p  style={{ color: "#575656",fontFamily:"Gilroy-Regular" }}><img
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}

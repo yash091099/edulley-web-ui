@@ -185,6 +185,7 @@ const Navbar = () => {
                     className={`dropdown-item ${
                       activeLink === "/sop" ? "active" : ""
                     }`}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                     to="/sop"
                     onClick={() => handleLinkClick("/sop")}
                   >
@@ -197,6 +198,7 @@ const Navbar = () => {
                       activeLink === "/lor" ? "active" : ""
                     }`}
                     to="/lor"
+                    style={{ fontFamily: "Gilroy-Medium" }}
                     onClick={() => handleLinkClick("/lor")}
                   >
                     LOR

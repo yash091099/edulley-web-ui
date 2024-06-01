@@ -120,9 +120,9 @@ export default function TestScores() {
           <div className="overview-container mb-4">
             <div className="row">
               <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Overall Score<span style={{ color: 'red' }}>*</span></label>
+                <label style={{ fontFamily: "Gilroy-Medium" }}>Overall Score<span style={{ color: 'red' }}>*</span></label>
                 <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
+                  style={{ fontFamily: "Gilroy-Medium" }}
                   type="text"
                   name="ieltsOverall"
                   placeholder="Enter your overall score"
@@ -131,9 +131,9 @@ export default function TestScores() {
                 />
               </div>
               <div className="col-md-6 formField">
-                <label style={{ fontFamily: "Gilroy-Regular" }}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
+                <label style={{ fontFamily: "Gilroy-Medium" }}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
                 <input
-                  style={{ fontFamily: "Gilroy-Regular" }}
+                  style={{ fontFamily: "Gilroy-Medium" }}
                   type="date"
                   name="ieltsDateOfExam"
                   placeholder="Date of Exam"
@@ -141,10 +141,10 @@ export default function TestScores() {
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Regular" }}>
-                <label style={{ fontFamily: "Gilroy-Regular" }}>
+              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+                <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
-                    style={{ fontFamily: "Gilroy-Regular" }}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                     type="checkbox"
                     name="ieltsYetToTake"
                     className="mr-2"
@@ -154,11 +154,11 @@ export default function TestScores() {
                   Yet to take this test
                 </label>
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Regular" }}>
-                <label style={{ fontFamily: "Gilroy-Regular" }}>
+              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+                <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
                     type="checkbox"
-                    style={{ fontFamily: "Gilroy-Regular" }}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                     className="mr-2"
                     name="ieltsLookingForWaiver"
                     checked={testScores.ieltsLookingForWaiver}
@@ -167,11 +167,11 @@ export default function TestScores() {
                   Looking for a Waiver
                 </label>
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Regular" }}>
-                <label style={{ fontFamily: "Gilroy-Regular" }}>
+              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+                <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
                     type="checkbox"
-                    style={{ fontFamily: "Gilroy-Regular" }}
+                    style={{ fontFamily: "Gilroy-Medium" }}
                     className="mr-2"
                     name="ieltsOtherTest"
                     checked={testScores.ieltsOtherTest}

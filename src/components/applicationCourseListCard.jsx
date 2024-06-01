@@ -66,7 +66,7 @@ const navigate=useNavigate();
             alt=""
             src={map}
           />
-          {universities?.find((uni) => uni?.universityName === course?.universityName)?.country || "--"},{universities?.find((uni) => uni?.universityName === course?.universityName)?.city || '--'}
+          {universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.universityName?.trim()?.toLowerCase())?.country || "--"},{universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.universityName?.trim()?.toLowerCase())?.city || '--'}
         </p>        </div>
         
         <div></div>
@@ -79,7 +79,7 @@ const navigate=useNavigate();
         </div>
         <div className="course_head_new ml-3">
           <h6 className="p-0 m-0">
-            Rank : {universities?.find((uni) => uni?.universityName === course?.universityName)?.ranking?.rank || "--"}
+            Rank : {universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.universityName?.trim()?.toLowerCase())?.ranking?.rank || "--"}
           </h6>
         </div>
       </div>

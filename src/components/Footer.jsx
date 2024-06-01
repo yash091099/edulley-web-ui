@@ -86,8 +86,8 @@ const Footer = () => {
         <div className="f_menu ">
           <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Countries</h5>
           <ul>
-            <li style={{fontFamily:"Gilroy-Regular"}}>Usa</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>Uk</li>
+            <li style={{fontFamily:"Gilroy-Regular"}}>The USA</li>
+            <li style={{fontFamily:"Gilroy-Regular"}}>The UK</li>
             {/* <li style={{fontFamily:"Gilroy-Regular"}}>Canada</li>
             <li style={{fontFamily:"Gilroy-Regular"}}>Australia</li>
             <li style={{fontFamily:"Gilroy-Regular"}}>Ireland</li> */}
