@@ -128,7 +128,9 @@ const UniversitiesHome = () => {
               <img src={uni.bannerImage || defaultLogoImage} alt="University" className="university-image" style={{ height: "200px", width: "100%", objectFit: "contain", background: '#fff' }} />
               <div className="card-info">
                 <div>
-                  <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }} title={uni?.universityName}>{uni?.universityName?.trim()?.slice(0, 20) || "University Name"}</h3>
+                <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }} title={uni?.universityName}>
+  {uni?.universityName?.trim()?.length > 20 ? `${uni.universityName.trim().slice(0, 20)} ...` : uni.universityName?.trim() || "University Name"}
+</h3>
                   <h5 className="university-location" style={{ fontFamily: "Gilroy-Regular" }}>{`${uni.city}, ${uni?.country}`}</h5>
                 </div>
                 <div className="university-logo" style={{ background: "none" }}>

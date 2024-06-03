@@ -141,13 +141,13 @@ const Footer = () => {
         <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Exams</h5>
           <ul>
             <Link to="/exam-ielts">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>IELTS</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Ielts</li>
             </Link>
-            <li style={{fontFamily:"Gilroy-Regular"}}>TOEFEL</li>
+            {/* <li style={{fontFamily:"Gilroy-Regular"}}>TOEFEL</li>
             <li style={{fontFamily:"Gilroy-Regular"}}>PTE</li>
             <li style={{fontFamily:"Gilroy-Regular"}}>GRE</li>
             <li style={{fontFamily:"Gilroy-Regular"}}>GMAT</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>DET</li>
+            <li style={{fontFamily:"Gilroy-Regular"}}>DET</li> */}
           </ul>
         </div>
       </div>

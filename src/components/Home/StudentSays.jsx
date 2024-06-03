@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StudentCard from "./StudentCard";
 import profile from "../../assets/ellipse-1@2x.png";
-import video from "../../assets/video-review.svg";
+import video from "../../assets/video-review.png";
 
 const StudentSays = () => {
   const [isVideoPlaying, setVideoPlaying] = useState(false);
@@ -30,7 +30,6 @@ const StudentSays = () => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                // style={{ borderRadius: "22px" }}
               ></iframe>
             </div>
           ) : (
