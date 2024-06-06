@@ -102,7 +102,7 @@ const UniversitiesHome = () => {
                       <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }} title={uni?.universityName}>
   {uni?.universityName?.trim()?.length > 20 ? `${uni.universityName.trim().slice(0, 20)} ...` : uni.universityName?.trim() || "University Name"}
 </h3>
-                        <h5 className="university-location" style={{ fontFamily: "Gilroy-Regular" }}>{`${uni.city}, ${uni?.country}`}</h5>
+                        <h5 className="university-location" style={{ fontFamily: "Gilroy-Medium" }}>{`${uni.city}, ${uni?.country}`}</h5>
                       </div>
                       <div className="university-logo" style={{ background: "none" }}>
                         <img

@@ -117,11 +117,11 @@ const CarrerPathDetails = () => {
                     <h4 style={{ fontFamily: "Gilroy-Bold" }}>{scholarship?.courseName}</h4>
                     <div className="d-flex align-items-center gap-2">
                       <div>
-                        <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>Fees</p>
+                        <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>Fees</p>
                         <p className="hilight-danger" style={{ fontFamily: "Gilroy-Medium" }}>$ {scholarship?.uniqueCourseInfo?.fee}/Year</p>
                       </div>
                       <div className="ml-3">
-                        <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>Duration</p>
+                        <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>Duration</p>
                         <p className="hilight-danger" style={{ fontFamily: "Gilroy-Medium" }}>{scholarship?.uniqueCourseInfo?.duration} Years</p>
                       </div>
                     </div>
@@ -159,14 +159,14 @@ const CarrerPathDetails = () => {
                         </h6>
                         <div className="gap-2 d-flex align-items-center">
                           <div>
-                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>
                               <img style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }} alt="" src={walletImage} />
                               Fees($)
                             </p>
                             <p className="hilight-danger" style={{ fontFamily: "Gilroy-Medium" }}>$ {course?.uniqueCourseInfo?.fee}</p>
                           </div>
                           <div className="ml-5">
-                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>
                               <img style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }} alt="" src={time} />
                               Duration
                             </p>
@@ -197,7 +197,7 @@ const CarrerPathDetails = () => {
                   <div className="countries cursor-pointer uni_card blog-card mb-3" key={index} style={{ border: '1px solid #ddd', borderRadius: '8px', overflow: 'hidden' }}>
                     <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                     <div className="p-3">
-                      <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-Regular", color: "#8D98A4" }}>
+                      <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-Medium", color: "#8D98A4" }}>
                         <CalendarMonth style={{ color: "#8D98A4" }} />
                         {formatDate(blog?.createdAt)}
                         <div className="blog-tags">

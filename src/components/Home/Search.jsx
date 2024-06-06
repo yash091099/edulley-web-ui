@@ -94,7 +94,7 @@ const Search = () => {
                             className="text-gray-100"
                             placeholder="Course"
                             type="text"
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium " }}
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium " ,color:"#898484"}}
                             name="course"
                             value={searchTerm.course}
                             onChange={handleChange}
@@ -109,7 +109,7 @@ const Search = () => {
         value={searchTerm.level}
         style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
         padding: "10px",
-        background: "#fff"
+        background: "#fff",color:"#898484"
     }}
         onChange={handleChange}
     >
@@ -135,16 +135,17 @@ const Search = () => {
         name="duration"
         style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
         padding: "10px",
-        background: "#fff"
+        background: "#fff",color:"#898484"
     }}
         value={searchTerm.duration}
         onChange={handleChange}
     >
-        <option value="">Select Year</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <option value="">Select Intake</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
     </select>
 </div>
 <div className="ps-3">
@@ -376,16 +377,15 @@ const Search = () => {
 <div className="d-flex justify-content-center">
 
 {showAdvancedFilter ?  <button
-                        style={{
-                            fontFamily: "Gilroy-SemiBold",
+                         style={{
+                            fontFamily: "Gilroy-Bold",
                             color: "#FF5573",
-                            padding: "7px 10px",
+                            padding: "10px 20px",
                             borderRadius: "8px",
                             border: "1px solid #FF5573",
                             background: "#fff",
-                            marginTop:"5px",
-                            marginBottom:"5px"
-                          
+                            position: 'relative',
+                            bottom:'35px'
                         }}
                         onClick={() => setShowAdvancedFilter(!showAdvancedFilter)}
                     >

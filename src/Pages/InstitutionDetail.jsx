@@ -138,13 +138,13 @@ const InstitutionDetail = () => {
             <h2 className="mt-3" style={{ fontFamily: "Gilroy-Medium" }}>
               Overview
             </h2>
-            <p style={{ fontFamily: "Gilroy-Regular" }}>
+            <p style={{ fontFamily: "Gilroy-Medium" }}>
               {location.state?.universityDetails?.overview}
             </p>
             <h2 className="mt-3" style={{ fontFamily: "Gilroy-Medium" }}>
               Admission Requirements
             </h2>
-            <p style={{ fontFamily: "Gilroy-Regular" }}>
+            <p style={{ fontFamily: "Gilroy-Medium" }}>
               {location.state?.universityDetails?.admissionReq}
             </p>
             <h2 className="mt-5" style={{ fontFamily: "Gilroy-Medium" }}>
@@ -334,7 +334,7 @@ const InstitutionDetail = () => {
                         </h6>
                         <div className="gap-2" style={{ display: 'flex', alignItems: 'center' }}>
                           <div>
-                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>
                               <img
                                 style={{
                                   height: "1rem",
@@ -352,7 +352,7 @@ const InstitutionDetail = () => {
                             </p>
                           </div>
                           <div className="ml-5">
-                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Regular" }}>
+                            <p className="text-secondary" style={{ fontFamily: "Gilroy-Medium" }}>
                               <img
                                 style={{
                                   height: "1rem",

@@ -10,7 +10,7 @@ const TrendingCoursesCarousel = ({ trendingCourses }) => {
        navigate('/course-details', { state: course })}    ;
 
     return (
-        <div className="trending-courses-carousel">
+        <div className="trending-courses-carousel mb-5">
             <Carousel
                 // showArrows={true}
                 autoPlay

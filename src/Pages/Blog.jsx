@@ -115,7 +115,7 @@ const Blog = () => {
                                         <div className="countries cursor-pointer uni_card blog-card">
                                             <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                                             <div className="p-3">
-                                                <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '13px', fontFamily: "Gilroy-Regular", color: "#8D98A4" }}>
+                                                <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '13px', fontFamily: "Gilroy-Medium", color: "#8D98A4" }}>
 <CalendarMonth style={{ color: "#8D98A4" }} />
 {formatDate(blog?.createdAt)}
                                                     <div className="blog-tags">

@@ -119,7 +119,7 @@ const CarrerPath = () => {
           </div>
           <div className="col-md-6 text-center">
             <h1 style={{ color: '#FF5573', fontFamily: "Gilroy-Bold", fontSize: '3rem' }}>Confused</h1>
-            <h4 style={{ color: '#FF5573', fontFamily: "Gilroy-Regular", fontSize: '1.5rem', lineHeight: '1.5' }}>About Your Career Path?<br />Let Us Light the Way!</h4>
+            <h4 style={{ color: '#FF5573', fontFamily: "Gilroy-Medium", fontSize: '1.5rem', lineHeight: '1.5' }}>About Your Career Path?<br />Let Us Light the Way!</h4>
           </div>
         </div>
         <div className="row">

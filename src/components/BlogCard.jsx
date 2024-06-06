@@ -69,7 +69,7 @@ const BlogCard = ({ blogDetails }) => {
         {capitaliseFirstWord(blogDetails?.heading || '')}
       </h4>
       <p
-        style={{ fontFamily: "Gilroy-Regular", color: "#8D98A4" }}
+        style={{ fontFamily: "Gilroy-Medium", color: "#8D98A4" }}
         className="text-secondary d-flex align-items-center gap-2"
       >
         <CalendarMonth color="#8D98A4" /> {formatDate(blogDetails?.createdAt)}
@@ -85,7 +85,7 @@ const BlogCard = ({ blogDetails }) => {
       </div>
       {/* <label className="mt-3" style={{ fontFamily: "Gilroy-Bold" }}>Content:</label> */}
       <div
-        style={{ fontFamily: "Gilroy-Regular" }}
+        style={{ fontFamily: "Gilroy-Medium" }}
         className="fw-light blog-content mt-3"
         dangerouslySetInnerHTML={{ __html: sanitizedContent }}
       ></div>
@@ -93,7 +93,7 @@ const BlogCard = ({ blogDetails }) => {
         <>
           {/* <label className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Quote:</label> */}
           <div
-            style={{ fontFamily: "Gilroy-Regular", backgroundColor: "#FFF0F0", padding: "15px",paddingLeft: "70px", borderRadius: "10px", position: "relative" }}
+            style={{ fontFamily: "Gilroy-Medium", backgroundColor: "#FFF0F0", padding: "15px",paddingLeft: "70px", borderRadius: "10px", position: "relative" }}
             className="fw-light blog-quote mt-3 mb-3"
           >
             <img src={quoteIcon} alt="Quote Icon" style={{ position: "absolute", top: "32px", left: "20px", width: "30px", height: "30px" }} />
@@ -101,7 +101,7 @@ const BlogCard = ({ blogDetails }) => {
           </div>
         </>
       )}
-      <div className="blog-tags mt-3" style={{ fontFamily: "Gilroy-Regular" }}>
+      <div className="blog-tags mt-3" style={{ fontFamily: "Gilroy-Medium" }}>
         Tags {blogDetails?.tags.map((tag, index) => (
           <span className="badge ml-2 p-2" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={index}>{tag}</span>
         ))}
@@ -113,7 +113,7 @@ const BlogCard = ({ blogDetails }) => {
               <div className="countries cursor-pointer uni_card blog-card">
                 <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div className="p-3">
-                  <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-Regular", color: "#8D98A4" }}>
+                  <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-Medium", color: "#8D98A4" }}>
                     <CalendarMonth style={{ color: "#8D98A4" }} />
                     {formatDate(blog?.createdAt)}
                     <div className="blog-tags">

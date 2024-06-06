@@ -82,7 +82,7 @@ const Search = () => {
         <div className="search_container container">
              
             {loading && <CustomLoader />}
-            <h4 className="text-center  mb-4" style={{fontWeight:"400", fontFamily: 'Gilroy-SemiBold' }}>Search Courses</h4>
+            <h4 className="text-center  mb-4" style={{fontWeight:"400", fontFamily: 'Gilroy-Bold' }}>Search Courses</h4>
             <div className="bg-white rounded section_inner">
                 <div className="ps-3">
                     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
@@ -90,7 +90,7 @@ const Search = () => {
                         className="text-gray-100"
                         placeholder="Course"
                         type="text"
-                        style={{border: 'none',fontFamily:"Gilroy-SemiBold"}}
+                        style={{border: 'none',fontFamily:"Gilroy-Medium",color:"#898484"}}
 
                         name="course"
                         value={searchTerm.course}
@@ -101,17 +101,15 @@ const Search = () => {
                 <div className="ps-3">
     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
     <select
-        className="text-gray-100"
-        
         name="level"
         value={searchTerm.level}
         style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
         padding: "10px",
-        background: "#fff"
+        background: "#fff",color:"#898484"
     }}
         onChange={handleChange}
     >
-        <option value="">Select Month</option>
+        <option value="">Select Intake</option>
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -129,20 +127,20 @@ const Search = () => {
 <div className="ps-3">
     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
     <select
-        className="text-gray-100"
         name="duration"
         style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
         padding: "10px",
-        background: "#fff"
+        background: "#fff",color:"#898484"
     }}
         value={searchTerm.duration}
         onChange={handleChange}
     >
         <option value="">Select Year</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
     </select>
 </div>
 
@@ -153,8 +151,8 @@ const Search = () => {
             {showMessage &&  searchTerm.course && (
                 <div className="row mt-3">
                     {isAvailable ?
-                        <div className="col-12 alert alert-success" role="alert">Search course is available!</div> :
-                        <div className="col-12 alert alert-danger" role="alert">Search course is unavailable.</div>
+                        <div className="col-12 alert alert-success" style={{fontFamily:"Gilroy-Medium"}} role="alert">Search course is available!</div> :
+                        <div className="col-12 alert alert-danger" style={{fontFamily:"Gilroy-Medium"}} role="alert">Search course is unavailable.</div>
                     }
                 </div>
             )}

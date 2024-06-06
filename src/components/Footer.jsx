@@ -10,7 +10,7 @@ import { Instagram, WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
   return (
-    <div className="footer  pt-4 container-fluid font-Gilroy-Regular">
+    <div className="footer  pt-4 container-fluid font-Gilroy-Medium">
       <div className="px-5 inner_footer pb-5">
       <div className="f_logo" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
   <Link to="/">
@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div className="f_logo">
         <div className="foot_img">
-            <div className="text-center" style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Download Now</div>
+            {/* <div className="text-center" style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Download Now</div>
             <div className="d-flex flex-column mt-2 gap-2">
               <img
                 style={{ cursor: "pointer" }}
@@ -41,7 +41,7 @@ const Footer = () => {
                 alt=""
                 src={down2}
               />
-            </div>
+            </div> */}
 
             <h5 className="mt-5" style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Contact With Us</h5>
             <div className="d-flex align-items-center gap-3 mt-4">
@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         <div>
           <p style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Phone</p>
-          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }} onClick={() => window.location.href = "tel:+1234567890"}>+123,456 7890</p>
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "tel:+1234567890"}>+123,456 7890</p>
         </div>
       </div>
       <div className="d-flex align-items-center gap-3 mt-3">
@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
         <div>
           <p style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Mail</p>
-          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }} onClick={() => window.location.href = "mailto:muskan@edulley.com"}>muskan@edulley.com</p>
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:muskan@edulley.com"}>muskan@edulley.com</p>
         </div>
       </div>
     </div>
@@ -86,24 +86,30 @@ const Footer = () => {
         <div className="f_menu ">
           <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Countries</h5>
           <ul>
-            <li style={{fontFamily:"Gilroy-Regular"}}>The USA</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>The UK</li>
-            {/* <li style={{fontFamily:"Gilroy-Regular"}}>Canada</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>Australia</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>Ireland</li> */}
+            <li style={{fontFamily:"Gilroy-Medium"}}>The USA</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>The UK</li>
+            {/* <li style={{fontFamily:"Gilroy-Medium"}}>Canada</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>Australia</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>Ireland</li> */}
           </ul>
         </div>
         <div className="f_menu">
           <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Others</h5>
           <ul>
+            <Link to="/sop">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Sop</li>
+            </Link>
+            <Link to="/lor">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Lor</li>
+            </Link>
             <Link to="/privacy-policy">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Regular"}}>Privacy Policy</li>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Privacy Policy</li>
             </Link>
             <Link to="/terms-and-condition">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Regular"}}>Terms & Condition</li>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Terms & Condition</li>
             </Link>
             <Link to="/refund-policy">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Regular"}}>Refund Policy</li>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
             </Link>
             
             {/* <Link>
@@ -116,24 +122,24 @@ const Footer = () => {
           <ul>
           <Link to="/career-path">
 
-            <li  style={{ cursor: "pointer" ,fontFamily:"Gilroy-Regular"}}>
+            <li  style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>
               Career
             </li>
             </Link>
             <Link to="/courses">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Courses</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>Courses</li>
             </Link>
             <Link to="/institutions">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Institutions</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>Institutions</li>
             </Link>
             <Link to="/scholarship">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Scholarship</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>Scholarship</li>
             </Link>
             <Link to="faq">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>FAQ</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>FAQ</li>
             </Link>
             <Link to="blog">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Blog</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>Blog</li>
             </Link>
           </ul>
         </div>
@@ -141,19 +147,19 @@ const Footer = () => {
         <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Exams</h5>
           <ul>
             <Link to="/exam-ielts">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Regular" }}>Ielts</li>
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>
             </Link>
-            {/* <li style={{fontFamily:"Gilroy-Regular"}}>TOEFEL</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>PTE</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>GRE</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>GMAT</li>
-            <li style={{fontFamily:"Gilroy-Regular"}}>DET</li> */}
+            {/* <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>PTE</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>GRE</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>GMAT</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>DET</li> */}
           </ul>
         </div>
       </div>
       <p
         className="text-center text-white py-3 "
-        style={{ borderTop: "1px solid white" ,fontFamily:"Gilroy-Regular"}}
+        style={{ borderTop: "1px solid white" ,fontFamily:"Gilroy-Medium"}}
       >
         Copyright © 2024 | All rights reserved by Edulley
       </p>

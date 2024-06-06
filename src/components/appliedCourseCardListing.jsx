@@ -137,7 +137,7 @@ const AppliedCourseListCard = ({ course }) => {
       <div className="inner_card">
         <div id={'Tooltip-' + course?.courseId?._id}>
           <h5 style={{fontFamily:"Gilroy-Bold"}}>{course?.courseId?.courseName || '--'}</h5>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: '5px' }} alt="" src={ellipse} />{course?.courseId?.universityName || '--'}</p>
+          <p style={{fontFamily:"Gilroy-Medium"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: '5px' }} alt="" src={ellipse} />{course?.courseId?.universityName || '--'}</p>
           <p style={{ marginBottom: "0.25rem" }}>
           <img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
@@ -169,7 +169,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={walletImage}
             /></span>Fees</p>
-          <p className="fw-bold "  style={{ color: "#FF5573", fontFamily:"Gilroy-Regular" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
+          <p className="fw-bold "  style={{ color: "#FF5573", fontFamily:"Gilroy-Medium" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
           <p style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
@@ -177,7 +177,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={time}
             />Duration</p>
-          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Regular"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
+          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
           <p  style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
@@ -185,7 +185,7 @@ const AppliedCourseListCard = ({ course }) => {
               alt=""
               src={time}
             />Application Fee</p>
-          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Regular"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
+          <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
           <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-SemiBold'  }}>{formatText(course?.status)}</span>
@@ -198,21 +198,21 @@ const AppliedCourseListCard = ({ course }) => {
     <div>
     </div>
     <div>
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div style={{marginLeft:"200px"}}>

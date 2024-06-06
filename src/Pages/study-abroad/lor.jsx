@@ -34,25 +34,25 @@ const LOR = () => {
                     </h4>
                   </div>
                   <ul>
-                    <li className="text-pink" style={{fontFamily:"Gilroy-Regular"}}>Overview</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Why IELTS</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Test Format</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Syllabus</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Preparation</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Eligibility</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Registration</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Exam Fee</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Exam dates 2024</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS test centres</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS E-Book</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Band Descriptors</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Speaking test</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Reading test</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>General Reading test</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>General Writing Task</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Essay</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>IELTS Result</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>GPA</li>
+                    <li className="text-pink" style={{fontFamily:"Gilroy-Medium"}}>Overview</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Why IELTS</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Test Format</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Syllabus</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Preparation</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Eligibility</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Registration</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Exam Fee</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Exam dates 2024</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS test centres</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS E-Book</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Band Descriptors</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Speaking test</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Reading test</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>General Reading test</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>General Writing Task</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Essay</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Result</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>GPA</li>
                   </ul>
                 </div>
               

@@ -60,7 +60,7 @@ const [loader,setLoader]=useState(false);
         <Modal.Title id="contained-modal-title-vcenter" style={{fontFamily:"Gilroy-Bold"}}>Interested in studying abroad with Edulley?</Modal.Title>
       </Modal.Header>
       <Modal.Body className="unique-modal-form-body">
-        <Form onSubmit={handleSubmit} className="unique-modal-form-main" style={{fontFamily:"Gilroy-Regular"}}>
+        <Form onSubmit={handleSubmit} className="unique-modal-form-main" style={{fontFamily:"Gilroy-Medium"}}>
           <p>Enter your details below and we'll call you back when it suits you.</p>
           <FormGroup className="mb-3">
             <FormControl 

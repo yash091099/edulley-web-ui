@@ -6,8 +6,10 @@ import card4 from "../../assets/uk.png";
 import card5 from "../../assets/usa.png";
 import card6 from "../../assets/ireland.png";
 import { BiChevronRight } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 const Countries = () => {
+  const navigate=useNavigate()
   return (
     <div className=" container  py-5">
       <h1 className="what-we-can-do-title " style={{fontFamily: 'Gilroy-Bold'}}>Most Searched Countries</h1>
@@ -17,44 +19,28 @@ Let us be your guide to a brighter future. Choose a country that excites you and
       </p>
       <div className="countries-container-2 ">
      
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card4} alt="Australia" />
         </div>
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card5} alt="France" />
         </div>
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card6} alt="Ireland" />
         </div>
         </div>
         <div className="countries-container-2 mt-3 ">
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card1} alt="USA" />
         </div>
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card2} alt="UK" />
         </div>
-        <div className="countries">
+        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
           <img className="countries-image" src={card3} alt="Canada" />
         </div>
       </div>
-      {/* <div className="countries-container container">
-        <div className="countries">
-          <img className="countries-image" src={card4} alt="Australia" />
-        </div>
-        <div className="countries">
-          <img className="countries-image" src={card5} alt="France" />
-        </div>
-        <div className="countries">
-          <img className="countries-image" src={card6} alt="Ireland" />
-        </div>
-      </div> */}
-      {/* <div className="view-all-button">
-        <button className="button">
-          View All
-          <BiChevronRight size={26} />
-        </button>
-      </div> */}
+  
     </div>
   );
 };

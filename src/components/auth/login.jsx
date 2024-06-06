@@ -228,7 +228,7 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="text"
-                        style={{ fontFamily: "Gilroy-Regular" , border: "1px solid #CCC0C0 " }}
+                        style={{ fontFamily: "Gilroy-Medium" , border: "1px solid #CCC0C0 " }}
                         placeholder="Full Name"
                         value={fullName}
                         onChange={handleFullNameChange}
@@ -237,7 +237,7 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="email"
-                        style={{ fontFamily: "Gilroy-Regular", border: "1px solid #CCC0C0 "  }}
+                        style={{ fontFamily: "Gilroy-Medium", border: "1px solid #CCC0C0 "  }}
                         placeholder="Email"
                         value={email}
                         onChange={handleEmailChange}
@@ -278,17 +278,17 @@ function LoginModal() {
                   {isSignUp ? (
                     <>
                       <div className='w-100 d-flex justify-content-center' style={{ fontFamily: "Gilroy-Medium" }}>
-                        <p style={{ fontFamily: "Gilroy-Regular" }}>By Signing up you agree to our <span style={{ color: "#00949B",fontFamily: "Gilroy-SemiBold", cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
+                        <p style={{ fontFamily: "Gilroy-Medium" }}>By Signing up you agree to our <span style={{ color: "#00949B",fontFamily: "Gilroy-SemiBold", cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
                       </div>
                       <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
                         <span className="mx-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{ fontFamily: "Gilroy-Regular",color:"#000000" }}>
+                      <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{ fontFamily: "Gilroy-Medium",color:"#000000" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign up with Google
                       </button>
-                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Regular" }}>Have an account? <strong style={{ fontFamily: "Gilroy-SemiBold", cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
+                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Medium" }}>Have an account? <strong style={{ fontFamily: "Gilroy-SemiBold", cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
                     </>
                   ) : (
                     <>
@@ -297,10 +297,10 @@ function LoginModal() {
                         <span className="mx-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</span>
                         <div className="border-top w-100" />
                       </div>
-                      <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{ fontFamily: "Gilroy-Regular" }}>
+                      <button onClick={handleGoogleLogin} className="btn btn-light w-100" style={{ fontFamily: "Gilroy-Medium" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign in with Google
                       </button>
-                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-Regular" }}>
+                      <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-Medium" }}>
                         Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573",fontFamily: "Gilroy-SemiBold" }}>SIGN UP</strong>
                       </p>
                     </>

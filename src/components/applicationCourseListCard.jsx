@@ -58,7 +58,7 @@ const navigate=useNavigate();
       <div className="inner_card">
         <div id={'Tooltip-' + course?._id}>
           <h5 style={{ fontFamily: "Gilroy-Bold" }}>{course?.courseName || '--'}</h5>
-          <p style={{fontFamily:"Gilroy-Regular"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />{course?.universityName || '--'}</p>
+          <p style={{fontFamily:"Gilroy-Medium"}}><img style={{ height: "1rem", width: "1rem", objectFit: "cover" , marginRight:'5px'}} alt="" src={ellipse} />{course?.universityName || '--'}</p>
 
           <p style={{ marginBottom: "0.25rem" }}>
           <img
@@ -85,7 +85,7 @@ const navigate=useNavigate();
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
     <div>
-        <p style={{color:"#575656",fontFamily:"Gilroy-Regular"}}><span></span> <img
+        <p style={{color:"#575656",fontFamily:"Gilroy-Medium"}}><span></span> <img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
             alt=""
             src={walletImage}
@@ -93,7 +93,7 @@ const navigate=useNavigate();
         <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee || '--'} / year</p>
     </div>
     <div>
-        <p style={{color:"#575656",fontFamily:"Gilroy-Regular"}}><img
+        <p style={{color:"#575656",fontFamily:"Gilroy-Medium"}}><img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
             alt=""
             src={time}
@@ -101,7 +101,7 @@ const navigate=useNavigate();
         <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}>{course?.uniqueCourseInfo?.duration || '--'} years</p>
     </div>
     <div>
-        <p style={{color:"#575656",fontFamily:"Gilroy-Regular"}}><img
+        <p style={{color:"#575656",fontFamily:"Gilroy-Medium"}}><img
             style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
             alt=""
             src={walletImage}
@@ -130,21 +130,21 @@ const navigate=useNavigate();
     <div>
     </div>
     <div>
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>June 2023</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2023</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>June 2024</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2024</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Regular"}}>June 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Regular"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Regular' }}>High</span>
+        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2025</p>
+        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
+            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Medium' }}>High</span>
         </p>
     </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}

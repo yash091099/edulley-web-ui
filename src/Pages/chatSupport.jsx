@@ -32,9 +32,9 @@ const ChatSupport = () => {
                 <Col md={4}>
                     <Card style={{ borderRadius: "26px", boxShadow: "0px 4px 12px 0px #0000001C" }}>
                         <Card.Body>
-                            <Card.Text style={{ fontFamily: 'Gilroy-Regular', color: '#000' }}>{course?.createdAt?.split('T')[0]}</Card.Text>
+                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>{course?.createdAt?.split('T')[0]}</Card.Text>
                             <Card.Title style={{ fontFamily: 'Gilroy-Bold' }}>{course.courseId.courseName}</Card.Title>
-                            <Card.Subtitle style={{ fontFamily: 'Gilroy-Regular', color: '#000' }}> <img src={ellipse} alt="map" style={{ width: "1rem", height: "1rem" }} /> {course.courseId.universityName}</Card.Subtitle>
+                            <Card.Subtitle style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}> <img src={ellipse} alt="map" style={{ width: "1rem", height: "1rem" }} /> {course.courseId.universityName}</Card.Subtitle>
                             <Card.Text style={{ fontFamily: 'Gilroy-Medium', marginTop: "5px" }}>Status :   <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>{course?.status === "DEPOSIT_PAID" ? "Paid" : course.status}</span></Card.Text>
                         </Card.Body>
                     </Card>
@@ -45,17 +45,17 @@ const ChatSupport = () => {
                                 Contact a Relationship Manager
                             </Card.Title>
                             <Card.Img variant="top" src={contactRelationshipManager} />
-                            <Card.Text style={{ fontFamily: 'Gilroy-Regular', color: '#000' }}>Let us help you</Card.Text>
+                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>Let us help you</Card.Text>
                             <div className='d-flex justify-content-center flex-column align-items-center'>
-                                <Button variant="link" href="mailto:muskan@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Regular', color: '#000' }}>
+                                <Button variant="link" href="mailto:muskan@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={email} alt="email" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     muskan@edulley.com
                                 </Button>
-                                <Button variant="link" href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Regular', color: '#000' }}>
+                                <Button variant="link" href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={whatsapp} alt="whatsapp" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     Whatsapp Link
                                 </Button>
-                                <Button variant="link" href="https://www.linkedin.com/in/muskan-anni/" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Regular', color: '#000' }}>
+                                <Button variant="link" href="https://www.linkedin.com/in/muskan-anni/" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={linkedin} alt="linkedin" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     Linkedin Link
                                 </Button>
@@ -67,7 +67,7 @@ const ChatSupport = () => {
                     <Card style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
                             <Card.Title style={{ fontFamily: 'Gilroy-SemiBold' }}>Pay Application Fee</Card.Title>
-                            <Button style={{ fontFamily: 'Gilroy-Regular', marginRight: '10px' }}>Pay Tuition fee</Button>
+                            <Button style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Pay Tuition fee</Button>
                         </Card.Body>
                     </Card>
                     <Card className="mt-4" style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
@@ -75,16 +75,16 @@ const ChatSupport = () => {
                             <Card.Title style={{ fontFamily: 'Gilroy-SemiBold' }}>Chat with us</Card.Title>
                             <div className="chat-box">
                                 {chatMessages.map((chat, index) => (
-                                    <div key={index} className="chat-message" style={{ backgroundColor: chat.sender === 'Student' ? '#FFF' : '#F6F6F6', fontFamily: 'Gilroy-Regular', color: '#000', borderRadius: '10px', marginBottom: '10px', padding: '10px' }}>
+                                    <div key={index} className="chat-message" style={{ backgroundColor: chat.sender === 'Student' ? '#FFF' : '#F6F6F6', fontFamily: 'Gilroy-Medium', color: '#000', borderRadius: '10px', marginBottom: '10px', padding: '10px' }}>
                                         <strong style={{ fontFamily: 'Gilroy-Bold', color: '#FF6477' }}>{chat.sender}</strong>
                                         <p>{chat.message}</p>
-                                        <span className="chat-time" style={{ fontFamily: 'Gilroy-Regular', color: '#000' }}>{chat.timestamp}</span>
+                                        <span className="chat-time" style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>{chat.timestamp}</span>
                                     </div>
                                 ))}
                             </div>
                             <Form onSubmit={handleSendMessage}>
                                 <Form.Group controlId="chatMessage" className="mt-3">
-                                    <Form.Control type="text" placeholder="Add Message" style={{ fontFamily: 'Gilroy-Regular' }} />
+                                    <Form.Control type="text" placeholder="Add Message" style={{ fontFamily: 'Gilroy-Medium' }} />
                                 </Form.Group>
                                 <Button variant="primary" type="submit" className="mt-3" style={{ backgroundColor: '#FF6477', borderColor: '#FF6477', fontFamily: 'Gilroy-Bold' }}>Send</Button>
                             </Form>

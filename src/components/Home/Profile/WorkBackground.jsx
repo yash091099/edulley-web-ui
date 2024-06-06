@@ -225,10 +225,32 @@ export default function WorkBackground() {
       ))}
 
       <div className="button-container mb-4 mt-3">
-        <button style={{ fontFamily: "Gilroy-Medium" }} id="add-more-experience" type="button" className="btn btn-primary " onClick={addWorkExperience}>
+        <button   style={{
+                            fontFamily: "Gilroy-Bold",
+                            color: "#FF5573",
+                            padding: "10px 20px",
+                            borderRadius: "8px",
+                            border: "1px solid #FF5573",
+                            background: "#fff",
+                            position: 'relative',
+                            bottom:'35px',
+                            marginTop:'10px'
+
+                        }} id="add-more-experience" type="button" className="btn btn-primary " onClick={addWorkExperience}>
           Add Work Experience
         </button>
-        <button style={{ fontFamily: "Gilroy-Medium" }} type="submit" className="btn btn-primary float-end">
+        <button   style={{
+                            fontFamily: "Gilroy-Bold",
+                            color: "#FF5573",
+                            padding: "10px 20px",
+                            borderRadius: "8px",
+                            border: "1px solid #FF5573",
+                            background: "#fff",
+                            position: 'relative',
+                            bottom:'35px',
+                            marginTop:'10px'
+
+                        }} type="submit" className="btn btn-primary float-end">
           Next
         </button>
       </div>

@@ -35,16 +35,16 @@ const SOP = () => {
                     </h4>
                   </div>
                   <ul>
-                    <li className="text-pink" style={{fontFamily:"Gilroy-Regular"}}>What is SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Why is SOP important</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>SOP Format</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Hoe to write SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>What do college look for in an SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Tips for writing SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Common mistakes to avoid in SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Importance of SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Word limit in SOP</li>
-                    <li style={{fontFamily:"Gilroy-Regular"}}>Samples for SOP</li>
+                    <li className="text-pink" style={{fontFamily:"Gilroy-Medium"}}>What is SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Why is SOP important</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>SOP Format</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Hoe to write SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>What do college look for in an SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Tips for writing SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Common mistakes to avoid in SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Importance of SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Word limit in SOP</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Samples for SOP</li>
                  
                   </ul>
                 </div>
@@ -56,11 +56,11 @@ const SOP = () => {
                     </h4>
                   </div>
                   <ul>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Regular"}}>Sample SOP for MBA</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Regular"}}>Sample SOP for MS</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Regular"}}>Sample SOP for Bachelors</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Regular"}}>Sample SOP for PhD</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Regular"}}>Sample SOP for other courses</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MBA</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MS</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for Bachelors</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for PhD</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for other courses</li>
                   
                   </ul>
                 </div>

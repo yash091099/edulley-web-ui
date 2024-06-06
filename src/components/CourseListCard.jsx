@@ -116,7 +116,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
       </div>
       <div className="d-flex align-items-center gap-3 flex-wrap" style={{ marginBottom: "0.5rem" }}>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -129,7 +129,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
           </p>
         </div>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -142,7 +142,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
           </p>
         </div>
         <div>
-          <p style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#575656", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
@@ -155,7 +155,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
           </p>
         </div>
         <div className="d-flex flex-column">
-          <p className="mb-1" style={{ color: "#575656", fontFamily: "Gilroy-Regular", marginBottom: "0.25rem" }}>
+          <p className="mb-1" style={{ color: "#575656", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""

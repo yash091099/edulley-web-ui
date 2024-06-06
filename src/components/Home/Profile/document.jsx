@@ -212,12 +212,12 @@ export default function ViewUserDocument() {
               {Object.entries(documentUrls).map(([docKey, docValue], index) => (
                 <div key={index} className="col-md-6 formField" style={{ marginBottom: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                    <label style={{ fontFamily: 'Gilroy-Regular' }}>{`${docKey}${index < 5 ? '*' : ''}`}</label>
+                    <label style={{ fontFamily: 'Gilroy-Medium' }}>{`${docKey}${index < 5 ? '*' : ''}`}</label>
                     <input
                       type="file"
                       name={docKey}
                       onChange={(e) => handleFileUpload(e, docKey)}
-                      style={{ margin: "10px 0", fontFamily: 'Gilroy-Regular' }}
+                      style={{ margin: "10px 0", fontFamily: 'Gilroy-Medium' }}
                     />
                     {docValue && (
                       <div style={{ width: "100%", marginTop: "10px" }}>
@@ -243,15 +243,15 @@ export default function ViewUserDocument() {
           <Card style={{ backgroundColor: '#FFF0F0', border: 'none', marginBottom: '20px' }}>
             <Card.Body>
               <div style={{ fontFamily: 'Gilroy-Bold', color: '#FF6477' }}>MA by Research English Studies</div>
-              <div style={{ fontFamily: 'Gilroy-Regular' }}>University Name</div>
-              <div style={{ fontFamily: 'Gilroy-Regular' }}>Manchester, UK</div>
+              <div style={{ fontFamily: 'Gilroy-Medium' }}>University Name</div>
+              <div style={{ fontFamily: 'Gilroy-Medium' }}>Manchester, UK</div>
               <div style={{ fontFamily: 'Gilroy-Medium' }}>CU: Coventry</div>
               <div style={{ fontFamily: 'Gilroy-Medium', color: '#FF6477' }}>98765/23-24</div>
               <Card style={{ backgroundColor: '#FFF0F0', border: '1px solid #FF6477', borderRadius: '10px', marginTop: '10px' }}>
                 <Card.Body>
                   <div style={{ fontFamily: 'Gilroy-Medium' }}>Application Submitted to Institution</div>
-                  <div style={{ fontFamily: 'Gilroy-Regular' }}>Last uploaded on 23/01/2024 12:20 PM</div>
-                  <div style={{ fontFamily: 'Gilroy-Regular', marginBottom: '10px' }}>CU Coventry submit.png</div>
+                  <div style={{ fontFamily: 'Gilroy-Medium' }}>Last uploaded on 23/01/2024 12:20 PM</div>
+                  <div style={{ fontFamily: 'Gilroy-Medium', marginBottom: '10px' }}>CU Coventry submit.png</div>
                   <Button variant="outline-primary" style={{ borderColor: '#FF6477', color: '#FF6477', marginRight: '10px', fontFamily: 'Gilroy-Medium' }}>Add to student platform</Button>
                   <Button variant="outline-primary" style={{ borderColor: '#FF6477', color: '#FF6477', fontFamily: 'Gilroy-Medium' }}>Download all files</Button>
                 </Card.Body>
@@ -259,8 +259,8 @@ export default function ViewUserDocument() {
               <Card style={{ backgroundColor: '#FFF0F0', border: '1px solid #FF6477', borderRadius: '10px', marginTop: '10px' }}>
                 <Card.Body>
                   <div style={{ fontFamily: 'Gilroy-Medium' }}>Conditional Offer</div>
-                  <div style={{ fontFamily: 'Gilroy-Regular' }}>Last uploaded on 23/01/2024 12:20 PM</div>
-                  <div style={{ fontFamily: 'Gilroy-Regular', marginBottom: '10px' }}>Student_name_Conditionaloffersubmit.png</div>
+                  <div style={{ fontFamily: 'Gilroy-Medium' }}>Last uploaded on 23/01/2024 12:20 PM</div>
+                  <div style={{ fontFamily: 'Gilroy-Medium', marginBottom: '10px' }}>Student_name_Conditionaloffersubmit.png</div>
                   <Button variant="outline-primary" style={{ borderColor: '#FF6477', color: '#FF6477', marginRight: '10px', fontFamily: 'Gilroy-Medium' }}>Add to student platform</Button>
                   <Button variant="outline-primary" style={{ borderColor: '#FF6477', color: '#FF6477', fontFamily: 'Gilroy-Medium' }}>Download all files</Button>
                 </Card.Body>

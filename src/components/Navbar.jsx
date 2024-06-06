@@ -168,7 +168,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -206,7 +206,7 @@ const Navbar = () => {
                 </li>
                     
               </ul>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link
                 className={`nav-link ${activeLink === "/blog" ? "active" : ""}`}
