@@ -6,18 +6,37 @@ import map from '../../assets/mappin.svg';
 import calender from '../../assets/calendar.svg';
 import course_icon from '../../assets/course.png';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
 import { getCourses } from '../../Services/dashboard';
 import TrendingCoursesCarousel from './corousel-tranding-courses';
+import Select from 'react-select';
 
 const Search = () => {
+
+const intakeOptions = [
+    { value: 'January', label: 'January' },
+    { value: 'February', label: 'February' },
+    { value: 'March', label: 'March' },
+    { value: 'April', label: 'April' },
+    { value: 'May', label: 'May' },
+    { value: 'June', label: 'June' },
+    { value: 'July', label: 'July' },
+    { value: 'August', label: 'August' },
+    { value: 'September', label: 'September' },
+    { value: 'October', label: 'October' },
+    { value: 'November', label: 'November' },
+    { value: 'December', label: 'December' },
+];
+const location=useLocation();
+console.log(location?.state?.country, "location");
     const [courses, setCourses] = useState([]);
+    const[selectedCountry, setSelectedCountry] = useState(location?.state?.country||"");
     const [loading, setLoading] = useState(false);
     const [showAdvancedFilter, setShowAdvancedFilter] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: 'January'  });
+    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '', level: ''  });
     const [searchResults, setSearchResults] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -38,16 +57,20 @@ const Search = () => {
     useEffect(() => {
         fetchCourses();
     }, []);
-
+    const handleMultiSelectChange = (selectedOptions) => {
+        const levels = selectedOptions.map(option => option.value);
+        setSearchTerm(prev => ({ ...prev, level: levels }));
+    };
+    
     useEffect(() => {
         const filled = searchTerm.course || searchTerm.duration || searchTerm.level;
         setInputFilled(filled);
         setShowMessage(filled);
         if (filled) {
-            const filteredCourses = courses.filter(course =>
-                course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
-                course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-                course.level.toLowerCase().includes(searchTerm.level.toLowerCase())
+            const filteredCourses = courses?.filter(course =>
+                course?.courseName?.toLowerCase()?.includes(searchTerm?.course?.toLowerCase()) &&
+                course?.uniqueCourseInfo?.duration?.toLowerCase()?.includes(searchTerm?.duration?.toLowerCase()) &&
+                course?.level?.toLowerCase()?.includes(searchTerm?.level?.toLowerCase())
             );
             setSearchResults(filteredCourses);
             setIsAvailable(filteredCourses.length > 0);
@@ -100,33 +123,28 @@ const Search = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="ps-3">
+    <div className="ps-3">
     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-    <select
-        className="text-gray-100"
-        
+    <Select
+        isMulti
         name="level"
-        value={searchTerm.level}
-        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
-        padding: "10px",
-        background: "#fff",color:"#898484"
-    }}
-        onChange={handleChange}
-    >
-        <option value="">Select Month</option>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-    </select>
+        options={intakeOptions}
+        className="basic-multi-select"
+        classNamePrefix="select"
+        value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
+        onChange={handleMultiSelectChange}
+        styles={{
+            control: (provided) => ({
+                ...provided,
+                border: 'none',
+                fontFamily: "Gilroy-Medium",
+                width: "234px",
+                padding: "10px",
+                background: "#fff",
+                color: "#898484"
+            })
+        }}
+    />
 </div>
 <div className="ps-3">
     <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
@@ -153,9 +171,10 @@ const Search = () => {
     <select
          className="text-gray-100"
          name="country"
+         value={selectedCountry}
          style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
          padding: "10px",
-         background: "#fff" 
+         background: "#fff" ,color:"#898484"
         }}
         // onChange={handleChange}
     >

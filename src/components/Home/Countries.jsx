@@ -5,42 +5,44 @@ import card3 from "../../assets/france.png";
 import card4 from "../../assets/uk.png";
 import card5 from "../../assets/usa.png";
 import card6 from "../../assets/ireland.png";
-import { BiChevronRight } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
 const Countries = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+
+  const handleNavigation = (country) => {
+    navigate("/courses", { state: { country } });
+  };
+
   return (
-    <div className=" container  py-5">
-      <h1 className="what-we-can-do-title " style={{fontFamily: 'Gilroy-Bold'}}>Most Searched Countries</h1>
-      <p className="what-we-can-do-description mt-2 mb-5" style={{fontFamily:"Gilroy-Medium"}}>
-      Embark on a transformative journey of learning and discovery. Explore new cultures, make lifelong friendships, and gain a world-class education. 
-Let us be your guide to a brighter future. Choose a country that excites you and we bring the best information to help you make an informed decision. 
+    <div className="container py-5">
+      <h1 className="what-we-can-do-title" style={{ fontFamily: 'Gilroy-Bold' }}>Most Searched Countries</h1>
+      <p className="what-we-can-do-description mt-2 mb-5" style={{ fontFamily: "Gilroy-Medium" }}>
+        Embark on a transformative journey of learning and discovery. Explore new cultures, make lifelong friendships, and gain a world-class education.
+        Let us be your guide to a brighter future. Choose a country that excites you and we bring the best information to help you make an informed decision.
       </p>
-      <div className="countries-container-2 ">
-     
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
-          <img className="countries-image" src={card4} alt="Australia" />
+      <div className="countries-container-2">
+        <div onClick={() => handleNavigation("United Kingdom")} className="countries cursor-pointer">
+          <img className="countries-image" src={card4} alt="UK" />
         </div>
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
-          <img className="countries-image" src={card5} alt="France" />
+        <div onClick={() => handleNavigation("USA")} className="countries cursor-pointer">
+          <img className="countries-image" src={card5} alt="USA" />
         </div>
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
+        <div onClick={() => handleNavigation("Ireland")} className="countries cursor-pointer">
           <img className="countries-image" src={card6} alt="Ireland" />
         </div>
+      </div>
+      <div className="countries-container-2 mt-3">
+        <div onClick={() => handleNavigation("Australia")} className="countries cursor-pointer">
+          <img className="countries-image" src={card1} alt="Australia" />
         </div>
-        <div className="countries-container-2 mt-3 ">
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
-          <img className="countries-image" src={card1} alt="USA" />
+        <div onClick={() => handleNavigation("Canada")} className="countries cursor-pointer">
+          <img className="countries-image" src={card2} alt="Canada" />
         </div>
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
-          <img className="countries-image" src={card2} alt="UK" />
-        </div>
-        <div onClick={()=>navigate("/courses")} className="countries cursor-pointer">
-          <img className="countries-image" src={card3} alt="Canada" />
+        <div onClick={() => handleNavigation("France")} className="countries cursor-pointer">
+          <img className="countries-image" src={card3} alt="France" />
         </div>
       </div>
-  
     </div>
   );
 };

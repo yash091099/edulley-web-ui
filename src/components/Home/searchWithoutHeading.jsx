@@ -8,12 +8,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
 import { getCourses } from '../../Services/dashboard';
+import Select from 'react-select';
 
 const Search = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: 'January' });
+    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: [] });
     const [searchResults, setSearchResults] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -36,14 +37,14 @@ const Search = () => {
     }, []);
 
     useEffect(() => {
-        const filled = searchTerm.course || searchTerm.duration || searchTerm.level;
+        const filled = searchTerm.course || searchTerm.duration || searchTerm.level.length > 0;
         setInputFilled(filled);
         setShowMessage(filled);
         if (filled) {
             const filteredCourses = courses.filter(course =>
                 course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
                 course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-                course.level.toLowerCase().includes(searchTerm.level.toLowerCase())
+                searchTerm.level.some(level => course.level.toLowerCase().includes(level.toLowerCase()))
             );
             setSearchResults(filteredCourses);
             setIsAvailable(filteredCourses.length > 0);
@@ -56,19 +57,13 @@ const Search = () => {
         }
     }, [searchTerm, courses]);
 
-    const handleClick=()=>{
-      const filteredCourses = courses.filter(course =>
-        course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
-        course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-        course.level.toLowerCase().includes(searchTerm.level.toLowerCase())
-    );
-      // onClick={() => navigate('/courses-list')}  disabled={ (!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level)}
-    //   if(!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level){
-    //     toast.error('All search fields are required');
-    //     return;
-    //   }
-      navigate('/courses');
-    //   navigate('/courses-list', { state: filteredCourses.map(course => course._id) });
+    const handleClick = () => {
+        const filteredCourses = courses.filter(course =>
+            course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
+            course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
+            searchTerm.level.some(level => course.level.toLowerCase().includes(level.toLowerCase()))
+        );
+        navigate('/courses');
     }
 
     const handleChange = (e) => {
@@ -76,87 +71,96 @@ const Search = () => {
         setSearchTerm(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleMultiSelectChange = (selectedOptions) => {
+        const levels = selectedOptions.map(option => option.value);
+        setSearchTerm(prev => ({ ...prev, level: levels }));
+    };
+
+    const intakeOptions = [
+        { value: 'January', label: 'January' },
+        { value: 'February', label: 'February' },
+        { value: 'March', label: 'March' },
+        { value: 'April', label: 'April' },
+        { value: 'May', label: 'May' },
+        { value: 'June', label: 'June' },
+        { value: 'July', label: 'July' },
+        { value: 'August', label: 'August' },
+        { value: 'September', label: 'September' },
+        { value: 'October', label: 'October' },
+        { value: 'November', label: 'November' },
+        { value: 'December', label: 'December' },
+    ];
+
     return (
         <div className="cointainer">
-           
-        <div className="search_container container">
-             
-            {loading && <CustomLoader />}
-            <h4 className="text-center  mb-4" style={{fontWeight:"400", fontFamily: 'Gilroy-Bold' }}>Search Courses</h4>
-            <div className="bg-white rounded section_inner">
-                <div className="ps-3">
-                    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
-                    <input
-                        className="text-gray-100"
-                        placeholder="Course"
-                        type="text"
-                        style={{border: 'none',fontFamily:"Gilroy-Medium",color:"#898484"}}
-
-                        name="course"
-                        value={searchTerm.course}
-                        onChange={handleChange}
-                    />
+            <div className="search_container container">
+                {loading && <CustomLoader />}
+                <h4 className="text-center mb-4" style={{ fontWeight: "400", fontFamily: 'Gilroy-Bold' }}>Search Courses</h4>
+                <div className="bg-white rounded section_inner">
+                    <div className="ps-3">
+                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
+                        <input
+                            className="text-gray-100"
+                            placeholder="Course"
+                            type="text"
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium", color: "#898484" }}
+                            name="course"
+                            value={searchTerm.course}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="ps-3">
+                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
+                        <Select
+                            isMulti
+                            name="level"
+                            options={intakeOptions}
+                            className="basic-multi-select"
+                            classNamePrefix="select"
+                            value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
+                            onChange={handleMultiSelectChange}
+                            styles={{
+                                control: (provided) => ({
+                                    ...provided,
+                                    border: 'none',
+                                    fontFamily: "Gilroy-Medium",
+                                    width: "234px",
+                                    padding: "10px",
+                                    background: "#fff",
+                                    color: "#898484"
+                                })
+                            }}
+                        />
+                    </div>
+                    <div className="ps-3">
+                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
+                        <select
+                            name="duration"
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "234px", padding: "10px", background: "#fff", color: "#898484" }}
+                            value={searchTerm.duration}
+                            onChange={handleChange}
+                        >
+                            <option value="">Select Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                        </select>
+                    </div>
+                    <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.duration || searchTerm.level.length === 0) ? 'disabled' : ''}`}>
+                        <FaSearch />
+                    </button>
                 </div>
-             
-                <div className="ps-3">
-    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-    <select
-        name="level"
-        value={searchTerm.level}
-        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
-        padding: "10px",
-        background: "#fff",color:"#898484"
-    }}
-        onChange={handleChange}
-    >
-        <option value="">Select Intake</option>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-    </select>
-</div>
-<div className="ps-3">
-    <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
-    <select
-        name="duration"
-        style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width: "234px",
-        padding: "10px",
-        background: "#fff",color:"#898484"
-    }}
-        value={searchTerm.duration}
-        onChange={handleChange}
-    >
-        <option value="">Select Year</option>
-        <option value="2024">2024</option>
-        <option value="2025">2025</option>
-        <option value="2026">2026</option>
-        <option value="2027">2027</option>
-        <option value="2028">2028</option>
-    </select>
-</div>
-
-                <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable ||!searchTerm.course||!searchTerm.duration||!searchTerm.level)? 'disabled' : ''}`} >
-                    <FaSearch />
-                </button>
+                {showMessage && searchTerm.course && (
+                    <div className="row mt-3">
+                        {isAvailable ?
+                            <div className="col-12 alert alert-success" style={{ fontFamily: "Gilroy-Medium" }} role="alert">Search course is available!</div> :
+                            <div className="col-12 alert alert-danger" style={{ fontFamily: "Gilroy-Medium" }} role="alert">Search course is unavailable.</div>
+                        }
+                    </div>
+                )}
             </div>
-            {showMessage &&  searchTerm.course && (
-                <div className="row mt-3">
-                    {isAvailable ?
-                        <div className="col-12 alert alert-success" style={{fontFamily:"Gilroy-Medium"}} role="alert">Search course is available!</div> :
-                        <div className="col-12 alert alert-danger" style={{fontFamily:"Gilroy-Medium"}} role="alert">Search course is unavailable.</div>
-                    }
-                </div>
-            )}
-        </div>
         </div>
     );
 };
