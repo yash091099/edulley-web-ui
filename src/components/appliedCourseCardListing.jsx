@@ -164,7 +164,7 @@ const AppliedCourseListCard = ({ course }) => {
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
         <div>
-          <p  style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><span><img
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-Medium" }}><span><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={walletImage}
@@ -172,7 +172,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573", fontFamily:"Gilroy-Medium" }}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.fee || '--'} / year</p>
         </div>
         <div>
-          <p style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
+          <p style={{ color: "#575656",fontFamily:"Gilroy-Medium" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}
@@ -180,7 +180,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}>{course?.courseId?.uniqueCourseInfo?.duration || '--'} years</p>
         </div>
         <div>
-          <p  style={{ color: "#575656",fontFamily:"Gilroy-SemiBold" }}><img
+          <p  style={{ color: "#575656",fontFamily:"Gilroy-Medium" }}><img
               style={{ height: "1rem", width: "1rem", objectFit: "cover", marginRight: "5px" }}
               alt=""
               src={time}
@@ -188,7 +188,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
-          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-SemiBold'  }}>{formatText(course?.status)}</span>
+          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium'  }}>{formatText(course?.status)}</span>
           {course?.status === 'APPLIED_CONDITIONAL_OFFER' &&
             <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
         </div>
@@ -218,7 +218,7 @@ const AppliedCourseListCard = ({ course }) => {
     <div style={{marginLeft:"200px"}}>
     <button
             style={{
-              fontFamily: "Gilroy-SemiBold",
+              fontFamily: "Gilroy-Medium",
               color: "#FF5573",
               padding: "7px",
               borderRadius: "8px",

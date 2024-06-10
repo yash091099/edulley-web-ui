@@ -129,7 +129,7 @@ const Scholarship = () => {
             }}
           >
             <FontAwesomeIcon icon={faTimes} />
-            <span className="ml-2">Clear</span>
+            <span className="ml-2"  style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
           </button>
         </div>
       </div>
@@ -139,7 +139,7 @@ const Scholarship = () => {
 
       <div className="search_container container scholarship-page">
         
-        <h3 className="text-center mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Search Scholarships</h3>
+        <h3 className="text-center mt-2" style={{fontFamily:"Gilroy-Medium"}}>Search Scholarships</h3>
         <div className="bg-white rounded section_inner">
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={map} />
@@ -216,8 +216,8 @@ const Scholarship = () => {
               <div className="right_scholar">
                 <div className="s_img_card">
                   <img src={scholar1} alt="" />
-                  <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}> Let’s look at the scholarships available for you</p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>
+                  <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}> Let’s look at the scholarships available for you</p>
+                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore all Scholarship
                   </button>
                 </div>
@@ -226,7 +226,7 @@ const Scholarship = () => {
                   <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                   Confused about our Career path?
                   </p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>
+                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore Career path finder
                   </button>
                 </div>

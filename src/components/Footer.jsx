@@ -25,7 +25,7 @@ const Footer = () => {
 
         <div className="f_logo">
         <div className="foot_img">
-            {/* <div className="text-center" style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Download Now</div>
+            {/* <div className="text-center" style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Download Now</div>
             <div className="d-flex flex-column mt-2 gap-2">
               <img
                 style={{ cursor: "pointer" }}
@@ -43,7 +43,7 @@ const Footer = () => {
               />
             </div> */}
 
-            <h5 className="mt-5" style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Contact With Us</h5>
+            <h5 className="mt-5" style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Contact With Us</h5>
             <div className="d-flex align-items-center gap-3 mt-4">
               <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="f_contact">
                 <WhatsApp/>
@@ -66,7 +66,7 @@ const Footer = () => {
           <img className="" loading="lazy" alt="" src={phone} />
         </div>
         <div>
-          <p style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Phone</p>
+          <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Phone</p>
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "tel:+1234567890"}>+123,456 7890</p>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Footer = () => {
           <img className="" loading="lazy" alt="" src={mail} />
         </div>
         <div>
-          <p style={{fontFamily:"Gilroy-SemiBold",fontSize:"18px"}}>Mail</p>
+          <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Mail</p>
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:muskan@edulley.com"}>muskan@edulley.com</p>
         </div>
       </div>
@@ -84,7 +84,7 @@ const Footer = () => {
 </div>
 
         <div className="f_menu ">
-          <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Countries</h5>
+          <h5 style={{fontFamily:"Gilroy-Medium"}}>Countries</h5>
           <ul>
             <li style={{fontFamily:"Gilroy-Medium"}}>The USA</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>The UK</li>
@@ -94,7 +94,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="f_menu">
-          <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Others</h5>
+          <h5 style={{fontFamily:"Gilroy-Medium"}}>Others</h5>
           <ul>
             <Link to="/sop">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Sop</li>
@@ -118,7 +118,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="f_menu">
-          <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Company</h5>
+          <h5 style={{fontFamily:"Gilroy-Medium"}}>Company</h5>
           <ul>
           <Link to="/career-path">
 
@@ -144,7 +144,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="f_menu">
-        <h5 style={{fontFamily:"Gilroy-SemiBold"}}>Exams</h5>
+        <h5 style={{fontFamily:"Gilroy-Medium"}}>Exams</h5>
           <ul>
             <Link to="/exam-ielts">
               <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>

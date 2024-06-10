@@ -100,7 +100,7 @@ const Blog = () => {
 </div>
 
                     </div>
-                    <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
+                    <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Bold" }}>
                         Transforming the landscape of Education with revolutionary technology
                     </p>
                 </div>
@@ -149,14 +149,14 @@ const Blog = () => {
                 )}
                 <div className="col-md-3">
                     <div className="s_img_card text-center">
-                        <p style={{ fontFamily: "Gilroy-SemiBold" }}>Look at all the courses at University name</p>
+                        <p style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses at University name</p>
                         <button style={{ fontFamily: "Gilroy-Medium" }} className="explore-button py-2 fw-light mt-2">Explore All Courses</button>
                         <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
                         <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with Our Advisor</p>
                     </div>
                     <div className="s_img_card text-center">
                         <img src={scholar1} alt="" />
-                        <p style={{ fontFamily: "Gilroy-SemiBold" }}>Let’s look at the scholarships available for you</p>
+                        <p style={{ fontFamily: "Gilroy-Bold" }}>Let’s look at the scholarships available for you</p>
                         <button className="explore-button py-2 fw-light mt-2">Explore All Scholarship</button>
                         <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
                         <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with Our Advisor</p>

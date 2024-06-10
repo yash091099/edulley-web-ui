@@ -124,7 +124,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Fees
           </p>
-          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <FaRupeeSign /> {course?.uniqueCourseInfo?.fee || "--"} / year
           </p>
         </div>
@@ -137,7 +137,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Duration
           </p>
-          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             {course?.uniqueCourseInfo?.duration || "--"} years
           </p>
         </div>
@@ -150,7 +150,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Application Fee
           </p>
-          <p style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
+          <p style={{ color: "#FF5573", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <FaRupeeSign /> {course?.uniqueCourseInfo?.applicationFee || "--"}
           </p>
         </div>
@@ -163,7 +163,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
             />
             Intake
           </p>
-          <p className="" style={{ color: "#FF5573", fontFamily: "Gilroy-SemiBold", marginBottom: "0.25rem" }}>
+          <p className="" style={{ color: "#FF5573", fontFamily: "Gilroy-Medium", marginBottom: "0.25rem" }}>
             <span style={{ backgroundColor: "#CCE6E8", cursor: "pointer", color: "#00949B", padding: "5px 10px", borderRadius: "5px", marginRight: "10px" }}>
               Open
             </span>
@@ -175,7 +175,7 @@ const CourseListCard = ({ course, onToggleSelection, isSelected }) => {
         <div>
           <button
             style={{
-              fontFamily: "Gilroy-SemiBold",
+              fontFamily: "Gilroy-Medium",
               color: "#FF5573",
               padding: "7px",
               borderRadius: "8px",

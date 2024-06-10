@@ -66,13 +66,13 @@ const ChatSupport = () => {
                 <Col md={8}>
                     <Card style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
-                            <Card.Title style={{ fontFamily: 'Gilroy-SemiBold' }}>Pay Application Fee</Card.Title>
+                            <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Pay Application Fee</Card.Title>
                             <Button style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Pay Tuition fee</Button>
                         </Card.Body>
                     </Card>
                     <Card className="mt-4" style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
-                            <Card.Title style={{ fontFamily: 'Gilroy-SemiBold' }}>Chat with us</Card.Title>
+                            <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Chat with us</Card.Title>
                             <div className="chat-box">
                                 {chatMessages.map((chat, index) => (
                                     <div key={index} className="chat-message" style={{ backgroundColor: chat.sender === 'Student' ? '#FFF' : '#F6F6F6', fontFamily: 'Gilroy-Medium', color: '#000', borderRadius: '10px', marginBottom: '10px', padding: '10px' }}>

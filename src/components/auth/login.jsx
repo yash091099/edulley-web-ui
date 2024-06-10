@@ -222,7 +222,7 @@ function LoginModal() {
             <div className="col-md-6">
               {!isOtpScreen ? (
                 <>
-                  <h5 className="text-center" style={{ fontFamily: "Gilroy-SemiBold",fontWeight: "600" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h5>
+                  <h5 className="text-center" style={{ fontFamily: "Gilroy-Medium",fontWeight: "600" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h5>
                   {isSignUp && (
                     <>
                       <input
@@ -278,7 +278,7 @@ function LoginModal() {
                   {isSignUp ? (
                     <>
                       <div className='w-100 d-flex justify-content-center' style={{ fontFamily: "Gilroy-Medium" }}>
-                        <p style={{ fontFamily: "Gilroy-Medium" }}>By Signing up you agree to our <span style={{ color: "#00949B",fontFamily: "Gilroy-SemiBold", cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
+                        <p style={{ fontFamily: "Gilroy-Medium" }}>By Signing up you agree to our <span style={{ color: "#00949B",fontFamily: "Gilroy-Medium", cursor: 'pointer' }} onClick={() => navigate('/faq')}>Terms and Conditions</span></p>
                       </div>
                       <div className="d-flex align-items-center justify-content-center my-2">
                         <div className="border-top w-100" />
@@ -288,7 +288,7 @@ function LoginModal() {
                       <button onClick={handleGoogleLogin} className="btn mb-3 btn-light w-100" style={{ fontFamily: "Gilroy-Medium",color:"#000000" }}>
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign up with Google
                       </button>
-                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Medium" }}>Have an account? <strong style={{ fontFamily: "Gilroy-SemiBold", cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
+                      <p className="text-center" onClick={() => setIsSignUp(false)} style={{ fontFamily: "Gilroy-Medium" }}>Have an account? <strong style={{ fontFamily: "Gilroy-Medium", cursor: 'pointer',color:"#FF5573" }}>LOGIN</strong></p>
                     </>
                   ) : (
                     <>
@@ -301,14 +301,14 @@ function LoginModal() {
                         <img src={googleLogo} alt="Google" className="me-2" /> Sign in with Google
                       </button>
                       <p className="text-center mt-3" onClick={() => setIsSignUp(true)} style={{ fontFamily: "Gilroy-Medium" }}>
-                        Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573",fontFamily: "Gilroy-SemiBold" }}>SIGN UP</strong>
+                        Don't have an account? <strong style={{ cursor: 'pointer', color: "#FF5573",fontFamily: "Gilroy-Medium" }}>SIGN UP</strong>
                       </p>
                     </>
                   )}
                 </>
               ) : (
                 <>
-                  <h5 className="text-center" style={{ fontFamily: "Gilroy-SemiBold",fontWeight: "600" }}>Enter OTP</h5>
+                  <h5 className="text-center" style={{ fontFamily: "Gilroy-Medium",fontWeight: "600" }}>Enter OTP</h5>
                   <div className="d-flex justify-content-center my-3">
                     <OTPInput
                       value={otp}

@@ -223,7 +223,7 @@ const InstitutionDetail = () => {
                 </div>
               ))}
             </div>
-            <h2 className="mt-5 mb-4" style={{ fontFamily: "Gilroy-SemiBold" }}>
+            <h2 className="mt-5 mb-4" style={{ fontFamily: "Gilroy-Medium" }}>
               What's unique about the university?
             </h2>
             <div className="d-flex gap-3 flex-wrap award_imgs">
@@ -294,21 +294,21 @@ const InstitutionDetail = () => {
             <div className="mt-3 gap-3 flex-wrap">
               <button
                 className={`detail_button ${activeTab === "Undergraduate" ? "active-tab-course" : ""}`}
-                style={{ fontFamily: "Gilroy-SemiBold" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 onClick={() => handleTabClick("Undergraduate")}
               >
                 Undergraduate
               </button>
               {/* <button
                 className={`detail_button ${activeTab === "Postgraduate" ? "active-tab-course" : ""}`}
-                style={{ fontFamily: "Gilroy-SemiBold" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 onClick={() => handleTabClick("Postgraduate")}
               >
                 Postgraduate
               </button> */}
               <button
                 className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
-                style={{ fontFamily: "Gilroy-SemiBold" }}
+                style={{ fontFamily: "Gilroy-Medium" }}
                 onClick={() => handleTabClick("Doctorate")}
               >
                 Doctorate
@@ -387,7 +387,7 @@ const InstitutionDetail = () => {
           <div className="right_scholar">
             <div className="s_img_card">
               <img src={scholar2} alt="" />
-              <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Confused about our Career path?
               </p>
               <button
@@ -426,7 +426,7 @@ const InstitutionDetail = () => {
                     src={rating}
                     alt=""
                   />{" "}
-                  <span style={{ fontFamily: "Gilroy-Medium" }}>University Ranking</span>
+                  <span style={{ fontFamily: "Gilroy-Bold" }}>University Ranking</span>
                 </div>
               </div>
               <div className="row mt-3">
@@ -439,19 +439,19 @@ const InstitutionDetail = () => {
                   <span style={{ fontFamily: "Gilroy-Medium" }}></span>
                 </div>
                 <div className="col-md-7 mt-3">
-                  <p style={{ fontFamily: "Gilroy-Bold" }}>
+                  <p style={{ fontFamily: "Gilroy-Medium" }}>
                     {location?.state?.universityDetails?.ranking?.name}
                   </p>
                 </div>
                 <div className="col-md-3 mt-3">
-                  <p style={{ fontFamily: "Gilroy-Bold" }}>
+                  <p style={{ fontFamily: "Gilroy-Medium" }}>
                     {location?.state?.universityDetails?.ranking?.rank}
                   </p>
                 </div>
               </div>
             </div>
             <div className="s_img_card text-center">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Look at all the courses at University name
               </p>
               <button
@@ -476,7 +476,7 @@ const InstitutionDetail = () => {
             </div>
             <div className="s_img_card text-center mb-3">
               <img src={scholar1} alt="" />
-              <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Let’s look at the scholarships available for you
               </p>
               <button

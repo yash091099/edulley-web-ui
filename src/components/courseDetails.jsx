@@ -161,7 +161,7 @@ const CourseDetails = () =>{
 
 
             <div className="s_img_card text-center mb-3">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Let’s look at the scholarships available for you
               </p>
               <img src={scholar1} alt="" />
@@ -173,7 +173,7 @@ const CourseDetails = () =>{
               </button>
             </div>
             <div className="s_img_card text-center mb-3">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-SemiBold" }}>Look at all the courses at {location.state?.universityName}</p>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>Look at all the courses at {location.state?.universityName}</p>
               <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Courses
               </button>

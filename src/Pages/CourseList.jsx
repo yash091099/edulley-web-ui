@@ -144,7 +144,7 @@ const CourseList = () => {
 <div className="row">
     <div className="col-md-12 d-flex justify-content-end align-items-center">
         {/* <span style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Add five courses to start comparison</span> */}
-        <button className="explore-button mb-3" style={{ fontFamily: 'Gilroy-SemiBold' }} onClick={handleCompareClick}>
+        <button className="explore-button mb-3" style={{ fontFamily: 'Gilroy-Medium' }} onClick={handleCompareClick}>
             Compare <img src={cherons} alt="Home" />
         </button>
     </div>
@@ -166,7 +166,7 @@ const CourseList = () => {
           <div className="col-md-5">
             <span style={{fontFamily:"Gilroy-Bold",fontSize:"22px"}}>Filters</span>
             <div className="right_list">
-              <h5 className="mb-2" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Universities</h5>
+              <h5 className="mb-2" style={{fontFamily:"Gilroy-Medium",color:"#FF5573"}}>Universities</h5>
               {courses.map((course, index) => (
                 <div className="form-check mb-3" key={index}>
                   <input
@@ -182,7 +182,7 @@ const CourseList = () => {
                   </label>
                 </div>
               ))}
-                 <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">English Proficiency Exam</h5>
+                 <h5 style={{fontFamily:"Gilroy-Medium",color:"#FF5573"}} className=" mb-2">English Proficiency Exam</h5>
                  <select
             className="form-select mb-3"
             style={{ fontFamily: 'Gilroy-Medium' }}
@@ -195,7 +195,7 @@ const CourseList = () => {
             <option value="Relevance">...</option>
          
         </select>
-                 <h5 className=" mb-5" style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}}>Tuition Fee</h5>
+                 <h5 className=" mb-5" style={{fontFamily:"Gilroy-Medium",color:"#FF5573"}}>Tuition Fee</h5>
               <Range
                 values={tuitionFee}
                 step={1000}
@@ -255,7 +255,7 @@ const CourseList = () => {
                   </div>
                 )}
               />
-              <h5 style={{fontFamily:"Gilroy-SemiBold",color:"#FF5573"}} className=" mb-2">Program Level</h5>
+              <h5 style={{fontFamily:"Gilroy-Medium",color:"#FF5573"}} className=" mb-2">Program Level</h5>
               {courses.map((course, index) => (
                 <div className="form-check mb-3" key={index}>
                   <input
@@ -272,7 +272,7 @@ const CourseList = () => {
               ))}
            
            
-              <button className="btn btn-primary mt-3" style={{fontFamily:"Gilroy-SemiBold"}} onClick={resetFilters}>Reset</button>
+              <button className="btn btn-primary mt-3" style={{fontFamily:"Gilroy-Medium"}} onClick={resetFilters}>Reset</button>
             </div>
           </div>
         </div>

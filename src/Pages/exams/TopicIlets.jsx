@@ -12,7 +12,7 @@ const TopicIlets = () => {
         <div className="row">
           <div className="col-md-9">
             <div>
-              <h1 className="mb-3" style={{fontFamily: 'Gilroy-SemiBold'}}>Topic 1 name IELTS Reading Answers</h1>
+              <h1 className="mb-3" style={{fontFamily: 'Gilroy-Medium'}}>Topic 1 name IELTS Reading Answers</h1>
               <TopicCard />
             </div>
           </div>
@@ -21,7 +21,7 @@ const TopicIlets = () => {
               <div className="s_img_card py-5">
                 <div className="d-flex align-items-center gap-3">
                   <img style={{width: '2rem', height: '2rem'}}  src={list} alt="" />
-                  <h4 className="text-pink fw-semibold fn-s mb-0 " style={{fontFamily: 'Gilroy-SemiBold'}}>
+                  <h4 className="text-pink fw-semibold fn-s mb-0 " style={{fontFamily: 'Gilroy-Medium'}}>
                     IELTS READING SAMPLE
                   </h4>
                 </div>
@@ -35,16 +35,16 @@ const TopicIlets = () => {
               </div>
               <div className="s_img_card side-bar-img text-center">
                   <img src={scholar1} alt="" />
-                  <p className="mt-2" style={{fontFamily: 'Gilroy-Medium'}}>
+                  <p className="mt-2" style={{fontFamily: 'Gilroy-Bold'}}>
                     Let’s look at the scholarships available for you
                   </p>
-                  <button style={{fontFamily: 'Gilroy-SemiBold'}} className="explore-button py-2 fw-light mt-2">
+                  <button style={{fontFamily: 'Gilroy-Medium'}} className="explore-button py-2 fw-light mt-2">
                     Explore All Scholarship {">>"}
                   </button>
                   <p className="my-2" style={{fontFamily: 'Gilroy-Bold'}}>OR</p>
                   <p
                    
-                    style={{ color: "#ff5573", cursor: "pointer" ,fontFamily: 'Gilroy-SemiBold'}}
+                    style={{ color: "#ff5573", cursor: "pointer" ,fontFamily: 'Gilroy-Medium'}}
                   >
                     Chat with Our Advisor
                   </p>

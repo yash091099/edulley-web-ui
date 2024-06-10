@@ -58,7 +58,7 @@ const LOR = () => {
               
                 <div className="s_img_card side-bar-img text-center">
                   <img src={scholar1} alt="" />
-                  <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>
                     Let’s look at the scholarships available for you
                   </p>
                   <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>

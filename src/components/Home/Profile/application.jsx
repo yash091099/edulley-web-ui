@@ -162,11 +162,11 @@ const Academic = () => {
                     </div>: <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
         <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
         <div className="card-body">
-          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-SemiBold" }}>You are just a few steps away from submitting your application</p>
+          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
           <div className="d-flex justify-content-between">
-            <span style={{fontFamily:"Gilroy-SemiBold"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-SemiBold"}} >Phone : {studentDetails?.contactNumber || '--'}</span>
+            <span style={{fontFamily:"Gilroy-Medium"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-Medium"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
+            <span  style={{fontFamily:"Gilroy-Medium"}} >Phone : {studentDetails?.contactNumber || '--'}</span>
           </div>
         </div>
       </div>}
@@ -203,14 +203,14 @@ const Academic = () => {
                             <div className="right_scholar">
                                 <div className="s_img_card">
                                     <img src={scholar1} alt="" />
-                                    <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Confused about our Career path?</p>
+                                    <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}>Confused about our Career path?</p>
                                     <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                                         Explore Career path finder
                                     </button>
                                 </div>
                                 <div className="s_img_card">
                                     <img src={scholar2} alt="" />
-                                    <p className="mt-2" style={{fontFamily:"Gilroy-SemiBold"}}>Let’s look at the scholarships available for you</p>
+                                    <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>Let’s look at the scholarships available for you</p>
                                     <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                                         Explore All Scholarship
                                     </button>

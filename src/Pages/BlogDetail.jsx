@@ -43,7 +43,7 @@ const BlogDetail = () => {
             </span>
           </div>
         </div>
-        <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-SemiBold" }}>
+        <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Bold" }}>
           Transforming the landscape of Education with revolutionary technology
         </p>
       </div>
@@ -54,7 +54,7 @@ const BlogDetail = () => {
         <div className="col-12 col-md-3">
           <div className="right_scholar">
             <div className="s_img_card text-center">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>Look at all the courses at University name</p>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses at University name</p>
               <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Courses
               </button>
@@ -65,7 +65,7 @@ const BlogDetail = () => {
             </div>
             <div className="s_img_card text-center">
               <img src={scholar1} alt="" />
-              <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Let’s look at the scholarships available for you
               </p>
               <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>

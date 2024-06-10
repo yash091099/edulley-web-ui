@@ -90,7 +90,7 @@ const navigate=useNavigate();
             alt=""
             src={walletImage}
         />Fees</p>
-        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee || '--'} / year</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.fee || '--'} / year</p>
     </div>
     <div>
         <p style={{color:"#575656",fontFamily:"Gilroy-Medium"}}><img
@@ -98,7 +98,7 @@ const navigate=useNavigate();
             alt=""
             src={time}
         />Duration</p>
-        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}>{course?.uniqueCourseInfo?.duration || '--'} years</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>{course?.uniqueCourseInfo?.duration || '--'} years</p>
     </div>
     <div>
         <p style={{color:"#575656",fontFamily:"Gilroy-Medium"}}><img
@@ -106,12 +106,12 @@ const navigate=useNavigate();
             alt=""
             src={walletImage}
         />Application Fee</p>
-        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-SemiBold"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.applicationFee || '--'}</p>
+        <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.applicationFee || '--'}</p>
     </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
     <button
             style={{
-              fontFamily: "Gilroy-SemiBold",
+              fontFamily: "Gilroy-Medium",
               color: "#FF5573",
               padding: "7px",
               borderRadius: "8px",

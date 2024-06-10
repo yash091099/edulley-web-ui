@@ -31,7 +31,7 @@ const ExamIelts = () => {
                 <div className="s_img_card py-3">
                   <div className="d-flex align-items-center gap-3">
                     <img style={{width: '2rem', height: '2rem'}} src={list} alt="" />
-                    <h4 className="text-pink  mb-0 " style={{fontFamily: 'Gilroy-SemiBold'}}>
+                    <h4 className="text-pink  mb-0 " style={{fontFamily: 'Gilroy-Medium'}}>
                       Table of Contents
                     </h4>
                   </div>
@@ -59,7 +59,7 @@ const ExamIelts = () => {
                 </div>
                 <div className="s_img_card side-bar-img text-center">
                   <img src={scholar1} alt="" />
-                  <p className="mt-2" style={{fontFamily: 'Gilroy-SemiBold'}}>
+                  <p className="mt-2" style={{fontFamily: 'Gilroy-Bold'}}>
                     Let’s look at the scholarships available for you
                   </p>
                   <button style={{fontFamily: 'Gilroy-Medium'}}  className="explore-button py-2 fw-light mt-2">

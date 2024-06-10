@@ -22,10 +22,10 @@ const IletsCard = () => {
                       <table className="table">
                         <thead>
                           <tr>
-                            <th style={{fontFamily: 'Gilroy-SemiBold'}}>Section</th>
-                            <th style={{fontFamily: 'Gilroy-SemiBold'}}>Number of Questions and Duration</th>
-                            <th style={{fontFamily: 'Gilroy-SemiBold'}}>Content</th>
-                            <th style={{fontFamily: 'Gilroy-SemiBold'}}>Remarks</th>
+                            <th style={{fontFamily: 'Gilroy-Medium'}}>Section</th>
+                            <th style={{fontFamily: 'Gilroy-Medium'}}>Number of Questions and Duration</th>
+                            <th style={{fontFamily: 'Gilroy-Medium'}}>Content</th>
+                            <th style={{fontFamily: 'Gilroy-Medium'}}>Remarks</th>
                           </tr>
                         </thead>
                         <tbody>

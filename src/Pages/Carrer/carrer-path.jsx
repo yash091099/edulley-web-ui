@@ -107,7 +107,7 @@ const CarrerPath = () => {
                   }}
                 >
                   <FontAwesomeIcon icon={faTimes} />
-                  <span className="ml-2">Clear</span>
+                  <span className="ml-2"  style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
                 </button>
               </div>
             </div>
@@ -124,7 +124,7 @@ const CarrerPath = () => {
         </div>
         <div className="row">
           <div className="search_container container mb-3 mt-0">
-            <h4 className="text-center mb-4" style={{ fontFamily: "Gilroy-SemiBold" }}>Search Your Career Path</h4>
+            <h4 className="text-center mb-4" style={{ fontFamily: "Gilroy-Medium" }}>Search Your Career Path</h4>
             <div className="bg-white rounded section_inner">
               <div className="ps-3">
                 <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />

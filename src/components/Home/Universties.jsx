@@ -115,7 +115,7 @@ const UniversitiesHome = () => {
                   }}
                 >
                   <FontAwesomeIcon icon={faTimes} />
-                  <span className="ml-2">Clear</span>
+                  <span className="ml-2" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
                 </button>
               </div>
             </div>

@@ -106,36 +106,37 @@ const BlogCard = ({ blogDetails }) => {
           <span className="badge ml-2 p-2" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={index}>{tag}</span>
         ))}
       </div>
-      <div className="mt-3 d-flex justify-content-end">
-        {blogs.slice(0, 3).map(blog => (
-          <div className="col-md-4" key={blog._id}>
-            <div>
-              <div className="countries cursor-pointer uni_card blog-card">
-                <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                <div className="p-3">
-                  <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-Medium", color: "#8D98A4" }}>
-                    <CalendarMonth style={{ color: "#8D98A4" }} />
-                    {formatDate(blog?.createdAt)}
-                    <div className="blog-tags">
-                      {blog.tags.map(tag => (
-                        <span className="badge me-2 p-2" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </p>
-                  <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden' }}>
-                    {capitaliseFirstWord(blog?.heading)}
-                  </p>
-                  {blog.heading.length > 30 && (
-                    <div className="tooltip">
-                      <span className="tooltiptext" style={{ fontFamily: "Gilroy-Medium" }}>{blog.heading}</span>
-                    </div>
-                  )}
-                </div>
+      <div className="mt-3 d-flex justify-content-start">
+  {blogs.slice(0, 3).map(blog => (
+    <div className="col-md-4" key={blog._id}>
+      <div>
+        <div className="countries cursor-pointer uni_card blog-card">
+          <img src={blog.bannerImage || defaultBlogImage} alt="Blog" className="university-image img-fluid" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+          <div className="p-3">
+            <p className="text-secondary d-flex align-items-center gap-2" style={{ fontSize: '16px', fontFamily: "Gilroy-SemiBold", color: "#8D98A4" }}>
+              <CalendarMonth style={{ color: "#8D98A4" }} />
+              {formatDate(blog?.createdAt)}
+              <div className="blog-tags">
+                {blog.tags.map(tag => (
+                  <span className="badge m-1 p-1" style={{ backgroundColor: "#FFF0F0", color: "#000000" }} key={tag}>{tag}</span>
+                ))}
               </div>
-            </div>
+            </p>
+            <p className="mt-2 text-truncate" style={{ maxHeight: '3rem', overflow: 'hidden' }}>
+              {capitaliseFirstWord(blog?.heading)}
+            </p>
+            {blog.heading.length > 30 && (
+              <div className="tooltip">
+                <span className="tooltiptext" style={{ fontFamily: "Gilroy-Medium" }}>{blog.heading}</span>
+              </div>
+            )}
           </div>
-        ))}
+        </div>
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 };

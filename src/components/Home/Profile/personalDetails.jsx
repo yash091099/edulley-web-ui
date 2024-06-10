@@ -167,7 +167,7 @@ export default function PersonalDetails() {
     setLoading(true);
     if (editMode) {
       payload.userId = userId;
-      response = editStudent(...editModeData, ...payload);
+      response = await editStudent({...editModeData, ...payload});
     } else {
       payload.userId = userId;
       response = await addStudent(payload);
