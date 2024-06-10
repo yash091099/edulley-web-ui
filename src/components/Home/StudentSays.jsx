@@ -15,22 +15,22 @@ const videoLinks = [
 const testimonials = [
   {
     name: "Satish Sowreddy",
-    review: "My dream has come true only because of Edulley. I enquired with many consultancies, but luckily I came to know about Edulley through Quora. They are really professional and are experts in the field of international education services. They maintain transparency from the application process until we get the visa. They have very good ideas about universities and courses. If you are thinking of studying abroad, my sincere suggestion would be to go with Edulley without any hesitation.",
+    review: "My dream has come true only because of Edulley. I enquired with many consultancies, but luckily I came to know about Edulley through Quora. They maintain transparency from the application process until we get the visa. Big thanks to the team!",
     image: satish
   },
   {
     name: "Rexlene Ramya",
-    review: "I want to express my deepest gratitude to Muskan from Edulley for her exceptional support in securing my husband's open spouse work permit in Canada. Muskan's dedication and efficient handling of the process made everything so much easier. I appreciate her expertise, and thanks to Muskan's efforts, my husband now has his work permit. The process was not only smooth but quicker than expected. Muskan, your support means the world to us!",
+    review: "I want to express my deepest gratitude to Muskan from Edulley for her exceptional support in securing my husband's open spouse work permit. Team's dedication and efficient handling of the process made everything so much easier.",
     image: rexlene
   },
   {
     name: "Indumathi Natrajan",
-    review: "Edulley is a one-stop solution for study abroad aspirants. It had been a great experience throughout the Canada visa process. The team was able to understand my aspirations and guided me in the right direction. I recommend it to anyone aspiring to study abroad without any reservation.",
+    review: "Edulley is a one-stop solution for study abroad aspirants. It had been a great experience throughout for myCanada visa. The team was able to understand my aspirations and guided me in the right direction. I recommend it to anyone aspiring to study abroad.",
     image: indumati
   },
   {
     name: "Charishma Varra",
-    review: "Joining the University of Liverpool has been a dream, and I owe a massive thanks to Ms. Muskan and the incredible team at Edulley! Ms. Muskan took charge of the entire process, from consultations to applications, making everything smooth and stress free. Her expertise and dedication made the journey to Liverpool a reality. If you're considering studying abroad, Edulley, with the fantastic Ms. Muskan, is the way to go. Thank you for making my academic adventure at the University of Liverpool possible!",
+    review: "Joining the University of Liverpool has been a dream, and I owe a massive thanks to Ms. Muskan and the incredible team at Edulley! Ms. Muskan took care of the entire process, making everything smooth and stress-free.",
     image: charishma
   }
 ];
