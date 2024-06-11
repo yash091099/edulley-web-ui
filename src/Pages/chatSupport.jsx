@@ -47,9 +47,9 @@ const ChatSupport = () => {
                             <Card.Img variant="top" src={contactRelationshipManager} />
                             <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>Let us help you</Card.Text>
                             <div className='d-flex justify-content-center flex-column align-items-center'>
-                                <Button variant="link" href="mailto:muskan@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
+                                <Button variant="link" href="mailto:info@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={email} alt="email" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
-                                    muskan@edulley.com
+                                    info@edulley.com
                                 </Button>
                                 <Button variant="link" href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={whatsapp} alt="whatsapp" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />

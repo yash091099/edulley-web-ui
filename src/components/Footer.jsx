@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
         <div>
           <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Phone</p>
-          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "tel:+1234567890"}>+91-9344534128</p>
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "tel:+91-9344534128"}>+91-9344534128</p>
         </div>
       </div>
       <div className="d-flex align-items-center gap-3 mt-3">
@@ -76,7 +76,7 @@ const Footer = () => {
         </div>
         <div>
           <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Mail</p>
-          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:muskan@edulley.com"}>info@edulley.com</p>
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>info@edulley.com</p>
         </div>
       </div>
     </div>
