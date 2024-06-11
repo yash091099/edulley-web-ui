@@ -1,9 +1,10 @@
 import React from "react";
 import WhatCanCards from "./WhatCanCards";
-import img1 from "../../assets/29658253-7605880-1.svg";
-import img2 from "../../assets/19245722-6101665-1.svg";
-import img3 from "../../assets/5911565-2953991-3.svg";
-import img4 from "../../assets/13549587-5292742-1.svg";
+import img1 from "../../assets/Scholarship.png";
+import img2 from "../../assets/IELTS.png";
+import img3 from "../../assets/Career_Path.png";
+import Visa_Guidance from "../../assets/Visa_Guidance.png";
+import img4 from "../../assets/Financial_Planning.png";
 import airoplane from "../../assets/airooplane.png";
 
 const WeCanDo = () => {
@@ -39,7 +40,7 @@ const WeCanDo = () => {
           guidance="Guidance" path='/sop'
           buttonText="Learn More"
         />
-        <WhatCanCards img={img3} sOPWriting="Visa" buttonText="Learn More" guidance="Guidance" path='/lor' />
+        <WhatCanCards img={Visa_Guidance} sOPWriting="Visa" buttonText="Learn More" guidance="Guidance" path='/lor' />
         <WhatCanCards img={img4} sOPWriting="Financial" buttonText="Learn More" guidance="Planning" path='/sop' />
         <WhatCanCards
           img={img4}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-import loginImage from '../../assets/login.png';
+import loginImage from '../../assets/login_image.png';
 import googleLogo from '../../assets/google.png';
 import { verifyPhoneNumber, generatePhoneOtp, registerUser } from '../../Services/login';
 import { toast } from 'react-hot-toast';

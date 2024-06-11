@@ -161,6 +161,23 @@ const AppliedCourseListCard = ({ course }) => {
             Rank : {universities?.find((uni) => uni?.universityName?.trim()?.toLowerCase() === course?.courseId?.universityName?.trim()?.toLowerCase())?.ranking?.rank || "--"}
           </h6>
         </div>
+        <div className="course_head_new ml-3">
+        
+<button
+            style={{
+              fontFamily: "Gilroy-Medium",
+              color: "#FF5573",
+              padding: "7px",
+              borderRadius: "8px",
+              border: "1px solid #FF5573",
+              background: "#fff",
+            }}
+            onClick={() => navigate('/chat-support', { state: course })}
+            >
+            {"View Details >>"}
+          </button>
+        </div>
+        
       </div>
       <div className="d-flex align-items-center gap-5 mt-2 flex-wrap">
         <div>
@@ -193,7 +210,7 @@ const AppliedCourseListCard = ({ course }) => {
             <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
         </div>
       </div>
-      <p className="Gilroy-Medium mt-3">Success Prediction</p>
+      {/* <p className="Gilroy-Medium mt-3">Success Prediction</p>
         <div className="d-flex mt-2 flex-wrap">
     <div>
     </div>
@@ -216,22 +233,10 @@ const AppliedCourseListCard = ({ course }) => {
         </p>
     </div>
     <div style={{marginLeft:"200px"}}>
-    <button
-            style={{
-              fontFamily: "Gilroy-Medium",
-              color: "#FF5573",
-              padding: "7px",
-              borderRadius: "8px",
-              border: "1px solid #FF5573",
-              background: "#fff",
-            }}
-            onClick={() => navigate('/chat-support', { state: course })}
-            >
-            {"View Details >>"}
-          </button>
+   
     </div>
     
-</div>
+</div> */}
     </div>
   );
 };

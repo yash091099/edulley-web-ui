@@ -109,6 +109,7 @@ const navigate=useNavigate();
         <p className="font-weight-bold" style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}><FaRupeeSign/> {course?.uniqueCourseInfo?.applicationFee || '--'}</p>
     </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
+      
     <button
             style={{
               fontFamily: "Gilroy-Medium",
@@ -123,34 +124,12 @@ const navigate=useNavigate();
             {"View Details >>"}
           </button>
     </div>
-</div>
-
-        <p className="Gilroy-Medium mt-3">Success Prediction</p>
-        <div className="d-flex mt-2 flex-wrap">
-    <div>
-    </div>
-    <div>
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2023</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
-    <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2024</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
-    <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>June 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
         <button className="btn btn-primary text-white text-bold" style={{fontFamily: "Gilroy-Medium"}} onClick={handleCreateApplication}>Add Course &gt;&gt;</button>
     </div>
 </div>
+
+        {/* <p className="Gilroy-Medium mt-3">Success Prediction</p> */}
 
     </div>
   );

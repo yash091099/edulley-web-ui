@@ -128,6 +128,7 @@ export default function TestScores() {
                   placeholder="Enter your overall score"
                   value={testScores.ieltsOverall}
                   onChange={handleInputChange}
+                  disabled={testScores.ieltsYetToTake || testScores.ieltsLookingForWaiver || testScores.ieltsOtherTest}
                 />
               </div>
               <div className="col-md-6 formField">
@@ -139,6 +140,7 @@ export default function TestScores() {
                   placeholder="Date of Exam"
                   value={testScores.ieltsDateOfExam}
                   onChange={handleInputChange}
+                  disabled={testScores.ieltsYetToTake || testScores.ieltsLookingForWaiver || testScores.ieltsOtherTest}
                 />
               </div>
               <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>

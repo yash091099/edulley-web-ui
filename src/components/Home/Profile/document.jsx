@@ -14,16 +14,16 @@ export default function ViewUserDocument() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
   const [documentUrls, setDocumentUrls] = useState({
-    '10th Marksheet': "",
-    '12th Marksheet': "",
-    'Passport': "",
-    'Statement of Purpose': "",
-    'Letters of Recommendation': "",
-    'IELTS': "",
-    'RESUME': "",
-    'Degree (Semester wise, final degree, consolidated)': "",
-    'ADDITIONAL DOCUMENTS': "",
-    'GRE/GMAT': ""
+    tenthMarksheet: "",
+    twelfthMarksheet: "",
+    passport: "",
+    statementOfPurpose: "",
+    lettersOfRecommendation: "",
+    ielts: "",
+    degree: "",
+    resume: "",
+    additionalDocuments: "",
+    greGmat: ""
   });
   const [activeTab, setActiveTab] = useState(0);
   const [studentDetails, setStudentDetails] = useState({});
@@ -36,6 +36,7 @@ export default function ViewUserDocument() {
       });
     }
   }, [_id]);
+
   useEffect(() => {
     const fetchDetails = async () => {
       if (!userId) return;
@@ -44,16 +45,16 @@ export default function ViewUserDocument() {
         const res = await getStudentDetailsById(userId);
         if (res?.data?.data) {
           setDocumentUrls({
-            '10th Marksheet': res.data.data.documents?.['10th Marksheet'],
-            '12th Marksheet': res.data.data.documents?.['12th Marksheet'],
-            'Passport': res.data.data.documents?.Passport,
-            'Statement of Purpose': res.data.data.documents?.['Statement of Purpose'],
-            'Letters of Recommendation': res.data.data.documents?.['Letters of Recommendation'],
-            'IELTS': res.data.data.documents?.IELTS,
-            'RESUME': res.data.data.documents?.RESUME,
-            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
-            'ADDITIONAL DOCUMENTS': res.data.data.documents?.['ADDITIONAL DOCUMENTS'],
-            'GRE/GMAT': res.data.data.documents?.['GRE/GMAT']
+            tenthMarksheet: res.data.data.documents?.tenthMarksheet,
+            twelfthMarksheet: res.data.data.documents?.twelfthMarksheet,
+            passport: res.data.data.documents?.passport,
+            statementOfPurpose: res.data.data.documents?.statementOfPurpose,
+            lettersOfRecommendation: res.data.data.documents?.lettersOfRecommendation,
+            ielts: res.data.data.documents?.ielts,
+            degree: res.data.data.documents?.degree,
+            resume: res.data.data.documents?.resume,
+            additionalDocuments: res.data.data.documents?.additionalDocuments,
+            greGmat: res.data.data.documents?.greGmat
           });
           setData(res.data.data);
           setEditMode(true);
@@ -102,10 +103,14 @@ export default function ViewUserDocument() {
   const openPdfPreview = (url) => {
     window.open(url, '_blank');
   };
+  const toCapitalise=(text)=>{
+    return text?.toUpperCase();
+
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const mandatoryDocuments = ['10th Marksheet', '12th Marksheet', 'Degree (Semester wise, final degree, consolidated)', 'Passport', 'Statement of Purpose', 'Letters of Recommendation'];
+    const mandatoryDocuments = ['tenthMarksheet', 'twelfthMarksheet', 'degree', 'passport', 'statementOfPurpose', 'lettersOfRecommendation'];
     const isMandatoryDocumentsUploaded = mandatoryDocuments.every(doc => documentUrls[doc] !== "");
     if (!isMandatoryDocumentsUploaded) {
       toast.error("Please upload all mandatory documents before submitting.");
@@ -127,47 +132,10 @@ export default function ViewUserDocument() {
     }
   };
 
-  
-
-  useEffect(() => {
-    const fetchDetails = async () => {
-      if (!userId) return;
-      setLoading(true);
-      try {
-        const res = await getStudentDetailsById(userId);
-        if (res?.data?.data) {
-          setDocumentUrls({
-            '10th Marksheet': res.data.data.documents?.['10th Marksheet'],
-            '12th Marksheet': res.data.data.documents?.['12th Marksheet'],
-            'Passport': res.data.data.documents?.Passport,
-            'Statement of Purpose': res.data.data.documents?.['Statement of Purpose'],
-            'Letters of Recommendation': res.data.data.documents?.['Letters of Recommendation'],
-            'IELTS': res.data.data.documents?.IELTS,
-            'RESUME': res.data.data.documents?.RESUME,
-            'Degree (Semester wise, final degree, consolidated)': res.data.data.documents?.['Degree (Semester wise, final degree, consolidated)'],
-            'ADDITIONAL DOCUMENTS': res.data.data.documents?.['ADDITIONAL DOCUMENTS'],
-            'GRE/GMAT': res.data.data.documents?.['GRE/GMAT']
-          });
-          setData(res.data.data);
-          setEditMode(true);
-        } else {
-          setEditMode(false);
-        }
-      } catch (error) {
-        console.error('Error fetching student details:', error);
-        setEditMode(false);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDetails();
-  }, [userId]);
-
   return (
     <div>
       {loading && <CustomLoader />}
-      <div style={{ display: 'flex',marginTop:"10px", marginBottom: '20px' }}>
+      <div style={{ display: 'flex', marginTop: "10px", marginBottom: '20px' }}>
         <Button
           variant={activeTab === 0 ? 'primary' : 'light'}
           style={{
@@ -181,7 +149,7 @@ export default function ViewUserDocument() {
         >
           Uploaded by You
         </Button>
-        <Button
+        {/* <Button
           variant={activeTab === 1 ? 'primary' : 'light'}
           style={{
             backgroundColor: activeTab === 1 ? '#FF6477' : '#FFF',
@@ -192,16 +160,16 @@ export default function ViewUserDocument() {
           onClick={() => setActiveTab(1)}
         >
           Uploaded by Edulley
-        </Button>
+        </Button> */}
       </div>
       <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
-        <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
+        <div className="card-header" style={{ fontFamily: "Gilroy-Bold" }}>Welcome to Edulley!</div>
         <div className="card-body">
-          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
+          <p className="card-text" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
           <div className="d-flex justify-content-between">
-            <span style={{fontFamily:"Gilroy-Medium"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-Medium"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-Medium"}} >Phone : {studentDetails?.contactNumber || '--'}</span>
+            <span style={{ fontFamily: "Gilroy-Medium" }}>Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
+            <span style={{ fontFamily: "Gilroy-Medium" }}>Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
+            <span style={{ fontFamily: "Gilroy-Medium" }}>Phone : {studentDetails?.contactNumber || '--'}</span>
           </div>
         </div>
       </div>
@@ -212,7 +180,7 @@ export default function ViewUserDocument() {
               {Object.entries(documentUrls).map(([docKey, docValue], index) => (
                 <div key={index} className="col-md-6 formField" style={{ marginBottom: "20px" }}>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "start" }}>
-                    <label style={{ fontFamily: 'Gilroy-Medium' }}>{`${docKey}${index < 5 ? '*' : ''}`}</label>
+                    <label style={{ fontFamily: 'Gilroy-Medium' }}>{`${toCapitalise(docKey.replace(/([A-Z])/g, ' $1').trim())}${index < 5 ? '*' : ''}`}</label>
                     <input
                       type="file"
                       name={docKey}
