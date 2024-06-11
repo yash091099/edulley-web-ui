@@ -1,10 +1,13 @@
 import React from "react";
 import WhatCanCards from "./WhatCanCards";
 import img1 from "../../assets/Scholarship.png";
+import Study_Abroad from "../../assets/Study_Abroad.png";
 import img2 from "../../assets/IELTS.png";
+import SOP_Writing from "../../assets/SOP_Writing.png";
 import img3 from "../../assets/Career_Path.png";
 import Visa_Guidance from "../../assets/Visa_Guidance.png";
 import img4 from "../../assets/Financial_Planning.png";
+import Accommodation from "../../assets/Accommodation.png";
 import airoplane from "../../assets/airooplane.png";
 
 const WeCanDo = () => {
@@ -33,9 +36,9 @@ const WeCanDo = () => {
         </p>
       </div>
       <div className="what-we-can-do-grid container">
-        <WhatCanCards img={img1} sOPWriting="Study" buttonText="Learn More" guidance="Abroad" path='/lor' />
+        <WhatCanCards img={Study_Abroad} sOPWriting="Study" buttonText="Learn More" guidance="Abroad" path='/lor' />
         <WhatCanCards
-          img={img2}
+          img={SOP_Writing}
           sOPWriting="SOP Writing "
           guidance="Guidance" path='/sop'
           buttonText="Learn More"
@@ -43,7 +46,7 @@ const WeCanDo = () => {
         <WhatCanCards img={Visa_Guidance} sOPWriting="Visa" buttonText="Learn More" guidance="Guidance" path='/lor' />
         <WhatCanCards img={img4} sOPWriting="Financial" buttonText="Learn More" guidance="Planning" path='/sop' />
         <WhatCanCards
-          img={img4}
+          img={Accommodation}
           sOPWriting="Accommodation "
           buttonText="Learn More"
           guidance="Guidance"
