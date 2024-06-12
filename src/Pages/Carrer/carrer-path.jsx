@@ -81,7 +81,7 @@ const CarrerPath = () => {
                 type="text"
                 className="form-control"
                 placeholder="Courses and Universities"
-                style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px" }}
+                style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px", color: searchInput ? '#000' : '#898484' }}
                 value={searchInput}
                 onChange={handleSearchInputChange}
               />
@@ -107,7 +107,7 @@ const CarrerPath = () => {
                   }}
                 >
                   <FontAwesomeIcon icon={faTimes} />
-                  <span className="ml-2"  style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
+                  <span className="ml-2" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
                 </button>
               </div>
             </div>
@@ -129,8 +129,8 @@ const CarrerPath = () => {
               <div className="ps-3">
                 <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                 <select
-                  className="text-gray-100 dropdown-css "
-                  style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
+                  className="text-gray-100 dropdown-css"
+                  style={{ border: 'none', fontFamily: "Gilroy-Medium", color: qualification ? '#000' : '#898484' }}
                   value={qualification}
                   onChange={(e) => setQualification(e.target.value)}
                 >
@@ -152,7 +152,7 @@ const CarrerPath = () => {
                 <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={book} />
                 <select
                   className="text-gray-100 dropdown-css"
-                  style={{ border: 'none', fontFamily: "Gilroy-Medium" }}
+                  style={{ border: 'none', fontFamily: "Gilroy-Medium", color: specialization ? '#000' : '#898484' }}
                   value={specialization}
                   onChange={(e) => setSpecialization(e.target.value)}
                 >
