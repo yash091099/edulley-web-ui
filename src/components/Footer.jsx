@@ -94,27 +94,16 @@ const Footer = () => {
           </ul>
         </div>
         <div className="f_menu">
-          <h5 style={{fontFamily:"Gilroy-Medium"}}>Others</h5>
+        <h5 style={{fontFamily:"Gilroy-Medium"}}>Exams</h5>
           <ul>
-            <Link to="/sop">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Sop</li>
+            <Link to="/exam-ielts">
+              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>
             </Link>
-            <Link to="/lor">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Lor</li>
-            </Link>
-            <Link to="/privacy-policy">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Privacy Policy</li>
-            </Link>
-            <Link to="/terms-and-condition">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Terms & Condition</li>
-            </Link>
-            <Link to="/refund-policy">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
-            </Link>
-            
-            {/* <Link>
-            <li style={{ cursor: "pointer" }}>Contact Us</li>
-            </Link> */}
+            {/* <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>PTE</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>GRE</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>GMAT</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>DET</li> */}
           </ul>
         </div>
         <div className="f_menu">
@@ -143,17 +132,29 @@ const Footer = () => {
             </Link>
           </ul>
         </div>
+       
         <div className="f_menu">
-        <h5 style={{fontFamily:"Gilroy-Medium"}}>Exams</h5>
+          <h5 style={{fontFamily:"Gilroy-Medium"}}>Others</h5>
           <ul>
-            <Link to="/exam-ielts">
-              <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>
+            <Link to="/sop">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Sop</li>
             </Link>
-            {/* <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>PTE</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>GRE</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>GMAT</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>DET</li> */}
+            <Link to="/lor">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Lor</li>
+            </Link>
+            <Link to="/privacy-policy">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Privacy Policy</li>
+            </Link>
+            <Link to="/terms-and-condition">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Terms & Condition</li>
+            </Link>
+            <Link to="/refund-policy">
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
+            </Link>
+            
+            {/* <Link>
+            <li style={{ cursor: "pointer" }}>Contact Us</li>
+            </Link> */}
           </ul>
         </div>
       </div>

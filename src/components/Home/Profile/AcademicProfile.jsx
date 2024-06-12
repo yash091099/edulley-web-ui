@@ -83,7 +83,7 @@ const [editModeData, setEditModeData] = useState({});
   const [errors, setErrors] = useState({});
 
   const validateField = (name, value) => {
-    if (!value) {
+    if (!value && name !== 'tenthSpecialization') {
       setErrors(prev => ({ ...prev, [name]: "This field is required" }));
       return false;
     } else {
@@ -95,6 +95,7 @@ const [editModeData, setEditModeData] = useState({});
       return true;
     }
   };
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -184,7 +185,7 @@ const [editModeData, setEditModeData] = useState({});
             <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthYearOfCompletion" value={data.tenthYearOfCompletion} onChange={handleInputChange} placeholder="Enter year of completion" />
           </div>
           <div className="col-md-6 formField">
-            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}>*</span></label>
+            <label style={{fontFamily:"Gilroy-Medium"}}>Specialization<span style={{ color: 'red' }}></span></label>
             <input style={{fontFamily:"Gilroy-Medium"}} type="text" name="tenthSpecialization" value={data.tenthSpecialization} onChange={handleInputChange} placeholder="Enter specialization" />
           </div>
         </div>

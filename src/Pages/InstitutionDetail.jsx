@@ -307,11 +307,11 @@ const InstitutionDetail = () => {
                 Postgraduate
               </button> */}
               <button
-                className={`detail_button ${activeTab === "Doctorate" ? "active-tab-course" : ""}`}
+                className={`detail_button ${activeTab === "post_graduate" ? "active-tab-course" : ""}`}
                 style={{ fontFamily: "Gilroy-Medium" }}
-                onClick={() => handleTabClick("Doctorate")}
+                onClick={() => handleTabClick("post_graduate")}
               >
-                Doctorate
+                Post graduate
               </button>
               <div className="row">
                 {courses?.map((course, index) => {

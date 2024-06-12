@@ -146,6 +146,7 @@ function LoginModal() {
         const _u = response?.data?.data?.user;
         if (_u) {
           _u.token = response?.data?.data?.token;
+          _u.mobileNumber = mobileNumber;
           localStorage.setItem('_u', JSON.stringify(_u));
           navigate('');
           window.location.reload();

@@ -216,7 +216,18 @@ export default function WorkBackground() {
               />
             </div>
             <div className="col-md-12 text-end mt-2">
-             { workData.length > 1 && <button type="button" className="btn btn-danger" onClick={() => removeWorkExperience(index)}>
+             { workData.length > 1 && <button type="button"  style={{
+                            fontFamily: "Gilroy-Bold",
+                            color: "#FF5573",
+                            padding: "10px 20px",
+                            borderRadius: "8px",
+                            border: "1px solid #FF5573",
+                            background: "#fff",
+                            position: 'relative',
+                            bottom:'35px',
+                            marginTop:'20px'
+
+                        }} className="btn btn-danger" onClick={() => removeWorkExperience(index)}>
                 Remove
               </button>}
             </div>

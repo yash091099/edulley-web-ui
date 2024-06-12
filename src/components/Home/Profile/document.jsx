@@ -169,7 +169,7 @@ export default function ViewUserDocument() {
           <div className="d-flex justify-content-between">
             <span style={{ fontFamily: "Gilroy-Medium" }}>Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
             <span style={{ fontFamily: "Gilroy-Medium" }}>Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
-            <span style={{ fontFamily: "Gilroy-Medium" }}>Phone : {studentDetails?.contactNumber || '--'}</span>
+            <span style={{ fontFamily: "Gilroy-Medium" }}>Phone : {studentDetails?.contactNumber || JSON.parse(localStorage.getItem('_u'))?.mobileNumber || '--'}</span>
           </div>
         </div>
       </div>
