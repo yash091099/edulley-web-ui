@@ -88,9 +88,11 @@ const Footer = () => {
           <ul>
             <li style={{fontFamily:"Gilroy-Medium"}}>The USA</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>The UK</li>
-            {/* <li style={{fontFamily:"Gilroy-Medium"}}>Canada</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>Canada</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>Australia</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>Ireland</li> */}
+            <li style={{fontFamily:"Gilroy-Medium"}}>Ireland</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>France</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>Dubai</li>
           </ul>
         </div>
         <div className="f_menu">
@@ -99,11 +101,11 @@ const Footer = () => {
             <Link to="/exam-ielts">
               <li style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }}>IELTS</li>
             </Link>
-            {/* <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
+            <li style={{fontFamily:"Gilroy-Medium"}}>TOEFEL</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>PTE</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>GRE</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>GMAT</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>DET</li> */}
+            <li style={{fontFamily:"Gilroy-Medium"}}>DET</li>
           </ul>
         </div>
         <div className="f_menu">
@@ -150,6 +152,9 @@ const Footer = () => {
             </Link>
             <Link to="/refund-policy">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
+            </Link>
+            <Link>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>About Us</li>
             </Link>
             
             {/* <Link>
