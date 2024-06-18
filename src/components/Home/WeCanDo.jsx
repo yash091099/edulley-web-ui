@@ -29,10 +29,7 @@ const WeCanDo = () => {
           }} 
         />
         <p className="what-we-can-do-description" style={{ fontFamily: "Gilroy-Medium" }}>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. 
-          The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here
+        At Edulley, we provide comprehensive services to ensure a smooth and hassle-free transition for students. From identifying the perfect course to securing accommodation, we cover it all under one roof. Our expert guidance and personalized support streamline every step of the process, making your study abroad journey seamless and stress-free. With Edulley, you can focus on your academic and personal growth while we take care of the rest.
         </p>
       </div>
       <div className="what-we-can-do-grid container">

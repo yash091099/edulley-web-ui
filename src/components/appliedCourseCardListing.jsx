@@ -205,7 +205,7 @@ const AppliedCourseListCard = ({ course }) => {
           <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
         <div>
-          <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium'  }}>{formatText(course?.status)}</span>
+          <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)', fontFamily: 'Gilroy-Medium'  }}>{formatText(course?.status)}</span>
           {course?.status === 'APPLIED_CONDITIONAL_OFFER' &&
             <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
         </div>

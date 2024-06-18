@@ -4,8 +4,10 @@ import scholar1 from "../../assets/scholarship1.png";
 import cherons from "../../assets/chevrons-right.png";
 
 import list from "../../assets/list.svg";
+import { useNavigate } from "react-router-dom";
 
 const ExamIelts = () => {
+  const navigate=useNavigate();
   return (
     <>
       <div className="container-fluid ielts_container">
@@ -62,7 +64,7 @@ const ExamIelts = () => {
                   <p className="mt-2" style={{fontFamily: 'Gilroy-Bold'}}>
                     Let’s look at the scholarships available for you
                   </p>
-                  <button style={{fontFamily: 'Gilroy-Medium'}}  className="explore-button py-2 fw-light mt-2">
+                  <button onClick={() => navigate('/scholarship')} style={{fontFamily: 'Gilroy-Medium'}}  className="explore-button py-2 fw-light mt-2">
                     Explore All Scholarship
                   </button>
                   <p className="my-2" style={{fontFamily: 'Gilroy-Bold'}}>OR</p>

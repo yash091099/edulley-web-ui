@@ -32,7 +32,7 @@ const Countries = () => {
           <img className="countries-image" src={card6} alt="Ireland" />
         </div>
       </div>
-      <div className="countries-container-2 mt-3">
+      <div className="countries-container-2 mt-5">
         <div onClick={() => handleNavigation("Australia")} className="countries cursor-pointer">
           <img className="countries-image" src={card1} alt="Australia" />
         </div>

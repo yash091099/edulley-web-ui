@@ -115,6 +115,7 @@ const Search = () => {
                             isMulti
                             name="level"
                             options={intakeOptions}
+                            placeholder="Intake"    
                             className="basic-multi-select"
                             classNamePrefix="select"
                             value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
@@ -123,10 +124,10 @@ const Search = () => {
                                 control: (provided) => ({
                                     ...provided,
                                     border: 'none',
-                                    fontFamily: "Gilroy-Medium",
                                     width: "234px",
                                     padding: "10px",
                                     background: "#fff",
+                                    fontFamily: "Gilroy-Medium",
                                     color: "#898484"
                                 })
                             }}

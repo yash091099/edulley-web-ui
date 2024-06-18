@@ -15,9 +15,10 @@ import { getCourses, getApplications, getStudentDetailsById } from "../../../Ser
 import { toast } from "react-hot-toast";
 import CustomLoader from "../../loader";
 import Select from 'react-select';
+import { useNavigate } from "react-router-dom";
 
 const Academic = () => {
-
+const navigate =useNavigate();
 const intakeOptions = [
     { value: 'January', label: 'January' },
     { value: 'February', label: 'February' },
@@ -176,6 +177,7 @@ const intakeOptions = [
                                         isMulti
                                         name="course"
                                         options={intakeOptions}
+                                        placeholder="Intake" 
                                         className="basic-multi-select"
                                         classNamePrefix="select"
                                         value={intakeOptions.filter(option => filters.course.includes(option.value))}
@@ -202,7 +204,7 @@ const intakeOptions = [
                                         value={filters.university}
                                         onChange={handleFilterChange}
                                     >
-                                        <option value="">Select Intake</option>
+                                        <option value="">Select Year</option>
                                         <option value="2024">2024</option>
                                         <option value="2025">2025</option>
                                         <option value="2026">2026</option>
@@ -252,7 +254,7 @@ const intakeOptions = [
                         <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
                             <div className="card-header" style={{ fontFamily: "Gilroy-Bold" }}>Welcome to Edulley!</div>
                             <div className="card-body">
-                                <p className="card-text" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
+                                <p className="card-text mb-2" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
                                 <div className="d-flex justify-content-between">
                                     <span style={{ fontFamily: "Gilroy-Medium" }}>Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
                                     <span style={{ fontFamily: "Gilroy-Medium" }}>Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
@@ -294,14 +296,14 @@ const intakeOptions = [
                                 <div className="s_img_card">
                                     <img src={scholar1} alt="" />
                                     <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>Confused about our Career path?</p>
-                                    <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
+                                    <button onClick={() => navigate('/career-path')} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                                         Explore Career path finder
                                     </button>
                                 </div>
                                 <div className="s_img_card">
                                     <img src={scholar2} alt="" />
                                     <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Let’s look at the scholarships available for you</p>
-                                    <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
+                                    <button onClick={() => navigate('/scholarship')} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                                         Explore All Scholarship
                                     </button>
                                 </div>

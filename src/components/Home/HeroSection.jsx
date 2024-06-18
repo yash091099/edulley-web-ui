@@ -26,7 +26,7 @@ const HeroSection = () => {
             </button>
           </Link>
         </div>
-        <div className="image-container" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+        <div className="image-container-2" style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
           <img className="main-image" src={heroImg} alt="Home" style={{ width: '80%', height: 'auto' }} />
         </div>
       </div>

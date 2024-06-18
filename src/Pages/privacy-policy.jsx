@@ -3,33 +3,63 @@ import React from "react";
 const PrivacyPolicy = () => {
   return (
     <div className="container py-5">
-      <div className="py-5"></div>
-     <div className="privacy-policy-container">
-      <header className="privacy-header">
-        <h1 className="font-gilroy-bold  " style={{color:"#ff5573",fontWeight:"600"}}>Privacy Policy</h1>
+            <div className="py-5"></div>
+
+      <header style={{ fontFamily: "Gilroy-Bold" }}>
+        <h1 style={{ color: "#ff5573", fontWeight: "600" }}>Privacy Policy</h1>
       </header>
-      <main className="privacy-main">
+      <main style={{ fontFamily: "Gilroy-Medium",padding:"10px"}}>
         <section>
-          <p>Last updated: 02/04/2024</p>
-          <p>Welcome to Edulley. We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products and services (collectively, "Services").</p>
-          <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [insert website address], including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the “Site”). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Site.</p>
+          <p style={{ fontFamily: "Gilroy-Bold" ,marginTop:"4px"}}>Last updated: June 14, 2024</p>
+          <p style={{ fontFamily: "Gilroy-Bold" ,marginTop:"4px"}}>Welcome to Edulley. This Privacy Policy outlines how we collect, use, disclose, and protect your personal information when you visit our website, use our services, or interact with us.</p>
         </section>
         <section>
-          <h2>Information We Collect</h2>
-          <p>We collect information that identifies, relates to, describes, references, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or device (“personal information”). In particular, our Site has collected the following categories of personal information from its consumers within the last twelve months:</p>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Information We Collect</h4>
           <ul>
-            <li><strong>Identifiers</strong>: Real name, postal address, unique personal identifier, online identifier, Internet Protocol address, email address, account name, or other similar identifiers.</li>
-            <li><strong>Personal information</strong>: Described in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)), including, but not limited to, name, signature, Social Security number, address, telephone number, passport number, driver's license or state identification card number, insurance policy number, education, employment, employment history, bank account number, credit card number, debit card number, or any other financial information, medical information, or health insurance information.</li>
-            <li><strong>Protected classification characteristics under California or federal law</strong>: Age (40 years or older), race, color, ancestry, national origin, citizenship, religion or creed, marital status, medical condition, physical or mental disability, sex (including gender, gender identity, gender expression, pregnancy or childbirth and related medical conditions), sexual orientation, veteran or military status, genetic information (including familial genetic information).</li>
-            {/* Add more as needed */}
+            <li>Personal Information: Name, email address, phone number, date of birth, passport details, educational background, and any other information you provide.</li>
+            <li>Usage Data: Information about how you interact with our website, such as IP address, browser type, pages visited, and the time spent on those pages.</li>
+            <li>Cookies: Small data files stored on your device to enhance your experience on our website.</li>
           </ul>
         </section>
-        {/* Additional sections as necessary */}
-        <footer>
-          <p>Please note that this privacy policy is subject to change, and we recommend checking our website regularly for any updates to stay informed about how we are protecting your information.</p>
-        </footer>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>How We Use Your Information</h4>
+          <p>Service Provision: To provide you with study abroad consulting services and process your applications.</p>
+          <p>Communication: To send updates, newsletters, and promotional materials (you can opt out at any time).</p>
+          <p>Improvement: To improve our website and services based on user feedback and usage data.</p>
+          <p>Legal Compliance: To comply with legal obligations and protect our legal rights.</p>
+        </section>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Information Sharing and Disclosure</h4>
+          <p>Third-Party Service Providers: We may share your information with third parties who perform services on our behalf, such as educational institutions, visa processing agencies, and payment processors.</p>
+          <p>Legal Requirements: We may disclose your information if required by law or to protect our rights and safety.</p>
+        </section>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Data Security</h4>
+          <p>We implement appropriate technical and organizational measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+        </section>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Your Rights</h4>
+          <p>Access: You can request access to your personal information.</p>
+          <p>Correction: You can request correction of inaccurate or incomplete information.</p>
+          <p>Deletion: You can request the deletion of your personal information.</p>
+          <p>Objection: You can object to the processing of your personal information.</p>
+        </section>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Cookies Policy</h4>
+          <p>We use cookies to enhance your experience on our website. You can manage your cookie preferences through your browser settings.</p>
+        </section>
+        <section>
+          <h4 style={{ fontFamily: "Gilroy-Bold" ,marginTop:"10px"}}>Changes to This Privacy Policy</h4>
+          <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+        </section>
+        <footer style={{ fontFamily: "Gilroy-Bold", marginTop: "20px" }}>
+  <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+  <p>Edulley</p>
+  <p style={{ cursor: "pointer" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>Email: info@edulley.com</p>
+  <p style={{ cursor: "pointer" }} onClick={() => window.location.href = "tel:+918610800974"}>Phone: +91-8610800974</p>
+</footer>
+
       </main>
-    </div>
     </div>
   );
 };

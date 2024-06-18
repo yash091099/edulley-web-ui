@@ -35,18 +35,18 @@ const ChatSupport = () => {
                             <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>{course?.createdAt?.split('T')[0]}</Card.Text>
                             <Card.Title style={{ fontFamily: 'Gilroy-Bold' }}>{course.courseId.courseName}</Card.Title>
                             <Card.Subtitle style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}> <img src={ellipse} alt="map" style={{ width: "1rem", height: "1rem" }} /> {course.courseId.universityName}</Card.Subtitle>
-                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', marginTop: "5px" }}>Status :   <span className="badge pt-2 pb-2" style={{ backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>{course?.status === "DEPOSIT_PAID" ? "Paid" : course.status}</span></Card.Text>
+                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', marginTop: "5px" }}>Status :   <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)',fontFamily: 'Gilroy-Medium' }}>{course?.status === "DEPOSIT_PAID" ? "Paid" : course.status}</span></Card.Text>
                         </Card.Body>
                     </Card>
                     <Card className="mt-4" style={{ borderRadius: "26px", boxShadow: "0px 4px 12px 0px #0000001C" }}>
                         <Card.Body className="text-center">
                             <Card.Title style={{ fontFamily: 'Gilroy-Bold' }}>
-                                <img src={contact} alt="contact" style={{ width: "1.5rem", height: "1.5rem", color: '#FF6477' }} />
+                                <img src={contact} alt="contact" style={{ width: "1.5rem", marginRight: '5px', height: "1.5rem", color: '#FF6477' }} />
                                 Contact a Relationship Manager
                             </Card.Title>
                             <Card.Img variant="top" src={contactRelationshipManager} />
-                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>Let us help you</Card.Text>
-                            <div className='d-flex justify-content-center flex-column align-items-center'>
+                            <div className='d-flex  flex-column '>
+                            {/* <p style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>Let us help you</p> */}
                                 <Button variant="link" href="mailto:info@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={email} alt="email" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     info@edulley.com
@@ -55,7 +55,7 @@ const ChatSupport = () => {
                                     <img src={whatsapp} alt="whatsapp" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     Whatsapp Link
                                 </Button>
-                                <Button variant="link" href="https://www.linkedin.com/in/muskan-anni/" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
+                                <Button variant="link" href="https://www.linkedin.com/company/edulley/" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={linkedin} alt="linkedin" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     Linkedin Link
                                 </Button>
@@ -64,12 +64,12 @@ const ChatSupport = () => {
                     </Card>
                 </Col>
                 <Col md={8}>
-                    <Card style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
+                    {/* <Card style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
                             <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Pay Application Fee</Card.Title>
                             <Button style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Pay Tuition fee</Button>
                         </Card.Body>
-                    </Card>
+                    </Card> */}
                     <Card className="mt-4" style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
                             <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Chat with us</Card.Title>

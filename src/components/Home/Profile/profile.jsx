@@ -29,7 +29,7 @@ const Profile = () => {
       <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
         <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
         <div className="card-body">
-          <p className="card-text" style={{ color: highlightColor ,fontFamily:"Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
+          <p className="card-text mb-2" style={{ color: highlightColor ,fontFamily:"Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
           <div className="d-flex justify-content-between">
             <span style={{fontFamily:"Gilroy-Medium"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
             <span  style={{fontFamily:"Gilroy-Medium"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>

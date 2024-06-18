@@ -168,13 +168,13 @@ const CourseDetails = () =>{
               <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Let’s look at the scholarships available for you
               </p>
-              <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
+              <button onClick={() => navigate("/scholarship")} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Scholarship
               </button>
             </div>
             <div className="s_img_card text-center mb-3">
               <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>Look at all the courses at {location.state?.universityName}</p>
-              <button className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
+              <button onClick={() => navigate("/courses")} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Courses
               </button>
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>

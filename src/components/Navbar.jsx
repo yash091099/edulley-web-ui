@@ -106,7 +106,18 @@ const Navbar = () => {
                 Scholarship
               </Link>
             </li>
-            <li className="nav-item dropdown">
+            <li className="nav-item">
+              <Link
+                className={`nav-link ${
+                  activeLink === "/career-path" ? "active" : ""
+                }`}
+                to="/career-path"
+                onClick={() => handleLinkClick("/career-path")}
+              >
+                Career Finder
+              </Link>
+            </li>
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 href="#"
@@ -167,7 +178,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-            </li>
+            </li> */}
             {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"

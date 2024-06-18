@@ -45,10 +45,10 @@ const BlogCard = ({ blogDetails }) => {
   };
 
   const sanitizeConfig = {
-    ALLOWED_TAGS: ['strong', 'em', 'a', 'p', 'ul', 'ol', 'li', 'br', 'span', 'img'],
-    ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'style'],
-    ADD_TAGS: ['b']
+    ALLOWED_TAGS: ['strong', 'em', 'a', 'p', 'ul', 'ol', 'li', 'br', 'span', 'img', 'b'],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'style']
   };
+  
 
   const sanitizedContent = DOMPurify.sanitize(blogDetails?.content || '', sanitizeConfig);
   const sanitizedQuote = DOMPurify.sanitize(blogDetails?.quote || '', sanitizeConfig);

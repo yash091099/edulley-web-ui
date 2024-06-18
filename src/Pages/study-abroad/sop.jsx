@@ -3,8 +3,10 @@ import scholar1 from "../../assets/scholarship1.png";
 import list from "../../assets/list.svg";
 import cherons from "../../assets/chevrons-right.png";
 import SOPCard from "./sopcard";
+import { useNavigate } from "react-router-dom";
 
 const SOP = () => {
+  const navigate=useNavigate();
   return (
     <>
       <div className="container-fluid sop_container">
@@ -69,7 +71,7 @@ const SOP = () => {
                   <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>
                     Let’s look at the scholarships available for you
                   </p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  <button onClick={()=>navigate('/scholarship')} className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore All Scholarship
                   </button>
                   <p className="fw-bold my-2" style={{fontFamily:"Gilroy-Bold"}}>OR</p>

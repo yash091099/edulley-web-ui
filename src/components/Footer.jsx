@@ -43,15 +43,15 @@ const Footer = () => {
               />
             </div> */}
 
-            <h5 className="mt-5" style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Contact With Us</h5>
+            <h5 className="mt-5" style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>We are Social!</h5>
             <div className="d-flex align-items-center gap-3 mt-4">
               <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="f_contact">
                 <WhatsApp/>
               </a>
-              <a href="https://www.linkedin.com/in/muskan-anni/" target="_blank" className="f_contact">
+              <a href="https://www.linkedin.com/company/edulley/" target="_blank" className="f_contact">
                 <img style={{width:"1.5rem",height:"1.5rem"}} className="" loading="lazy" alt="" src={linkedin} />
               </a>
-              <a href="https://www.instagram.com/muskan-anni/" target="_blank" className="f_contact">
+              <a href="https://www.instagram.com/edulley_india/" target="_blank" className="f_contact">
                 <Instagram/>
               </a>
             </div>
@@ -79,6 +79,16 @@ const Footer = () => {
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>info@edulley.com</p>
         </div>
       </div>
+      <div className="d-flex align-items-center gap-3 mt-3">
+        {/* <div className="f_contact">
+          <img className="" loading="lazy" alt="" src={mail} />
+        </div> */}
+        <div>
+          {/* <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Address :</p> */}
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} >305, Venus Benecia,<br/>
+          S-G Highway, Ahmedabad </p>
+        </div>
+      </div>
     </div>
   </ul>
 </div>
@@ -92,7 +102,7 @@ const Footer = () => {
             <li style={{fontFamily:"Gilroy-Medium"}}>Australia</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>Ireland</li>
             <li style={{fontFamily:"Gilroy-Medium"}}>France</li>
-            <li style={{fontFamily:"Gilroy-Medium"}}>Dubai</li>
+            {/* <li style={{fontFamily:"Gilroy-Medium"}}>Dubai</li> */}
           </ul>
         </div>
         <div className="f_menu">
@@ -139,10 +149,10 @@ const Footer = () => {
           <h5 style={{fontFamily:"Gilroy-Medium"}}>Others</h5>
           <ul>
             <Link to="/sop">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Sop</li>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>SOP</li>
             </Link>
             <Link to="/lor">
-              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Lor</li>
+              <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>LOR</li>
             </Link>
             <Link to="/privacy-policy">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Privacy Policy</li>
@@ -153,7 +163,7 @@ const Footer = () => {
             <Link to="/refund-policy">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
             </Link>
-            <Link>
+            <Link to="/blog">
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>About Us</li>
             </Link>
             

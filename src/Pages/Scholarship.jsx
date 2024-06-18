@@ -6,7 +6,7 @@ import uni from "../assets/uni.svg";
 import scholar1 from "../assets/scholarship1.png";
 import scholarship_icon from "../assets/scholarship.png";
 import scholar2 from "../assets/scholarship2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ScholarshipCard from "../components/ScholarshipCard";
 import { getScholarship } from "../Services/dashboard";
 import CustomLoader from "../components/loader";
@@ -26,7 +26,7 @@ const Scholarship = () => {
   const indexOfLastScholarship = currentPage * scholarshipsPerPage;
   const indexOfFirstScholarship = indexOfLastScholarship - scholarshipsPerPage;
   const currentScholarships = filteredScholarship.slice(indexOfFirstScholarship, indexOfLastScholarship);
-  
+    const navigate=useNavigate();
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
@@ -155,7 +155,7 @@ const Scholarship = () => {
           </div>
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
-            <input
+            {/* <input
               className="text-gray-100"
               placeholder="Degree"
               type="text"
@@ -164,7 +164,19 @@ const Scholarship = () => {
               name="course"
               value={filters.course}
               onChange={handleFilterChange}
-            />
+            /> */}
+            
+  <select
+    className="text-gray-100"
+    style={{ border: 'none', fontFamily: "Gilroy-Medium" ,width:"220px", height:"40px",color:"#898484",backgroundColor:"transparent"}}
+    name="course"
+    value={filters.course}
+    onChange={handleFilterChange}
+  >
+    <option value="" disabled selected>Degree</option>
+    <option value="UG">UG</option>
+    <option value="PG">PG</option>
+  </select>
           </div>
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={uni} />
@@ -217,7 +229,7 @@ const Scholarship = () => {
                 <div className="s_img_card">
                   <img src={scholar1} alt="" />
                   <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}> Let’s look at the scholarships available for you</p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  <button onClick={()=>{navigate("/scholarship")}} className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore all Scholarship
                   </button>
                 </div>
@@ -226,7 +238,7 @@ const Scholarship = () => {
                   <p className="mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                   Confused about our Career path?
                   </p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  <button onClick={()=>{navigate("/career-path")}} className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore Career path finder
                   </button>
                 </div>

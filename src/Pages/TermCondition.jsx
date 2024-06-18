@@ -1,37 +1,41 @@
 import React from "react";
 
-const TermCondition = () => {
+const TermsConditions = () => {
   return (
-    <div className="container py-5">
-      <div className="py-5"></div>
-     <div className="privacy-policy-container">
-      <header className="privacy-header">
-        <h1 className="font-gilroy-bold  " style={{color:"#ff5573",fontWeight:"600"}}>Terms and Conditions</h1>
+    <div className="container py-5" >
+                        <div className="py-5"></div>
+
+      <header style={{ fontFamily: "Gilroy-Bold" }}>
+        <h1 style={{ color: "#ff5573", fontWeight: "600" }}>Terms and Conditions</h1>
       </header>
-      <main className="privacy-main">
+      <main style={{ fontFamily: "Gilroy-Medium" ,padding:"10px"}}>
         <section>
-          <p>Last updated: 02/04/2024</p>
-          <p>Welcome to Edulley. We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products and services (collectively, "Services").</p>
-          <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website [insert website address], including any other media form, media channel, mobile website, or mobile application related or connected thereto (collectively, the “Site”). Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the Site.</p>
-        </section>
-        <section>
-          <h2>Information We Collect</h2>
-          <p>We collect information that identifies, relates to, describes, references, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or device (“personal information”). In particular, our Site has collected the following categories of personal information from its consumers within the last twelve months:</p>
+          <p style={{ fontFamily: "Gilroy-Bold", marginTop: "4px" }}>Last updated: June 14, 2024</p>
           <ul>
-            <li><strong>Identifiers</strong>: Real name, postal address, unique personal identifier, online identifier, Internet Protocol address, email address, account name, or other similar identifiers.</li>
-            <li><strong>Personal information</strong>: Described in the California Customer Records statute (Cal. Civ. Code § 1798.80(e)), including, but not limited to, name, signature, Social Security number, address, telephone number, passport number, driver's license or state identification card number, insurance policy number, education, employment, employment history, bank account number, credit card number, debit card number, or any other financial information, medical information, or health insurance information.</li>
-            <li><strong>Protected classification characteristics under California or federal law</strong>: Age (40 years or older), race, color, ancestry, national origin, citizenship, religion or creed, marital status, medical condition, physical or mental disability, sex (including gender, gender identity, gender expression, pregnancy or childbirth and related medical conditions), sexual orientation, veteran or military status, genetic information (including familial genetic information).</li>
-            {/* Add more as needed */}
+            <li>When you sign up with Edulley and its services, you declare that the information and supporting documentation provided is true and complete and you give the rights to Edulley to handle the communication and information on your behalf with the institutions.</li>
+            <li>You have read and understood the description, duration, and structure of the course/s that you are applying to on the University/ies website.</li>
+            <li>You declare that any academic results submitted are a complete record of all results that you have obtained from every secondary or post-secondary institution you have attended and acknowledge that failure to disclose academic records or obscuring information may result in not getting admitted to any school.</li>
+            <li>You authorise the University to seek verification of your academic and professional qualifications, work experience, and other documentation provided to support your application. You understand that the University reserves the right to inform other tertiary institutions and agencies if any of the material presented to support your application is found to be false.</li>
+            <li>You have understood that the University reserves the right to not issue an offer or revoke an existing offer if it is unable to verify the authenticity of documentation provided to support your application, or if the material contained in the application is found to have been copied from other sources and is not your own work.</li>
+            <li>You acknowledge that the University reserves the right at any stage to vary or reverse any decision regarding admission or enrolment made based on incorrect, incomplete, or fraudulent information.</li>
+            <li>You confirm that Edulley is not responsible for your experience at the university and that you need to be well-informed about the institutions you wish to study at before starting an application.</li>
+            <li>You authorise Edulley to obtain further relevant documentation to support your application, if necessary, and the University reserves the right to alter any course, subject, admission requirement or fee without notice.</li>
+            <li>You declare that you are a Genuine Student and that your immediate intention is nothing other than studying and that you must abide by all terms and conditions of your visa and co-operate with the designated team to provide any information requested on time.</li>
+            <li>You are aware of the tuition, travel, and living costs for your stay in the country you aspire to study and that it is your responsibility to meet such costs for the duration of the program.</li>
+            <li>You understand that there can be a service fee for additional services such as employment guide, CV formatting, meet & greet, and others.</li>
+            <li>You are aware that Edulley doesn't guarantee admission to the university of your choice or the Visa. The university and the embassy hold the right to admission and Visa decisions respectively.</li>
+            <li>You acknowledge that any review or testimonial you provide can be openly shared on Edulley's social handles and can be used in promotional activities.</li>
+            <li>You agree to receive promotional emails, SMS, and promotional content from Edulley.</li>
+            <li>You agree that there can sometimes be a third-party agent involved in your application for some of the universities not directly represented by Edulley.</li>
+            <li>I understand that in case of a Visa refusal, the University will refund the tuition fee as per their own refund policies and within their turnaround time normally ranging from 6-8 weeks.</li>
           </ul>
         </section>
-        {/* Additional sections as necessary */}
-        <footer>
-          <p>Please note that this privacy policy is subject to change, and we recommend checking our website regularly for any updates to stay informed about how we are protecting your information.</p>
+        <footer style={{ fontFamily: "Gilroy-Bold", marginTop: "20px" }}>
+          <p>Please note that these terms and conditions are subject to change, and we recommend checking our website regularly for any updates to stay informed about your responsibilities and rights.</p>
         </footer>
       </main>
-    </div>
     </div>
   );
 };
 
-export default TermCondition;
+export default TermsConditions;

@@ -185,7 +185,7 @@ const InstitutionDetail = () => {
                   key={index}
                   className="card text-center d-flex flex-column justify-content-center align-items-center p-3"
                   style={{
-                    width: "200px",
+                    width: "220px",
                     height: "200px",
                     borderRadius: "16px",
                     backgroundColor: "#FFF",
@@ -230,7 +230,7 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "200px",
+                  width: "220px",
                   height: "200px",
                   borderRadius: "16px",
                 }}
@@ -243,7 +243,7 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "200px",
+                  width: "220px",
                   height: "200px",
                   borderRadius: "16px",
                 }}
@@ -256,7 +256,7 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "200px",
+                  width: "220px",
                     height: "200px",
                   borderRadius: "16px",
                 }}
@@ -269,7 +269,7 @@ const InstitutionDetail = () => {
               <img
                 className="shadow p-2"
                 style={{
-                  width: "200px",
+                  width: "220px",
                   height: "200px",
                   borderRadius: "16px",
                 }}

@@ -2,8 +2,10 @@ import React from "react";
 import scholar1 from "../../assets/scholarship1.png";
 import list from "../../assets/list.svg";
 import LORCard from "./lorCard";
+import { useNavigate } from "react-router-dom";
 
 const LOR = () => {
+  const navigate=useNavigate()
   return (
     <>
       <div className="container-fluid lor_container">
@@ -11,7 +13,7 @@ const LOR = () => {
           <h1 style={{color:"#ffff",fontFamily:"Gilroy-Bold"}}>Letter of Recommendation</h1>
           <h2 style={{color:"#ffff",fontFamily:"Gilroy-Medium"}}>All you need to know!</h2>
           {/* <button className="explore-button mt-3 bg-black pull-right">
-            Download IELTS Guide
+            Download LOR Guide
           </button> */}
         </div>
       </div>
@@ -35,23 +37,23 @@ const LOR = () => {
                   </div>
                   <ul>
                     <li className="text-pink" style={{fontFamily:"Gilroy-Medium"}}>Overview</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>Why IELTS</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Test Format</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Syllabus</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Preparation</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Eligibility</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Registration</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Exam Fee</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Exam dates 2024</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS test centres</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS E-Book</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>Why LOR</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Test Format</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Syllabus</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Preparation</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Eligibility</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Registration</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Exam Fee</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Exam dates 2024</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR test centres</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR E-Book</li>
                     <li style={{fontFamily:"Gilroy-Medium"}}>Band Descriptors</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Speaking test</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Reading test</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Speaking test</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Reading test</li>
                     <li style={{fontFamily:"Gilroy-Medium"}}>General Reading test</li>
                     <li style={{fontFamily:"Gilroy-Medium"}}>General Writing Task</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Essay</li>
-                    <li style={{fontFamily:"Gilroy-Medium"}}>IELTS Result</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Essay</li>
+                    <li style={{fontFamily:"Gilroy-Medium"}}>LOR Result</li>
                     <li style={{fontFamily:"Gilroy-Medium"}}>GPA</li>
                   </ul>
                 </div>
@@ -61,7 +63,7 @@ const LOR = () => {
                   <p className="mt-2" style={{fontFamily:"Gilroy-Bold"}}>
                     Let’s look at the scholarships available for you
                   </p>
-                  <button className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
+                  <button onClick={() => navigate('/scholarship')} className="explore-button py-2 fw-light mt-2" style={{fontFamily:"Gilroy-Medium"}}>
                     Explore All Scholarship
                   </button>
                   <p className="fw-bold my-2" style={{fontFamily:"Gilroy-Bold"}}>OR</p>

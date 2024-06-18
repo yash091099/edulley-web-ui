@@ -124,6 +124,7 @@ const Search = () => {
                             isMulti
                             name="level"
                             options={intakeOptions}
+                            placeholder="Intake" 
                             className="basic-multi-select"
                             classNamePrefix="select"
                             value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
@@ -150,7 +151,7 @@ const Search = () => {
                             value={searchTerm.duration}
                             onChange={handleChange}
                         >
-                            <option value="">Select Intake</option>
+                            <option value="">Select Year</option>
                             <option value="2024">2024</option>
                             <option value="2025">2025</option>
                             <option value="2026">2026</option>
@@ -190,14 +191,14 @@ const Search = () => {
                         <FaSearch />
                     </button>
                 </div>
-                {showMessage && searchTerm.course && (
+                {showMessage && searchTerm.course ? (
                     <div className="row mt-3">
                         {isAvailable ?
                             <div className="col-12 alert alert-success" role="alert">Search course is available!</div> :
                             <div className="col-12 alert alert-danger" role="alert">Search course is unavailable.</div>
                         }
                     </div>
-                )}
+                ): ""}
             </div>
             <div className="row">
                 <div className="col-12 d-flex justify-content-center">
@@ -342,8 +343,7 @@ const Search = () => {
                     </div>
                 </div>
             )}
-            <TrendingCoursesCarousel trendingCourses={courses} />
-            <div className="d-flex justify-content-center">
+             <div className="d-flex justify-content-center">
                 {showAdvancedFilter ? (
                     <button
                         style={{
@@ -362,6 +362,8 @@ const Search = () => {
                     </button>
                 ) : ""}
             </div>
+            <TrendingCoursesCarousel trendingCourses={courses} />
+           
         </div>
     );
 };
