@@ -4,7 +4,6 @@ import indumati from "../../assets/test1.jpeg";
 import charishma from "../../assets/test4.jpeg";
 import rexlene from "../../assets/test2.jpeg";
 import satish from "../../assets/test3.jpeg";
-import video from "../../assets/video-review.png";
 
 const videoLinks = [
   "https://www.youtube.com/embed/ai0EFyYkss8?autoplay=1&modestbranding=1",
@@ -128,12 +127,13 @@ const StudentSays = () => {
                   {"<"}
                 </button>
                 <div>
-                  <img
-                    src={video}
-                    alt="Video Thumbnail"
-                    className="video-thumbnail-what-student cursor-pointer"
-                    onClick={videoClickHandler}
-                    // style={{ borderRadius: "22px" }}
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videoLinks[currentVideoIndex].split("embed/")[1].split("?")[0]}`}
+                    width="100%"
+                    height="400px"
+                    frameBorder="0"
+                    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                   />
                 </div>
                 <button

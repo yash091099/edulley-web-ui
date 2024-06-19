@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import userIcon from "../../../assets/users.svg";
 import documentsIcon from "../../../assets/documents.svg";
-import dollorIcon from "../../../assets/dollor.svg";
+import dollorIcon from "../../../assets/suitcase.png";
+import testIcon from "../../../assets/test.png";
 import PersonalDetails from "./personalDetails";
 import AcademicProfile from "./AcademicProfile";
 import WorkBackground from "./WorkBackground";
@@ -64,7 +65,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(4)}>
-              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} />
+              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={testIcon} />
               <div>
                 <h1 className={` small ${state === 4 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Tests</h1>
                 {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
