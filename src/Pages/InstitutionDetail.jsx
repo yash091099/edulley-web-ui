@@ -170,7 +170,7 @@ const InstitutionDetail = () => {
                   logo: internationalStudent,
                   data:
                     (location.state?.universityDetails?.universityStats
-                      ?.internationalStudentPercentage || 0) + `%`,
+                      ?.internationalStudentPercentage || 0) ,
                   text: "Percentage of International Students",
                 },
                 {

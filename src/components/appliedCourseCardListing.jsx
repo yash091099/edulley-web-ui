@@ -13,7 +13,7 @@ import ellipse from "../assets/Ellipse.png";
 import {  getUniversities } from "../Services/dashboard";
 import { useNavigate } from "react-router-dom";
 
-const AppliedCourseListCard = ({ course }) => {
+const AppliedCourseListCard = ({ course,refetchData }) => {
   const [loading, setLoading] = useState(false);
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const [razorpayLoaded, setRazorpayLoaded] = useState(false);
@@ -40,6 +40,9 @@ const AppliedCourseListCard = ({ course }) => {
   }, [])
   const toggle = () => setTooltipOpen(!tooltipOpen);
   function formatText(text) {
+    if(text=='DEPOSIT_PAID'){
+      text='APPLICATION_FEE_PAID'
+    }
     return text.toLowerCase().replace(/_/g, ' ').replace(/\b[a-z]/g, (char) => char.toUpperCase());
   }
   useEffect(() => {
@@ -90,6 +93,8 @@ const AppliedCourseListCard = ({ course }) => {
             });
             if (verify) {
               toast.success('Payment successful');
+              refetchData()
+              
             } else {
               toast.error('Payment verification failed');
             }

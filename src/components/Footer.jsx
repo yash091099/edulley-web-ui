@@ -6,7 +6,7 @@ import mail from "../assets/mail.svg";
 import linkedin from "../assets/linkedin.svg";
 import logo from "../assets/4@2x.png";
 import { Link } from "react-router-dom";
-import { Instagram, WhatsApp } from "@mui/icons-material";
+import { Instagram, MapsHomeWorkOutlined, WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -78,16 +78,24 @@ const Footer = () => {
           <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Mail</p>
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>info@edulley.com</p>
         </div>
+     
+      </div>
+      <div className="d-flex align-items-center gap-3 mt-3">
+        <div className="f_contact">
+          {/* <img className="" loading="lazy" alt="" src={mail} /> */}
+          <MapsHomeWorkOutlined/>
+        </div>
+        <div>
+          <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>305, Venus Benecia,</p>
+          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>S-G Highway, Ahmedabad</p>
+        </div>
+     
       </div>
       <div className="d-flex align-items-center gap-3 mt-3">
         {/* <div className="f_contact">
           <img className="" loading="lazy" alt="" src={mail} />
         </div> */}
-        <div>
-          {/* <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Address :</p> */}
-          <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} >305, Venus Benecia,<br/>
-          S-G Highway, Ahmedabad </p>
-        </div>
+       
       </div>
     </div>
   </ul>

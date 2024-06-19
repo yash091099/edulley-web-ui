@@ -283,7 +283,7 @@ const intakeOptions = [
                             <div className="row">
                                 {(activeTab === 'apply' ? filteredCourses : filteredApplications).map((item, index) => (
                                     <div className="col-md-12" key={index}>
-                                        {activeTab === 'apply' ? <CourseListCard course={item} /> : <AppliedCourseListCard course={item} />}
+                                        {activeTab === 'apply' ? <CourseListCard course={item} /> : <AppliedCourseListCard course={item}  refetchData={fetchApplications}/>}
                                     </div>
                                 ))}
                                 {!(activeTab === 'apply' ? filteredCourses : filteredApplications).length && (

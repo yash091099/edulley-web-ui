@@ -134,10 +134,10 @@ const Search = () => {
                                     ...provided,
                                     border: 'none',
                                     fontFamily: "Gilroy-Medium",
-                                    width: "100%",
                                     padding: "10px",
                                     background: "#fff",
-                                    color: "#898484"
+                                    color: "#898484",
+                                    width:"170px"
                                 })
                             }}
                         />
@@ -354,7 +354,7 @@ const Search = () => {
                             border: "1px solid #FF5573",
                             background: "#fff",
                             position: 'relative',
-                            bottom: '35px'
+                            bottom: '54px'
                         }}
                         onClick={() => setShowAdvancedFilter(!showAdvancedFilter)}
                     >

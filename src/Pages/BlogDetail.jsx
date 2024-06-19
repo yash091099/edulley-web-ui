@@ -43,7 +43,7 @@ const BlogDetail = () => {
             </span>
           </div>
         </div>
-        <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Bold" }}>
+        <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Medium" }}>
           Transforming the landscape of Education with revolutionary technology
         </p>
       </div>
@@ -63,7 +63,7 @@ const BlogDetail = () => {
                 Chat with Our Advisor
               </p>
             </div>
-            <div className="s_img_card text-center">
+            <div className="s_img_card text-center ">
               <img src={scholar1} alt="" />
               <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 Let’s look at the scholarships available for you

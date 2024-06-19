@@ -1288,21 +1288,3 @@ a:hover {
 }
 
 
-/* Styles for all scrollbars */
-*::-webkit-scrollbar {
-  width: 8px;  /* Adjust the width of the scrollbar */
-  height: 8px; /* Adjust the height of the scrollbar, relevant for horizontal scrollbars */
-}
-
-*::-webkit-scrollbar-track {
-  background: #888; /* Color of the track (part the scrollbar can move within) */
-}
-
-*::-webkit-scrollbar-thumb {
-  background: rgb(255, 85, 115); /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Roundness of the scrollbar thumb */
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb when hovered over */
-}

@@ -179,6 +179,16 @@ export default function PersonalDetails() {
       toast.error(response.message);
     } else {
       toast.success('Profile Data Updated successfully');
+      if(data?.gender==='Male'){
+
+        localStorage.setItem('profileUpdated','m')
+      }else if (data?.gender==='Female'){
+
+        localStorage.setItem('profileUpdated','f')
+      }else{
+        localStorage.setItem('profileUpdated',null)
+
+      }
     }
   };
 

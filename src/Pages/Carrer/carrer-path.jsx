@@ -173,8 +173,8 @@ const CarrerPath = () => {
                   <option value="Medicine">Medicine</option>
                   <option value="Journalism and Media">Journalism and Media</option>
                   <option value="Agriculture">Agriculture</option>
-                  <option value="Agriculture">Arts</option>
-                  <option value="Agriculture">Commerce</option>
+                  <option value="Arts">Arts</option>
+                  <option value="Commerce">Commerce</option>
                 </select>
               </div>
               <button className="button-content px-4 search_btn ml-3" onClick={handleSearch}>

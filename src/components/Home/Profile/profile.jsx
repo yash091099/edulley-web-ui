@@ -7,6 +7,8 @@ import AcademicProfile from "./AcademicProfile";
 import WorkBackground from "./WorkBackground";
 import TestScores from "./TestScores";
 import { getStudentDetailsById } from "../../../Services/dashboard";
+import { Book, ExpandMore } from "@mui/icons-material";
+import { Paper } from "@mui/material";
 
 const Profile = () => {
   const _u = JSON.parse(localStorage.getItem('_u'));
@@ -44,28 +46,28 @@ const Profile = () => {
               <img className={`p-2 rounded ${state === 1 ? "bg-highlight" : "bg-light"}`} src={userIcon} />
               <div>
                 <h1 className={` small ${state === 1 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Personal Details</h1>
-                <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p>
+                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(2)}>
               <img className={`p-2 rounded ${state === 2 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} />
               <div>
                 <h1 className={`small ${state === 2 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Academic Profile</h1>
-                <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p>
+                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(3)}>
               <img className={`p-2 rounded ${state === 3 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} />
               <div>
                 <h1 className={` small ${state === 3 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Work Backgrounds</h1>
-                <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p>
+                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(4)}>
-              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} />
+              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} />
               <div>
                 <h1 className={` small ${state === 4 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Tests</h1>
-                <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p>
+                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
               </div>
             </div>
           </div>

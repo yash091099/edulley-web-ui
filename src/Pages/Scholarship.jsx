@@ -50,6 +50,7 @@ const Scholarship = () => {
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
+    console.log(name,value)
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
@@ -143,28 +144,36 @@ const Scholarship = () => {
         <div className="bg-white rounded section_inner">
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={map} />
-            <input
-              className="text-gray-100 "
-              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
-              placeholder="Country"
-              type="text"
-              name="name"
-              value={filters.name}
-              onChange={handleFilterChange}
-            />
+           
+              <select
+                            className="text-gray-100"
+                            name="name"
+                            value={filters?.name}
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "100%",marginRight:"10px", padding: "10px", background: "#fff", color: filters?.name ? "#898484" : "#898484" }}
+                            onChange={handleFilterChange}
+                        >
+                            <option value="">Select Country</option>
+                            <option value="USA">USA</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Australia">Australia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="France">France</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Finland">Finland</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Switzerland">Switzerland</option>
+                        </select>
           </div>
           <div className="ps-3">
             <img style={{ height: "2rem", width: "2rem", objectFit: "cover" }} alt="" src={book} />
-            {/* <input
-              className="text-gray-100"
-              placeholder="Degree"
-              type="text"
-              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
-
-              name="course"
-              value={filters.course}
-              onChange={handleFilterChange}
-            /> */}
+           
             
   <select
     className="text-gray-100"
@@ -185,7 +194,7 @@ const Scholarship = () => {
               placeholder="University"
               type="text"
               name="university"
-              style={{border: 'none',fontFamily:"Gilroy-Medium"}}
+              style={{border: 'none',fontFamily:"Gilroy-Medium",color:"#898484"}}
 
               value={filters.university}
               onChange={handleFilterChange}

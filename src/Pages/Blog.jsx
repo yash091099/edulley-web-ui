@@ -100,7 +100,7 @@ const Blog = () => {
 </div>
 
                     </div>
-                    <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Bold" }}>
+                    <p className="what-we-can-do-description mb-3" style={{ fontFamily: "Gilroy-Medium" }}>
                         Transforming the landscape of Education with revolutionary technology
                     </p>
                 </div>
@@ -154,7 +154,7 @@ const Blog = () => {
                         <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
                         <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with Our Advisor</p>
                     </div>
-                    <div className="s_img_card text-center">
+                    <div className="s_img_card text-center mt-2">
                         <img src={scholar1} alt="" />
                         <p style={{ fontFamily: "Gilroy-Bold" }}>Let’s look at the scholarships available for you</p>
                         <button onClick={()=>{navigate("/scholarship")}} className="explore-button py-2 fw-light mt-2">Explore All Scholarship</button>
