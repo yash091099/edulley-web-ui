@@ -140,14 +140,14 @@ const intakeOptions = [
                         style={activeTab === "apply" ? activeStyle : inactiveStyle}
                         onClick={() => setActiveTab("apply")}
                     >
-                        Apply to Programs
+                       <span style={{ fontFamily: "Gilroy-Medium"}}>Apply to Programs</span> 
                     </button>
                     <button 
                         className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
                         style={activeTab === "applied" ? activeStyle : inactiveStyle}
                         onClick={() => setActiveTab("applied")}
                     >
-                        Applied Programs
+                       <span style={{ fontFamily: "Gilroy-Medium"}}>Applied Programs</span> 
                     </button>
                 </div>
             </div>
