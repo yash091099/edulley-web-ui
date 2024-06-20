@@ -137,7 +137,7 @@ const Search = () => {
                                     padding: "10px",
                                     background: "#fff",
                                     color: "#898484",
-                                    width:"200px"
+                                    width:"170px"
                                 })
                             }}
                         />

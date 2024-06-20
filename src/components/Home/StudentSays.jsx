@@ -81,7 +81,7 @@ const StudentSays = () => {
                   height: "36px",
                   position: "absolute",
                   top: "50%",
-                  right: "18rem",
+                  right: "19rem",
                   transform: "translateY(-50%)",
                   zIndex: 1,
                 }}
@@ -97,7 +97,7 @@ const StudentSays = () => {
                   height: "36px",
                   position: "absolute",
                   top: "50%",
-                  left: "18rem",
+                  left: "19rem",
                   transform: "translateY(-50%)",
                   zIndex: 1,
                 }}
@@ -117,7 +117,7 @@ const StudentSays = () => {
                     height: "36px",
                     position: "absolute",
                     top: "50%",
-                    right: "18rem",
+                    right: "19rem",
                     transform: "translateY(-50%)",
                   }}
                   variant="primary"
@@ -126,8 +126,9 @@ const StudentSays = () => {
                 >
                   {"<"}
                 </button>
-                <div>
+                <div >
                   <iframe
+                  style={{borderRadius: "24px"}}
                     src={`https://www.youtube.com/embed/${videoLinks[currentVideoIndex].split("embed/")[1].split("?")[0]}`}
                     width="100%"
                     height="400px"
@@ -142,7 +143,7 @@ const StudentSays = () => {
                     height: "36px",
                     position: "absolute",
                     top: "50%",
-                    left: "18rem",
+                    left: "19rem",
                     transform: "translateY(-50%)",
                   }}
                   variant="primary"
