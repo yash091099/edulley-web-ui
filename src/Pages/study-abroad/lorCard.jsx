@@ -34,13 +34,13 @@ const LORCard = () => {
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Type of Letter of Recommendation</h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>
-        There are generally three types of letters of recommendation (LORs):
+        There are generally three types of letters of recommendation (LORs):<br/> <br/>
 
-1. <strong>Academic LOR</strong>: These are written by teachers, professors, or academic advisors who can speak to your academic abilities, performance, and potential. Academic LORs are often required for graduate school applications and may focus on your academic achievements, coursework, research skills, and intellectual curiosity.
+1. <strong>Academic LOR</strong>: These are written by teachers, professors, or academic advisors who can speak to your academic abilities, performance, and potential. Academic LORs are often required for graduate school applications and may focus on your academic achievements, coursework, research skills, and intellectual curiosity.<br/> <br/>
 
-2. <strong>Professional LOR</strong>: These are written by employers, supervisors, or colleagues who can attest to your work ethic, skills, and professional accomplishments. Professional LORs are commonly required for job applications and may emphasize your work experience, accomplishments, leadership abilities, and teamwork skills.
+2. <strong>Professional LOR</strong>: These are written by employers, supervisors, or colleagues who can attest to your work ethic, skills, and professional accomplishments. Professional LORs are commonly required for job applications and may emphasize your work experience, accomplishments, leadership abilities, and teamwork skills.<br/> <br/>
 
-3. <strong>Personal LO</strong>R: These are written by individuals who know you on a personal level, such as mentors, coaches, or community leaders. Personal LORs can provide insight into your character, values, and personal qualities. They are less common than academic or professional LORs but can be valuable in certain situations, such as for scholarships or special programs.
+3. <strong>Personal LOR</strong>: These are written by individuals who know you on a personal level, such as mentors, coaches, or community leaders. Personal LORs can provide insight into your character, values, and personal qualities. They are less common than academic or professional LORs but can be valuable in certain situations, such as for scholarships or special programs.<br/> <br/>
 
 It's important to carefully read the application requirements to determine what type of LORs are needed and to choose recommenders who can provide relevant and impactful letters based on their relationship with you
 
@@ -50,23 +50,23 @@ It's important to carefully read the application requirements to determine what 
         <h4 style={{fontFamily:"Gilroy-Bold"}}>
 Hoe to write Letter of Recommendation        </h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>
-        Writing a strong letter of recommendation (LOR) involves several key steps:<br/>
+        Writing a strong letter of recommendation (LOR) involves several key steps:<br/><br/>
 
-1. <strong>Introduction</strong>: Start by introducing yourself and your relationship with the applicant. Mention how long you have known the applicant and in what capacity.<br/>
+1. <strong>Introduction</strong>: Start by introducing yourself and your relationship with the applicant. Mention how long you have known the applicant and in what capacity.<br/><br/>
 
-2.  <strong>Description of the Applicant</strong>: Describe the applicant's qualities, skills, and achievements that make them stand out. Provide specific examples and anecdotes to support your claims.<br/>
+2.  <strong>Description of the Applicant</strong>: Describe the applicant's qualities, skills, and achievements that make them stand out. Provide specific examples and anecdotes to support your claims.<br/><br/>
 
-3.  <strong>Comparison</strong>: Compare the applicant to their peers or other individuals you have worked with, highlighting their strengths and unique qualities.<br/>
+3.  <strong>Comparison</strong>: Compare the applicant to their peers or other individuals you have worked with, highlighting their strengths and unique qualities.<br/><br/>
 
-4.  <strong>Relevance to the Program/Position</strong>: Explain why the applicant is well-suited for the program or position they are applying for. Focus on how their skills and qualities align with the requirements of the program or position.<br/>
+4.  <strong>Relevance to the Program/Position</strong>: Explain why the applicant is well-suited for the program or position they are applying for. Focus on how their skills and qualities align with the requirements of the program or position.<br/><br/>
 
-5.  <strong>Closing Statement</strong>: Conclude by summarizing your endorsement of the applicant and expressing your confidence in their abilities. Offer to provide further information if needed.<br/>
+5.  <strong>Closing Statement</strong>: Conclude by summarizing your endorsement of the applicant and expressing your confidence in their abilities. Offer to provide further information if needed.<br/><br/>
 
-6.  <strong>Contact Information</strong>: Include your contact information in case the recipient has any further questions or needs clarification.<br/>
+6.  <strong>Contact Information</strong>: Include your contact information in case the recipient has any further questions or needs clarification.<br/><br/>
 
-7.  <strong>Formatting and Tone</strong>: Use professional language and maintain a positive and supportive tone throughout the letter. Ensure that the letter is well-organized and easy to read.<br/>
+7.  <strong>Formatting and Tone</strong>: Use professional language and maintain a positive and supportive tone throughout the letter. Ensure that the letter is well-organized and easy to read.<br/><br/>
 
-8.  <strong>Proofreading</strong>: Finally, proofread the letter carefully to check for any grammatical errors or typos before sending it.<br/>
+8.  <strong>Proofreading</strong>: Finally, proofread the letter carefully to check for any grammatical errors or typos before sending it.<br/><br/>
         </p>
       </div>
       <div className="mt-4">
@@ -93,37 +93,37 @@ Hoe to write Letter of Recommendation        </h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>
         
  	
-- Being too generic or vague, not providing specific examples or anecdotes
-- Not tailoring the LOR to the specific program or position
-- Overly long or containing grammatical errors
-- Comparing the applicant to others
-- Making unrealistic claims about the applicant's abilities
-- Focusing too much on weaknesses or areas of improvement
-- Lack of enthusiasm or sincerity in the recommendation
-- Providing irrelevant information or not addressing key aspects of the applicant's qualifications
-- Not proofreading the letter for errors or typos
-- Not following the guidelines or instructions provided by the recipien
+- Being too generic or vague, not providing specific examples or anecdotes<br/><br/>
+- Not tailoring the LOR to the specific program or position<br/><br/>
+- Overly long or containing grammatical errors<br/><br/>
+- Comparing the applicant to others<br/><br/>
+- Making unrealistic claims about the applicant's abilities<br/><br/>
+- Focusing too much on weaknesses or areas of improvement<br/><br/>
+- Lack of enthusiasm or sincerity in the recommendation<br/><br/>
+- Providing irrelevant information or not addressing key aspects of the applicant's qualifications<br/><br/>
+- Not proofreading the letter for errors or typos<br/><br/>
+- Not following the guidelines or instructions provided by the recipien<br/><br/>
 </p>      </div>
       <div className="mt-4">
-        <h4 style={{fontFamily:"Gilroy-Bold"}}>what make an LOR good  </h4>
+        <h4 style={{fontFamily:"Gilroy-Bold"}}>What make an LOR good  </h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>
-        A good letter of recommendation (LOR) is characterized by several key factors:<br/>
+        A good letter of recommendation (LOR) is characterized by several key factors:<br/><br/>
 
-1. <strong>Specificity</strong>: It provides specific examples and anecdotes that illustrate the applicant's qualities, skills, and achievements.<br/>
+1. <strong>Specificity</strong>: It provides specific examples and anecdotes that illustrate the applicant's qualities, skills, and achievements.<br/><br/>
 
-2. <strong>Relevance</strong>: It is tailored to the specific program or position the applicant is applying for, highlighting their suitability and potential contributions.<br/>
+2. <strong>Relevance</strong>: It is tailored to the specific program or position the applicant is applying for, highlighting their suitability and potential contributions.<br/><br/>
 
-3. <strong>Enthusiasm</strong>: It demonstrates genuine enthusiasm and support for the applicant, conveying a strong endorsement of their abilities.<br/>
+3. <strong>Enthusiasm</strong>: It demonstrates genuine enthusiasm and support for the applicant, conveying a strong endorsement of their abilities.<br/><br/>
 
-4. <strong>Insight</strong>: It offers insights that go beyond what is evident from the applicant's resume or transcripts, providing a deeper understanding of their character and potential.<br/>
+4. <strong>Insight</strong>: It offers insights that go beyond what is evident from the applicant's resume or transcripts, providing a deeper understanding of their character and potential.<br/><br/>
 
-5. <strong>Accuracy</strong>: It accurately reflects the applicant's strengths and accomplishments, avoiding exaggeration or misrepresentation.<br/>
+5. <strong>Accuracy</strong>: It accurately reflects the applicant's strengths and accomplishments, avoiding exaggeration or misrepresentation.<br/><br/>
 
-6. <strong>Well-Written</strong>: It is well-written, with clear and concise language, correct grammar, and an organized structure.<br/>
+6. <strong>Well-Written</strong>: It is well-written, with clear and concise language, correct grammar, and an organized structure.<br/><br/>
 
-8. <strong>Professionalism</strong>: It maintains a professional tone and adheres to any guidelines or instructions provided by the recipient.<br/>
+8. <strong>Professionalism</strong>: It maintains a professional tone and adheres to any guidelines or instructions provided by the recipient.<br/><br/>
 
-9. <strong>Perspective</strong>: It offers a unique perspective on the applicant, based on the writer's personal experience and knowledge of the applicant. <br/>         </p>  </div>
+9. <strong>Perspective</strong>: It offers a unique perspective on the applicant, based on the writer's personal experience and knowledge of the applicant. <br/> <br/>        </p>  </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Word limit of Letter of Recommendation</h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>

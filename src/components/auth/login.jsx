@@ -229,7 +229,7 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="text"
-                        style={{ fontFamily: "Gilroy-Medium" , border: "1px solid #CCC0C0 " }}
+                        style={{ fontFamily: "Gilroy-Bold" , border: "1px solid #CCC0C0 " }}
                         placeholder="Full Name"
                         value={fullName}
                         onChange={handleFullNameChange}
@@ -238,7 +238,7 @@ function LoginModal() {
                       <input
                         className="form-control my-3"
                         type="email"
-                        style={{ fontFamily: "Gilroy-Medium", border: "1px solid #CCC0C0 "  }}
+                        style={{ fontFamily: "Gilroy-Bold", border: "1px solid #CCC0C0 "  }}
                         placeholder="Email"
                         value={email}
                         onChange={handleEmailChange}
@@ -260,7 +260,7 @@ function LoginModal() {
                           setErrors((prevErrors) => ({ ...prevErrors, mobileNumber: '' }));
                         }
                       }}
-                      inputStyle={{ width: "100%", border: "1px solid #CCC0C0" }}
+                      inputStyle={{ width: "100%", border: "1px solid #CCC0C0", fontFamily: "Gilroy-Bold" }}
                       containerStyle={{ width: "100%" }}
                       dropdownStyle={{ width: "auto" }}
                     />

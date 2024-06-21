@@ -3,7 +3,6 @@ import { FaSearch } from 'react-icons/fa';
 import book from '../../assets/book.svg';
 import school from '../../assets/school.svg';
 import calender from '../../assets/calendar.svg';
-import course_icon from '../../assets/course.png';
 import { Link, useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
@@ -128,8 +127,18 @@ const Search = () => {
                                     padding: "10px",
                                     background: "#fff",
                                     fontFamily: "Gilroy-Medium",
-                                    color: "#898484"
-                                })
+                                    color: "#898484",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                }),
+                                multiValue: (provided) => ({
+                                    ...provided,
+                                    // display: "none",
+                                }),
+                                multiValueLabel: (provided) => ({
+                                    ...provided,
+                                    // display: "none",
+                                }),
                             }}
                         />
                     </div>

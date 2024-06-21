@@ -261,14 +261,29 @@
               </li>
             </ul>
             <form className="d-flex" role="search">
-              <img
+              {JSON.parse(localStorage.getItem("_u")) &&<img
                 onClick={() => navigate("/profile")}
                 className="profile"
                 alt="avatar"
                 title="Profile"
                 style={{ cursor: "pointer" }}
                 src={profileImageSrc}
-                />
+                />}
+              {!JSON.parse(localStorage.getItem("_u")) &&
+              <>
+              <Button
+                className="btn primary"
+                style={{color:'#ff5573',marginLeft:'10px',border:'1px solid #ff5573'}}
+                onClick={() =>  navigate("/profile")}
+              >
+                Login
+              </Button>
+              <Button className="btn primary" style={{color:'#ff5573',marginLeft:'10px',border:'1px solid #ff5573'}} onClick={() =>  navigate("/profile")}>
+                Signup
+              </Button>
+              </>
+              }
+                
               {JSON.parse(localStorage.getItem("_u")) &&  <Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
                 <Logout/>
               </Button></Tooltip>}

@@ -12,7 +12,7 @@ const HeroSection = () => {
   let token = _u?.token;
   return (
     <div className="home-page-container container-fluid" >
-      <div className="top-section container d-flex align-items-center justify-content-between" style={{ height: "70vh" }}>
+      <div className="top-section container d-flex align-items-center justify-content-between" style={{ height: "60vh" }}>
         <div className="content" style={{ flex: 1 }}>
           <h1 className="title-home mb-1 mt-4" style={{ color: "#FF5573", fontFamily: 'Gilroy-Bold' }}>
             Your Gateway to Global Excellence !

@@ -452,7 +452,7 @@ const InstitutionDetail = () => {
             </div>
             <div className="s_img_card text-center">
               <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>
-                Look at all the courses at University name
+                Look at all the courses
               </p>
               <button
                 className="explore-button py-2 fw-light mt-2"
@@ -464,15 +464,15 @@ const InstitutionDetail = () => {
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 OR
               </p>
-              <p
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank"
                 style={{
                   color: "#ff5573",
                   cursor: "pointer",
                   fontFamily: "Gilroy-Medium",
                 }}
               >
-                Chat with Our Advisor
-              </p>
+                Chat with us 
+              </a>
             </div>
             <div className="s_img_card text-center mb-3">
               <img src={scholar1} alt="" />
@@ -489,15 +489,15 @@ const InstitutionDetail = () => {
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>
                 OR
               </p>
-              <p
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank"
                 style={{
                   color: "#ff5573",
                   cursor: "pointer",
                   fontFamily: "Gilroy-Medium",
                 }}
               >
-                Chat with Our Advisor
-              </p>
+                Chat with us 
+              </a>
             </div>
           </div>
         </div>

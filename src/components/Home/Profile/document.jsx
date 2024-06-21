@@ -103,10 +103,18 @@ export default function ViewUserDocument() {
   const openPdfPreview = (url) => {
     window.open(url, '_blank');
   };
-  const toCapitalise=(text)=>{
-    return text?.toUpperCase();
-
-  }
+  const toCapitalise = (text) => {
+    console.log(text,'text')
+    switch (text) {
+      case 'tenth Marksheet':
+        return '10th Marksheet';
+      case 'twelfth Marksheet':
+        return '12th Marksheet';
+      default:
+        return text?.replace(/([A-Z])/g, ' $1').trim().toUpperCase();
+    }
+  };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();

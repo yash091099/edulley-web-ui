@@ -16,6 +16,22 @@ const Blog = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [blogsPerPage] = useState(9);
     const [searchTerm, setSearchTerm] = useState('');
+    useEffect(() => {
+        setTimeout(() => {
+            
+            if(localStorage?.getItem('redirectToAboutUs') && blogs?.length > 0){
+                blogs?.map((blog) => {
+                    if(blog?.heading?.toLowerCase()==='about us'){
+                        navigate('/blog-details', { state: blog });
+                        localStorage.removeItem('redirectToAboutUs')
+                    }
+                })
+    
+    
+            }
+        },100)
+        
+    },[blogs])
 
     const getBlogsData = async () => {
         setLoading(true);
@@ -149,17 +165,17 @@ const Blog = () => {
                 )}
                 <div className="col-md-3">
                     <div className="s_img_card text-center">
-                        <p style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses at University name</p>
+                        <p style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses</p>
                         <button onClick={()=>{navigate("/courses")}} style={{ fontFamily: "Gilroy-Medium" }} className="explore-button py-2 fw-light mt-2">Explore All Courses</button>
                         <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-                        <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with Our Advisor</p>
+                        <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with us </a>
                     </div>
                     <div className="s_img_card text-center mt-2">
                         <img src={scholar1} alt="" />
                         <p style={{ fontFamily: "Gilroy-Bold" }}>Let’s look at the scholarships available for you</p>
                         <button onClick={()=>{navigate("/scholarship")}} className="explore-button py-2 fw-light mt-2">Explore All Scholarship</button>
                         <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-                        <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with Our Advisor</p>
+                        <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }} >Chat with us </a>
                     </div>
                 </div>
             </div>

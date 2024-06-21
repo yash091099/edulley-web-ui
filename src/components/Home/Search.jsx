@@ -118,7 +118,7 @@ const Search = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className="ps-3 d-flex align-items-center" style={{ width: "234px" }}>
+                    {/* <div className="ps-3 d-flex align-items-center" style={{ width: "234px" }}>
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                         <Select
                             isMulti
@@ -139,6 +139,40 @@ const Search = () => {
                                     color: "#898484",
                                     width:"170px"
                                 })
+                            }}
+                        />
+                    </div> */}
+                     <div className="ps-3">
+                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
+                        <Select
+                            isMulti
+                            name="level"
+                            options={intakeOptions}
+                            placeholder="Intake"    
+                            className="basic-multi-select"
+                            classNamePrefix="select"
+                            value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
+                            onChange={handleMultiSelectChange}
+                            styles={{
+                                control: (provided) => ({
+                                    ...provided,
+                                    border: 'none',
+                                    width: "234px",
+                                    padding: "10px",
+                                    background: "#fff",
+                                    fontFamily: "Gilroy-Medium",
+                                    color: "#898484",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                }),
+                                multiValue: (provided) => ({
+                                    ...provided,
+                                    // display: "none",
+                                }),
+                                multiValueLabel: (provided) => ({
+                                    ...provided,
+                                    // display: "none",
+                                }),
                             }}
                         />
                     </div>

@@ -38,15 +38,15 @@ writing a compelling SOP is essential to increase your chances of securing admis
         <p style={{fontFamily:"Gilroy-Medium"}}>
         The format of a Statement of Purpose (SOP) typically includes the following sections:
 
-Introduction: Begin with a strong opening that grabs the reader's attention and briefly introduces yourself and your purpose for applying. This sets the tone for the rest of the statement.
-Background: Provide a brief overview of your academic background, including your previous degrees, relevant coursework, and any academic achievements or honors. 
+        <br/><br/><strong>Introduction: </strong><br/>Begin with a strong opening that grabs the reader's attention and briefly introduces yourself and your purpose for applying. This sets the tone for the rest of the statement.
+<br/><br/><strong>Background:</strong> Provide a brief overview of your academic background, including your previous degrees, relevant coursework, and any academic achievements or honors. 
 Highlight experiences that have shaped your academic interests and career goals.
-Why This Course: Explain why you are interested in the specific course or program you are applying to. Discuss how it aligns with your academic interests, career goals, and aspirations.
-Career Goals: Outline your short-term and long-term career goals and explain how the course you are applying for will help you achieve them. Discuss any relevant skills, knowledge, or 
+<br/><br/><strong>Why This Course:</strong>  Explain why you are interested in the specific course or program you are applying to. Discuss how it aligns with your academic interests, career goals, and aspirations.
+<br/><br/><strong>Career Goals: </strong> Outline your short-term and long-term career goals and explain how the course you are applying for will help you achieve them. Discuss any relevant skills, knowledge, or 
 experiences you hope to gain from the program.
-Why This University: Explain why you have chosen to apply to this particular university. Discuss specific aspects of the university, such as its reputation, faculty, facilities, or research 
+<br/><br/><strong>Why This University: </strong> Explain why you have chosen to apply to this particular university. Discuss specific aspects of the university, such as its reputation, faculty, facilities, or research 
 opportunities, that attract you.
-Conclusion: Summarize your main points and reiterate your enthusiasm for the program and your commitment to achieving your goals. End on a strong and positive note, expressing 
+<br/><br/><strong>Conclusion: </strong> Summarize your main points and reiterate your enthusiasm for the program and your commitment to achieving your goals. End on a strong and positive note, expressing 
 your readiness to contribute to the university community.
 Each section should be concise and focused, with clear and coherent transitions between them. The overall tone should be professional, enthusiastic, and persuasive, demonstrating 
 your passion for the field and your readiness for graduate study.
@@ -108,25 +108,25 @@ goals. PG SOPs also often require a stronger focus on research experiences, show
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Common mistake to avoid in SOP</h4>
         <p style={{fontFamily:"Gilroy-Medium"}}>
-        1. <strong>Lack of Clarity</strong>: Avoid being vague or ambiguous. Clearly articulate your goals, motivations, and how the program aligns with your aspirations. <br/>
+        1. <strong>Lack of Clarity</strong>: Avoid being vague or ambiguous. Clearly articulate your goals, motivations, and how the program aligns with your aspirations. <br/><br/>
 
-2. <strong>Grammatical Errors</strong>: Proofread your SOP carefully to avoid grammatical mistakes. Use correct punctuation and sentence structure. <br/>
+2. <strong>Grammatical Errors</strong>: Proofread your SOP carefully to avoid grammatical mistakes. Use correct punctuation and sentence structure. <br/><br/>
 
-3. <strong>Overuse of Jargon</strong>: While some technical terms may be necessary, avoid using excessive jargon that could confuse the reader. <br/>
+3. <strong>Overuse of Jargon</strong>: While some technical terms may be necessary, avoid using excessive jargon that could confuse the reader. <br/><br/>
 
-4. <strong>Generic Statements</strong>: Tailor your SOP to each program and university. Avoid using generic statements that could apply to any program. <br/>
+4. <strong>Generic Statements</strong>: Tailor your SOP to each program and university. Avoid using generic statements that could apply to any program. <br/><br/>
 
-5. <strong>Exaggeration</strong>: Be honest and authentic in your writing. Avoid exaggerating your achievements or skills. <br/>
+5. <strong>Exaggeration</strong>: Be honest and authentic in your writing. Avoid exaggerating your achievements or skills. <br/><br/>
 
-6. <strong>Copying from Sample SOPs</strong>: While it's okay to seek inspiration from sample SOPs, avoid copying them verbatim. Your SOP should be original and reflect your unique experiences and aspirations. <br/>
+6. <strong>Copying from Sample SOPs</strong>: While it's okay to seek inspiration from sample SOPs, avoid copying them verbatim. Your SOP should be original and reflect your unique experiences and aspirations.<br/> <br/>
 
-7. <strong>Lack of Focus</strong>: Ensure your SOP has a clear focus and stays on topic. Avoid including irrelevant information. <br/>
+7. <strong>Lack of Focus</strong>: Ensure your SOP has a clear focus and stays on topic. Avoid including irrelevant information. <br/><br/>
 
-8. <strong>Ignoring Instructions</strong>: Follow the specific guidelines and word limits provided by the university. Ignoring these instructions could reflect poorly on your application. <br/>
+8. <strong>Ignoring Instructions</strong>: Follow the specific guidelines and word limits provided by the university. Ignoring these instructions could reflect poorly on your application. <br/><br/>
 
-9. <strong>Lack of Research</strong>: Demonstrate your knowledge of the program and university. Avoid generic statements that show a lack of research and interest. <br/>
+9. <strong>Lack of Research</strong>: Demonstrate your knowledge of the program and university. Avoid generic statements that show a lack of research and interest. <br/><br/>
 
-10. <strong>Failure to Proofread</strong>: Before submitting your SOP, carefully proofread it to catch any errors or typos. It's also helpful to have someone else review it for feedback.
+10. <strong>Failure to Proofread</strong>: Before submitting your SOP, carefully proofread it to catch any errors or typos. It's also helpful to have someone else review it for feedback.<br/><br/>
 </p>      </div>
       <div className="mt-4">
         <h4 style={{fontFamily:"Gilroy-Bold"}}>Importance of SOP </h4>

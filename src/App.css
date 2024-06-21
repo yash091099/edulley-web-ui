@@ -1288,3 +1288,7 @@ a:hover {
 }
 
 
+.select__value-container{
+  max-height: 35px;
+  overflow: hidden !important;
+}

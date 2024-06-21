@@ -182,10 +182,10 @@ const CarrerPathDetails = () => {
           </div>
           <div className="col-md-3">
             <div className="s_img_card text-center mb-4 p-3" style={{ border: '1px solid #ddd', borderRadius: '8px' }}>
-              <p style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses at University name</p>
+              <p style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses</p>
               <button style={{ fontFamily: "Gilroy-Medium" }} className="explore-button py-2 fw-light mt-2">Explore All Courses</button>
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-              <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>Chat with Our Advisor</p>
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>Chat with us </a>
             </div>
             <div className="s_img_card2 p-3" style={{ border: '1px solid #ddd', borderRadius: '8px' }}>
               <p className="mt-2" style={{ fontFamily: "Gilroy-Medium", color: "#FF6477" }}>

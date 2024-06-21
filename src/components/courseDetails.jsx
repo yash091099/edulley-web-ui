@@ -173,14 +173,14 @@ const CourseDetails = () =>{
               </button>
             </div>
             <div className="s_img_card text-center mb-3">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-Medium" }}>Look at all the courses at {location.state?.universityName}</p>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses</p>
               <button onClick={() => navigate("/courses")} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Courses
               </button>
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-              <p className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
-                Chat with Our Advisor
-              </p>
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" className="" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
+                Chat with us 
+              </a>
             </div>
           </div>
         </div>

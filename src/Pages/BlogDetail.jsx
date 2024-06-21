@@ -54,14 +54,14 @@ const BlogDetail = () => {
         <div className="col-12 col-md-3">
           <div className="right_scholar">
             <div className="s_img_card text-center">
-              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses at University name</p>
+              <p className="mt-2" style={{ fontFamily: "Gilroy-Bold" }}>Look at all the courses</p>
               <button  onClick={()=>{navigate("/courses")}} className="explore-button py-2 fw-light mt-2" style={{ fontFamily: "Gilroy-Medium" }}>
                 Explore All Courses
               </button>
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-              <p style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
-                Chat with Our Advisor
-              </p>
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
+                Chat with us 
+              </a>
             </div>
             <div className="s_img_card text-center ">
               <img src={scholar1} alt="" />
@@ -72,9 +72,9 @@ const BlogDetail = () => {
                 Explore All Scholarship
               </button>
               <p className="my-2" style={{ fontFamily: "Gilroy-Bold" }}>OR</p>
-              <p style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
-                Chat with Our Advisor
-              </p>
+              <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank" style={{ color: "#ff5573", cursor: "pointer", fontFamily: "Gilroy-Medium" }}>
+                Chat with us 
+              </a>
             </div>
           </div>
         </div>

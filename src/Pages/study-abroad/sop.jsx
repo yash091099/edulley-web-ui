@@ -29,13 +29,13 @@ const SOP = () => {
             </div>
             <div className="col-md-3">
               <div className="right_scholar exam-bar">
-                <div className="s_img_card py-3">
                   <div className="d-flex align-items-center gap-3">
                     <img  style={{width:"2rem",height:"2rem"}} src={list} alt="" />
                     <h4 className="text-pink  mb-0 " style={{fontFamily:"Gilroy-Bold"}}>
                       Table of Contents
                     </h4>
                   </div>
+                <div className="s_img_card py-3">
                   <ul>
                     <li className="text-pink" style={{fontFamily:"Gilroy-Medium"}}>What is SOP</li>
                     <li style={{fontFamily:"Gilroy-Medium"}}>Why is SOP important</li>
@@ -50,13 +50,13 @@ const SOP = () => {
                  
                   </ul>
                 </div>
-                <div className="s_img_card py-3">
                   <div className="d-flex align-items-center gap-3">
                     <img  style={{width:"2rem",height:"2rem"}}  src={list} alt="" />
                     <h4 className="text-pink  mb-0 " style={{fontFamily:"Gilroy-Bold"}}>
                       Sample of SOP
                     </h4>
                   </div>
+                <div className="s_img_card py-3">
                   <ul>
                     <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MBA</li>
                     <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MS</li>
@@ -75,12 +75,12 @@ const SOP = () => {
                     Explore All Scholarship
                   </button>
                   <p className="fw-bold my-2" style={{fontFamily:"Gilroy-Bold"}}>OR</p>
-                  <p
+                  <a href="https://wa.me/message/SMDIYPHGQFQRC1" target="_blank"
                     
                     style={{ color: "#ff5573", cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}
                   >
-                    Chat with Our Advisor
-                  </p>
+                    Chat with us 
+                  </a>
                 </div>
               </div>
             </div>

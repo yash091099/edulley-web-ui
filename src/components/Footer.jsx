@@ -6,7 +6,7 @@ import mail from "../assets/mail.svg";
 import linkedin from "../assets/linkedin.svg";
 import logo from "../assets/4@2x.png";
 import { Link } from "react-router-dom";
-import { Instagram, MapsHomeWorkOutlined, WhatsApp } from "@mui/icons-material";
+import { Instagram, LocationCity, MapsHomeWorkOutlined, Place, PlaceOutlined, WhatsApp } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -66,7 +66,7 @@ const Footer = () => {
           <img className="" loading="lazy" alt="" src={phone} />
         </div>
         <div>
-          <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Phone</p>
+          {/* <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Phone</p> */}
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "tel:+91-9344534128"}>+91-9344534128</p>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Footer = () => {
           <img className="" loading="lazy" alt="" src={mail} />
         </div>
         <div>
-          <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Mail</p>
+          {/* <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>Mail</p> */}
           <p style={{ cursor: "pointer",fontFamily:"Gilroy-Medium" }} onClick={() => window.location.href = "mailto:info@edulley.com"}>info@edulley.com</p>
         </div>
      
@@ -83,7 +83,7 @@ const Footer = () => {
       <div className="d-flex align-items-center gap-3 mt-3">
         <div className="f_contact">
           {/* <img className="" loading="lazy" alt="" src={mail} /> */}
-          <MapsHomeWorkOutlined/>
+          <PlaceOutlined/>
         </div>
         <div>
           <p style={{fontFamily:"Gilroy-Medium",fontSize:"18px"}}>305, Venus Benecia,</p>
@@ -172,7 +172,10 @@ const Footer = () => {
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>Refund Policy</li>
             </Link>
             <Link to="/blog">
+            <span onClick={() => {localStorage.setItem('redirectToAboutUs',true)}}>
               <li style={{ cursor: "pointer" ,fontFamily:"Gilroy-Medium"}}>About Us</li>
+            </span>
+
             </Link>
             
             {/* <Link>
