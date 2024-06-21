@@ -5,7 +5,7 @@ import studentPerStaf from "../assets/studentPerStaf.png";
 import satisfactionRate from "../assets/satisfactionRate.png";
 import fullTimeStudents from "../assets/fullTimeStudents.png";
 import rating from "../assets/trophy.png";
-import internationalStudent from "../assets/internationalStudent.png";
+import internationalStudent from "../assets/country_new.png";
 import award from "../assets/award.svg";
 import { FaAward } from "react-icons/fa";
 import scholar1 from "../assets/scholarship1.png";

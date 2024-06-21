@@ -110,6 +110,8 @@ export default function ViewUserDocument() {
         return '10th Marksheet';
       case 'twelfth Marksheet':
         return '12th Marksheet';
+      case 'gre Gmat':
+        return 'GRE/GMAT';
       default:
         return text?.replace(/([A-Z])/g, ' $1').trim().toUpperCase();
     }
