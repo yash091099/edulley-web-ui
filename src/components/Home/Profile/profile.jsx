@@ -16,7 +16,7 @@ const Profile = () => {
   const _id = _u ? _u._id : null;
   const [state, setState] = useState(1);
   const [studentDetails, setStudentDetails] = useState({});
-
+  const [currentTab, setCurrentTab] = useState(0);
   useEffect(() => {
     if (_id) {
       getStudentDetailsById(_id).then((res) => {
@@ -74,9 +74,9 @@ const Profile = () => {
           </div>
         </div>
         <div className="col-md-9 right-bar-form-profile">
-          {state === 1 && <PersonalDetails />}
-          {state === 2 && <AcademicProfile />}
-          {state === 3 && <WorkBackground />}
+          {state === 1 && <PersonalDetails updateState={setState} />}
+          {state === 2 && <AcademicProfile updateState={setState} />}
+          {state === 3 && <WorkBackground updateState={setState} />}
           {state === 4 && <TestScores />}
         </div>
       </div>

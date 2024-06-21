@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { addStudent, editStudent, getStudentDetailsById } from "../../../Services/dashboard";
 import CustomLoader from "../../loader";
 
-export default function AcademicProfile() {
+export default function AcademicProfile({updateState}) {
   const _u=JSON.parse(localStorage.getItem('_u'))
   const userId=_u?._id
   const [loading, setLoading] = useState(false);
@@ -155,6 +155,7 @@ const [editModeData, setEditModeData] = useState({});
     if(response.error) {
       toast.error(response.message);
     } else {
+      updateState(3);
       
       toast.success('Profile Data Updated successfully');
 

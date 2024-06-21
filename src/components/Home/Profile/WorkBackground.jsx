@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { addStudent, editStudent, getStudentDetailsById } from "../../../Services/dashboard";
 import CustomLoader from "../../loader";
 
-export default function WorkBackground() {
+export default function WorkBackground({updateState}) {
   const _u = JSON.parse(localStorage.getItem('_u'))
   const userId = _u?._id
   const [editMode, setEditMode] = useState(false);
@@ -137,6 +137,7 @@ export default function WorkBackground() {
       toast.error(response.message);
     } else {
       toast.success('Profile Data Updated successfully');
+      updateState(4)
     }
     console.log("Submitted Data:", payload);
   };

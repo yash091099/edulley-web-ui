@@ -59,9 +59,9 @@ const SOP = () => {
                 <div className="s_img_card py-3">
                   <ul>
                     <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MBA</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for MS</li>
+                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for Masters</li>
                     <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for Bachelors</li>
-                    <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for PhD</li>
+                    {/* <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for PhD</li> */}
                     <li className="text-green" style={{fontFamily:"Gilroy-Medium"}}>Sample SOP for other courses</li>
                   
                   </ul>
