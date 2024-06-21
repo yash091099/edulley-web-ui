@@ -165,7 +165,7 @@ const Home = () => {
   return (
     <>
     <div>
-      {!token && <LoginModal />}
+      {!token && <LoginModal onClose={()=>{console.log('close')}}/>}
       <HeroSection />
       <WeCanDo />
       <Statistics />

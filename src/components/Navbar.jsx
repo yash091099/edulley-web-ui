@@ -8,6 +8,7 @@
   import Button from "@mui/material/Button";
   import { Logout } from "@mui/icons-material";
   import { Tooltip } from "@mui/material";
+import LoginModal from "./auth/login";
 
   const Navbar = () => {
     const navigate = useNavigate();
@@ -15,7 +16,7 @@
     const [activeLink, setActiveLink] = useState("");
     const navbarRef = useRef(null);
     const [profileImageSrc, setProfileImageSrc] = useState(profile);
-
+    const [showLoginModal, setShowLoginModal] = useState(false);
 
     useEffect(() => {
       setActiveLink(location.pathname);
@@ -271,22 +272,41 @@
                 />}
               {!JSON.parse(localStorage.getItem("_u")) &&
               <>
-              <Button
-                className="btn primary"
-                style={{color:'#ff5573',marginLeft:'10px',border:'1px solid #ff5573'}}
-                onClick={() =>  navigate("/profile")}
-              >
-                Login
-              </Button>
-              <Button className="btn primary" style={{color:'#ff5573',marginLeft:'10px',border:'1px solid #ff5573'}} onClick={() =>  navigate("/profile")}>
-                Signup
-              </Button>
+          <Button
+  className="btn primary"
+  style={{ color: '#ff5573', marginLeft: '10px', border: '1px solid #ff5573' }}
+  onClick={() => {
+    setShowLoginModal(false);
+
+    setShowLoginModal('signin');
+  }}
+>
+  Login
+</Button>
+<Button
+  className="btn primary"
+  style={{ color: '#ff5573', marginLeft: '10px', border: '1px solid #ff5573' }}
+  onClick={() => {
+    setShowLoginModal(false);
+
+    setShowLoginModal('signup');
+  }}
+>
+  Signup
+</Button>
               </>
               }
                 
               {JSON.parse(localStorage.getItem("_u")) &&  <Tooltip title="Logout" position="top"><Button  className="btn primary" style={{color:'#ff5573'}} onClick={handleLogout}>
                 <Logout/>
               </Button></Tooltip>}
+              {showLoginModal && (
+  <LoginModal
+    isOpen={showLoginModal ? true : false}
+    onClose={() => setShowLoginModal(false)}
+    initialTab={showLoginModal === 'signup' ? 'signup' : 'signin'}
+  />
+)}
             </form>
           </div>
         </div>

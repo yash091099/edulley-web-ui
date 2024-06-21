@@ -16,7 +16,7 @@ import 'react-phone-input-2/lib/style.css';
 
 Modal.setAppElement('#root');
 
-function LoginModal() {
+function LoginModal({ isOpen, onClose, initialTab }) {
   useEffect(() => {
     let _user = JSON.parse(localStorage.getItem("_u"));
     if (_user?.token) {
@@ -27,7 +27,7 @@ function LoginModal() {
   const navigate = useNavigate();
   const [modalIsOpen, setIsModalOpen] = useState(true);
   const [isOtpScreen, setIsOtpScreen] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(initialTab === 'signup');
   const [mobileNumber, setMobileNumber] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -206,21 +206,28 @@ function LoginModal() {
 
   return (
     <>
-      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      {/* <button onClick={() => setIsModalOpen(true)}>Open Modal</button> */}
       {isLoading && <CustomLoader />}
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={modalIsOpen ||isOpen}
         onRequestClose={() => setIsModalOpen(false)}
         className="Modal"
         overlayClassName="Overlay"
       >
         <div className="container">
+          <div className="" style={{ textAlign: "right"}}>
+          <button style={{width: "30px",height: "30px",borderRadius: "50%",border: "1px solid #ff5573",color: "#ff5573" }}  className="close-btn" onClick={() =>{ onClose(); setIsModalOpen(false)}}>
+          X
+        </button>
+          </div>
           <div className="row justify-content-center align-items-center">
+        
             <div className="col-md-6 d-none d-md-block">
               <img className="logo mb-5" alt="Home" src={logo} />
               <img src={loginImage} alt="Login" className="img-fluid" />
             </div>
             <div className="col-md-6">
+          
               {!isOtpScreen ? (
                 <>
                   <h5 className="text-center" style={{ fontFamily: "Gilroy-Medium",fontWeight: "600" }}>{isSignUp ? 'SIGN UP' : 'SIGN IN'}</h5>
