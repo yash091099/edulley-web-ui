@@ -87,6 +87,17 @@ const submitFeedBack=(payload)=>{
   const url = `${config.baseUrl}v1/users/create/interest`;
   return instance.post(url, payload);
 }
+export const getApplicationChat = (queryParams) => {
+  const queryString = new URLSearchParams(queryParams).toString();
+  const url = `${config.baseUrl}v1/chat/application/list?${queryString}`;
+  return instance.get(url);
+}
+export const createApplicationChat = (payload) => {
+  const url = `${config.baseUrl}v1/chat/application`;
+  return instance.post(url,payload);
+}
+
+
 
 export {
   getBlogs,

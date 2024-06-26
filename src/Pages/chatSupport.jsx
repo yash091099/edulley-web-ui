@@ -8,21 +8,56 @@ import contact from '../assets/contact.png';
 import whatsapp from '../assets/logos_whatsapp-icon.png';
 import linkedin from '../assets/devicon_linkedin.png';
 import email from '../assets/material-symbols-light_stacked-email-sharp.png';
+import { createApplicationChat, getApplicationChat } from '../Services/dashboard';
 
 const ChatSupport = () => {
     const location = useLocation();
     const course = location.state;
     const [chatMessages, setChatMessages] = useState([]);
+    const [newMessage, setNewMessage] = useState('');
 
-    const handleSendMessage = (event) => {
+    useEffect(() => {
+        const fetchChatMessages = async () => {
+            if (course?._id) {
+                try {
+                    const response = await getApplicationChat({ applicationId: course._id });
+                    console.log("Chat messages response:", response);
+                    if (response?.data?.data && Array.isArray(response.data?.data)) {
+                        setChatMessages(response.data?.data);
+                    }
+                } catch (error) {
+                    console.error("Error fetching chat messages:", error);
+                }
+            }
+        };
+
+        const intervalId = setInterval(fetchChatMessages, 5000);
+
+        // Initial fetch
+        fetchChatMessages();
+
+        // Cleanup function
+        return () => clearInterval(intervalId);
+    }, [course]);
+
+    const handleSendMessage = async (event) => {
         event.preventDefault();
-        const message = event.target.elements.chatMessage.value;
-        if (message) {
-            setChatMessages([...chatMessages, { sender: 'Student', message, timestamp: new Date().toLocaleString() }]);
-            event.target.elements.chatMessage.value = '';
-            setTimeout(() => {
-                setChatMessages([...chatMessages, { sender: 'Student', message, timestamp: new Date().toLocaleString() }, { sender: 'Edulley Consulting', message: 'This is a response from Edulley Consulting.', timestamp: new Date().toLocaleString() }]);
-            }, 1000);
+        if (newMessage.trim() === "") return;
+
+        try {
+            const payload = {
+                applicationId: course._id,
+                message: newMessage,
+            };
+            const response = await createApplicationChat(payload);
+            console.log("Send message response:", response);
+
+            if (response?.data) {
+                setChatMessages(prevMessages => [...prevMessages, response.data]);
+            }
+            setNewMessage('');
+        } catch (error) {
+            console.error("Error sending message:", error);
         }
     };
 
@@ -35,7 +70,7 @@ const ChatSupport = () => {
                             <Card.Text style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>{course?.createdAt?.split('T')[0]}</Card.Text>
                             <Card.Title style={{ fontFamily: 'Gilroy-Bold' }}>{course.courseId.courseName}</Card.Title>
                             <Card.Subtitle style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}> <img src={ellipse} alt="map" style={{ width: "1rem", height: "1rem" }} /> {course.courseId.universityName}</Card.Subtitle>
-                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', marginTop: "5px" }}>Status :   <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)',fontFamily: 'Gilroy-Medium' }}>{course?.status === "DEPOSIT_PAID" ? "Paid" : course.status}</span></Card.Text>
+                            <Card.Text style={{ fontFamily: 'Gilroy-Medium', marginTop: "5px" }}>Status : <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)', fontFamily: 'Gilroy-Medium' }}>{course?.status === "DEPOSIT_PAID" ? "Paid" : course.status}</span></Card.Text>
                         </Card.Body>
                     </Card>
                     <Card className="mt-4" style={{ borderRadius: "26px", boxShadow: "0px 4px 12px 0px #0000001C" }}>
@@ -45,8 +80,7 @@ const ChatSupport = () => {
                                 Contact a Relationship Manager
                             </Card.Title>
                             <Card.Img variant="top" src={contactRelationshipManager} />
-                            <div className='d-flex  flex-column '>
-                            {/* <p style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>Let us help you</p> */}
+                            <div className='d-flex flex-column'>
                                 <Button variant="link" href="mailto:info@edulley.com" target="_blank" style={{ display: 'flex', alignItems: 'center', fontFamily: 'Gilroy-Medium', color: '#000' }}>
                                     <img src={email} alt="email" style={{ width: "1.5rem", height: "1.5rem", marginRight: '5px' }} />
                                     info@edulley.com
@@ -64,29 +98,54 @@ const ChatSupport = () => {
                     </Card>
                 </Col>
                 <Col md={8}>
-                    {/* <Card style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
-                        <Card.Body>
-                            <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Pay Application Fee</Card.Title>
-                            <Button style={{ fontFamily: 'Gilroy-Medium', marginRight: '10px' }}>Pay Tuition fee</Button>
-                        </Card.Body>
-                    </Card> */}
                     <Card className="mt-4" style={{ borderRadius: "16px", border: "1px solid #57565626" }}>
                         <Card.Body>
                             <Card.Title style={{ fontFamily: 'Gilroy-Medium' }}>Chat with us</Card.Title>
-                            <div className="chat-box">
-                                {chatMessages.map((chat, index) => (
-                                    <div key={index} className="chat-message" style={{ backgroundColor: chat.sender === 'Student' ? '#FFF' : '#F6F6F6', fontFamily: 'Gilroy-Medium', color: '#000', borderRadius: '10px', marginBottom: '10px', padding: '10px' }}>
-                                        <strong style={{ fontFamily: 'Gilroy-Bold', color: '#FF6477' }}>{chat.sender}</strong>
-                                        <p>{chat.message}</p>
-                                        <span className="chat-time" style={{ fontFamily: 'Gilroy-Medium', color: '#000' }}>{chat.timestamp}</span>
+                            <div className="chat-box" style={{ maxHeight: '400px', overflowY: 'auto', padding: '10px' }}>
+                                {chatMessages.map((msg, index) => (
+                                    <div
+                                        key={index}
+                                        style={{
+                                            display: 'flex',
+                                            justifyContent: msg.senderRole === "USER" ? 'flex-end' : 'flex-start',
+                                            marginBottom: '10px'
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                maxWidth: '70%',
+                                                padding: '10px',
+                                                borderRadius: '10px',
+                                                backgroundColor: msg.senderRole === "USER" ? '#FF6477' : '#F0F0F0',
+                                                color: msg.senderRole === "USER" ? 'white' : 'black'
+                                            }}
+                                        >
+                                            <p style={{ margin: 0, fontFamily: 'Gilroy-Medium' }}>{msg.message}</p>
+                                            <small style={{ display: 'block', textAlign: 'right', marginTop: '5px', fontFamily: 'Gilroy-Medium', fontSize: '0.7rem', opacity: 0.7 }}>
+                                                {new Date(msg.createdAt).toLocaleString()}
+                                            </small>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
                             <Form onSubmit={handleSendMessage}>
                                 <Form.Group controlId="chatMessage" className="mt-3">
-                                    <Form.Control type="text" placeholder="Add Message" style={{ fontFamily: 'Gilroy-Medium' }} />
+                                    <Form.Control 
+                                        type="text" 
+                                        placeholder="Add Message" 
+                                        style={{ fontFamily: 'Gilroy-Medium' }}
+                                        value={newMessage}
+                                        onChange={(e) => setNewMessage(e.target.value)}
+                                    />
                                 </Form.Group>
-                                <Button variant="primary" type="submit" className="mt-3" style={{ backgroundColor: '#FF6477', borderColor: '#FF6477', fontFamily: 'Gilroy-Bold' }}>Send</Button>
+                                <Button 
+                                    variant="primary" 
+                                    type="submit" 
+                                    className="mt-3" 
+                                    style={{ backgroundColor: '#FF6477', borderColor: '#FF6477', fontFamily: 'Gilroy-Bold' }}
+                                >
+                                    Send
+                                </Button>
                             </Form>
                         </Card.Body>
                     </Card>
