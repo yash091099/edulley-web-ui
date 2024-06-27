@@ -13,7 +13,7 @@ const Search = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '3', level: [] });
+    const [searchTerm, setSearchTerm] = useState({ course: '', year: '', intake: [] });
     const [searchResults, setSearchResults] = useState([]);
     const [isAvailable, setIsAvailable] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
@@ -36,19 +36,25 @@ const Search = () => {
     }, []);
 
     useEffect(() => {
-        const filled = searchTerm.course || searchTerm.duration || searchTerm.level.length > 0;
+        const filled = searchTerm.course || searchTerm.year || searchTerm.intake.length > 0;
         setInputFilled(filled);
         setShowMessage(filled);
         if (filled) {
             const filteredCourses = courses.filter(course =>
                 course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
-                course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-                searchTerm.level.some(level => course.level.toLowerCase().includes(level.toLowerCase()))
+                (searchTerm.year ? 
+                    (course.uniqueCourseInfo.applicationDeadline.includes(searchTerm.year) || 
+                     course.uniqueCourseInfo.duration === searchTerm.year) : true) &&
+                (searchTerm.intake.length > 0 ? searchTerm.intake.includes(course.uniqueCourseInfo.upcomingIntake) : true)
             );
             setSearchResults(filteredCourses);
             setIsAvailable(filteredCourses.length > 0);
             if (filteredCourses.length > 0) {
-                console.log('Matching course IDs:', filteredCourses.map(course => course._id));
+                console.log('Search Results:', filteredCourses.map(course => ({
+                    courseName: course.courseName,
+                    upcomingIntake: course.uniqueCourseInfo.upcomingIntake,
+                    duration: course.uniqueCourseInfo.duration
+                })));
             }
         } else {
             setIsAvailable(false);
@@ -57,11 +63,6 @@ const Search = () => {
     }, [searchTerm, courses]);
 
     const handleClick = () => {
-        const filteredCourses = courses.filter(course =>
-            course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
-            course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-            searchTerm.level.some(level => course.level.toLowerCase().includes(level.toLowerCase()))
-        );
         navigate('/courses');
     }
 
@@ -71,8 +72,8 @@ const Search = () => {
     };
 
     const handleMultiSelectChange = (selectedOptions) => {
-        const levels = selectedOptions.map(option => option.value);
-        setSearchTerm(prev => ({ ...prev, level: levels }));
+        const intakes = selectedOptions.map(option => option.value);
+        setSearchTerm(prev => ({ ...prev, intake: intakes }));
     };
 
     const intakeOptions = [
@@ -112,12 +113,12 @@ const Search = () => {
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                         <Select
                             isMulti
-                            name="level"
+                            name="intake"
                             options={intakeOptions}
                             placeholder="Intake"    
                             className="basic-multi-select"
                             classNamePrefix="select"
-                            value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
+                            value={intakeOptions.filter(option => searchTerm.intake.includes(option.value))}
                             onChange={handleMultiSelectChange}
                             styles={{
                                 control: (provided) => ({
@@ -133,11 +134,9 @@ const Search = () => {
                                 }),
                                 multiValue: (provided) => ({
                                     ...provided,
-                                    // display: "none",
                                 }),
                                 multiValueLabel: (provided) => ({
                                     ...provided,
-                                    // display: "none",
                                 }),
                             }}
                         />
@@ -145,9 +144,9 @@ const Search = () => {
                     <div className="ps-3">
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
                         <select
-                            name="duration"
+                            name="year"
                             style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "234px", padding: "10px", background: "#fff", color: "#898484" }}
-                            value={searchTerm.duration}
+                            value={searchTerm.year}
                             onChange={handleChange}
                         >
                             <option value="">Select Year</option>
@@ -158,7 +157,7 @@ const Search = () => {
                             <option value="2028">2028</option>
                         </select>
                     </div>
-                    <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.duration || searchTerm.level.length === 0) ? 'disabled' : ''}`}>
+                    <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.year || searchTerm.intake.length === 0) ? 'disabled' : ''}`}>
                         <FaSearch />
                     </button>
                 </div>
