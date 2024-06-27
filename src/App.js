@@ -30,7 +30,8 @@ import CourseDetails from "./components/courseDetails";
 import CarrerPath from "./Pages/Carrer/carrer-path";
 import CarrerPathDetails from "./Pages/Carrer/carrer-details";
 import ChatSupport from "./Pages/chatSupport";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export const ModalContext = createContext();
 
 function App() {

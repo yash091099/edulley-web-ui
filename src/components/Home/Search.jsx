@@ -118,30 +118,7 @@ const Search = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    {/* <div className="ps-3 d-flex align-items-center" style={{ width: "234px" }}>
-                        <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
-                        <Select
-                            isMulti
-                            name="level"
-                            options={intakeOptions}
-                            placeholder="Intake" 
-                            className="basic-multi-select"
-                            classNamePrefix="select"
-                            value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
-                            onChange={handleMultiSelectChange}
-                            styles={{
-                                control: (provided) => ({
-                                    ...provided,
-                                    border: 'none',
-                                    fontFamily: "Gilroy-Medium",
-                                    padding: "10px",
-                                    background: "#fff",
-                                    color: "#898484",
-                                    width:"170px"
-                                })
-                            }}
-                        />
-                    </div> */}
+               
                      <div className="ps-3">
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                         <Select
@@ -298,11 +275,12 @@ const Search = () => {
                                     marginBottom: "8px",
                                     background: "#fff"
                                 }}>
-                                    <option>Select</option>
-                                    <option>1 year</option>
-                                    <option>2 years</option>
-                                    <option>3 years</option>
-                                    <option>4 years</option>
+                                    <option>Select Duration</option>
+                                    <option>2024</option>
+                                    <option>2025</option>
+                                    <option>2026</option>
+                                    <option>2027</option>
+                                    <option>2028</option>
                                 </select>
                             </div>
                         </div>
