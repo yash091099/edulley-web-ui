@@ -12,7 +12,7 @@ const TrendingCoursesCarousel = ({ trendingCourses }) => {
     };
 
     const settings = {
-        dots: true,
+        dots: false, // Removed dots
         infinite: true,
         speed: 500,
         slidesToShow: 4,
@@ -66,7 +66,7 @@ const TrendingCoursesCarousel = ({ trendingCourses }) => {
                                 padding: '10px', 
                                 borderBottomLeftRadius: '8px', 
                                 borderBottomRightRadius: '8px',
-                                height: '100px', // Fixed height for all cards
+                                height: '100px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between'
