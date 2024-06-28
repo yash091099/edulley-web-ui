@@ -209,39 +209,22 @@ const AppliedCourseListCard = ({ course,refetchData }) => {
             />Application Fee</p>
           <p className="fw-bold "  style={{ color: "#FF5573",fontFamily:"Gilroy-Medium"}}><FaRupeeSign /> {course?.courseId?.uniqueCourseInfo?.applicationFee || '--'}</p>
         </div>
-        <div>
-          <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)', fontFamily: 'Gilroy-Medium'  }}>{formatText(course?.status)}</span>
-          {course?.status === 'APPLIED_CONDITIONAL_OFFER' &&
-            <button className="btn btn-primary text-white text-bold ml-2" style={{ fontFamily: 'Gilroy-Medium' }} onClick={() => { handlePayment(course) }}>Pay Application Fee</button>}
-        </div>
+        <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-2 mt-2">
+  <span className="badge pt-2 pb-2" style={{ backgroundColor: 'rgb(89 255 201)', color: 'rgb(4 51 30)', fontFamily: 'Gilroy-Medium' }}>
+    {formatText(course?.status)}
+  </span>
+  {course?.status === 'APPLIED_CONDITIONAL_OFFER' && (
+    <button 
+      className="btn btn-primary text-white text-bold" 
+      style={{ fontFamily: 'Gilroy-Medium' }} 
+      onClick={() => { handlePayment(course) }}
+    >
+      Pay Application Fee
+    </button>
+  )}
+</div>
       </div>
-      {/* <p className="Gilroy-Medium mt-3">Success Prediction</p>
-        <div className="d-flex mt-2 flex-wrap">
-    <div>
-    </div>
-    <div>
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#38DA494D', color: '#2BC93C', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
-    <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#CDC1F9', color: '#5932EA', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
-    <div className="ml-5">
-        <p style={{color:"#575656", fontFamily:"Gilroy-Medium"}}>Sep 2025</p>
-        <p style={{color:"#FF5573", fontFamily: "Gilroy-Medium"}}>
-            <span className="badge pt-2 pb-2" style={{width:"105px", backgroundColor: '#F6D2BB', color: '#E57E38', fontFamily: 'Gilroy-Medium' }}>High</span>
-        </p>
-    </div>
-    <div style={{marginLeft:"200px"}}>
-   
-    </div>
     
-</div> */}
     </div>
   );
 };

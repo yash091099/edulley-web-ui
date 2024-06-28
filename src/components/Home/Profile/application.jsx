@@ -134,16 +134,16 @@ const intakeOptions = [
         <>
             {loading ? <CustomLoader /> : null}
             <div className="container mt-4">
-                <div className="d-flex flex-row flex-wrap gap-3">
+                <div className="d-flex row flex-row flex-wrap gap-3">
                     <button 
-                        className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
+                        className="btn col-md-2 btn-lg shadow text-xl px-2 py-2 rounded-pill"
                         style={activeTab === "apply" ? activeStyle : inactiveStyle}
                         onClick={() => setActiveTab("apply")}
                     >
                        <span style={{ fontFamily: "Gilroy-Medium"}}>Apply to Programs</span> 
                     </button>
                     <button 
-                        className="btn btn-lg shadow text-xl px-4 py-2 rounded-pill"
+                        className="btn col-md-2 btn-lg shadow text-xl px-2 py-2 rounded-pill"
                         style={activeTab === "applied" ? activeStyle : inactiveStyle}
                         onClick={() => setActiveTab("applied")}
                     >
@@ -251,17 +251,25 @@ const intakeOptions = [
                             </div>
                         </div>
                     ) : (
-                        <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
-                            <div className="card-header" style={{ fontFamily: "Gilroy-Bold" }}>Welcome to Edulley!</div>
-                            <div className="card-body">
-                                <p className="card-text mb-2" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
-                                <div className="d-flex justify-content-between">
-                                    <span style={{ fontFamily: "Gilroy-Medium" }}>Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
-                                    <span style={{ fontFamily: "Gilroy-Medium" }}>Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
-                                    <span style={{ fontFamily: "Gilroy-Medium" }}>Phone : {studentDetails?.contactNumber || JSON.parse(localStorage.getItem('_u'))?.mobileNumber || '--'}</span>
-                                </div>
+                        <div className="card mb-4 welcome-card" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+                        <div className="card-header" style={{ fontFamily: "Gilroy-Bold" }}>Welcome to Edulley!</div>
+                        <div className="card-body">
+                            <p className="card-text mb-3" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>
+                                You are just a few steps away from submitting your application
+                            </p>
+                            <div className="d-flex flex-column flex-md-row justify-content-between">
+                                <span className="mb-2 mb-md-0" style={{ fontFamily: "Gilroy-Medium" }}>
+                                    Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}
+                                </span>
+                                <span className="mb-2 mb-md-0" style={{ fontFamily: "Gilroy-Medium" }}>
+                                    Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}
+                                </span>
+                                <span style={{ fontFamily: "Gilroy-Medium" }}>
+                                    Phone : {studentDetails?.contactNumber || JSON.parse(localStorage.getItem('_u'))?.mobileNumber || '--'}
+                                </span>
                             </div>
                         </div>
+                    </div>
                     )}
                 </div>
             </div>

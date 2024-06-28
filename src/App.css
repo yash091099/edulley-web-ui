@@ -1292,3 +1292,454 @@ a:hover {
   max-height: 35px;
   overflow: hidden !important;
 }
+
+@media (max-width: 767px) {
+  .nav-link {
+    padding: 10px 15px !important;
+  }
+
+  .home-page-container {
+    padding-top: 2rem;
+  }
+
+  .title-home {
+    font-size: 2rem;
+    line-height: 40px;
+  }
+
+  .explore-button {
+    font-size: 16px;
+  }
+
+  .search_container {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .search_container h3 {
+    font-size: 1.2rem;
+  }
+
+  .what-we-can-do {
+    padding: 2rem 0;
+  }
+
+  .what-we-can-do-title {
+    font-size: 1.8rem;
+  }
+
+  .what-we-can-do-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .countries-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .countries {
+    width: 100%;
+  }
+
+  .university-card {
+    width: 100%;
+  }
+
+  .faq_container {
+    flex-direction: column;
+  }
+
+  .faq {
+    width: 100%;
+  }
+
+  .inner_footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .f_menu {
+    margin-top: 1rem;
+  }
+
+  .auth-buttons {
+    width: 100% !important;
+  }
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='%23ff5573' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+@media (max-width: 767px) {
+  .university-carousel-item {
+    flex: 0 0 auto;
+    width: 80%;
+    scroll-snap-align: start;
+  }
+
+  .university-image {
+    height: 150px;
+  }
+
+  .university-name {
+    font-size: 16px;
+  }
+
+  .university-location {
+    font-size: 14px;
+  }
+
+  .university-logo {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.university-carousel-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.university-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.university-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.university-carousel-item {
+  flex: 0 0 auto;
+  width: 25%;
+  scroll-snap-align: start;
+  margin-right: 10px;
+}
+
+.university-image {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
+.university-name {
+  font-size: 18px;
+}
+
+.university-location {
+  font-size: 16px;
+}
+
+.university-logo {
+  background: none;
+}
+
+.university-logo img {
+  height: auto;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff5573;
+  border: none;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.left-arrow {
+  left: -55px;
+}
+
+.right-arrow {
+  right: -55px;
+}
+
+@media (max-width: 767px) {
+  .university-carousel-item {
+    width: 80%;
+  }
+
+  .university-image {
+    height: 150px;
+  }
+
+  .university-name {
+    font-size: 16px;
+  }
+
+  .university-location {
+    font-size: 14px;
+  }
+
+  .university-logo {
+    height: 40px;
+    width: 40px;
+  }
+}
+.works-container {
+  margin-top: 2rem;
+}
+
+.work-cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.work-card {
+  width: calc(33.33% - 20px);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.work-card img {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+
+.work-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.work-card p {
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .work-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 767px) {
+  .student-review-card-what-student {
+    display: flex;
+    gap: 10px;
+    width: 325px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+}
+
+.home-page-container {
+  padding-top: 3rem;
+}
+
+.top-section {
+  margin-bottom: 2rem;
+}
+
+.content {
+  text-align: center;
+}
+
+.title-home {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 55px;
+}
+
+.subtitle {
+  color: #696969;
+}
+
+.explore-button {
+  background-color: #ff5573;
+  color: white;
+  border: none;
+  padding: 7px 7px;
+  border-radius: 5px;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.image-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .content {
+    text-align: left;
+  }
+
+  .image-container {
+    margin-top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .section_inner {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 38px !important;
+    align-items: start;
+    width: 100%;
+}
+
+.select__indicator{
+  display: none;
+}
+  .section_inner > div {
+      border-right: none;
+      width: 99%;
+  }
+  .css-19pu2p8-control{
+    border-right: none;
+    width: 210px !important;
+  }
+}
+
+.inner_footer{
+  display: flex;
+  justify-content: end !important;
+
+}
+
+@media (max-width: 768px) {
+  .footer .inner_footer {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer .f_menu {
+    margin-bottom: 20px;
+  }
+
+  .footer .f_menu h5 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .footer .f_menu ul {
+    padding-left: 0;
+  }
+
+  .footer .f_menu ul li {
+    margin-bottom: 5px;
+  }
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.f_menu {
+  flex: 1 1 200px;
+  margin-right: 20px;
+}
+
+@media (min-width: 769px) {
+  .footer-content {
+    flex-wrap: nowrap;
+  }
+}
+
+
+
+
+@media (max-width: 767px) {
+  .career-path-header {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .career-path-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .career-path-header .input-group {
+    width: 100%;
+  }
+
+  .career-path-header .input-group input {
+    font-size: 0.9rem;
+  }
+
+  .career-path-header .btn {
+    padding: 0.375rem 0.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .career-path-header .w-md-auto {
+    width: auto !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .welcome-card .card-body {
+      padding: 1rem;
+  }
+
+  .welcome-card .card-text {
+      font-size: 0.9rem;
+  }
+
+  .welcome-card .card-body span {
+      font-size: 0.85rem;
+      word-break: break-word;
+  }
+}
+@media (max-width: 575px) {
+  .d-flex.flex-column.flex-sm-row {
+    width: 100%;
+  }
+  
+  .d-flex.flex-column.flex-sm-row .badge,
+  .d-flex.flex-column.flex-sm-row .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

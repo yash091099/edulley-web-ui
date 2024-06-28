@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getUniversities } from "../../Services/dashboard";
 import CustomLoader from "../loader";
 import toast from "react-hot-toast";
@@ -77,78 +77,102 @@ const UniversitiesHome = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 section-padding">
       <div className="container">
-        <div className="d-flex align-items-center justify-content-between">
-          <h1 className="font-gilroy fw-bold d-flex align-items-center">
-            <img src={university_icon} className="img-fluid" alt="University Icon" />
-            <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Universities</span>
-          </h1>
-          <div className="d-flex align-items-center">
-            <div className="input-group" style={{ position: 'relative' }}>
-              <input
-
-                type="text"
-                className="form-control"
-                placeholder="Search Universities and Country"
-                style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px",width:"300px" }}
-                value={searchInput}
-                onChange={handleSearchInputChange}
-              />
-              <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: 'absolute',
-                  left: '10px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  color: '#888'
-                }}
-              />
-              <div className="input-group-append">
+        <div className="row mb-4 align-items-center">
+          <div className="col-lg-6 mb-3 mb-lg-0">
+            <h1 className="font-gilroy fw-bold d-flex align-items-center">
+              <img src={university_icon} className="img-fluid mr-2" alt="University Icon" style={{ maxWidth: '40px' }} />
+              <span className="mt-1" style={{ fontFamily: "Gilroy-Bold" }}>Universities</span>
+            </h1>
+          </div>
+          <div className="col-lg-6">
+            <div className="input-group">
+              <div className="position-relative flex-grow-1">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Search Universities and Country"
+                  style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px", paddingLeft: "35px", paddingRight: "100px" }}
+                  value={searchInput}
+                  onChange={handleSearchInputChange}
+                />
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  style={{
+                    position: 'absolute',
+                    left: '10px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: '#888'
+                  }}
+                />
+              </div>
+              <div className="input-group-append position-absolute" style={{ right: 0, zIndex: 5 }}>
                 <button
-                  className="btn btn-outline-secondary"
+                  className="btn"
                   type="button"
                   onClick={handleReset}
                   style={{
                     borderRadius: "0 25px 25px 0",
                     backgroundColor: "#FF5573",
-                    color: "#FFF"
+                    color: "#FFF",
+                    fontFamily: "Gilroy-Medium"
                   }}
                 >
-                  <FontAwesomeIcon icon={faTimes} />
-                  <span className="ml-2" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
+                  <FontAwesomeIcon icon={faTimes} className="mr-1" />
+                  Clear
                 </button>
               </div>
             </div>
           </div>
         </div>
         <p style={{ fontFamily: "Gilroy-Medium" }}>{filteredUniversities.length} Universities</p>
-        <div className="countries-container gap-1 my-3 mb-5">
-          {currentUniversities.map((uni, index) => (
-            <div style={{ cursor: "pointer" }} className="cursor-pointer countries uni_card mb-3" key={index} onClick={() => handleUniversityClick(uni)}>
-              <img src={uni.bannerImage || defaultLogoImage} alt="University" className="university-image" style={{ height: "200px", width: "100%", objectFit: "contain", background: '#fff' }} />
-              <div className="card-info">
-                <div>
-                <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }} title={uni?.universityName}>
-  {uni?.universityName?.trim()?.length > 20 ? `${uni.universityName.trim().slice(0, 20)} ...` : uni.universityName?.trim() || "University Name"}
-</h3>
-                  <h5 className="university-location" style={{ fontFamily: "Gilroy-Medium" }}>{`${uni.city}, ${uni?.country}`}</h5>
-                </div>
-                <div className="university-logo" style={{ background: "none" }}>
-                  <img src={uni.universityLogo || defaultLogoImage} alt="Logo" style={{ height: "auto", width: "100%", borderRadius: "50%", objectFit: "contain" }} />
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="row">
+        {currentUniversities.map((uni, index) => (
+  <div className="col-sm-6 col-md-4 col-lg-3 mb-4" key={index}>
+    <div 
+      style={{ cursor: "pointer" }} 
+      className="cursor-pointer countries uni_card h-100 d-flex flex-column"
+      onClick={() => handleUniversityClick(uni)}
+    >
+      <img 
+        src={uni.bannerImage || defaultLogoImage} 
+        alt="University" 
+        className="university-image" 
+        style={{ height: "200px", width: "100%", objectFit: "cover", background: '#fff' }} 
+      />
+      <div className="card-info d-flex justify-content-between align-items-start p-2">
+        <div>
+          <h3 className="university-name" style={{ fontFamily: "Gilroy-Medium" }} title={uni?.universityName}>
+            {uni?.universityName?.trim()?.length > 20 ? `${uni.universityName.trim().slice(0, 20)}...` : uni.universityName?.trim() || "University Name"}
+          </h3>
+          <h5 className="university-location" style={{ fontFamily: "Gilroy-Medium" }}>{`${uni.city}, ${uni?.country}`}</h5>
+        </div>
+        <div className="university-logo" style={{ background: "none" }}>
+          <img 
+            src={uni.universityLogo || defaultLogoImage} 
+            alt="Logo" 
+            style={{ height: "50px", width: "50px", borderRadius: "50%", objectFit: "contain" }} 
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+))}
           {!currentUniversities.length && (
-            <p className="text-center">No universities found.</p>
+            <div className="col-12">
+              <p className="text-center">No universities found.</p>
+            </div>
           )}
         </div>
-        <Pagination
-          count={Math.ceil(filteredUniversities.length / universitiesPerPage)}
-          page={currentPage}
-          onChange={handlePageChange}
-          style={{ display: 'flex', justifyContent: 'center' }}
-        />
+        <div className="row mt-4">
+          <div className="col-12 d-flex justify-content-center">
+            <Pagination
+              count={Math.ceil(filteredUniversities.length / universitiesPerPage)}
+              page={currentPage}
+              onChange={handlePageChange}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -145,12 +145,11 @@ export default function WorkBackground({updateState}) {
   return (
     <form onSubmit={handleSubmit}>
       {loading && <CustomLoader />}
-
       {workData.map((work, index) => (
         <div key={index} className="main-container mb-3">
           <h5 className="heading" style={{ fontFamily: "Gilroy-Medium" }}>Work Experience {index + 1}</h5>
           <div className="row">
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Job Title</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -161,7 +160,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Company Name</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -172,7 +171,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Location</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -183,7 +182,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Job Summary</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -194,7 +193,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Joining Date</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -205,7 +204,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-6 formField">
+            <div className="col-12 col-md-6 formField">
               <label style={{ fontFamily: "Gilroy-Medium" }}>Worked Till</label>
               <input
                 style={{ fontFamily: "Gilroy-Medium" }}
@@ -216,7 +215,7 @@ export default function WorkBackground({updateState}) {
                 onChange={(e) => handleInputChange(e, index)}
               />
             </div>
-            <div className="col-md-12 text-end mt-2">
+            <div className="col-12 text-end mt-2">
              { workData.length > 1 && <button type="button"  style={{
                             fontFamily: "Gilroy-Bold",
                             color: "#FF5573",
@@ -224,18 +223,16 @@ export default function WorkBackground({updateState}) {
                             borderRadius: "8px",
                             border: "1px solid #FF5573",
                             background: "#fff",
-                            position: 'relative',
-                            bottom:'35px',
-                            marginTop:'20px'
-
-                        }} className="btn btn-danger" onClick={() => removeWorkExperience(index)}>
+                            width: '100%',
+                            marginTop:'10px'
+                        }} className="btn" onClick={() => removeWorkExperience(index)}>
                 Remove
               </button>}
             </div>
           </div>
         </div>
       ))}
-
+  
       <div className="button-container mb-4 mt-3">
         <button   style={{
                             fontFamily: "Gilroy-Bold",
@@ -244,11 +241,9 @@ export default function WorkBackground({updateState}) {
                             borderRadius: "8px",
                             border: "1px solid #FF5573",
                             background: "#fff",
-                            position: 'relative',
-                            bottom:'35px',
-                            marginTop:'10px'
-
-                        }} id="add-more-experience" type="button" className="btn btn-primary " onClick={addWorkExperience}>
+                            width: '100%',
+                            marginBottom: '10px'
+                        }} type="button" className="btn" onClick={addWorkExperience}>
           Add Work Experience
         </button>
         <button   style={{
@@ -258,11 +253,8 @@ export default function WorkBackground({updateState}) {
                             borderRadius: "8px",
                             border: "1px solid #FF5573",
                             background: "#fff",
-                            position: 'relative',
-                            bottom:'35px',
-                            marginTop:'10px'
-
-                        }} type="submit" className="btn btn-primary float-end">
+                            width: '100%'
+                        }} type="submit" className="btn">
           Next
         </button>
       </div>

@@ -63,7 +63,7 @@ const StudentSays = () => {
         </p>
       </div>
       <div className="my-5 content-container-what-student position-relative">
-        <div className="">
+        <div className="video-container">
           {isVideoPlaying ? (
             <div className="position-relative">
               <iframe
@@ -86,7 +86,7 @@ const StudentSays = () => {
                   zIndex: 1,
                 }}
                 variant="primary"
-                className="mr-2 btn btn-primary"
+                className="mr-2 btn btn-primary prev-button"
                 onClick={handlePreviousVideo}
               >
                 {"<"}
@@ -102,7 +102,7 @@ const StudentSays = () => {
                   zIndex: 1,
                 }}
                 variant="primary"
-                className="ml-2 btn btn-primary"
+                className="ml-2 btn btn-primary next-button"
                 onClick={handleNextVideo}
               >
                 {">"}
@@ -121,14 +121,14 @@ const StudentSays = () => {
                     transform: "translateY(-50%)",
                   }}
                   variant="primary"
-                  className="mr-2 btn btn-primary"
+                  className="mr-2 btn btn-primary prev-button"
                   onClick={handlePreviousVideo}
                 >
                   {"<"}
                 </button>
-                <div >
+                <div>
                   <iframe
-                  style={{borderRadius: "24px"}}
+                    style={{ borderRadius: "24px" }}
                     src={`https://www.youtube.com/embed/${videoLinks[currentVideoIndex].split("embed/")[1].split("?")[0]}`}
                     width="100%"
                     height="400px"
@@ -147,7 +147,7 @@ const StudentSays = () => {
                     transform: "translateY(-50%)",
                   }}
                   variant="primary"
-                  className="ml-2 btn btn-primary"
+                  className="ml-2 btn btn-primary next-button"
                   onClick={handleNextVideo}
                 >
                   {">"}

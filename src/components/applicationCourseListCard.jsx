@@ -118,14 +118,15 @@ const navigate=useNavigate();
               borderRadius: "8px",
               border: "1px solid #FF5573",
               background: "#fff",
+              marginRight: "20px"
             }}
             onClick={() => navigate('/course-details', { state: course })}
             >
             {"View Details >>"}
           </button>
+        <button className="btn btn-primary text-white text-bold" style={{fontFamily: "Gilroy-Medium"}} onClick={handleCreateApplication}>Add Course &gt;&gt;</button>
     </div>
     <div className="ml-auto"> {/* Use ml-auto to push the button to the right */}
-        <button className="btn btn-primary text-white text-bold" style={{fontFamily: "Gilroy-Medium"}} onClick={handleCreateApplication}>Add Course &gt;&gt;</button>
     </div>
 </div>
 

@@ -119,7 +119,7 @@ export default function TestScores() {
         <AccordionDetails>
           <div className="overview-container mb-4">
             <div className="row">
-              <div className="col-md-6 formField">
+              <div className="col-12 col-md-6 formField">
                 <label style={{ fontFamily: "Gilroy-Medium" }}>Overall Score<span style={{ color: 'red' }}>*</span></label>
                 <input
                   style={{ fontFamily: "Gilroy-Medium" }}
@@ -131,7 +131,7 @@ export default function TestScores() {
                   disabled={testScores.ieltsYetToTake || testScores.ieltsLookingForWaiver || testScores.ieltsOtherTest}
                 />
               </div>
-              <div className="col-md-6 formField">
+              <div className="col-12 col-md-6 formField">
                 <label style={{ fontFamily: "Gilroy-Medium" }}>Date of Exam<span style={{ color: 'red' }}>*</span></label>
                 <input
                   style={{ fontFamily: "Gilroy-Medium" }}
@@ -143,7 +143,7 @@ export default function TestScores() {
                   disabled={testScores.ieltsYetToTake || testScores.ieltsLookingForWaiver || testScores.ieltsOtherTest}
                 />
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+              <div className="col-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
                 <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
                     style={{ fontFamily: "Gilroy-Medium" }}
@@ -156,7 +156,7 @@ export default function TestScores() {
                   Yet to take this test
                 </label>
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+              <div className="col-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
                 <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
                     type="checkbox"
@@ -169,7 +169,7 @@ export default function TestScores() {
                   Looking for a Waiver
                 </label>
               </div>
-              <div className="col-md-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
+              <div className="col-12 formField" style={{ fontFamily: "Gilroy-Medium" }}>
                 <label style={{ fontFamily: "Gilroy-Medium" }}>
                   <input
                     type="checkbox"
@@ -186,8 +186,8 @@ export default function TestScores() {
           </div>
         </AccordionDetails>
       </Accordion>
-      <div className="button-container mb-4 mt-3 float-end">
-        <button style={{ fontFamily: "Gilroy-Medium" }} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
+      <div className="button-container mb-4 mt-3">
+        <button style={{ fontFamily: "Gilroy-Medium", width: '100%' }} type="submit" className="btn btn-primary">{editMode ? 'Update' : 'Submit'} Profile</button>
       </div>
     </form>
   );

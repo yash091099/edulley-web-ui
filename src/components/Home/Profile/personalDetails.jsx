@@ -208,10 +208,10 @@ export default function PersonalDetails({updateState}) {
             { label: 'Date of Birth', name: 'dob', type: 'date', value: data.dob },
             { label: 'Marital Status', name: 'maritalStatus', type: 'select', options: ['Select Marital Status', 'Married', 'Unmarried'], value: data.maritalStatus }
           ].map((field, index) => (
-            <div className="col-md-6 formField" key={index}>
+            <div className="col-12 col-md-6 formField" key={index}>
               <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
               {field.type === 'select' ? (
-                <select className="dropdown-css" style={{ fontFamily: "Gilroy-Medium" }} name={field.name} value={field.value} onChange={handleInputChange}>
+                <select className="dropdown-css form-control" style={{ fontFamily: "Gilroy-Medium" }} name={field.name} value={field.value} onChange={handleInputChange}>
                   {field.options.map((option, idx) => (
                     <option key={idx} value={option === 'Select Gender' || option === 'Select Marital Status' ? '' : option}>
                       {option}
@@ -220,6 +220,7 @@ export default function PersonalDetails({updateState}) {
                 </select>
               ) : (
                 <input
+                  className="form-control"
                   style={{ fontFamily: "Gilroy-Medium" }}
                   type={field.type}
                   name={field.name}
@@ -234,80 +235,20 @@ export default function PersonalDetails({updateState}) {
       </div>
       <hr style={{border: "1px solid #ccc"}}/>
       <div className="main-container">
-  <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Mailing Address</h5>
-  <div className="row">
-    {[
-      { label: 'Address Line 1', name: 'mailingAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.mailingAddressLine1 },
-      { label: 'Address Line 2', name: 'mailingAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.mailingAddressLine2 },
-      { label: 'Country', name: 'mailingCountry', type: 'text', placeholder: 'Country', value: data.mailingCountry },
-      { label: 'State', name: 'mailingState', type: 'text', placeholder: 'State', value: data.mailingState },
-      { label: 'City', name: 'mailingCity', type: 'text', placeholder: 'City', value: data.mailingCity },
-      { label: 'Pincode', name: 'mailingPincode', type: 'text', placeholder: 'Pincode', value: data.mailingPincode }
-    ].map((field, index) => (
-      <div className="col-md-6 formField" key={index}>
-        <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} {field.name !== 'mailingAddressLine2' && <span style={{ color: 'red' }}>*</span>}</label>
-        <input
-          style={{ fontFamily: "Gilroy-Medium" }}
-          type={field.type}
-          name={field.name}
-          value={field.value}
-          placeholder={field.placeholder}
-          onChange={handleInputChange}
-        />
-      </div>
-    ))}
-  </div>
-</div>
-      <hr style={{border: "1px solid #ccc"}}/>
-
-      <div className="main-container">
-  <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Permanent Address</h5>
-  <div className="form-check mb-3">
-    <input className="form-check-input" type="checkbox" checked={sameAsMailing} onChange={handleSameAsMailingChange} />
-    <label className="form-check-label" style={{ fontFamily: "Gilroy-Medium" }}>
-      Same as Mailing Address
-    </label>
-  </div>
-  <div className="row">
-    {[
-      { label: 'Address Line 1', name: 'permanentAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.permanentAddressLine1, disabled: sameAsMailing },
-      { label: 'Address Line 2', name: 'permanentAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.permanentAddressLine2, disabled: sameAsMailing },
-      { label: 'Country', name: 'permanentCountry', type: 'text', placeholder: 'Country', value: data.permanentCountry, disabled: sameAsMailing },
-      { label: 'State', name: 'permanentState', type: 'text', placeholder: 'State', value: data.permanentState, disabled: sameAsMailing },
-      { label: 'City', name: 'permanentCity', type: 'text', placeholder: 'City', value: data.permanentCity, disabled: sameAsMailing },
-      { label: 'Pincode', name: 'permanentPincode', type: 'text', placeholder: 'Pincode', value: data.permanentPincode, disabled: sameAsMailing }
-    ].map((field, index) => (
-      <div className="col-md-6 formField" key={index}>
-        <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} {field.name !== 'permanentAddressLine2' && <span style={{ color: 'red' }}>*</span>}</label>
-        <input
-          style={{ fontFamily: "Gilroy-Medium" }}
-          type={field.type}
-          name={field.name}
-          value={field.value}
-          placeholder={field.placeholder}
-          onChange={handleInputChange}
-          disabled={field.disabled}
-        />
-      </div>
-    ))}
-  </div>
-</div>
-      <hr style={{border: "1px solid #ccc"}}/>
-
-      <div className="main-container">
-        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Passport Information</h5>
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Mailing Address</h5>
         <div className="row">
           {[
-            { label: 'Passport Number', name: 'passportNumber', type: 'text', placeholder: 'Passport Number', value: data.passportNumber },
-            { label: 'Issue Country', name: 'passportIssueCountry', type: 'text', placeholder: 'Issue Country', value: data.passportIssueCountry },
-            { label: 'Issue Date', name: 'passportIssueDate', type: 'date', value: data.passportIssueDate },
-            { label: 'Expiry Date', name: 'passportExpiryDate', type: 'date', value: data.passportExpiryDate },
-            { label: 'State of Birth', name: 'passportStateOfBirth', type: 'text', placeholder: 'State of Birth', value: data.passportStateOfBirth },
-            { label: 'Country of Birth', name: 'passportCountryOfBirth', type: 'text', placeholder: 'Country of Birth', value: data.passportCountryOfBirth }
+            { label: 'Address Line 1', name: 'mailingAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.mailingAddressLine1 },
+            { label: 'Address Line 2', name: 'mailingAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.mailingAddressLine2 },
+            { label: 'Country', name: 'mailingCountry', type: 'text', placeholder: 'Country', value: data.mailingCountry },
+            { label: 'State', name: 'mailingState', type: 'text', placeholder: 'State', value: data.mailingState },
+            { label: 'City', name: 'mailingCity', type: 'text', placeholder: 'City', value: data.mailingCity },
+            { label: 'Pincode', name: 'mailingPincode', type: 'text', placeholder: 'Pincode', value: data.mailingPincode }
           ].map((field, index) => (
-            <div className="col-md-6 formField" key={index}>
-              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+            <div className="col-12 col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} {field.name !== 'mailingAddressLine2' && <span style={{ color: 'red' }}>*</span>}</label>
               <input
+                className="form-control"
                 style={{ fontFamily: "Gilroy-Medium" }}
                 type={field.type}
                 name={field.name}
@@ -319,8 +260,69 @@ export default function PersonalDetails({updateState}) {
           ))}
         </div>
       </div>
-      <div className="button-container mb-4 mt-3 float-end">
-        <button style={{ fontFamily: "Gilroy-Medium" }} type="submit" className="btn btn-primary">Next</button>
+      <hr style={{border: "1px solid #ccc"}}/>
+      <div className="main-container">
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Permanent Address</h5>
+        <div className="form-check mb-3">
+          <input className="form-check-input" type="checkbox" checked={sameAsMailing} onChange={handleSameAsMailingChange} />
+          <label className="form-check-label" style={{ fontFamily: "Gilroy-Medium" }}>
+            Same as Mailing Address
+          </label>
+        </div>
+        <div className="row">
+          {[
+            { label: 'Address Line 1', name: 'permanentAddressLine1', type: 'text', placeholder: 'Address Line 1', value: data.permanentAddressLine1, disabled: sameAsMailing },
+            { label: 'Address Line 2', name: 'permanentAddressLine2', type: 'text', placeholder: 'Address Line 2', value: data.permanentAddressLine2, disabled: sameAsMailing },
+            { label: 'Country', name: 'permanentCountry', type: 'text', placeholder: 'Country', value: data.permanentCountry, disabled: sameAsMailing },
+            { label: 'State', name: 'permanentState', type: 'text', placeholder: 'State', value: data.permanentState, disabled: sameAsMailing },
+            { label: 'City', name: 'permanentCity', type: 'text', placeholder: 'City', value: data.permanentCity, disabled: sameAsMailing },
+            { label: 'Pincode', name: 'permanentPincode', type: 'text', placeholder: 'Pincode', value: data.permanentPincode, disabled: sameAsMailing }
+          ].map((field, index) => (
+            <div className="col-12 col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} {field.name !== 'permanentAddressLine2' && <span style={{ color: 'red' }}>*</span>}</label>
+              <input
+                className="form-control"
+                style={{ fontFamily: "Gilroy-Medium" }}
+                type={field.type}
+                name={field.name}
+                value={field.value}
+                placeholder={field.placeholder}
+                onChange={handleInputChange}
+                disabled={field.disabled}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <hr style={{border: "1px solid #ccc"}}/>
+      <div className="main-container">
+        <h5 className="heading" style={{ fontFamily: 'Gilroy-Medium' }}>Passport Information</h5>
+        <div className="row">
+          {[
+            { label: 'Passport Number', name: 'passportNumber', type: 'text', placeholder: 'Passport Number', value: data.passportNumber },
+            { label: 'Issue Country', name: 'passportIssueCountry', type: 'text', placeholder: 'Issue Country', value: data.passportIssueCountry },
+            { label: 'Issue Date', name: 'passportIssueDate', type: 'date', value: data.passportIssueDate },
+            { label: 'Expiry Date', name: 'passportExpiryDate', type: 'date', value: data.passportExpiryDate },
+            { label: 'State of Birth', name: 'passportStateOfBirth', type: 'text', placeholder: 'State of Birth', value: data.passportStateOfBirth },
+            { label: 'Country of Birth', name: 'passportCountryOfBirth', type: 'text', placeholder: 'Country of Birth', value: data.passportCountryOfBirth }
+          ].map((field, index) => (
+            <div className="col-12 col-md-6 formField" key={index}>
+              <label style={{ fontFamily: "Gilroy-Medium", whiteSpace: "nowrap" }}>{field.label} <span style={{ color: 'red' }}>*</span></label>
+              <input
+                className="form-control"
+                style={{ fontFamily: "Gilroy-Medium" }}
+                type={field.type}
+                name={field.name}
+                value={field.value}
+                placeholder={field.placeholder}
+                onChange={handleInputChange}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="button-container mb-4 mt-3">
+        <button style={{ fontFamily: "Gilroy-Medium", width: '100%' }} type="submit" className="btn btn-primary">Next</button>
       </div>
     </form>
   );

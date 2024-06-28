@@ -70,55 +70,55 @@ const CarrerPath = () => {
   return (
     <div className="most-searched-countries-container featured-university-container py-5 section-padding" style={{backgroundColor:"#FFFBFB"}}>
       <div className="container">
-        <div className="d-flex align-items-center justify-content-between">
-          <h1 className="font-gilroy fw-bold d-flex align-items-center">
-            <img src={course_icon} className="img-fluid" alt="University Icon" />
-            <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Career Path Finder</span>
-          </h1>
-          <div className="d-flex align-items-center">
-            <div className="input-group" style={{ position: 'relative' }}>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Courses and Universities"
-                style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px", color: searchInput ? '#000' : '#898484' }}
-                value={searchInput}
-                onChange={handleSearchInputChange}
-              />
-              <FontAwesomeIcon
-                icon={faSearch}
-                style={{
-                  position: 'absolute',
-                  left: '10px',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  color: '#888'
-                }}
-              />
-              <div className="input-group-append">
-                <button
-                  className="btn btn-outline-secondary"
-                  type="button"
-                  onClick={handleReset}
-                  style={{
-                    borderRadius: "0 25px 25px 0",
-                    backgroundColor: "#FF5573",
-                    color: "#FFF"
-                  }}
-                >
-                  <FontAwesomeIcon icon={faTimes} />
-                  <span className="ml-2" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="d-flex align-items-center justify-content-between flex-wrap career-path-header">
+  <h1 className="font-gilroy fw-bold d-flex align-items-center mb-3 mb-md-0">
+    <img src={course_icon} className="img-fluid" alt="University Icon" />
+    <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Career Path Finder</span>
+  </h1>
+  <div className="d-flex align-items-center w-100 w-md-auto">
+    <div className="input-group" style={{ position: 'relative' }}>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Courses and Universities"
+        style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px", color: searchInput ? '#000' : '#898484' }}
+        value={searchInput}
+        onChange={handleSearchInputChange}
+      />
+      <FontAwesomeIcon
+        icon={faSearch}
+        style={{
+          position: 'absolute',
+          left: '10px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          color: '#888'
+        }}
+      />
+      <div className="input-group-append">
+        <button
+          className="btn btn-outline-secondary"
+          type="button"
+          onClick={handleReset}
+          style={{
+            borderRadius: "0 25px 25px 0",
+            backgroundColor: "#FF5573",
+            color: "#FFF"
+          }}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+          <span className="ml-2 d-none d-sm-inline" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
         <div className="row mt-5 align-items-center">
           <div className="col-md-6">
             <img src={carrer_path_image} className="img-fluid" alt="Career Path" style={{ height: '400px' }} />
           </div>
           <div className="col-md-6 text-center">
-            <h1 style={{ color: '#FF5573', fontFamily: "Gilroy-Bold", fontSize: '3rem' }}>Confused</h1>
+            <h1 style={{ color: '#FF5573', fontFamily: "Gilroy-Bold", fontSize: '2rem' }}>Confused</h1>
             <h4 style={{ color: '#FF5573', fontFamily: "Gilroy-Medium", fontSize: '1.5rem', lineHeight: '1.5' }}>About Your Career Path?<br />Let Us Light the Way!</h4>
           </div>
         </div>

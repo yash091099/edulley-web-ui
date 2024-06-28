@@ -10,29 +10,31 @@ import { Link } from "react-router-dom";
 const HeroSection = () => {
   const _u = JSON.parse(localStorage.getItem('_u'));
   let token = _u?.token;
+
   return (
-    <div className="home-page-container container-fluid" >
-      <div className="top-section container d-flex align-items-center justify-content-between" style={{ height: "60vh" }}>
-        <div className="content" style={{ flex: 1 }}>
-          <h1 className="title-home mb-1 mt-4" style={{ color: "#FF5573", fontFamily: 'Gilroy-Bold' }}>
-            Your Gateway to Global Excellence !
-          </h1>
-          <h5 className="subtitle mt-3 mb-4" style={{ fontFamily: 'Gilroy-Medium' }}>
-            Explore, Learn, and Thrive with Study Abroad Application
-          </h5>
-          <Link to="/courses">
-            <button className="explore-button mt-3" style={{ fontFamily: 'Gilroy-Medium' }}>
-              Explore Courses <img src={cherons} alt="Home" />
-            </button>
-          </Link>
-        </div>
-        <div className="image-container-2" style={{ flex: 1, display: 'flex', justifyContent: 'flex-center' }}>
-          <img className="main-image" src={heroImg} alt="Home" style={{ width: '50vw', height: 'auto' }} />
+    <div className="home-page-container container-fluid">
+      <div className="top-section container">
+        <div className="row align-items-center">
+          <div className="col-md-6 content">
+            <h1 className="title-home mb-1 mt-4" style={{ color: "#FF5573", fontFamily: 'Gilroy-Bold' }}>
+              Your Gateway to Global Excellence !
+            </h1>
+            <h5 className="subtitle mt-3 mb-4" style={{ fontFamily: 'Gilroy-Medium' }}>
+              Explore, Learn, and Thrive with Study Abroad Application
+            </h5>
+            <Link to="/courses">
+              <button className="explore-button mt-3" style={{ fontFamily: 'Gilroy-Medium' }}>
+                Explore Courses <img src={cherons} alt="Home" />
+              </button>
+            </Link>
+          </div>
+          <div className="col-md-6 image-container">
+            <img className="main-image" src={heroImg} alt="Home" />
+          </div>
         </div>
       </div>
 
-      {/* search  */}
-
+      {/* search */}
       {token && <Search />}
     </div>
   );

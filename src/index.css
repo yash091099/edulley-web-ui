@@ -220,3 +220,26 @@ h2 {
     border-radius: 18px;
     box-shadow: 0px 2.67px 8.01px 0px rgba(0, 0, 0),
 }
+@media (max-width: 767px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .mobile-input,
+  .request-otp-btn,
+  .signin-google-btn,
+  .submit-btn {
+    width: 100%;
+  }
+
+  .otp-input {
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+  }
+
+  .Modal {
+    width: 90%;
+    max-width: 400px;
+  }
+}

@@ -28,52 +28,56 @@ const Profile = () => {
   const highlightColor = "#FF5573"; // Your chosen color
 
   return (
-    <div className="container d-flex flex-column h-100 bg-white pt-4 rounded">
-      <div className="card mb-4" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
-        <div className="card-header" style={{fontFamily:"Gilroy-Bold"}}>Welcome to Edulley!</div>
+    <div className="container-fluid d-flex flex-column h-100 bg-white pt-4 rounded px-3 px-md-4">
+      <div className="card mb-4 welcome-card" style={{ backgroundColor: '#FFF0F0', border: 'none' }}>
+        <div className="card-header" style={{ fontFamily: "Gilroy-Bold" }}>Welcome to Edulley!</div>
         <div className="card-body">
-          <p className="card-text mb-2" style={{ color: highlightColor ,fontFamily:"Gilroy-Medium" }}>You are just a few steps away from submitting your application</p>
-          <div className="d-flex justify-content-between">
-            <span style={{fontFamily:"Gilroy-Medium"}}>Name : {studentDetails?.fullName||JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-Medium"}} >Email : {studentDetails?.email||JSON.parse(localStorage.getItem('_u'))?.email || '--'}</span>
-            <span  style={{fontFamily:"Gilroy-Medium"}} >Phone : {studentDetails?.contactNumber||JSON.parse(localStorage.getItem('_u'))?.mobileNumber || '--'}</span>
+          <p className="card-text mb-3" style={{ color: highlightColor, fontFamily: "Gilroy-Medium" }}>
+            You are just a few steps away from submitting your application
+          </p>
+          <div className="d-flex flex-column flex-md-row justify-content-between">
+            <span className="mb-2 mb-md-0" style={{ fontFamily: "Gilroy-Medium" }}>
+              Name : {studentDetails?.fullName || JSON.parse(localStorage.getItem('_u'))?.fullName || '--'}
+            </span>
+            <span className="mb-2 mb-md-0" style={{ fontFamily: "Gilroy-Medium" }}>
+              Email : {studentDetails?.email || JSON.parse(localStorage.getItem('_u'))?.email || '--'}
+            </span>
+            <span style={{ fontFamily: "Gilroy-Medium" }}>
+              Phone : {studentDetails?.contactNumber || JSON.parse(localStorage.getItem('_u'))?.mobileNumber || '--'}
+            </span>
           </div>
         </div>
       </div>
       <div className="row mb-3 flex-grow-1">
-        <div className="col-md-3">
-          <div className="d-flex flex-column gap-3 border-end border-dark">
+        <div className="col-12 col-md-3 mb-4 mb-md-0">
+          <div className="d-flex flex-row flex-md-column gap-3 border-bottom border-md-end border-dark pb-3 pb-md-0 overflow-auto">
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(1)}>
-              <img className={`p-2 rounded ${state === 1 ? "bg-highlight" : "bg-light"}`} src={userIcon} />
+              <img className={`p-2 rounded ${state === 1 ? "bg-highlight" : "bg-light"}`} src={userIcon} alt="Personal Details" />
               <div>
-                <h1 className={` small ${state === 1 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Personal Details</h1>
-                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
+                <h1 className={`small ${state === 1 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Personal Details</h1>
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(2)}>
-              <img className={`p-2 rounded ${state === 2 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} />
+              <img className={`p-2 rounded ${state === 2 ? "bg-highlight" : "bg-light"}`} src={documentsIcon} alt="Academic Profile" />
               <div>
                 <h1 className={`small ${state === 2 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Academic Profile</h1>
-                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(3)}>
-              <img className={`p-2 rounded ${state === 3 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} />
+              <img className={`p-2 rounded ${state === 3 ? "bg-highlight" : "bg-light"}`} src={dollorIcon} alt="Work Backgrounds" />
               <div>
-                <h1 className={` small ${state === 3 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Work Backgrounds</h1>
-                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
+                <h1 className={`small ${state === 3 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Work Backgrounds</h1>
               </div>
             </div>
             <div className="cursor-pointer d-flex gap-3 align-items-center" onClick={() => setState(4)}>
-              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={testIcon} />
+              <img className={`p-2 rounded ${state === 4 ? "bg-highlight" : "bg-light"}`} src={testIcon} alt="Tests" />
               <div>
-                <h1 className={` small ${state === 4 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Tests</h1>
-                {/* <p className="text-secondary small" style={{fontFamily:"Gilroy-Medium"}}>Complete</p> */}
+                <h1 className={`small ${state === 4 ? "text-highlight" : "text-secondary"}`} style={{fontFamily:"Gilroy-Bold"}}>Tests</h1>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-9 right-bar-form-profile">
+        <div className="col-12 col-md-9 right-bar-form-profile">
           {state === 1 && <PersonalDetails updateState={setState} />}
           {state === 2 && <AcademicProfile updateState={setState} />}
           {state === 3 && <WorkBackground updateState={setState} />}
