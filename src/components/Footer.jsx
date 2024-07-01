@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="px-5 inner_footer pb-5">
       <div className="f_logo" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
   <Link to="/">
-    <img
+    <img className="footer_logo"
       style={{ cursor: "pointer", width: "150px" }} // Increase the width as needed
       loading="lazy"
       alt=""

@@ -3,116 +3,77 @@ import { useNavigate } from 'react-router-dom';
 import CustomLoader from "../../components/loader";
 import toast from "react-hot-toast";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import course_icon from '../../assets/course.png';
 import carrer_path_image from '../../assets/carrer_path.png';
 import book from '../../assets/book.svg';
 import school from '../../assets/school.svg';
-import { getUniversities, getCourses } from "../../Services/dashboard";
+import { getCareerPathsListing } from "../../Services/dashboard";
 
 const CarrerPath = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [universities, setUniversities] = useState([]);
-  const [courses, setCourses] = useState([]);
+  const [careerPaths, setCareerPaths] = useState([]);
   const [loading, setLoading] = useState(false);
   const [qualification, setQualification] = useState('');
   const [specialization, setSpecialization] = useState('');
   const navigate = useNavigate();
 
-  const fetchUniversities = async () => {
-    try {
-      const res = await getUniversities();
-      if (!res?.data?.error) {
-        setUniversities(res.data.data);
-        console.log(res.data.data, "universities");
-      } else {
-        toast.error("Failed to load universities data.");
-      }
-    } catch (error) {
-      toast.error("An error occurred while fetching universities.");
-    }
-  };
-
-  const fetchCourses = async () => {
+  const fetchCareerPaths = async () => {
     setLoading(true);
     try {
-      const response = await getCourses();
-      setCourses(response.data.data || []);
-      setLoading(false);
+      const response = await getCareerPathsListing();
+      if (!response?.data?.error) {
+        setCareerPaths(response.data.data || []);
+      } else {
+        toast.error("Failed to load career paths data.");
+      }
     } catch (error) {
-      toast.error('Something went wrong');
+      toast.error("An error occurred while fetching career paths.");
+    } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchUniversities();
-    fetchCourses();
+    fetchCareerPaths();
   }, []);
 
-  const handleSearchInputChange = (event) => {
-    setSearchInput(event.target.value);
-  };
-
-  const handleReset = () => {
-    setSearchInput('');
-  };
-
   const handleSearch = () => {
-    navigate('/carrer-details', { state: { qualification, specialization } });
+    if (!qualification || !specialization) {
+      toast.error("Both qualification and specialization are required.");
+      return;
+    }
+    
+    const filteredPath = careerPaths.find(path => 
+      path.latestQualification.trim().toLowerCase() === qualification.trim().toLowerCase() &&
+      path.specialization.trim().toLowerCase() === specialization.trim().toLowerCase()
+    );
+
+    if (filteredPath) {
+      navigate('/carrer-details', { 
+        state: { 
+          qualification: qualification.trim(), 
+          specialization: specialization.trim(),
+          coursesName: filteredPath.coursesName
+        } 
+      });
+    } else {
+      toast.error("No matching career path found.");
+    }
   };
 
-  if (isLoading) {
+  if (loading) {
     return <CustomLoader />;
   }
 
   return (
     <div className="most-searched-countries-container featured-university-container py-5 section-padding" style={{backgroundColor:"#FFFBFB"}}>
       <div className="container">
-      <div className="d-flex align-items-center justify-content-between flex-wrap career-path-header">
-  <h1 className="font-gilroy fw-bold d-flex align-items-center mb-3 mb-md-0">
-    <img src={course_icon} className="img-fluid" alt="University Icon" />
-    <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Career Path Finder</span>
-  </h1>
-  <div className="d-flex align-items-center w-100 w-md-auto">
-    <div className="input-group" style={{ position: 'relative' }}>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Courses and Universities"
-        style={{ fontFamily: "Gilroy-Medium", borderRadius: "25px 0 0 25px", paddingLeft: "35px", color: searchInput ? '#000' : '#898484' }}
-        value={searchInput}
-        onChange={handleSearchInputChange}
-      />
-      <FontAwesomeIcon
-        icon={faSearch}
-        style={{
-          position: 'absolute',
-          left: '10px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          color: '#888'
-        }}
-      />
-      <div className="input-group-append">
-        <button
-          className="btn btn-outline-secondary"
-          type="button"
-          onClick={handleReset}
-          style={{
-            borderRadius: "0 25px 25px 0",
-            backgroundColor: "#FF5573",
-            color: "#FFF"
-          }}
-        >
-          <FontAwesomeIcon icon={faTimes} />
-          <span className="ml-2 d-none d-sm-inline" style={{ fontFamily: "Gilroy-Medium" }}>Clear</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+        <div className="d-flex align-items-center justify-content-between flex-wrap career-path-header">
+          <h1 className="font-gilroy fw-bold d-flex align-items-center mb-3 mb-md-0">
+            <img src={course_icon} className="img-fluid" alt="University Icon" />
+            <span className="mt-1 ml-2" style={{ fontFamily: "Gilroy-Bold" }}>Career Path Finder</span>
+          </h1>
+        </div>
         <div className="row mt-5 align-items-center">
           <div className="col-md-6">
             <img src={carrer_path_image} className="img-fluid" alt="Career Path" style={{ height: '400px' }} />

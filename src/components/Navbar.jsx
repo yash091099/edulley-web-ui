@@ -12,6 +12,7 @@ import LoginModal from "./auth/login";
 
   const Navbar = () => {
     const navigate = useNavigate();
+    const navbarToggleRef = useRef(null);
     const location = useLocation();
     const [activeLink, setActiveLink] = useState("");
     const navbarRef = useRef(null);
@@ -63,6 +64,9 @@ import LoginModal from "./auth/login";
     }, []);
     const handleLinkClick = (link) => {
       setActiveLink(link);
+      if (navbarToggleRef.current) {
+        navbarToggleRef.current.click();
+      }
     };
 
     const handleLogout = () => {
@@ -91,6 +95,7 @@ import LoginModal from "./auth/login";
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            ref={navbarToggleRef}
           >
             <span className="navbar-toggler-icon"></span>
           </button>

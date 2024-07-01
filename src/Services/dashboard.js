@@ -96,6 +96,10 @@ export const createApplicationChat = (payload) => {
   const url = `${config.baseUrl}v1/chat/application`;
   return instance.post(url,payload);
 }
+export const getCareerPathsListing = () => {
+  const url = `${config.baseUrl}v1/careerPath/list`;
+  return instance.get(url);
+}
 
 
 
@@ -104,6 +108,7 @@ export {
   getCourses,
   applyApplication,
   verifyTransaction,
+  
   getScholarship,
   getUniversities,
   getBlogsPaginated,

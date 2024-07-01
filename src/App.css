@@ -1665,6 +1665,11 @@ a:hover {
 
   .footer .f_menu ul li {
     margin-bottom: 5px;
+    text-decoration: none;
+    list-style: none;
+  }
+  .footer_logo{
+    display: none;
   }
 }
 
