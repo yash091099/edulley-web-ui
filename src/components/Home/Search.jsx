@@ -5,10 +5,10 @@ import school from '../../assets/school.svg';
 import map from '../../assets/mappin.svg';
 import calender from '../../assets/calendar.svg';
 import course_icon from '../../assets/course.png';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CustomLoader from '../loader';
 import { toast } from 'react-hot-toast';
-import { getCourses } from '../../Services/dashboard';
+import { getCourses, getUniversities } from '../../Services/dashboard';
 import TrendingCoursesCarousel from './corousel-tranding-courses';
 import Select from 'react-select';
 
@@ -27,23 +27,28 @@ const Search = () => {
         { value: 'November', label: 'November' },
         { value: 'December', label: 'December' },
     ];
-    const location = useLocation();
     const [courses, setCourses] = useState([]);
-    const [selectedCountry, setSelectedCountry] = useState(location?.state?.country || "");
+    const [universities, setUniversities] = useState([]);
+    const [selectedCountry, setSelectedCountry] = useState("");
     const [loading, setLoading] = useState(false);
     const [showAdvancedFilter, setShowAdvancedFilter] = useState(false);
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState({ course: '', duration: '', level: [] });
-    const [searchResults, setSearchResults] = useState([]);
-    const [isAvailable, setIsAvailable] = useState(false);
-    const [showMessage, setShowMessage] = useState(false);
+    const [searchTerm, setSearchTerm] = useState({ course: '', intake: [], year: '', country: '' });
+    const [advancedFilters, setAdvancedFilters] = useState({
+        disciplineArea: '',
+        programLevel: [],
+        requirements: [],
+        duration: ''
+    });
+    const [filteredCourses, setFilteredCourses] = useState([]);
     const [inputFilled, setInputFilled] = useState(false);
 
-    const fetchCourses = async () => {
+    const fetchData = async () => {
         setLoading(true);
         try {
-            const response = await getCourses();
-            setCourses(response.data.data || []);
+            const [courseResponse, universityResponse] = await Promise.all([getCourses(), getUniversities()]);
+            setCourses(courseResponse.data.data || []);
+            setUniversities(universityResponse.data.data || []);
             setLoading(false);
         } catch (error) {
             toast.error('Something went wrong');
@@ -52,44 +57,59 @@ const Search = () => {
     };
 
     useEffect(() => {
-        fetchCourses();
+        fetchData();
     }, []);
 
-    const handleMultiSelectChange = (selectedOptions) => {
-        const levels = selectedOptions ? selectedOptions.map(option => option.value) : [];
-        setSearchTerm(prev => ({ ...prev, level: levels }));
+    const handleMultiSelectChange = (selectedOptions, action) => {
+        const values = selectedOptions ? selectedOptions.map(option => option.value) : [];
+        setSearchTerm(prev => ({ ...prev, [action.name]: values }));
     };
 
     useEffect(() => {
-        const filled = searchTerm.course || searchTerm.duration || searchTerm.level.length;
+        const filled = searchTerm.course || searchTerm.intake.length || searchTerm.year || searchTerm.country;
         setInputFilled(filled);
-        setShowMessage(filled);
+
         if (filled) {
-            const filteredCourses = courses?.filter(course =>
-                (!searchTerm.course || course?.courseName?.toLowerCase().includes(searchTerm?.course?.toLowerCase())) &&
-                (!searchTerm.duration || course?.uniqueCourseInfo?.duration?.toLowerCase().includes(searchTerm?.duration?.toLowerCase())) &&
-                (!searchTerm.level.length || searchTerm.level.includes(course?.level?.toLowerCase()))
-            );
-            setSearchResults(filteredCourses);
-            setIsAvailable(filteredCourses.length > 0);
+            const filtered = courses.filter(course => {
+                const matchesCourse = !searchTerm.course || course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase());
+                const matchesIntake = !searchTerm.intake.length || searchTerm.intake.includes(course.uniqueCourseInfo?.upcomingIntake);
+                const matchesYear = !searchTerm.year || course.uniqueCourseInfo?.duration.includes(searchTerm.year);
+                const matchesCountry = !searchTerm.country || universities.find(uni => uni.universityName === course.universityName)?.country === searchTerm.country;
+                
+                // Advanced filters
+                const matchesDiscipline = !advancedFilters.disciplineArea || course.disciplineArea === advancedFilters.disciplineArea;
+                const matchesProgramLevel = !advancedFilters.programLevel.length || advancedFilters.programLevel.includes(course.level.toLowerCase());
+                const matchesDuration = !advancedFilters.duration || course.uniqueCourseInfo?.duration === advancedFilters.duration;
+                
+                return matchesCourse && matchesIntake && matchesYear && matchesCountry && matchesDiscipline && matchesProgramLevel && matchesDuration;
+            });
+            setFilteredCourses(filtered);
         } else {
-            setIsAvailable(false);
-            setSearchResults([]);
+            setFilteredCourses(courses);
         }
-    }, [searchTerm, courses]);
+    }, [searchTerm, courses, universities, advancedFilters]);
 
     const handleClick = () => {
-        const filteredCourses = courses.filter(course =>
-            course.courseName.toLowerCase().includes(searchTerm.course.toLowerCase()) &&
-            course.uniqueCourseInfo.duration.toLowerCase().includes(searchTerm.duration.toLowerCase()) &&
-            searchTerm.level.includes(course.level.toLowerCase())
-        );
         navigate('/courses-list', { state: filteredCourses.map(course => course._id) });
     }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setSearchTerm(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleAdvancedFilterChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        if (type === 'checkbox') {
+            setAdvancedFilters(prev => ({
+                ...prev,
+                [name]: checked
+                    ? [...prev[name], value]
+                    : prev[name].filter(item => item !== value)
+            }));
+        } else {
+            setAdvancedFilters(prev => ({ ...prev, [name]: value }));
+        }
     };
 
     return (
@@ -119,17 +139,17 @@ const Search = () => {
                         />
                     </div>
                
-                     <div className="ps-3">
+                    <div className="ps-3">
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={school} />
                         <Select
                             isMulti
-                            name="level"
+                            name="intake"
                             options={intakeOptions}
                             placeholder="Intake"    
                             className="basic-multi-select"
                             classNamePrefix="select"
-                            value={intakeOptions.filter(option => searchTerm.level.includes(option.value))}
-                            onChange={handleMultiSelectChange}
+                            value={intakeOptions.filter(option => searchTerm.intake.includes(option.value))}
+                            onChange={(selectedOptions, action) => handleMultiSelectChange(selectedOptions, action)}
                             styles={{
                                 control: (provided) => ({
                                     ...provided,
@@ -144,11 +164,9 @@ const Search = () => {
                                 }),
                                 multiValue: (provided) => ({
                                     ...provided,
-                                    // display: "none",
                                 }),
                                 multiValueLabel: (provided) => ({
                                     ...provided,
-                                    // display: "none",
                                 }),
                             }}
                         />
@@ -157,9 +175,9 @@ const Search = () => {
                         <img style={{ height: '2rem', width: '2rem', objectFit: 'cover' }} alt="" src={calender} />
                         <select
                             className="text-gray-100"
-                            name="duration"
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "100%", padding: "10px", background: "#fff", color: searchTerm.duration ? "#000" : "#898484" }}
-                            value={searchTerm.duration}
+                            name="year"
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "100%", padding: "10px", background: "#fff", color: searchTerm.year ? "#000" : "#898484" }}
+                            value={searchTerm.year}
                             onChange={handleChange}
                         >
                             <option value="">Select Year</option>
@@ -175,188 +193,23 @@ const Search = () => {
                         <select
                             className="text-gray-100"
                             name="country"
-                            value={selectedCountry}
-                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "100%", padding: "10px", background: "#fff", color: selectedCountry ? "#000" : "#898484" }}
-                            onChange={(e) => setSelectedCountry(e.target.value)}
+                            value={searchTerm.country}
+                            style={{ border: 'none', fontFamily: "Gilroy-Medium", width: "100%", padding: "10px", background: "#fff", color: searchTerm.country ? "#000" : "#898484" }}
+                            onChange={handleChange}
                         >
                             <option value="">Select Country</option>
-                            <option value="USA">USA</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Australia">Australia</option>
-                            <option value="New Zealand">New Zealand</option>
-                            <option value="Singapore">Singapore</option>
-                            <option value="Malaysia">Malaysia</option>
-                            <option value="France">France</option>
-                            <option value="Germany">Germany</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Dubai">Dubai</option>
-                            <option value="Ireland">Ireland</option>
-                            <option value="Netherlands">Netherlands</option>
-                            <option value="Denmark">Denmark</option>
-                            <option value="Finland">Finland</option>
-                            <option value="Spain">Spain</option>
-                            <option value="Switzerland">Switzerland</option>
+                            {Array.from(new Set(universities.map(uni => uni.country))).map((country, index) => (
+                                <option key={index} value={country}>{country}</option>
+                            ))}
                         </select>
                     </div>
-                    <button onClick={handleClick} className={`button-content px-4 search_btn ml-3 ${!inputFilled || (!isAvailable || !searchTerm.course || !searchTerm.duration || !searchTerm.level.length) ? 'disabled' : ''}`}>
+                    <button onClick={handleClick} className={`button-content px-4 search_btn ml-3`}>
                         <FaSearch />
                     </button>
                 </div>
-                {showMessage && searchTerm.course ? (
-                    <div className="row mt-3">
-                        {isAvailable ?
-                            <div className="col-12 alert alert-success" role="alert">Search course is available!</div> :
-                            <div className="col-12 alert alert-danger" role="alert">Search course is unavailable.</div>
-                        }
-                    </div>
-                ): ""}
             </div>
             <div className="row">
                 <div className="col-12 d-flex justify-content-center">
-                    {!showAdvancedFilter ? (
-                        <button
-                            style={{
-                                fontFamily: "Gilroy-Bold",
-                                color: "#FF5573",
-                                padding: "10px 20px",
-                                borderRadius: "8px",
-                                border: "1px solid #FF5573",
-                                background: "#fff",
-                                position: 'relative',
-                                bottom: '35px'
-                            }}
-                            onClick={() => setShowAdvancedFilter(!showAdvancedFilter)}
-                        >
-                            {'Advanced Filter +'}
-                        </button>
-                    ) : ""}
-                </div>
-            </div>
-            {showAdvancedFilter && (
-                <div className="advanced-filter" style={{ backgroundColor: '#FFF0F0', padding: "25px" }}>
-                    <hr style={{ border: "1px solid #797979" }} />
-
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <label style={{ fontFamily: "Gilroy-Medium" }}>Discipline Area</label>
-                                <select style={{
-                                    height: '40px',
-                                    padding: '10px 10px',
-                                    gap: '10px',
-                                    borderRadius: '8px',
-                                    border: "none",
-                                    fontFamily: "Gilroy-Medium",
-                                    marginBottom: "8px",
-                                    background: "#fff"
-                                }}>
-                                    <option>Select</option>
-                                    <option>Engineering</option>
-                                    <option>Computer Science</option>
-                                    <option>Business Administration</option>
-                                    <option>Medicine</option>
-                                    <option>Law</option>
-                                    <option>Architecture</option>
-                                    <option>Environmental Studies</option>
-                                    <option>Psychology</option>
-                                    <option>Fine Arts</option>
-                                    <option>Communications</option>
-                                </select>
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <label style={{ fontFamily: "Gilroy-Medium" }}>Duration</label>
-                                <select style={{
-                                    height: '40px',
-                                    padding: '10px 10px',
-                                    gap: '10px',
-                                    borderRadius: '8px',
-                                    fontFamily: "Gilroy-Medium",
-                                    border: "none",
-                                    marginBottom: "8px",
-                                    background: "#fff"
-                                }}>
-                                    <option>Select Duration</option>
-                                    <option>2024</option>
-                                    <option>2025</option>
-                                    <option>2026</option>
-                                    <option>2027</option>
-                                    <option>2028</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className='col-md-4'>
-                            <label style={{ fontFamily: "Gilroy-Medium" }}>Program Level</label>
-                            <div>
-                                <input type="checkbox" id="ug" className="custom-checkbox" />
-                                <label htmlFor="ug" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="ug-diploma" className="custom-checkbox" />
-                                <label htmlFor="ug-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG Diploma/ Certificate</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="pg" className="custom-checkbox" />
-                                <label htmlFor="pg" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="pg-diploma" className="custom-checkbox" />
-                                <label htmlFor="pg-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG Diploma/ Certificate</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="short-term" className="custom-checkbox" />
-                                <label htmlFor="short-term" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Short Term Programs</label>
-                            </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div>
-                                <label style={{ fontFamily: "Gilroy-Medium" }}>Requirements</label>
-                                <div>
-                                    <input type="checkbox" id="pte" className="custom-checkbox" />
-                                    <label htmlFor="pte" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PTE</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="ielts" className="custom-checkbox" />
-                                    <label htmlFor="ielts" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>IELTS</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="toefl-ibt" className="custom-checkbox" />
-                                    <label htmlFor="toefl-ibt" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>TOEFL iBT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="duolingo" className="custom-checkbox" />
-                                    <label htmlFor="duolingo" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Duolingo English Test</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="sat" className="custom-checkbox" />
-                                    <label htmlFor="sat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>SAT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="gre" className="custom-checkbox" />
-                                    <label htmlFor="gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GRE</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="gmat" className="custom-checkbox" />
-                                    <label htmlFor="gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GMAT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="without-gre" className="custom-checkbox" />
-                                    <label htmlFor="without-gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GRE</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="without-gmat" className="custom-checkbox" />
-                                    <label htmlFor="without-gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GMAT</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="stem-courses" className="custom-checkbox" />
-                                    <label htmlFor="stem-courses" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>STEM Courses</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-             <div className="d-flex justify-content-center">
-                {showAdvancedFilter ? (
                     <button
                         style={{
                             fontFamily: "Gilroy-Bold",
@@ -366,16 +219,147 @@ const Search = () => {
                             border: "1px solid #FF5573",
                             background: "#fff",
                             position: 'relative',
-                            bottom: '54px'
+                            bottom: '35px'
                         }}
                         onClick={() => setShowAdvancedFilter(!showAdvancedFilter)}
                     >
-                        {'Close'}
+                        {showAdvancedFilter ? 'Close' : 'Advanced Filter +'}
                     </button>
-                ) : ""}
+                </div>
             </div>
+            {showAdvancedFilter && (
+                <div className="advanced-filter mb-4" style={{ backgroundColor: '#FFF0F0', padding: "25px" }}>
+                    <hr style={{ border: "1px solid #797979" }} />
+                    <div className="row ">
+                        <div className="col-md-4">
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <label style={{ fontFamily: "Gilroy-Medium" }}>Discipline Area</label>
+                                <select 
+                                    style={{
+                                        height: '40px',
+                                        padding: '10px 10px',
+                                        gap: '10px',
+                                        borderRadius: '8px',
+                                        border: "none",
+                                        fontFamily: "Gilroy-Medium",
+                                        marginBottom: "8px",
+                                        background: "#fff"
+                                    }}
+                                    name="disciplineArea"
+                                    value={advancedFilters.disciplineArea}
+                                    onChange={handleAdvancedFilterChange}
+                                >
+                                    <option value="">Select</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Business Administration">Business Administration</option>
+                                    <option value="Medicine">Medicine</option>
+                                    <option value="Law">Law</option>
+                                    <option value="Architecture">Architecture</option>
+                                    <option value="Environmental Studies">Environmental Studies</option>
+                                    <option value="Psychology">Psychology</option>
+                                    <option value="Fine Arts">Fine Arts</option>
+                                    <option value="Communications">Communications</option>
+                                </select>
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                <label style={{ fontFamily: "Gilroy-Medium" }}>Duration</label>
+                                <select
+                                    style={{
+                                        height: '40px',
+                                        padding: '10px 10px',
+                                        gap: '10px',
+                                        borderRadius: '8px',
+                                        border: "none",
+                                        fontFamily: "Gilroy-Medium",
+                                        marginBottom: "8px",
+                                        background: "#fff"
+                                    }}
+                                    name="duration"
+                                    value={advancedFilters.duration}
+                                    onChange={handleAdvancedFilterChange}
+                                >
+                                    <option value="">Select Duration</option>
+                                    <option value="1 Year">1 Year</option>
+                                    <option value="2 Years">2 Years</option>
+                                    <option value="3 Years">3 Years</option>
+                                    <option value="4 Years">4 Years</option>
+                                    <option value="5 Years">5 Years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className='col-md-4'>
+                            <label style={{ fontFamily: "Gilroy-Medium" }}>Program Level</label>
+                            <div>
+                                <input type="checkbox" id="ug" className="custom-checkbox" name="programLevel" value="ug" onChange={handleAdvancedFilterChange} />
+                                <label htmlFor="ug" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="ug-diploma" className="custom-checkbox" name="programLevel" value="ug" onChange={handleAdvancedFilterChange} />
+                                <label htmlFor="ug-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>UG Diploma/ Certificate</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="pg" className="custom-checkbox" name="programLevel" value="pg" onChange={handleAdvancedFilterChange} />
+                                <label htmlFor="pg" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="pg-diploma" className="custom-checkbox" name="programLevel" value="pg" onChange={handleAdvancedFilterChange} />
+                                <label htmlFor="pg-diploma" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PG Diploma/ Certificate</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="short-term" className="custom-checkbox" name="programLevel" value="pg" onChange={handleAdvancedFilterChange} />
+                                <label htmlFor="short-term" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Short Term Programs</label>
+                            </div>
+                        </div>
+                        <div className="col-md-4">
+                            <div>
+                                <label style={{ fontFamily: "Gilroy-Medium" }}>Requirements</label>
+                                <div>
+                                    <input type="checkbox" id="pte" className="custom-checkbox" name="requirements" value="PTE" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="pte" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>PTE</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="ielts" className="custom-checkbox" name="requirements" value="IELTS" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="ielts" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>IELTS</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="toefl-ibt" className="custom-checkbox" name="requirements" value="TOEFL iBT" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="toefl-ibt" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>TOEFL iBT</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="duolingo" className="custom-checkbox" name="requirements" value="Duolingo English Test" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="duolingo" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Duolingo English Test</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="sat" className="custom-checkbox" name="requirements" value="SAT" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="sat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>SAT</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="gre" className="custom-checkbox" name="requirements" value="GRE" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GRE</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="gmat" className="custom-checkbox" name="requirements" value="GMAT" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>GMAT</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="without-gre" className="custom-checkbox" name="requirements" value="Without GRE" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="without-gre" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GRE</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="without-gmat" className="custom-checkbox" name="requirements" value="Without GMAT" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="without-gmat" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>Without GMAT</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="stem-courses" className="custom-checkbox" name="requirements" value="STEM Courses" onChange={handleAdvancedFilterChange} />
+                                    <label htmlFor="stem-courses" style={{ fontFamily: "Gilroy-Medium", marginLeft: "6px" }}>STEM Courses</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             <TrendingCoursesCarousel trendingCourses={courses} />
-           
         </div>
     );
 };

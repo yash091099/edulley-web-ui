@@ -1,103 +1,128 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-// import './ComparisonTable.css'; // Link to your CSS file
+import { getCourses, getScholarship, getUniversities } from '../Services/dashboard';
+import toast from 'react-hot-toast';
+import course_icon from '../assets/course.png';
+import CustomLoader from '../components/loader';
 
 const CompareCourse = () => {
-  const location=useLocation();
-  const coursesIdArray=location?.state;
-  console.log(coursesIdArray,'coursesIdArray');
-  return (
-    <div className="comparison-table-container">
-     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-  <img style={{ width: "80px", height: "80px" }} src='/frame-1686561276-3.svg' alt="Icon" />
-  <h1 className="comparison-table-title font-gilroy-bold" style={{ fontWeight: "700", fontSize: "24px" ,marginTop:"10px"}}>
-    Courses Comparison
-  </h1>
-</div>
+  const location = useLocation();
+  const courseIds = location?.state || [];
+  const [courses, setCourses] = useState([]);
+  const [universities, setUniversities] = useState([]);
+  const [scholarships, setScholarships] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-      <table className="comparison-table">
-        {/* Table headers */}
+  const fetchUniversities = async () => {
+    try {
+      const res = await getUniversities();
+      if (!res?.data?.error) {
+        setUniversities(res.data.data);
+      } else {
+        toast.error("Failed to load universities data.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while fetching universities.");
+    }
+  };
+
+  const fetchScholarships = async () => {
+    try {
+      const response = await getScholarship();
+      setScholarships(response.data.data);
+    } catch (error) {
+      toast.error('Failed to load scholarships data.');
+    }
+  };
+
+  const fetchCourses = async () => {
+    setLoading(true);
+    try {
+      const response = await getCourses();
+      const allCourses = response.data.data || [];
+      const filteredCourses = allCourses.filter(course => courseIds.includes(course._id));
+      setCourses(filteredCourses);
+      setLoading(false);
+    } catch (error) {
+      toast.error('Something went wrong');
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchCourses();
+    fetchUniversities();
+    fetchScholarships();
+  }, []);
+
+  const getUniversityLocation = (universityName) => {
+    const university = universities.find(uni => uni.universityName?.trim()?.toLowerCase() === universityName?.trim()?.toLowerCase());
+    return university ? `${university.city}, ${university.country}` : '--';
+  };
+
+  const getScholarshipInfo = (universityName) => {
+    const universityScholarships = scholarships.filter(s => s.universityName === universityName);
+    if (universityScholarships.length === 0) return '--';
+    return (
+      <ul style={{ margin: 0, paddingLeft: '20px' }}>
+        {universityScholarships.map((s, index) => (
+          <li key={index}>{s.name}: ${s.amount||0}</li>
+        ))}
+      </ul>
+    );
+  };
+
+  return (
+    <div className="comparison-table-container" style={{ padding: '20px' }}>
+      <div className="row">
+        <div>
+          <h1 style={{ marginTop: "80px" }} className="font-gilroy fw-bold course-head">
+            <img src={course_icon} className="img-fluid" alt="" />
+            <span className="mt-1 ml-2 font-gilroy" style={{ fontFamily: "Gilroy-Bold" }}>Courses Comparison</span>
+          </h1>
+        </div>
+      </div>
+      {loading ? <CustomLoader /> : null}
+
+      <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", marginTop: "20px" }}>
         <thead>
-          <tr>
-            <th>Criteria</th>
-            <th>{coursesIdArray[0]?.courseName||'--'}</th>
-            <th>{coursesIdArray[1]?.courseName||'--'}</th>
-            <th>{coursesIdArray[2]?.courseName||'--'}</th>
-            <th>{coursesIdArray[3]?.courseName||'--'}</th>
-            <th>{coursesIdArray[4]?.courseName||'--'}</th>
+          <tr style={{ backgroundColor: "#f8f8f8" }}>
+            <th style={{ padding: "10px", textAlign: "left", borderBottom: "1px solid #e0e0e0" }}>Criteria</th>
+            {courses.map((course, index) => (
+              <th key={index} style={{ padding: "10px", textAlign: "left", borderBottom: "1px solid #e0e0e0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <img src={course.courseLogo} alt="University Logo" style={{ width: "30px", height: "30px", borderRadius: "50%" }} />
+                  <span>{course.courseName || '--'}</span>
+                </div>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {/* Each row of comparison data */}
-     
-          <tr>
-            <td>University Name</td>
-            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[0]?.courseLogo} alt='icon'/> {coursesIdArray[0]?.universityName||'--'}</td>
-            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[1]?.courseLogo} alt='icon'/> {coursesIdArray[1]?.universityName||'--'}</td>
-            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[2]?.courseLogo} alt='icon'/> {coursesIdArray[2]?.universityName||'--'}</td>
-            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[3]?.courseLogo} alt='icon'/> {coursesIdArray[3]?.universityName||'--'}</td>
-            <td><img style={{width:"35px",height:"35px",borderRadius:"50%"}} src={coursesIdArray[4]?.courseLogo} alt='icon'/> {coursesIdArray[4]?.universityName||'--'}</td>
-          </tr>
-          <tr>
-            <td>Study Mode</td>
-            <td>{coursesIdArray[0]?.uniqueCourseInfo?.studyMode||'--'}</td>
-            <td>{coursesIdArray[1]?.uniqueCourseInfo?.studyMode||'--'}</td>
-            <td>{coursesIdArray[2]?.uniqueCourseInfo?.studyMode||'--'}</td>
-            <td>{coursesIdArray[3]?.uniqueCourseInfo?.studyMode||'--'}</td>
-            <td>{coursesIdArray[4]?.uniqueCourseInfo?.studyMode||'--'}</td>
-          </tr>
-
-          <tr>
-            <td>Program Level</td>
-            <td>{coursesIdArray[0]?.level||'--'}</td>
-            <td>{coursesIdArray[1]?.level||'--'}</td>
-            <td>{coursesIdArray[2]?.level||'--'}</td>
-            <td>{coursesIdArray[3]?.level||'--'}</td>
-            <td>{coursesIdArray[4]?.level||'--'}</td>
-          </tr>
-          <tr>
-            <td>Duration</td>
-            <td>{coursesIdArray[0]?.uniqueCourseInfo?.duration||'--'}</td>
-            <td>{coursesIdArray[1]?.uniqueCourseInfo?.duration||'--'}</td>
-            <td>{coursesIdArray[2]?.uniqueCourseInfo?.duration||'--'}</td>
-            <td>{coursesIdArray[3]?.uniqueCourseInfo?.duration||'--'}</td>
-            <td>{coursesIdArray[4]?.uniqueCourseInfo?.duration||'--'}</td>
-          </tr>
-        
-         
-          <tr>
-            <td>Requirenments</td>
-            <td>{coursesIdArray[0]?.requirements||'--'}</td>
-            <td>{coursesIdArray[1]?.requirements||'--'}</td>
-            <td>{coursesIdArray[2]?.requirements||'--'}</td>
-            <td>{coursesIdArray[3]?.requirements||'--'}</td>
-            <td>{coursesIdArray[4]?.requirements||'--'}</td>
-          </tr>
-          <tr>
-            <td>Application Fee</td>
-            <td>{coursesIdArray[0]?.uniqueCourseInfo?.applicationFee||'--'}</td>
-            <td>{coursesIdArray[1]?.uniqueCourseInfo?.applicationFee||'--'}</td>
-            <td>{coursesIdArray[2]?.uniqueCourseInfo?.applicationFee||'--'}</td>
-            <td>{coursesIdArray[3]?.uniqueCourseInfo?.applicationFee||'--'}</td>
-            <td>{coursesIdArray[4]?.uniqueCourseInfo?.applicationFee||'--'}</td>
-          </tr>
-          <tr>
-            <td>Tution Fee</td>
-            <td>$ {coursesIdArray[0]?.uniqueCourseInfo?.fee||'--'}</td>
-            <td>$ {coursesIdArray[1]?.uniqueCourseInfo?.fee||'--'}</td>
-            <td>$ {coursesIdArray[2]?.uniqueCourseInfo?.fee||'--'}</td>
-            <td>$ {coursesIdArray[3]?.uniqueCourseInfo?.fee||'--'}</td>
-            <td>$ {coursesIdArray[4]?.uniqueCourseInfo?.fee||'--'}</td>
-          </tr>
-          <tr>
-            <td>Application Deadline</td>
-            <td>{coursesIdArray[0]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
-            <td>{coursesIdArray[1]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
-            <td>{coursesIdArray[2]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
-            <td>{coursesIdArray[3]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
-            <td>{coursesIdArray[4]?.uniqueCourseInfo?.applicationDeadline?.split('T')[0]||'--'}</td>
-          </tr>
-          {/* ... more rows based on your comparison points */}
+          {[
+            { label: "University Name", key: "universityName" },
+            { label: "Location", key: "location" },
+            { label: "Program Level", key: "level" },
+            { label: "Duration", key: "uniqueCourseInfo.duration" },
+            { label: "Intake", key: "uniqueCourseInfo.upcomingIntake" },
+            { label: "Requirements", key: "requirements" },
+            { label: "Application Fee", key: "uniqueCourseInfo.applicationFee" },
+            { label: "Tuition Fee", key: "uniqueCourseInfo.fee" },
+            { label: "Scholarship", key: "scholarship" }
+          ].map((row, rowIndex) => (
+            <tr key={rowIndex} style={{ backgroundColor: rowIndex % 2 === 0 ? "#ffffff" : "#f8f8f8" }}>
+              <td style={{ padding: "10px", borderBottom: "1px solid #e0e0e0", fontWeight: "bold" }}>{row.label}</td>
+              {courses.map((course, courseIndex) => (
+                <td key={courseIndex} style={{ padding: "10px", borderBottom: "1px solid #e0e0e0" }}>
+                  {row.key === 'location' ? getUniversityLocation(course.universityName) :
+                   row.key === 'scholarship' ? getScholarshipInfo(course.universityName) :
+                   row.key.includes('.') 
+                    ? course[row.key.split('.')[0]]?.[row.key.split('.')[1]] || '--'
+                    : (row.key === 'uniqueCourseInfo.fee' ? `$ ${course[row.key.split('.')[0]]?.[row.key.split('.')[1]] || '--'}` : (course[row.key] || '--'))}
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
